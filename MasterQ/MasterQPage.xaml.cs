@@ -6,7 +6,10 @@ namespace MasterQ
 	{
 		public MasterQPage()
 		{
-			InitializeComponent();
+            InitializeComponent();
+			Navigation.PushAsync(new LoginPage());
 		}
+
+
 	}
 }

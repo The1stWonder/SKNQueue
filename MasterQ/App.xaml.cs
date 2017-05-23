@@ -8,7 +8,7 @@ namespace MasterQ
 		{
 			InitializeComponent();
 
-			MainPage = new MasterQPage();
+			MainPage = new NavigationPage(new MasterQPage());
 		}
 
 		protected override void OnStart()
