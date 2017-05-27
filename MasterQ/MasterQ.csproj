@@ -87,6 +87,26 @@
     <Compile Include="View\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\Province.cs" />
+    <Compile Include="Controller\Initial.cs" />
+    <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Queue.cs" />
+    <Compile Include="Controller\Utils.cs" />
+    <Compile Include="Model\Branch.cs" />
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\Service.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\SearchController.cs" />
+    <Compile Include="Controller\RegisterController.cs" />
+    <Compile Include="Controller\EditProfileController.cs" />
+    <Compile Include="Controller\ReserveQController.cs" />
+    <Compile Include="Model\MSearch.cs" />
+    <Compile Include="Model\MCust.cs" />
+    <Compile Include="Model\MTrans.cs" />
+    <Compile Include="Controller\Validate.cs" />
+    <Compile Include="Model\Validation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
