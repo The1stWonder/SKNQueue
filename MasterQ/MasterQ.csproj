@@ -107,6 +107,7 @@
     <Compile Include="Model\MTrans.cs" />
     <Compile Include="Controller\Validate.cs" />
     <Compile Include="Model\Validation.cs" />
+    <Compile Include="Model\Return.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

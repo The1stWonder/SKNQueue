@@ -12,9 +12,9 @@ namespace MasterQ
 			Validation ret = new Validation(input.textInput);
 			if (Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success)
 			{
-				ret.validateResult = true;
+				ret.callBack.isSuccess = true;
 			}
-			ret.setReturnMessage(String.Empty, invalidEmail);
+			ret.callBack.setReturnMessage(String.Empty, invalidEmail);
 			return ret;
 		}
 	}
