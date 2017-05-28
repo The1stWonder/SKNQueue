@@ -7,6 +7,12 @@ namespace MasterQ
 		public String password { get; set; }
 		public Boolean isLogin { get; set; }
 
+		public Login()
+		{
+			this.username = String.Empty;
+			this.password = String.Empty;
+			this.isLogin = false;
+		}
 		public Login(String username, String password)
 		{
 			this.username = username;
