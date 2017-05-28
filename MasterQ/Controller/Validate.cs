@@ -7,15 +7,13 @@ namespace MasterQ
 	{
 		private static String invalidEmail = "Invalid Email Format. For Example aaa@bbb.com";
 
-		public static Validation email(Validation input)
+		public static void validateEmail(Validation input)
 		{
-			Validation ret = new Validation(input.textInput);
 			if (Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success)
 			{
-				ret.callBack.isSuccess = true;
+				input.callBack.isSuccess = true;
 			}
-			ret.callBack.setReturnMessage(String.Empty, invalidEmail);
-			return ret;
+			input.callBack.setReturnMessage(String.Empty, invalidEmail);
 		}
 	}
 }
