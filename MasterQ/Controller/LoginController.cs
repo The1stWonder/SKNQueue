@@ -5,15 +5,16 @@ namespace MasterQ
 	{
 		private static String authenFail = "Login Failed. Username Or Password incorrect!!!";
 
-		public static Validation authen()
+		public static Validation authen(Login input)
 		{
 			Validation ret = new Validation(MCust.login.username + "|" + MCust.login.password);
-			ret.validateResult = false;
-			if (MCust.login.username.ToUpper().Equals("Admin") && MCust.login.password.ToUpper().Equals("Admin"))
+			if (input.username.ToUpper().Equals("Admin") && input.password.ToUpper().Equals("Admin"))
 			{
 				ret.validateResult = true;
+				MCust.login = input;
+				MCust.login.isLogin = true;
 			}
-			ret.setReturn(ret.validateResult, String.Empty, authenFail);
+			ret.setReturnMessage(String.Empty, authenFail);
 			return ret;
 		}
 	}

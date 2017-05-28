@@ -8,18 +8,20 @@ namespace MasterQ
 		public Boolean validateResult { get; set; }
 		public Validation()
 		{
+            this.textInput = String.Empty;
+			this.validateResult = false;
+			this.returnMessage = String.Empty;
 		}
 
 		public Validation(String input)
 		{
 			this.textInput = input;
-			this.validateResult = new Boolean();
-			this.returnMessage = null;
+			this.validateResult = false;
+			this.returnMessage = String.Empty;
 		}
-		public void setReturn(Boolean result, String textTrue, String TextFalse)
+		public void setReturnMessage(String textTrue, String textFalse)
 		{
-			this.validateResult = result;
-			this.returnMessage = (result) ? textTrue : TextFalse;
+			this.returnMessage = (this.validateResult) ? textTrue : textFalse;
 		}
 	}
 }

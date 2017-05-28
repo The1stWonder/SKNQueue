@@ -9,13 +9,13 @@ namespace MasterQ
 
 		public static Validation email(Validation input)
 		{
-			Boolean ret = false;
+			Validation ret = new Validation(input.textInput);
 			if (Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success)
 			{
-				ret = true;
+				ret.validateResult = true;
 			}
-			input.setReturn(ret, String.Empty, invalidEmail);
-			return input;
+			ret.setReturnMessage(String.Empty, invalidEmail);
+			return ret;
 		}
 	}
 }
