@@ -11,5 +11,14 @@ namespace MasterQ
 		{
 			InitializeComponent();
 		}
+
+		void Login_Clicked(object sender, System.EventArgs e)
+		{
+			
+		}
+		void Account_Clicked(object sender, System.EventArgs e)
+		{
+			
+		}
 	}
 }

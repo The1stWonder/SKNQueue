@@ -1,6 +1,87 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="LoginPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.LoginPage">
-	<ContentPage.Content>
-		<Label Text="Test Xamarin Forms" VerticalOptions="Center" HorizontalOptions="Center" />
-	</ContentPage.Content>
+<ContentPage 
+	Title="LoginPage" 
+	BackgroundImage="bg.png"
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="MasterQ.LoginPage">
+	<Frame
+		Margin="20,20,20,20"
+		VerticalOptions="Fill"
+		HorizontalOptions="Fill"
+		BackgroundColor="White"
+		HasShadow="true">
+		<Grid
+			Margin="20,20,20,20"
+			VerticalOptions="Fill"
+			HorizontalOptions="Fill">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="40" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image
+				Grid.Row="0"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				HeightRequest="90"
+				Source="header_main.png" />
+			<Image
+				Margin="5,5,5,5"
+				Grid.Row="1"
+				Grid.Column="0"
+				Source="username_icon.png"
+				HeightRequest="40" />
+			<Entry
+				x:Name="mUsernameEntry"
+				Keyboard="Email"
+				Placeholder="Username"
+				Grid.Row="1"
+				Grid.Column="1" />
+			<Image
+				Margin="5,5,5,5"
+				Grid.Row="2"
+				Grid.Column="0"
+				Source="password_icon.png"
+				HeightRequest="40" />
+			<Entry
+				x:Name="mPasswordEntry"
+				IsPassword="true"
+				Placeholder="Password"
+				Grid.Row="2"
+				Grid.Column="1" />
+			<Button
+				Clicked="Login_Clicked"
+				Margin="0,20,0,0"
+				Text="Login"
+				Grid.Row="3"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				BackgroundColor="#FF3D00"
+				TextColor="White" />
+			<Button
+				Clicked="Account_Clicked"
+				Text="Add New Accounts"
+				Grid.Row="5"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				BackgroundColor="Purple"
+				TextColor="White" />
+		</Grid>
+	</Frame>
 </ContentPage>
