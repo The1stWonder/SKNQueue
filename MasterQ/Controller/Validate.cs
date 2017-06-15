@@ -9,11 +9,14 @@ namespace MasterQ
 
 		public static void validateEmail(Validation input)
 		{
-			if (Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success)
-			{
-				input.callBack.isSuccess = true;
-			}
+			input.callBack.isSuccess = Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success;
 			input.callBack.setReturnMessage(String.Empty, invalidEmail);
+		}
+
+		public static void isNullOrEmpty(Validation input)
+		{
+			input.callBack.isSuccess = String.IsNullOrWhiteSpace(input.textInput);
+			input.callBack.setReturnMessage(String.Empty, "This String is not null or empty");
 		}
 	}
 }

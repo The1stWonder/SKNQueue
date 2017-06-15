@@ -7,7 +7,27 @@ namespace MasterQ
 
 		public static void authen(Login input)
 		{
-			if (input.username.ToUpper().Equals("ADMIN@MASTER.COM") && input.password.ToUpper().Equals("ADMIN"))
+			if (String.IsNullOrEmpty(input.username))
+			{
+				input.callBack.isSuccess = false;
+				input.callBack.setReturnMessage(String.Empty, "Please input username");
+				return;
+			}
+			if (String.IsNullOrEmpty(input.password))
+			{
+				input.callBack.isSuccess = false;
+				input.callBack.setReturnMessage(String.Empty, "Please input password");
+				return;
+			}
+			Validation varEmail = new Validation(input.username);
+			Validate.validateEmail(varEmail);
+			if (!varEmail.callBack.isSuccess)
+			{
+				input.callBack.isSuccess = false;
+				input.callBack.setReturnMessage(String.Empty, varEmail.callBack.message);
+				return;
+			}
+			if (input.username.ToUpper().Equals("ADMIN@MASTERQ.COM") && input.password.Equals("admin"))
 			{
 				input.callBack.isSuccess = true;
 				input.isLogin = true;
