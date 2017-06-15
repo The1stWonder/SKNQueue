@@ -7,7 +7,7 @@ namespace MasterQ
 
 		public static void authen(Login input)
 		{
-			if (input.username.ToUpper().Equals("Admin") && input.password.ToUpper().Equals("Admin"))
+			if (input.username.ToUpper().Equals("ADMIN@MASTER.COM") && input.password.ToUpper().Equals("ADMIN"))
 			{
 				input.callBack.isSuccess = true;
 				input.isLogin = true;
