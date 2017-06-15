@@ -11,7 +11,7 @@ namespace MasterQ
 		{
 			if (Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success)
 			{
-				input.callBack.isSuccess = true;
+				input.callBack.setIsSuccess(true);
 			}
 			input.callBack.setReturnMessage(String.Empty, invalidEmail);
 		}
