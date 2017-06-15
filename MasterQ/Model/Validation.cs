@@ -14,6 +14,7 @@ namespace MasterQ
 
 		public Validation(String input)
 		{
+            this.callBack = new Return();
 			this.textInput = input;
 		}
 	}
