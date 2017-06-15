@@ -20,12 +20,14 @@ namespace MasterQ
 			var password = mPasswordEntry.Text;
 			Validation varEmail = new Validation(username);
 			Validate.validateEmail(varEmail);
-			if(!varEmail.callBack.isSuccess)
+			if (!varEmail.callBack.isSuccess)
 			{
-                DisplayAlert("Click", varEmail.callBack.message, "Close");
+				DisplayAlert("Click", varEmail.callBack.message, "Close");
 			}
-
-			Navigation.PushAsync(new MainPage());
+			else
+			{
+				Navigation.PushAsync(new MainPage());
+			}
 		}
 		void Account_Clicked(object sender, System.EventArgs e)
 		{
