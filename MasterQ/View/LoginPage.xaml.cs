@@ -20,13 +20,23 @@ namespace MasterQ
 			var password = mPasswordEntry.Text;
 			Validation varEmail = new Validation(username);
 			Validate.validateEmail(varEmail);
-			if (!varEmail.callBack.isSuccess)
+			//if (!varEmail.callBack.isSuccess)
+			if (false)
 			{
-				DisplayAlert("Click", varEmail.callBack.message, "Close");
+				//DisplayAlert("Click", varEmail.callBack.message, "Close");
 			}
 			else
 			{
-				Navigation.PushAsync(new MainPage());
+				Login MasQLogin = new Login(username,password);
+				LoginController.authen(MasQLogin);
+				if (MasQLogin.callBack.isSuccess)
+				{
+					Navigation.PushAsync(new MainPage());
+				}
+				else
+				{
+                    DisplayAlert("Click", MasQLogin.callBack.message, "Close");
+				}
 			}
 		}
 		void Account_Clicked(object sender, System.EventArgs e)
