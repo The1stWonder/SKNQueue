@@ -17,9 +17,5 @@ namespace MasterQ
 		{
 			this.message = (this.isSuccess) ? textTrue : textFalse;
 		}
-		public void setIsSuccess(Boolean isSuccess)
-		{
-			this.isSuccess = isSuccess;
-		}
 	}
 }
