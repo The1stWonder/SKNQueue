@@ -109,6 +109,7 @@
     <Compile Include="Model\Validation.cs" />
     <Compile Include="Model\Return.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Controller\ForgetPasswordController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
