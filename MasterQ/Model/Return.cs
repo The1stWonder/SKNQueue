@@ -11,11 +11,19 @@ namespace MasterQ
 		{
 			this.message = String.Empty;
 			this.isSuccess = false;
-			this.status = String.Empty;
+			this.status = "FAIL";
 		}
-		public void setReturnMessage(String textTrue, String textFalse)
-		{
-			this.message = (this.isSuccess) ? textTrue : textFalse;
-		}
+
+        public void setReturn(Boolean condition,String textSuccess,String textFail){
+            if(condition){
+                this.message = textSuccess;
+                this.isSuccess = true;
+				this.status = "SUCCESS";
+            }else{
+                this.message = textFail;
+                this.isSuccess = false;
+                this.status = "FAIL";
+            }
+        }
 	}
 }
