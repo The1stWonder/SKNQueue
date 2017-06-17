@@ -1,10 +1,83 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
-	Title="Register" 
+	Title="ลงทะเบียน" 
 	BackgroundImage="bg.png"
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="MasterQ.RegisterPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+	<Frame
+		Margin="20,20,20,20"
+		VerticalOptions="Fill"
+		HorizontalOptions="Fill"
+		BackgroundColor="White"
+		HasShadow="true">
+		<Grid
+			Margin="20,20,20,20"
+			VerticalOptions="Fill"
+			HorizontalOptions="Fill">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="40" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image
+				Grid.Row="0"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				HeightRequest="90"
+				Source="header_main.png" />
+			<Entry
+				x:Name="mNameEntry"
+				IsPassword="true"
+				Placeholder="ชื่อของคุณ"
+				Grid.Row="1"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"/>
+			<Entry
+				x:Name="mEmailEntry"
+				Keyboard="Email"
+				Placeholder="อีเมลของคุณ"
+				Grid.Row="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="2" />
+			<Entry
+				x:Name="mPasswordEntry"
+				IsPassword="true"
+				Placeholder="รหัสผ่าน"
+				Grid.Row="3"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"/>
+			<Entry
+				x:Name="mPassword2Entry"
+				IsPassword="true"
+				Placeholder="ยืนยันรหัสผ่าน"
+				Grid.Row="4"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"/>
+			<Button
+				Clicked="Submit_Clicked"
+				Margin="0,20,0,0"
+				Text="ลงทะเบียน"
+				Grid.Row="5"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				BackgroundColor="#00CC33"
+				TextColor="White" />
+		</Grid>
+	</Frame>
 </ContentPage>
