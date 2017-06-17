@@ -12,10 +12,8 @@ namespace MasterQ
 			InitializeComponent();
 		}
 
-
 		void Login_Clicked(object sender, System.EventArgs e)
 		{
-
 			var username = mUsernameEntry.Text;
 			var password = mPasswordEntry.Text;
 			Login MasQLogin = new Login(username, password);
@@ -28,10 +26,14 @@ namespace MasterQ
 			{
 				DisplayAlert("Click", MasQLogin.callBack.message, "Close");
 			}
+			mUsernameEntry.Text = "";
+			mPasswordEntry.Text = "";
 		}
 		void Account_Clicked(object sender, System.EventArgs e)
 		{
 			Navigation.PushAsync(new RegisterPage());
+			mUsernameEntry.Text = "";
+			mPasswordEntry.Text = "";
 		}
 	}
 }

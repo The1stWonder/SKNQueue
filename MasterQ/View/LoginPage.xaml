@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
-	Title="Login" 
+	Title="Master Q" 
 	BackgroundImage="bg.png"
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
@@ -72,15 +72,15 @@
 				Grid.Row="3"
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
-				BackgroundColor="#FF3D00"
+				BackgroundColor="#006699"
 				TextColor="White" />
 			<Button
 				Clicked="Account_Clicked"
-				Text="Add New Accounts"
+				Text="ลงทะเบียน"
 				Grid.Row="5"
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
-				BackgroundColor="Purple"
+				BackgroundColor="#00CC33"
 				TextColor="White" />
 		</Grid>
 	</Frame>
