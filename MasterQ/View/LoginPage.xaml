@@ -68,6 +68,7 @@
 			<Button
 				Clicked="Login_Clicked"
 				Margin="0,20,0,0"
+				FontAttributes="Bold"
 				Text="Login"
 				Grid.Row="3"
 				Grid.Column="0"
@@ -76,12 +77,23 @@
 				TextColor="White" />
 			<Button
 				Clicked="Account_Clicked"
+				FontAttributes="Bold"
 				Text="ลงทะเบียน"
 				Grid.Row="5"
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
 				BackgroundColor="#00CC33"
 				TextColor="White" />
+			<Label 
+				x:Name="forgetpassword"
+				Grid.Row="6" 
+				Grid.Column="0" 
+				Grid.ColumnSpan="2" 
+				TextColor="Black" 
+				FontSize = "15" 
+				HorizontalOptions="Center" 
+				VerticalOptions="Center"
+				Text="ลืมรหัสผ่าน" />
 		</Grid>
 	</Frame>
 </ContentPage>

@@ -72,6 +72,7 @@
 			<Button
 				Clicked="Submit_Clicked"
 				Margin="0,20,0,0"
+				FontAttributes="Bold"
 				Text="ลงทะเบียน"
 				Grid.Row="5"
 				Grid.Column="0"
