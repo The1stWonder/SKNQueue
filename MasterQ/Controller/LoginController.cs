@@ -3,9 +3,7 @@ namespace MasterQ
 {
     public static class LoginController
     {
-        private static String authenFail = "Login Failed. Username Or Password incorrect!!!";
-        private static String emptyUserName = "Please input username";
-        private static String emptyPassword = "Please input password";
+       
 
         public static void login(Login input)
         {
@@ -23,13 +21,13 @@ namespace MasterQ
         private static bool isEmptyUserName(Login input)
         {
             bool ret = String.IsNullOrEmpty(input.username);
-            input.callBack.setReturn(!ret, String.Empty, emptyUserName);
+            input.callBack.setReturn(!ret, String.Empty, Constants.emptyUserName);
             return ret;
         }
         private static bool isEmptyPassword(Login input)
         {
             bool ret = String.IsNullOrEmpty(input.password);
-            input.callBack.setReturn(!ret, String.Empty, emptyPassword);
+            input.callBack.setReturn(!ret, String.Empty, Constants.emptyPassword);
             return ret;
         }
         private static bool isValidEmail(Login input)
@@ -43,7 +41,7 @@ namespace MasterQ
         private static bool authen(Login input)
         {
             bool ret = input.username.ToUpper().Equals("ADMIN@MASTERQ.COM") && input.password.Equals("admin");
-            input.callBack.setReturn(ret, String.Empty, authenFail);
+            input.callBack.setReturn(ret, String.Empty, Constants.authenFail);
             return ret;
         }
     }

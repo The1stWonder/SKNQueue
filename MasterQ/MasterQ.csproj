@@ -108,6 +108,7 @@
     <Compile Include="Controller\Validate.cs" />
     <Compile Include="Model\Validation.cs" />
     <Compile Include="Model\Return.cs" />
+    <Compile Include="Common\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -121,6 +122,7 @@
     <Folder Include="View\" />
     <Folder Include="Controller\" />
     <Folder Include="Image\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

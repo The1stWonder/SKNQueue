@@ -7,6 +7,7 @@ namespace MasterQ
 	{
         public String email { get; set; }
 		public String password { get; set; }
+        public String confirmPassword { get; set; }
 		public String memberName { get; set; }
 		public Return callBack = new Return(); 
 
