@@ -17,7 +17,7 @@ namespace MasterQ
 		public static List<SampleJSONService> CallGet()
 		{
 			var http = new HttpClient();
-			var result = http.GetStringAsync("http://202.129.59.21/QueueService.svc/member");
+            var result = http.GetStringAsync(ServiceURL.ipServer+ServiceURL.sampleUrl);
 
 			Debug.WriteLine("Result: " + result);
 			return JArray.Parse(result.Result).ToObject<List<SampleJSONService>>();
@@ -27,7 +27,7 @@ namespace MasterQ
 		public async static Task<List<SampleJSONService>> CallGetAsync()
 		{
 			var http = new HttpClient();
-			var result = await http.GetStringAsync("http://202.129.59.21/QueueService.svc/member");
+			var result = await http.GetStringAsync(ServiceURL.ipServer + ServiceURL.sampleUrl);
 
 			Debug.WriteLine("Result: " + result);
 			return JArray.Parse(result).ToObject<List<SampleJSONService>>();
