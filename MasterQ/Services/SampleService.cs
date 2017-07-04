@@ -33,6 +33,33 @@ namespace MasterQ
 			return JArray.Parse(result).ToObject<List<SampleJSONService>>();
 		}
 
+		public static SampleJSONService CallPost()
+		{
+			const string kUrl = "http://jsonplaceholder.typicode.com/posts/";
+
+			var postData = new List<KeyValuePair<string, string>>();
+			postData.Add(new KeyValuePair<string, string>("UserId", "120"));
+			postData.Add(new KeyValuePair<string, string>("Title", "My First Post"));
+			postData.Add(new KeyValuePair<string, string>("Content", "Macoratti .net - Quase tudo para .NET!"));
+
+			//postData.Add(new KeyValuePair<string, string>("password", userbean.Password));
+			//postData.Add(new KeyValuePair<string, string>("type", "foods")); //foods, superhero, training, songs
+
+			var content = new System.Net.Http.FormUrlEncodedContent(postData);
+
+
+			var client = new HttpClient();
+			var response = client.PostAsync(kUrl, content);
+			//var msg = response.Content.ReadAsStringAsync().Result;
+			//var result = JObject.Parse(msg).ToObject<JSonRest>();
+			//Debug.WriteLine("Result: " + result.body);
+			//return result;
+
+            var result = response.Result.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("Result: " + result);
+			return JObject.Parse(result).ToObject<SampleJSONService>();
+
+		}
 
 		public static async Task<SampleJSONService> CallTest()
 		{
@@ -42,7 +69,7 @@ namespace MasterQ
 			Debug.WriteLine("Result: " + result);
 			return JObject.Parse(result).ToObject<SampleJSONService>();
 		}
-		public async static Task<SampleJSONService> CallPost()
+		public async static Task<SampleJSONService> CallPostAsync()
 		{
 			const string kUrl = "http://jsonplaceholder.typicode.com/posts/";
 
