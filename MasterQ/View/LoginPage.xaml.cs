@@ -53,7 +53,7 @@ namespace MasterQ
             }
             else
             {
-                DisplayAlert("Click", ((Login)uiReturn.returnObject).username, "Close");
+                DisplayAlert("Click", uiReturn.description, "Close");
             }
         }
     }
