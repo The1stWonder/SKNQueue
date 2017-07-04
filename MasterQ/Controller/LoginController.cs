@@ -1,22 +1,42 @@
 ﻿﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
 namespace MasterQ
 {
-    public static class LoginController
+    public class LoginController
     {
-       
+		public static async Task<Login> AuthenuserAsync(Login input)
+		{
+			if (isEmptyUserName(input)) return input;
+			if (isEmptyPassword(input)) return input;
+			if (!isValidEmail(input)) return input;
 
-        public static void login(Login input)
-        {
-            if (isEmptyUserName(input)) return;
-            if (isEmptyPassword(input)) return;
-            if (!isValidEmail(input)) return;
+            List<SampleJSONService> result = await SampleService.CallGetAsync();
 
-            if (authen(input))
-            {
-                input.isLogin = true;
-                MCust.login = input;
-            }
-        }
+			if (authen(input, result))
+			{
+				input.isLogin = true;
+				MCust.login = input;
+			}
+			return input;
+		}
+        public static Login Authenuser(Login input)
+		{
+            if (isEmptyUserName(input)) return input;
+            if (isEmptyPassword(input)) return input;
+			if (!isValidEmail(input)) return input;
+
+			List<SampleJSONService> result = SampleService.CallGet();
+
+			if (authen(input,result))
+			{
+				input.isLogin = true;
+				MCust.login = input;
+			}
+			return input;
+		}
 
         private static bool isEmptyUserName(Login input)
         {
@@ -38,11 +58,12 @@ namespace MasterQ
             input.callBack.setReturn(ret, String.Empty, varEmail.callBack.message);
             return ret;
         }
-        private static bool authen(Login input)
-        {
-            bool ret = input.username.ToUpper().Equals("ADMIN@MASTERQ.COM") && input.password.Equals("admin");
-            input.callBack.setReturn(ret, String.Empty, Constants.authenFail);
-            return ret;
-        }
+		private static bool authen(Login input,List<SampleJSONService> list)
+		{
+            bool ret = input.username.ToUpper().Equals(list.ToArray()[0].MemberEmail.ToUpper()) && input.password.Equals(list.ToArray()[0].MemberID);
+			input.callBack.setReturn(ret, String.Empty, Constants.authenFail);
+			return ret;
+		}
+		
     }
 }

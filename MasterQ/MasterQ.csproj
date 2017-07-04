@@ -110,6 +110,8 @@
     <Compile Include="Model\Return.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Controller\ForgetPasswordController.cs" />
+    <Compile Include="Services\SampleService.cs" />
+    <Compile Include="Services\SampleJSONService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -124,6 +126,7 @@
     <Folder Include="Controller\" />
     <Folder Include="Image\" />
     <Folder Include="Common\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -134,6 +137,9 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
