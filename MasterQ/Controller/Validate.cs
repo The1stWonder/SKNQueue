@@ -6,10 +6,9 @@ namespace MasterQ
     public static class Validate
     {
 
-        public static void validateEmail(Validation input)
+        public static bool validateEmail(Validation input)
         {
-            bool result = Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success;
-            input.callBack.setReturn(result, String.Empty, Constants.invalidEmail);
+            return Regex.Match(input.textInput, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success;
         }
     }
 }

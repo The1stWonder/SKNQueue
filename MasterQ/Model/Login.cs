@@ -6,7 +6,6 @@ namespace MasterQ
 		public String username { get; set; }
 		public String password { get; set; }
 		public Boolean isLogin { get; set; }
-		public Return callBack = new Return();
 
 		public Login()
 		{

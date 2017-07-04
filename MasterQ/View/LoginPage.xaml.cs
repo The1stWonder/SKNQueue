@@ -17,43 +17,43 @@ namespace MasterQ
             mUsernameEntry.Text = "";
             mPasswordEntry.Text = "";
         }
-        //void Login_Clicked(object sender, System.EventArgs e)
-        //{
-        //    Task.Run(async () =>
-        //    {
-        //        var username = mUsernameEntry.Text;
-        //        var password = mPasswordEntry.Text;
-        //        Login MasQLogin = new Login(username, password);
-        //        Login result = await LoginController.AuthenuserAsync(MasQLogin);
+		//void Login_Clicked(object sender, System.EventArgs e)
+		//{
+		//    Task.Run(async () =>
+		//    {
+		//        var username = mUsernameEntry.Text;
+		//        var password = mPasswordEntry.Text;
+		//        Login MasQLogin = new Login(username, password);
+		//        UIReturn uiReturn  = await LoginController.AuthenuserAsync(MasQLogin);
 
-        //        Device.BeginInvokeOnMainThread(() =>
-        //             {
-        //            if (result.callBack.isSuccess)
-        //                 {
-        //                     Navigation.PushAsync(new MainPage());
-        //                 }
-        //                 else
-        //                 {
-        //                     DisplayAlert("Click", result.callBack.message, "Close");
-        //                 }
-        //             });
-        //    });
-        //}
-        void Login_Clicked(object sender, System.EventArgs e)
+		//        Device.BeginInvokeOnMainThread(() =>
+		//             {
+		//            if (uiReturn.isSuccess)
+		//                 {
+		//                     Navigation.PushAsync(new MainPage());
+		//                 }
+		//                 else
+		//                 {
+		//                     DisplayAlert("Click", uiReturn.description, "Close");
+		//                 }
+		//             });
+		//    });
+		//}
+		void Login_Clicked(object sender, System.EventArgs e)
         {
 
             var username = mUsernameEntry.Text;
             var password = mPasswordEntry.Text;
             Login MasQLogin = new Login(username, password);
-            Login result = LoginController.Authenuser(MasQLogin);
+            UIReturn uiReturn = LoginController.Authenuser(MasQLogin);
 
-            if (result.callBack.isSuccess)
+            if (uiReturn.isSuccess)
             {
                 Navigation.PushAsync(new MainPage());
             }
             else
             {
-                DisplayAlert("Click", result.callBack.message, "Close");
+                DisplayAlert("Click", ((Login)uiReturn.returnObject).username, "Close");
             }
         }
     }

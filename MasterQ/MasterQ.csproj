@@ -107,13 +107,13 @@
     <Compile Include="Model\MTrans.cs" />
     <Compile Include="Controller\Validate.cs" />
     <Compile Include="Model\Validation.cs" />
-    <Compile Include="Model\Return.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Controller\ForgetPasswordController.cs" />
     <Compile Include="Services\SampleService.cs" />
     <Compile Include="Services\SampleJSONService.cs" />
     <Compile Include="Services\ServiceURL.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Model\UIReturn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

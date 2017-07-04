@@ -1,55 +1,43 @@
 ﻿using System;
 namespace MasterQ
 {
-	public class EditProfileController
-	{
-		public EditProfileController(Member input)
-		{
-			if (isEmptyEmail(input)) return;
-			if (isEmptyPassword(input)) return;
-			if (isEmptyConfirmPassword(input)) return;
-			if (isEmptyMemberName(input)) return;
-			if (isValidEmail(input)) return;
-			if (isSamePassword(input)) return;
-		}
-		private static bool isEmptyEmail(Member input)
-		{
-			bool ret = String.IsNullOrEmpty(input.email);
-			input.callBack.setReturn(!ret, String.Empty, Constants.emptyEmail);
-			return ret;
-		}
-		private static bool isEmptyPassword(Member input)
-		{
-			bool ret = String.IsNullOrEmpty(input.password);
-			input.callBack.setReturn(!ret, String.Empty, Constants.emptyPassword);
-			return ret;
-		}
-		private static bool isEmptyConfirmPassword(Member input)
-		{
-			bool ret = String.IsNullOrEmpty(input.password);
-			input.callBack.setReturn(!ret, String.Empty, Constants.emptyPassword);
-			return ret;
-		}
-		private static bool isEmptyMemberName(Member input)
-		{
-			bool ret = String.IsNullOrEmpty(input.memberName);
-			input.callBack.setReturn(!ret, String.Empty, Constants.emptyUserName);
-			return ret;
-		}
-		private static bool isValidEmail(Member input)
-		{
-			Validation varEmail = new Validation(input.email);
-			Validate.validateEmail(varEmail);
-			bool ret = varEmail.callBack.isSuccess;
-			input.callBack.setReturn(ret, String.Empty, varEmail.callBack.message);
-			return ret;
-		}
-		private static bool isSamePassword(Member input)
-		{
-			bool ret = input.password.Equals(input.confirmPassword);
-			input.callBack.setReturn(ret, String.Empty, Constants.notSamePassword);
-			return ret;
-		}
+    public class EditProfileController
+    {
+        public static UIReturn editProfile(Member input)
+        {
+            if (isEmptyEmail(input)) return new UIReturn(input, false, "", Constants.emptyEmail); 
+            if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyEmail); 
+            if (isEmptyConfirmPassword(input)) return new UIReturn(input, false, "", Constants.emptyEmail); 
+            if (isEmptyMemberName(input)) return new UIReturn(input, false, "", Constants.emptyEmail); 
+            if (isValidEmail(input)) return new UIReturn(input, false, "", Constants.emptyEmail); 
+            if (isSamePassword(input)) return new UIReturn(input, false, "", Constants.emptyEmail); 
+            UIReturn ret = new UIReturn(input);
+            return ret;
+        }
+        private static bool isEmptyEmail(Member input)
+        {
+            return String.IsNullOrEmpty(input.email);
+        }
+        private static bool isEmptyPassword(Member input)
+        {
+            return String.IsNullOrEmpty(input.password);
+        }
+        private static bool isEmptyConfirmPassword(Member input)
+        {
+            return String.IsNullOrEmpty(input.password);
+        }
+        private static bool isEmptyMemberName(Member input)
+        {
+            return String.IsNullOrEmpty(input.memberName);
+        }
+        private static bool isValidEmail(Member input)
+        {
+            return Validate.validateEmail(new Validation(input.email));
+        }
+        private static bool isSamePassword(Member input)
+        {
+            return input.password.Equals(input.confirmPassword);
+        }
 
-	}
+    }
 }
