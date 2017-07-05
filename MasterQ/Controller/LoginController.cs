@@ -7,20 +7,26 @@ namespace MasterQ
 {
     public class LoginController
     {
-        public static async Task<Login> AuthenuserAsync(Login input)
+        public static async Task<UIReturn> AuthenuserAsync(Login input)
         {
-            if (isEmptyUserName(input)) return input;
-            if (isEmptyPassword(input)) return input;
-            if (!isValidEmail(input)) return input;
+            if (isEmptyUserName(input)) return new UIReturn(input, false, "", Constants.emptyUserName);
+            if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
+            if (!isValidEmail(input)) return new UIReturn(input, false, "", Constants.invalidEmail);
 
-            List<SampleJSONService> result = await SampleService.CallGetAsync();
+            //List<SampleJSONService> result = await SampleService.CallGetAsync();
+            SampleJSONService result = await SampleService.CallPostAsync();
 
+            UIReturn ret = new UIReturn(input);
             if (authen(input, result))
             {
                 input.isLogin = true;
                 MCust.login = input;
             }
-            return input;
+            else
+            {
+                ret.setFail("", Constants.authenFail);
+            }
+            return ret;
         }
         public static UIReturn Authenuser(Login input)
         {
@@ -28,17 +34,20 @@ namespace MasterQ
             if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
             if (!isValidEmail(input)) return new UIReturn(input, false, "", Constants.invalidEmail);
 
-            List<SampleJSONService> result = SampleService.CallGet();
+            //List<SampleJSONService> result = SampleService.CallGet();
+            SampleJSONService result = SampleService.CallPost(input);
 
 
-			UIReturn ret = new UIReturn(input);
+            UIReturn ret = new UIReturn(input);
             if (authen(input, result))
             {
                 input.isLogin = true;
                 MCust.login = input;
                 ret.setSuccess();
-            }else{
-                ret.setFail("",Constants.authenFail);
+            }
+            else
+            {
+                ret.setFail("", Constants.authenFail);
             }
             return ret;
         }
@@ -55,9 +64,9 @@ namespace MasterQ
         {
             return Validate.validateEmail(new Validation(input.username));
         }
-        private static bool authen(Login input, List<SampleJSONService> list)
+        private static bool authen(Login input, SampleJSONService loginuser)
         {
-            return  input.username.ToUpper().Equals(list.ToArray()[0].MemberEmail.ToUpper()) && input.password.Equals(list.ToArray()[0].MemberID);
+            return loginuser.MemberID != null;
         }
 
     }

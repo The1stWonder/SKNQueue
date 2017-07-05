@@ -5,7 +5,8 @@ namespace MasterQ
     {
         public static String ipDev = "http://192.1.1.206";
         public static String ipPro = "http://202.129.59.21";
-        public static String ipServer = ipDev;
-        public static String sampleUrl = "/QueueService.svc/member";
+        public static String ipServer = ipPro;
+        public static String sampleUrlGet = "/QueueService.svc/Member/";
+        public static String sampleUrlPost = "/QueueService.svc/Login/";
     }
 }
