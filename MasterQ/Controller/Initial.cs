@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MasterQ
 {
-	public static class Initial
+	public class Initial
 	{
 		public static void init()
 		{

@@ -1,9 +1,20 @@
 ﻿using System;
 namespace MasterQ.Controller
 {
-	public static class ForgetPasswordController
+	public class ForgetPasswordController
 	{
-        public static UIReturn getPassword(Login input)
+		private static ForgetPasswordController instance = new ForgetPasswordController();
+
+
+		ForgetPasswordController()
+		{
+
+		}
+		public static ForgetPasswordController getInstance()
+		{
+			return instance;
+		}
+        public UIReturn getPassword(Login input)
 		{
             if (isEmptyEmail(input)) return new UIReturn(input,false,"",Constants.emptyEmail);
             if (isValidEmail(input)) return new UIReturn(input, false, "", Constants.invalidEmail);
@@ -18,19 +29,19 @@ namespace MasterQ.Controller
             }
             return ret;
 		}
-		private static bool isEmptyEmail(Login input)
+		private bool isEmptyEmail(Login input)
 		{
 			return String.IsNullOrEmpty(input.username);
 		}
-		private static bool isValidEmail(Login input)
+		private bool isValidEmail(Login input)
 		{
 			return Validate.validateEmail(new Validation(input.username));
 		}
-		private static bool isExistEmail(Login input)
+		private bool isExistEmail(Login input)
 		{
 			return input.username.ToUpper().Equals("ADMIN@MASTERQ.COM"); ;
 		}
-		private static void sendEmail(Login input)
+		private void sendEmail(Login input)
 		{
 
 		}

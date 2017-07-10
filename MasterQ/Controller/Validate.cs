@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace MasterQ
 {
-    public static class Validate
+    public class Validate
     {
 
         public static bool validateEmail(Validation input)

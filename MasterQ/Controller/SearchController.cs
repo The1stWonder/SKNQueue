@@ -1,7 +1,7 @@
 ﻿using System;
 namespace MasterQ
 {
-	public static class SearchController
+	public class SearchController
 	{
 		
 	}

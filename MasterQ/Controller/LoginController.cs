@@ -7,7 +7,14 @@ namespace MasterQ
 {
     public class LoginController
     {
-        public static async Task<UIReturn> AuthenuserAsync(Login input)
+        private static LoginController instance = new LoginController();
+        LoginController(){
+            
+        }
+        public static LoginController getInstance(){
+            return instance;
+        }
+        public async Task<UIReturn> AuthenuserAsync(Login input)
         {
             if (isEmptyUserName(input)) return new UIReturn(input, false, "", Constants.emptyUserName);
             if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
@@ -28,7 +35,7 @@ namespace MasterQ
             }
             return ret;
         }
-        public static UIReturn Authenuser(Login input)
+        public UIReturn Authenuser(Login input)
         {
             if (isEmptyUserName(input)) return new UIReturn(input, false, "", Constants.emptyUserName);
             if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
@@ -52,19 +59,19 @@ namespace MasterQ
             return ret;
         }
 
-        private static bool isEmptyUserName(Login input)
+        private bool isEmptyUserName(Login input)
         {
             return String.IsNullOrEmpty(input.username);
         }
-        private static bool isEmptyPassword(Login input)
+        private bool isEmptyPassword(Login input)
         {
             return String.IsNullOrEmpty(input.password);
         }
-        private static bool isValidEmail(Login input)
+        private bool isValidEmail(Login input)
         {
             return Validate.validateEmail(new Validation(input.username));
         }
-        private static bool authen(Login input, SampleJSONService loginuser)
+        private bool authen(Login input, SampleJSONService loginuser)
         {
             return loginuser.MemberID != null;
         }
