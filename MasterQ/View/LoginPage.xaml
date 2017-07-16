@@ -5,12 +5,12 @@
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="MasterQ.LoginPage">
-	<Frame
+	<!--<Frame
 		Margin="20,20,20,20"
 		VerticalOptions="Fill"
 		HorizontalOptions="Fill"
 		BackgroundColor="White"
-		HasShadow="true">
+		HasShadow="true">-->
 		<Grid
 			Margin="20,20,20,20"
 			VerticalOptions="Fill"
@@ -95,5 +95,5 @@
 				VerticalOptions="Center"
 				Text="ลืมรหัสผ่าน" />
 		</Grid>
-	</Frame>
+<!--	</Frame>-->
 </ContentPage>
