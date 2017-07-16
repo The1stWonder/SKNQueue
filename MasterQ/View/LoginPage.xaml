@@ -39,7 +39,7 @@
 				Grid.Row="0"
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
-				HeightRequest="90"
+				HeightRequest="150"
 				Source="header_main.png" />
 			<Image
 				Margin="5,5,5,5"
