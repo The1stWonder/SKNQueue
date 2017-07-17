@@ -46,17 +46,17 @@
 			<Image
 				Grid.Row="2"
 				Grid.Column="0"
-				Source="buttons1.png"
-				HeightRequest="200" />
+				Source="buttons1-1.png"
+				HeightRequest="100" />
 			<Image
 				Grid.Row="2"
 				Grid.Column="1"
-				Source="buttons2.png"
-				HeightRequest="200" />
+				Source="buttons2-1.png"
+				HeightRequest="100" />
 			<Image
 				Grid.Row="2"
 				Grid.Column="2"
-				Source="buttons3.png"
-				HeightRequest="200" />
+				Source="buttons3-1.png"
+				HeightRequest="100" />
 		</Grid>
 </ContentPage>
