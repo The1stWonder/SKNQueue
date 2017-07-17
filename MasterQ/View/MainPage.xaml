@@ -47,16 +47,16 @@
 				Grid.Row="2"
 				Grid.Column="0"
 				Source="buttons1.png"
-				HeightRequest="100" />
+				HeightRequest="200" />
 			<Image
 				Grid.Row="2"
 				Grid.Column="1"
 				Source="buttons2.png"
-				HeightRequest="100" />
+				HeightRequest="200" />
 			<Image
 				Grid.Row="2"
 				Grid.Column="2"
 				Source="buttons3.png"
-				HeightRequest="100" />
+				HeightRequest="200" />
 		</Grid>
 </ContentPage>
