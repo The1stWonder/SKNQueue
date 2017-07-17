@@ -42,7 +42,7 @@
 				Grid.Column="0"
 				Grid.ColumnSpan="3"
 				HeightRequest="200"
-				Source="" />
+				Source="Circle1.png" />
 			<Image
 				Grid.Row="2"
 				Grid.Column="0"
