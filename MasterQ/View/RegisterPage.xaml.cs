@@ -24,6 +24,7 @@ namespace MasterQ
             member.password = Password1;
             member.confirmPassword = Password2;
             member.firstname = name;
+            member.birthdate = "12/12/1990";
 
             UIReturn uiReturn = RegisterController.getInstance().register(member);
 

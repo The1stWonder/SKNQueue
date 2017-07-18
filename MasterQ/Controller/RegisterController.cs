@@ -25,16 +25,18 @@ namespace MasterQ
 
             RegisterServiceRs result = RegisterService.getInstance().CallRegister(input);
 
-			UIReturn ret = new UIReturn(input);
-            if (!String.Empty.Equals(result.member.MemberEMail))
+            UIReturn ret = new UIReturn(input);
+            if (result.member.MemberEMail != null || !String.Empty.Equals(result.member.MemberEMail))
             {
                 Login memberLogin = new Login(input.memberName, input.password);
                 memberLogin.isLogin = true;
                 MCust.login = memberLogin;
                 MCust.member = input;
                 ret.setSuccess();
-            }else{
-                ret.setFail("","Error Message");
+            }
+            else
+            {
+                ret.setFail("", "Error Message");
             }
             return ret;
         }
@@ -54,14 +56,14 @@ namespace MasterQ
         {
             return String.IsNullOrEmpty(input.memberName); ;
         }
-		private bool isEmptyFirstName(Member input)
-		{
+        private bool isEmptyFirstName(Member input)
+        {
             return String.IsNullOrEmpty(input.firstname); ;
-		}
-		private bool isEmptyLastName(Member input)
-		{
+        }
+        private bool isEmptyLastName(Member input)
+        {
             return String.IsNullOrEmpty(input.lastname); ;
-		}
+        }
         private bool isValidEmail(Member input)
         {
             return Validate.validateEmail(new Validation(input.email));

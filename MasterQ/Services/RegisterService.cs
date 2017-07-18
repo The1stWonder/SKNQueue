@@ -24,6 +24,7 @@ namespace MasterQ
             postData.RegisterLastName = input.lastname;
             postData.RegisterPassword = input.password;
             postData.RegisterEMail = input.email;
+            postData.RegisterBirthDate = input.birthdate;
 
 			String resJSON = CallServices.callPost(kUrl, postData);
 			ret = JObject.Parse(resJSON).ToObject<RegisterServiceRs>();
