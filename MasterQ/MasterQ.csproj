@@ -119,6 +119,9 @@
     <Compile Include="Services\model\LoginServiceRs.cs" />
     <Compile Include="Services\CallServices.cs" />
     <Compile Include="Services\model\MemberService.cs" />
+    <Compile Include="Services\RegisterService.cs" />
+    <Compile Include="Services\model\RegisterServiceRq.cs" />
+    <Compile Include="Services\model\RegisterServiceRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

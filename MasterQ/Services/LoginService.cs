@@ -20,7 +20,7 @@ namespace MasterQ
         public LoginServiceRs CallLogin(Login input)
 		{
             LoginServiceRs ret = new LoginServiceRs();
-			string kUrl = ServiceURL.ipServer + ServiceURL.sampleUrlPost;
+            string kUrl = ServiceURL.ipServer + ServiceURL.loginUrl;
 
 			LoginServiceRq postData = new LoginServiceRq();
 			postData.UserName = input.username;

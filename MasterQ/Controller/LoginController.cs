@@ -41,7 +41,6 @@ namespace MasterQ
             if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
             if (!isValidEmail(input)) return new UIReturn(input, false, "", Constants.invalidEmail);
 
-            //List<SampleJSONService> result = SampleService.CallGet();
             LoginServiceRs result = LoginService.getInstance().CallLogin(input);
 
 

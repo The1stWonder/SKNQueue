@@ -11,6 +11,8 @@ namespace MasterQ
     {
         public static String callPost(String url, Object input)
         {
+            Debug.WriteLine("Request Url : " + url);
+            Debug.WriteLine("Request: " + JObject.FromObject(input).ToString());
             var json = JsonConvert.SerializeObject(input);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -19,15 +21,16 @@ namespace MasterQ
             var response = client.PostAsync(url, content);
 
             var result = response.Result.Content.ReadAsStringAsync().Result;
-            Debug.WriteLine("Result: " + result);
+            Debug.WriteLine("Response: " + JObject.Parse(result).ToString());
             return result;
         }
         public static String callGet(String url)
         {
+            Debug.WriteLine("Request Url : " + url);
             var http = new HttpClient();
             var result = http.GetStringAsync(url);
 
-            Debug.WriteLine("Result: " + result);
+            Debug.WriteLine("Response: " + JObject.Parse(result.Result).ToString());
             return result.Result;
         }
     }

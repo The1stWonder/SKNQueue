@@ -8,5 +8,7 @@ namespace MasterQ
         public static String ipServer = ipDev;
         public static String sampleUrlGet = "/QueueService.svc/Member/";
         public static String sampleUrlPost = "/QueueService.svc/Login/";
+		public static String loginUrl = "/QueueService.svc/Login/";
+        public static String registerUrl = "/QueueService.svc/Register/";
     }
 }

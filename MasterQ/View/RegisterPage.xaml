@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
 	Title="ลงทะเบียน" 
 	BackgroundImage="bg.png"
@@ -43,7 +43,6 @@
 				Source="header_main.png" />
 			<Entry
 				x:Name="mNameEntry"
-				IsPassword="true"
 				Placeholder="ชื่อของคุณ"
 				Grid.Row="1"
 				Grid.Column="0"

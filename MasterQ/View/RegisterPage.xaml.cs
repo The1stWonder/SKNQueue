@@ -19,7 +19,22 @@ namespace MasterQ
 			var Password1 = mPasswordEntry.Text;
 			var Password2 = mPassword2Entry.Text;
 
-			Navigation.PushAsync(new MainPage());
+            Member member = new Member();
+            member.email = Email;
+            member.password = Password1;
+            member.confirmPassword = Password2;
+            member.firstname = name;
+
+            UIReturn uiReturn = RegisterController.getInstance().register(member);
+
+			if (uiReturn.isSuccess)
+			{
+				DisplayAlert("Click", "Register Success", "Close");
+			}
+			else
+			{
+				DisplayAlert("Click", "Register Fail : "+uiReturn.description, "Close");
+			}
 		}
 	}
 }

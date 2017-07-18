@@ -9,6 +9,8 @@ namespace MasterQ
 		public String password { get; set; }
         public String confirmPassword { get; set; }
 		public String memberName { get; set; }
+        public String firstname { get; set; }
+        public String lastname { get; set; }
 
 		public Member()
         {
