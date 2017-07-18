@@ -119,35 +119,29 @@
     <AndroidResource Include="..\MasterQ\Image\username_icon.png">
       <Link>Resources\drawable-xxhdpi\username_icon.png</Link>
     </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\bg2.jpg">
-      <Link>Resources\drawable-xxhdpi\bg2.jpg</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\bg3.png">
-      <Link>Resources\drawable-xxhdpi\bg3.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\buttons1-1.png">
-      <Link>Resources\drawable-xxhdpi\buttons1-1.png</Link>
-    </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\buttons1.png">
       <Link>Resources\drawable-xxhdpi\buttons1.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\buttons2-1.png">
-      <Link>Resources\drawable-xxhdpi\buttons2-1.png</Link>
     </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\buttons2.png">
       <Link>Resources\drawable-xxhdpi\buttons2.png</Link>
     </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\buttons3-1.png">
-      <Link>Resources\drawable-xxhdpi\buttons3-1.png</Link>
-    </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\buttons3.png">
       <Link>Resources\drawable-xxhdpi\buttons3.png</Link>
     </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\Circle1.png">
-      <Link>Resources\drawable-xxhdpi\Circle1.png</Link>
-    </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\Profile-icon.png">
       <Link>Resources\drawable-xxhdpi\Profile-icon.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\buttons1-1.png">
+      <Link>Resources\drawable-xxhdpi\buttons1-1.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\buttons2-1.png">
+      <Link>Resources\drawable-xxhdpi\buttons2-1.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\buttons3-1.png">
+      <Link>Resources\drawable-xxhdpi\buttons3-1.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\Circle1.png">
+      <Link>Resources\drawable-xxhdpi\Circle1.png</Link>
     </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
