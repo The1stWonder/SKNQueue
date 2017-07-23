@@ -10,7 +10,7 @@ namespace MasterQ
 		public string branchName { get; set; }
 		public string branchType { get; set; }
 		public string districtID { get; set; }
-		public string eMail { get; set; }
+		public string email { get; set; }
 		public string expired { get; set; }
 		public string location { get; set; }
 		public string logo { get; set; }
