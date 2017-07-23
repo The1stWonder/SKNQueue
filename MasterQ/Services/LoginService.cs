@@ -22,8 +22,8 @@ namespace MasterQ
             string serviceUrl = ServiceURL.ipServer + ServiceURL.loginUrl;
 
 			LoginRq postData = new LoginRq();
-			postData.UserName = input.username;
-			postData.Password = input.password;
+            postData.userName = input.username;
+            postData.password = input.password;
 
             String resJSON = CallServices.callPost(serviceUrl, postData);
             return JObject.Parse(resJSON).ToObject<LoginRs>();
@@ -34,6 +34,7 @@ namespace MasterQ
             string serviceUrl = ServiceURL.ipServer + ServiceURL.forgetPasswordUrl;
 
             ForgetPasswordRq postData = new ForgetPasswordRq();
+            postData.eMail = email;
 
 			String resJSON = CallServices.callPost(serviceUrl, postData);
 			return JObject.Parse(resJSON).ToObject<ForgetPasswordRs>();

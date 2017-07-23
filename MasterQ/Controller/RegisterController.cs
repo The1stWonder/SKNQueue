@@ -26,7 +26,7 @@ namespace MasterQ
             RegisterRs result = MemberService.getInstance().CallRegister(input);
 
             UIReturn ret = new UIReturn(input);
-            if (result.member.MemberEMail != null || !String.Empty.Equals(result.member.MemberEMail))
+            if (result.header.isSuccess)
             {
                 Login memberLogin = new Login(input.memberName, input.password);
                 memberLogin.isLogin = true;

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MasterQ.Controller
+namespace MasterQ
 {
 	public class ForgetPasswordController
 	{
@@ -18,6 +18,8 @@ namespace MasterQ.Controller
 		{
             if (String.IsNullOrEmpty(input.username)) return new UIReturn(input,false,"",Constants.emptyEmail);
             if (!Validate.email(input.username)) return new UIReturn(input, false, "", Constants.invalidEmail);
+
+            ForgetPasswordRs res = LoginService.getInstance().CallForgetPassword(input.username);
 
             UIReturn ret = new UIReturn(input);
 			if (isExistEmail(input))

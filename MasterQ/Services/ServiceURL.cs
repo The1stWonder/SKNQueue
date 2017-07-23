@@ -10,7 +10,7 @@ namespace MasterQ
         public static String sampleUrlPost = "/QueueService.svc/Login/";
 		public static String loginUrl = "/QueueService.svc/Login/";
         public static String registerUrl = "/QueueService.svc/Register/";
-		public static String editProfileUrl = "/QueueService.svc/Register/";
-		public static String forgetPasswordUrl = "/QueueService.svc/Register/";
+		public static String editProfileUrl = "/QueueService.svc/EditProfile/";
+		public static String forgetPasswordUrl = "/QueueService.svc/ForgetPassword/";
     }
 }

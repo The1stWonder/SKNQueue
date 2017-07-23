@@ -126,6 +126,7 @@
     <Compile Include="Services\model\ForgetPasswordRs.cs" />
     <Compile Include="Services\model\EditProfileRq.cs" />
     <Compile Include="Services\model\EditProfileRs.cs" />
+    <Compile Include="Services\model\HeaderResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -135,10 +136,14 @@
     <None Include="packages.config" />
     <None Include="Image\bg2.jpg" />
     <None Include="Image\bg3.png" />
+    <None Include="Image\buttons1-1.png" />
     <None Include="Image\buttons1.png" />
+    <None Include="Image\buttons2-1.png" />
     <None Include="Image\buttons2.png" />
+    <None Include="Image\buttons3-1.png" />
     <None Include="Image\buttons3.png" />
     <None Include="Image\Circle1.png" />
+    <None Include="Image\Profile-icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

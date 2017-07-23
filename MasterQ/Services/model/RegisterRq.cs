@@ -3,16 +3,14 @@ namespace MasterQ
 {
     public class RegisterRq
     {
-        public string RegisterBirthDate { get; set; }
-        public string RegisterDegree { get; set; }
-        public string RegisterEMail { get; set; }
-        public string RegisterFirstName { get; set; }
-        public string RegisterJob { get; set; }
-        public string RegisterLastName { get; set; }
-        public string RegisterPassword { get; set; }
-        public string RegisterRegisterDate { get; set; }
-        public string RegisterTel { get; set; }
-
+		public string birthDate { get; set; }
+		public string degree { get; set; }
+		public string eMail { get; set; }
+		public string firstName { get; set; }
+		public string job { get; set; }
+		public string lastName { get; set; }
+		public string tel { get; set; }
+        public string password { get; set; }
     }
 
 }

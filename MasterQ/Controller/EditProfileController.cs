@@ -22,6 +22,9 @@ namespace MasterQ
 			//if ( String.IsNullOrEmpty(input.lastname)) return new UIReturn(input, false, "", Constants.emptyUserName);
 			if (!Validate.email(input.email)) return new UIReturn(input, false, "", Constants.invalidEmail);
 			if (!isSamePassword(input)) return new UIReturn(input, false, "", Constants.notSamePassword);
+
+            EditProfileRs res = MemberService.getInstance().CallEditProfile(input);
+
             UIReturn ret = new UIReturn(input);
             return ret;
         }

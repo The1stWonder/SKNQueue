@@ -3,7 +3,7 @@ namespace MasterQ
 {
     public class LoginRq
     {
-        public string Password { get; set; }
-        public string UserName { get; set; }
+        public string password { get; set; }
+        public string userName { get; set; }
     }
 }
