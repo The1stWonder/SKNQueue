@@ -16,9 +16,14 @@ namespace MasterQ
 			InitializeComponent();
 		}
         private void editProfile(){
-            Member m = new Member();
-            m.password = "editPassword";
-            UIReturn result = EditProfileController.getInstance().editProfile(m);
+			Member member = new Member();
+			member.email = "firt@gmail.com";
+			member.password = "1234";
+			member.confirmPassword = "1234";
+			member.firstname = "Sirapop";
+			member.lastname = "Fungfuang";
+			member.birthdate = "12/12/1990";
+            UIReturn result = EditProfileController.getInstance().editProfile(member);
 
         }
 		private void login()
@@ -36,6 +41,7 @@ namespace MasterQ
 			member.password = "1234";
 			member.confirmPassword = "1234";
 			member.firstname = "Sirapop";
+            member.lastname = "Fungfuang";
 			member.birthdate = "12/12/1990";
             UIReturn result = RegisterController.getInstance().register(member);
 

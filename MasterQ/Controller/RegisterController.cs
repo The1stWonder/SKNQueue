@@ -19,7 +19,7 @@ namespace MasterQ
             if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
             if (String.IsNullOrEmpty(input.confirmPassword)) return new UIReturn(input, false, "", Constants.emptyPassword);
             if (String.IsNullOrEmpty(input.firstname)) return new UIReturn(input, false, "", Constants.emptyUserName);
-			//if ( String.IsNullOrEmpty(input.lastname)) return new UIReturn(input, false, "", Constants.emptyUserName);
+			if ( String.IsNullOrEmpty(input.lastname)) return new UIReturn(input, false, "", Constants.emptyUserName);
 			if (!Validate.email(input.email)) return new UIReturn(input, false, "", Constants.invalidEmail);
             if (!isSamePassword(input)) return new UIReturn(input, false, "", Constants.notSamePassword);
 
