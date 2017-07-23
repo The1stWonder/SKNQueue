@@ -23,7 +23,7 @@ namespace MasterQ
 			if (!Validate.email(input.email)) return new UIReturn(input, false, "", Constants.invalidEmail);
             if (!isSamePassword(input)) return new UIReturn(input, false, "", Constants.notSamePassword);
 
-            RegisterServiceRs result = RegisterService.getInstance().CallRegister(input);
+            RegisterRs result = MemberService.getInstance().CallRegister(input);
 
             UIReturn ret = new UIReturn(input);
             if (result.member.MemberEMail != null || !String.Empty.Equals(result.member.MemberEMail))

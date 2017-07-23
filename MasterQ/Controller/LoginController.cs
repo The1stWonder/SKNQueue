@@ -41,7 +41,7 @@ namespace MasterQ
             if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
             if (!Validate.email(input.username)) return new UIReturn(input, false, "", Constants.invalidEmail);
 
-            LoginServiceRs result = LoginService.getInstance().CallLogin(input);
+            LoginRs result = LoginService.getInstance().CallLogin(input);
 
 
             UIReturn ret = new UIReturn(input);
@@ -57,7 +57,7 @@ namespace MasterQ
             }
             return ret;
         }
-        private bool authen(Login input, LoginServiceRs loginuser)
+        private bool authen(Login input, LoginRs loginuser)
         {
             return loginuser.member.MemberEMail == input.username && loginuser.member.MemberPassword == input.password;
         }

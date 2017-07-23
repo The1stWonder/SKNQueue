@@ -115,13 +115,17 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Model\UIReturn.cs" />
     <Compile Include="Services\LoginService.cs" />
-    <Compile Include="Services\model\LoginServiceRq.cs" />
-    <Compile Include="Services\model\LoginServiceRs.cs" />
+    <Compile Include="Services\model\LoginRq.cs" />
+    <Compile Include="Services\model\LoginRs.cs" />
     <Compile Include="Services\CallServices.cs" />
-    <Compile Include="Services\model\MemberService.cs" />
-    <Compile Include="Services\RegisterService.cs" />
-    <Compile Include="Services\model\RegisterServiceRq.cs" />
-    <Compile Include="Services\model\RegisterServiceRs.cs" />
+    <Compile Include="Services\model\MemberServiceModel.cs" />
+    <Compile Include="Services\MemberService.cs" />
+    <Compile Include="Services\model\RegisterRq.cs" />
+    <Compile Include="Services\model\RegisterRs.cs" />
+    <Compile Include="Services\model\ForgetPasswordRq.cs" />
+    <Compile Include="Services\model\ForgetPasswordRs.cs" />
+    <Compile Include="Services\model\EditProfileRq.cs" />
+    <Compile Include="Services\model\EditProfileRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

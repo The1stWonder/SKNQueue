@@ -17,18 +17,26 @@ namespace MasterQ
         {
             return instance;
         }
-        public LoginServiceRs CallLogin(Login input)
-		{
-            LoginServiceRs ret = new LoginServiceRs();
-            string kUrl = ServiceURL.ipServer + ServiceURL.loginUrl;
+        public LoginRs CallLogin(Login input)
+        {
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.loginUrl;
 
-			LoginServiceRq postData = new LoginServiceRq();
+			LoginRq postData = new LoginRq();
 			postData.UserName = input.username;
 			postData.Password = input.password;
 
-            String resJSON = CallServices.callPost(kUrl, postData);
-            ret = JObject.Parse(resJSON).ToObject<LoginServiceRs>();
-            return ret;
+            String resJSON = CallServices.callPost(serviceUrl, postData);
+            return JObject.Parse(resJSON).ToObject<LoginRs>();
+
+		}
+        public ForgetPasswordRs CallForgetPassword(String email)
+		{
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.forgetPasswordUrl;
+
+            ForgetPasswordRq postData = new ForgetPasswordRq();
+
+			String resJSON = CallServices.callPost(serviceUrl, postData);
+			return JObject.Parse(resJSON).ToObject<ForgetPasswordRs>();
 
 		}
     }

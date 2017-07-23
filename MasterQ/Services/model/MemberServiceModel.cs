@@ -1,7 +1,7 @@
 ﻿using System;
 namespace MasterQ
 {
-    public class MemberService
+    public class MemberServiceModel
     {
 		public string MemberBirthDate { get; set; }
 		public string MemberDegree { get; set; }

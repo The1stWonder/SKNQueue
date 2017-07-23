@@ -1,7 +1,7 @@
 ﻿using System;
 namespace MasterQ
 {
-    public class LoginServiceRq
+    public class LoginRq
     {
         public string Password { get; set; }
         public string UserName { get; set; }
