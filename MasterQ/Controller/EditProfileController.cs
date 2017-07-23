@@ -15,34 +15,15 @@ namespace MasterQ
         }
         public UIReturn editProfile(Member input)
         {
-            if (isEmptyEmail(input)) return new UIReturn(input, false, "", Constants.emptyEmail);
-            if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyEmail);
-            if (isEmptyConfirmPassword(input)) return new UIReturn(input, false, "", Constants.emptyEmail);
-            if (isEmptyMemberName(input)) return new UIReturn(input, false, "", Constants.emptyEmail);
-            if (isValidEmail(input)) return new UIReturn(input, false, "", Constants.emptyEmail);
-            if (isSamePassword(input)) return new UIReturn(input, false, "", Constants.emptyEmail);
+			if (String.IsNullOrEmpty(input.email)) return new UIReturn(input, false, "", Constants.emptyEmail);
+			if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
+			if (String.IsNullOrEmpty(input.confirmPassword)) return new UIReturn(input, false, "", Constants.emptyPassword);
+			if (String.IsNullOrEmpty(input.firstname)) return new UIReturn(input, false, "", Constants.emptyUserName);
+			//if ( String.IsNullOrEmpty(input.lastname)) return new UIReturn(input, false, "", Constants.emptyUserName);
+			if (!Validate.email(input.email)) return new UIReturn(input, false, "", Constants.invalidEmail);
+			if (!isSamePassword(input)) return new UIReturn(input, false, "", Constants.notSamePassword);
             UIReturn ret = new UIReturn(input);
             return ret;
-        }
-        private bool isEmptyEmail(Member input)
-        {
-            return String.IsNullOrEmpty(input.email);
-        }
-        private bool isEmptyPassword(Member input)
-        {
-            return String.IsNullOrEmpty(input.password);
-        }
-        private bool isEmptyConfirmPassword(Member input)
-        {
-            return String.IsNullOrEmpty(input.password);
-        }
-        private bool isEmptyMemberName(Member input)
-        {
-            return String.IsNullOrEmpty(input.memberName);
-        }
-        private bool isValidEmail(Member input)
-        {
-            return Validate.validateEmail(new Validation(input.email));
         }
         private bool isSamePassword(Member input)
         {

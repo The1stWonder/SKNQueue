@@ -15,12 +15,12 @@ namespace MasterQ
         }
         public UIReturn register(Member input)
         {
-            if (isEmptyEmail(input)) return new UIReturn(input, false, "", Constants.emptyEmail);
-            if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
-            if (isEmptyConfirmPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
-            if (isEmptyFirstName(input)) return new UIReturn(input, false, "", Constants.emptyUserName);
-            //if (isEmptyLastName(input)) return new UIReturn(input, false, "", Constants.emptyUserName);
-            if (!isValidEmail(input)) return new UIReturn(input, false, "", Constants.invalidEmail);
+            if (String.IsNullOrEmpty(input.email)) return new UIReturn(input, false, "", Constants.emptyEmail);
+            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
+            if (String.IsNullOrEmpty(input.confirmPassword)) return new UIReturn(input, false, "", Constants.emptyPassword);
+            if (String.IsNullOrEmpty(input.firstname)) return new UIReturn(input, false, "", Constants.emptyUserName);
+			//if ( String.IsNullOrEmpty(input.lastname)) return new UIReturn(input, false, "", Constants.emptyUserName);
+			if (!Validate.email(input.email)) return new UIReturn(input, false, "", Constants.invalidEmail);
             if (!isSamePassword(input)) return new UIReturn(input, false, "", Constants.notSamePassword);
 
             RegisterServiceRs result = RegisterService.getInstance().CallRegister(input);
@@ -39,34 +39,6 @@ namespace MasterQ
                 ret.setFail("", "Error Message");
             }
             return ret;
-        }
-        private bool isEmptyEmail(Member input)
-        {
-            return String.IsNullOrEmpty(input.email);
-        }
-        private bool isEmptyPassword(Member input)
-        {
-            return String.IsNullOrEmpty(input.password);
-        }
-        private bool isEmptyConfirmPassword(Member input)
-        {
-            return String.IsNullOrEmpty(input.password);
-        }
-        private bool isEmptyMemberName(Member input)
-        {
-            return String.IsNullOrEmpty(input.memberName); ;
-        }
-        private bool isEmptyFirstName(Member input)
-        {
-            return String.IsNullOrEmpty(input.firstname); ;
-        }
-        private bool isEmptyLastName(Member input)
-        {
-            return String.IsNullOrEmpty(input.lastname); ;
-        }
-        private bool isValidEmail(Member input)
-        {
-            return Validate.validateEmail(new Validation(input.email));
         }
         private bool isSamePassword(Member input)
         {

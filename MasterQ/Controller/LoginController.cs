@@ -37,9 +37,9 @@ namespace MasterQ
         //}
         public UIReturn Authenuser(Login input)
         {
-            if (isEmptyUserName(input)) return new UIReturn(input, false, "", Constants.emptyUserName);
-            if (isEmptyPassword(input)) return new UIReturn(input, false, "", Constants.emptyPassword);
-            if (!isValidEmail(input)) return new UIReturn(input, false, "", Constants.invalidEmail);
+            if (String.IsNullOrEmpty(input.username)) return new UIReturn(input, false, "", Constants.emptyUserName);
+            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
+            if (!Validate.email(input.username)) return new UIReturn(input, false, "", Constants.invalidEmail);
 
             LoginServiceRs result = LoginService.getInstance().CallLogin(input);
 
@@ -56,19 +56,6 @@ namespace MasterQ
                 ret.setFail("", Constants.authenFail);
             }
             return ret;
-        }
-
-        private bool isEmptyUserName(Login input)
-        {
-            return String.IsNullOrEmpty(input.username);
-        }
-        private bool isEmptyPassword(Login input)
-        {
-            return String.IsNullOrEmpty(input.password);
-        }
-        private bool isValidEmail(Login input)
-        {
-            return Validate.validateEmail(new Validation(input.username));
         }
         private bool authen(Login input, LoginServiceRs loginuser)
         {

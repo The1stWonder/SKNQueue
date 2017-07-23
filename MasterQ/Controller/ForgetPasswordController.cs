@@ -16,8 +16,8 @@ namespace MasterQ.Controller
 		}
         public UIReturn getPassword(Login input)
 		{
-            if (isEmptyEmail(input)) return new UIReturn(input,false,"",Constants.emptyEmail);
-            if (isValidEmail(input)) return new UIReturn(input, false, "", Constants.invalidEmail);
+            if (String.IsNullOrEmpty(input.username)) return new UIReturn(input,false,"",Constants.emptyEmail);
+            if (!Validate.email(input.username)) return new UIReturn(input, false, "", Constants.invalidEmail);
 
             UIReturn ret = new UIReturn(input);
 			if (isExistEmail(input))
@@ -28,14 +28,6 @@ namespace MasterQ.Controller
                 return new UIReturn(input, false, "", Constants.notExistingEmail);
             }
             return ret;
-		}
-		private bool isEmptyEmail(Login input)
-		{
-			return String.IsNullOrEmpty(input.username);
-		}
-		private bool isValidEmail(Login input)
-		{
-			return Validate.validateEmail(new Validation(input.username));
 		}
 		private bool isExistEmail(Login input)
 		{
