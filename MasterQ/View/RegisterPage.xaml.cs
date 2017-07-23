@@ -23,8 +23,8 @@ namespace MasterQ
             member.email = Email;
             member.password = Password1;
             member.confirmPassword = Password2;
-            member.firstname = name;
-            member.birthdate = "12/12/1990";
+            member.firstName = name;
+            member.birthDate = "12/12/1990";
 
             UIReturn uiReturn = RegisterController.getInstance().register(member);
 

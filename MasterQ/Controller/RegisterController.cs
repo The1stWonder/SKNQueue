@@ -18,8 +18,8 @@ namespace MasterQ
             if (String.IsNullOrEmpty(input.email)) return new UIReturn(input, false, "", Constants.emptyEmail);
             if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
             if (String.IsNullOrEmpty(input.confirmPassword)) return new UIReturn(input, false, "", Constants.emptyPassword);
-            if (String.IsNullOrEmpty(input.firstname)) return new UIReturn(input, false, "", Constants.emptyUserName);
-			if ( String.IsNullOrEmpty(input.lastname)) return new UIReturn(input, false, "", Constants.emptyUserName);
+            if (String.IsNullOrEmpty(input.firstName)) return new UIReturn(input, false, "", Constants.emptyUserName);
+            if ( String.IsNullOrEmpty(input.lastName)) return new UIReturn(input, false, "", Constants.emptyUserName);
 			if (!Validate.email(input.email)) return new UIReturn(input, false, "", Constants.invalidEmail);
             if (!isSamePassword(input)) return new UIReturn(input, false, "", Constants.notSamePassword);
 
@@ -28,7 +28,7 @@ namespace MasterQ
             UIReturn ret = new UIReturn(input);
             if (result.header.isSuccess)
             {
-                Login memberLogin = new Login(input.memberName, input.password);
+                Login memberLogin = new Login(input.memberID, input.password);
                 memberLogin.isLogin = true;
                 MCust.login = memberLogin;
                 MCust.member = input;

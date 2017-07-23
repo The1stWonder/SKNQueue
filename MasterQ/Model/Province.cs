@@ -5,10 +5,8 @@ namespace MasterQ
 {
 	public class Province
 	{
-		public List<String> districts = new List<String>();
-		public String name { get; set; }
-		public Province()
-		{
-		}
+		public string provinceID { get; set; }
+		public string provinceNameEn { get; set; }
+		public string provinceNameTh { get; set; }
 	}
 }

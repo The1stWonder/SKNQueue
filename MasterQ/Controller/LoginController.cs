@@ -59,7 +59,7 @@ namespace MasterQ
         }
         private bool authen(Login input, LoginRs loginuser)
         {
-            return loginuser.member.eMail == input.username && loginuser.member.password == input.password;
+            return loginuser.member.email == input.username && loginuser.member.password == input.password;
         }
 
     }

@@ -19,11 +19,11 @@ namespace MasterQ
             string serviceUrl = ServiceURL.ipServer + ServiceURL.registerUrl;
 
 			RegisterRq postData = new RegisterRq();
-            postData.firstName = input.firstname;
-            postData.lastName = input.lastname;
+            postData.firstName = input.firstName;
+            postData.lastName = input.lastName;
             postData.password = input.password;
             postData.eMail = input.email;
-            postData.birthDate = input.birthdate;
+            postData.birthDate = input.birthDate;
 
 			String resJSON = CallServices.callPost(serviceUrl, postData);
 			return JObject.Parse(resJSON).ToObject<RegisterRs>();
@@ -34,11 +34,11 @@ namespace MasterQ
 			string serviceUrl = ServiceURL.ipServer + ServiceURL.editProfileUrl;
 
 			EditProfileRq postData = new EditProfileRq();
-			postData.firstName = input.firstname;
-			postData.lastName = input.lastname;
+            postData.firstName = input.firstName;
+            postData.lastName = input.lastName;
 			postData.password = input.password;
 			postData.eMail = input.email;
-			postData.birthDate = input.birthdate;
+            postData.birthDate = input.birthDate;
 
 			String resJSON = CallServices.callPost(serviceUrl, postData);
 			return JObject.Parse(resJSON).ToObject<EditProfileRs>();

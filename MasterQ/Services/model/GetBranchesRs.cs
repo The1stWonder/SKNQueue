@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace MasterQ
 {
     public class GetBranchesRs
     {
-        public GetBranchesRs()
-        {
-        }
+        public HeaderResponse header { get; set; }
+        public List<Branch> branches { get; set; }
     }
 }

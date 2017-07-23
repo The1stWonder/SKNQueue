@@ -12,22 +12,22 @@ namespace MasterQ
 			InitializeComponent();
 			//register();
 			//login();
-			editProfile();
+			//editProfile();
             //forgetpassword();
 
             // MetaData
             getBranch();
-            getProvince();
-            getDistrict();
+            //getProvince();
+            //getDistrict();
 		}
         private void editProfile(){
 			Member member = new Member();
-			member.email = "firt@gmail.com";
+            member.email = "firt@gmail.com";
 			member.password = "1234";
-			member.confirmPassword = "1234";
-			member.firstname = "Sirapop";
-			member.lastname = "Fungfuang";
-			member.birthdate = "12/12/1990";
+            member.confirmPassword = "1234";
+            member.firstName = "Sirapop";
+            member.lastName = "Fungfuang";
+            member.birthDate = "12/12/1990";
             UIReturn result = EditProfileController.getInstance().editProfile(member);
 
         }
@@ -42,12 +42,12 @@ namespace MasterQ
 		private void register()
 		{
             Member member = new Member();
-			member.email = "a@gmail.com";
+            member.email = "a@gmail.com";
 			member.password = "1234";
-			member.confirmPassword = "1234";
-			member.firstname = "Sirapop";
-            member.lastname = "Fungfuang";
-			member.birthdate = "12/12/1990";
+            member.confirmPassword = "1234";
+            member.firstName = "Sirapop";
+            member.lastName = "Fungfuang";
+            member.birthDate = "12/12/1990";
             UIReturn result = RegisterController.getInstance().register(member);
 
 		}
@@ -61,26 +61,17 @@ namespace MasterQ
 		}
 		private void getBranch()
 		{
-			Login m = new Login();
-			m.username = "first@gmail.com";
-			m.password = "editPassword";
-			UIReturn result = ForgetPasswordController.getInstance().getPassword(m);
+            UIReturn result = SearchController.getInstance().getBranches("1","2");
 
 		}
 		private void getProvince()
 		{
-			Login m = new Login();
-			m.username = "first@gmail.com";
-			m.password = "editPassword";
-			UIReturn result = ForgetPasswordController.getInstance().getPassword(m);
+			UIReturn result = SearchController.getInstance().getProvinces();
 
 		}
 		private void getDistrict()
 		{
-			Login m = new Login();
-			m.username = "first@gmail.com";
-			m.password = "editPassword";
-			UIReturn result = ForgetPasswordController.getInstance().getPassword(m);
+            UIReturn result = SearchController.getInstance().getDistricts("1");
 
 		}
 	}

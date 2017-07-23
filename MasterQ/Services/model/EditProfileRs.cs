@@ -4,6 +4,6 @@ namespace MasterQ
     public class EditProfileRs
     {
         public HeaderResponse header { get; set; }
-        public MemberServiceModel member { get; set; }
+        public Member member { get; set; }
     }
 }
