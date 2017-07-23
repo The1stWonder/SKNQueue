@@ -127,6 +127,13 @@
     <Compile Include="Services\model\EditProfileRq.cs" />
     <Compile Include="Services\model\EditProfileRs.cs" />
     <Compile Include="Services\model\HeaderResponse.cs" />
+    <Compile Include="Services\MetaDataService.cs" />
+    <Compile Include="Services\model\GetProvincesRs.cs" />
+    <Compile Include="Services\model\GetDistrictsRs.cs" />
+    <Compile Include="Services\model\GetBranchesRs.cs" />
+    <Compile Include="Services\model\GetBranchesRq.cs" />
+    <Compile Include="Services\model\GetProvincesRq.cs" />
+    <Compile Include="Services\model\GetDistrictsRq.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
