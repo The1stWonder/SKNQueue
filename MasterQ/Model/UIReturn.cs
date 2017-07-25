@@ -15,7 +15,7 @@ namespace MasterQ
             this.isSuccess = false;
         }
         public String getDescription(){
-            return (true)?descriptionTH:descriptionEN;
+            return (false)?descriptionTH:descriptionEN;
         }
         public UIReturn(bool isSuccess, string code, string codeValue, string descriptionTH, string descriptionEN, object returnObject)
         {
