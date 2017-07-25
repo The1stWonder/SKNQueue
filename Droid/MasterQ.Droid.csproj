@@ -128,18 +128,6 @@
     <AndroidResource Include="..\MasterQ\Image\buttons3.png">
       <Link>Resources\drawable-xxhdpi\buttons3.png</Link>
     </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\Profile-icon.png">
-      <Link>Resources\drawable-xxhdpi\Profile-icon.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\buttons1-1.png">
-      <Link>Resources\drawable-xxhdpi\buttons1-1.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\buttons2-1.png">
-      <Link>Resources\drawable-xxhdpi\buttons2-1.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\buttons3-1.png">
-      <Link>Resources\drawable-xxhdpi\buttons3-1.png</Link>
-    </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\Circle1.png">
       <Link>Resources\drawable-xxhdpi\Circle1.png</Link>
     </AndroidResource>
