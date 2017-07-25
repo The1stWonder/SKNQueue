@@ -15,17 +15,18 @@ namespace MasterQ
         }
         public UIReturn register(Member input)
         {
-            if (String.IsNullOrEmpty(input.email)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMPTY_INPUT, Constants.CODE_EMPTY_EMAIL);
-            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMPTY_INPUT, Constants.CODE_EMPTY_PASSWORD);
-            if (String.IsNullOrEmpty(input.confirmPassword)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMPTY_INPUT, Constants.CODE_EMPTY_CONFIRMPASSWORD);
-            if (String.IsNullOrEmpty(input.firstName)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMPTY_INPUT, Constants.CODE_EMPTY_FIRSTNAME);
-            if ( String.IsNullOrEmpty(input.lastName)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMPTY_INPUT, Constants.CODE_EMPTY_LASTNAME);
-			if (!Validate.email(input.email)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALID_EMAIL);
-            if (!isSamePassword(input)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_PASSWORD, Constants.CODE_PASSWORD_NOTMATCH);
+            if (String.IsNullOrEmpty(input.email)) return Constants.uiErrorEmptyEmail;
+            if (String.IsNullOrEmpty(input.password)) return Constants.uiErrorEmptyPassword;
+            if (String.IsNullOrEmpty(input.confirmPassword)) return Constants.uiErrorEmptyConfirmPassword;
+            if (String.IsNullOrEmpty(input.firstName)) return Constants.uiErrorEmptyFirstName;
+            if (String.IsNullOrEmpty(input.lastName)) return Constants.uiErrorEmptyLastName;
+            if (String.IsNullOrEmpty(input.birthDate)) return Constants.uiErrorEmptyBirthdate;
+            if (!Validate.email(input.email)) return Constants.uiErrorInvalidEmail;
+            if (!isSamePassword(input)) return Constants.uiErrorPasswordNotMatch;
 
             RegisterRs result = MemberService.getInstance().CallRegister(input);
 
-            UIReturn ret = new UIReturn(input,result.header);
+            UIReturn ret = new UIReturn(result.header);
             return ret;
         }
         private bool isSamePassword(Member input)

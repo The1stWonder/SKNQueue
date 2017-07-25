@@ -33,7 +33,7 @@ namespace MasterQ
 
 			if (uiReturn.isSuccess)
 			{
-				DisplayAlert("Click", "Register Success", "Close");
+				Navigation.PushAsync(new MainPage());
 			}
 			else
 			{

@@ -17,7 +17,15 @@ namespace MasterQ
 			var username = mUsernameEntry.Text;
 			Login m = new Login();
 			m.username = username;
-			UIReturn result = ForgetPasswordController.getInstance().getPassword(m);
+			UIReturn uiReturn = ForgetPasswordController.getInstance().getPassword(m);
+			if (uiReturn.isSuccess)
+			{
+				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+			}
+			else
+			{
+				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+			}
 		}
 	}
 }
