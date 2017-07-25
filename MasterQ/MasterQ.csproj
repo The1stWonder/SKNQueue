@@ -54,9 +54,6 @@
     <EmbeddedResource Include="View\TestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ForgetPasswordPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -140,9 +137,6 @@
     <Compile Include="Services\model\GetCodeDescriptionRs.cs" />
     <Compile Include="Services\model\GetCodeDescriptionRq.cs" />
     <Compile Include="Model\CodeDescription.cs" />
-    <Compile Include="View\ForgetPasswordPage.xaml.cs">
-      <DependentUpon>ForgetPasswordPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

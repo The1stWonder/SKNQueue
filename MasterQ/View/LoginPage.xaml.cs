@@ -56,5 +56,8 @@ namespace MasterQ
                 DisplayAlert("Click", uiReturn.getDescription(), "Close");
             }
         }
+
+        public void OnLabelTapped(object sender, System.EventArgs args){
+        }
     }
 }
