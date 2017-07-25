@@ -11,5 +11,13 @@ namespace MasterQ
 		{
 			InitializeComponent();
 		}
+
+		void SendEmail_Clicked(object sender, System.EventArgs e)
+		{
+			var username = mUsernameEntry.Text;
+			Login m = new Login();
+			m.username = username;
+			//UIReturn result = ForgetPasswordController.getInstance().getPassword(m);)
+		}
 	}
 }

@@ -57,7 +57,9 @@ namespace MasterQ
             }
         }
 
-        public void OnLabelTapped(object sender, System.EventArgs args){
+        public void OnLabelTapped(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new ForgetPasswordPage());
         }
     }
 }
