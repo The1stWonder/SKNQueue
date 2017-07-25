@@ -93,7 +93,13 @@
 				FontSize = "12" 
 				HorizontalOptions="Center" 
 				VerticalOptions="Center"
-				Text="ลืมรหัสผ่าน" />
+				Text="ลืมรหัสผ่าน">
+				<Label.GestureRecognizers>
+        			<TapGestureRecognizer
+            			Tapped="OnLabelTapped"
+            			 />
+    			</Label.GestureRecognizers>
+			 </Label>
 		</Grid>
 <!--	</Frame>-->
 </ContentPage>
