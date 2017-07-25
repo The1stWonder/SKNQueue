@@ -12,7 +12,7 @@
 		BackgroundColor="White"
 		HasShadow="true">
 		<Grid
-			Margin="20,20,20,20"
+			Margin="5,5,5,5"
 			VerticalOptions="Fill"
 			HorizontalOptions="Fill">
 			<Grid.RowDefinitions>
@@ -28,54 +28,58 @@
 					Height="Auto" />
 				<RowDefinition
 					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition
-					Width="40" />
 				<ColumnDefinition
 					Width="*" />
 			</Grid.ColumnDefinitions>
 			<Image
 				Grid.Row="0"
 				Grid.Column="0"
-				Grid.ColumnSpan="2"
-				HeightRequest="90"
+				HeightRequest="40"
 				Source="header_main.png" />
 			<Entry
 				x:Name="mNameEntry"
-				Placeholder="ชื่อของคุณ"
+				Placeholder="ชื่อ"
 				Grid.Row="1"
-				Grid.Column="0"
-				Grid.ColumnSpan="2"/>
+				Grid.Column="0"/>
+			<Entry
+				x:Name="mLastNameEntry"
+				Placeholder="นามสกุล"
+				Grid.Row="2"
+				Grid.Column="0"/>
 			<Entry
 				x:Name="mEmailEntry"
 				Keyboard="Email"
 				Placeholder="อีเมลของคุณ"
-				Grid.Row="2"
-				Grid.Column="0"
-				Grid.ColumnSpan="2" />
+				Grid.Row="3"
+				Grid.Column="0"/>
+			<Entry
+				x:Name="mBirthdateEntry"
+				Placeholder="วันเกิดของคุณ"
+				Grid.Row="4"
+				Grid.Column="0"/>
 			<Entry
 				x:Name="mPasswordEntry"
 				IsPassword="true"
 				Placeholder="รหัสผ่าน"
-				Grid.Row="3"
-				Grid.Column="0"
-				Grid.ColumnSpan="2"/>
+				Grid.Row="5"
+				Grid.Column="0"/>
 			<Entry
 				x:Name="mPassword2Entry"
 				IsPassword="true"
 				Placeholder="ยืนยันรหัสผ่าน"
-				Grid.Row="4"
-				Grid.Column="0"
-				Grid.ColumnSpan="2"/>
+				Grid.Row="6"
+				Grid.Column="0"/>
 			<Button
 				Clicked="Submit_Clicked"
 				Margin="0,20,0,0"
 				FontAttributes="Bold"
 				Text="ลงทะเบียน"
-				Grid.Row="5"
+				Grid.Row="7"
 				Grid.Column="0"
-				Grid.ColumnSpan="2"
 				BackgroundColor="#00CC33"
 				TextColor="White" />
 		</Grid>

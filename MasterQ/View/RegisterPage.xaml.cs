@@ -15,7 +15,9 @@ namespace MasterQ
 		void Submit_Clicked(object sender, System.EventArgs e)
 		{
 			var name = mNameEntry.Text;
+			var lastname = mLastNameEntry.Text;
 			var Email = mEmailEntry.Text;
+			var birthdate = mBirthdateEntry.Text;
 			var Password1 = mPasswordEntry.Text;
 			var Password2 = mPassword2Entry.Text;
 
@@ -24,7 +26,8 @@ namespace MasterQ
             member.password = Password1;
             member.confirmPassword = Password2;
             member.firstName = name;
-            member.birthDate = "12/12/1990";
+			//member.lastname = lastname;
+            member.birthDate = birthdate;
 
             UIReturn uiReturn = RegisterController.getInstance().register(member);
 
