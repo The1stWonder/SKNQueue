@@ -37,9 +37,9 @@ namespace MasterQ
         //}
         public UIReturn Authenuser(Login input)
         {
-            if (String.IsNullOrEmpty(input.username)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
-            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
-            if (!Validate.email(input.username)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if (String.IsNullOrEmpty(input.username)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALID_EMAIL);
+            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALID_EMAIL);
+            if (!Validate.email(input.username)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALID_EMAIL);
 
             LoginRs res = LoginService.getInstance().CallLogin(input);
 

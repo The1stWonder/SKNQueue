@@ -44,7 +44,7 @@ namespace MasterQ
 		}
         public GetCodeDescriptionRs CallGetCodeDescription()
 		{
-			string serviceUrl = ServiceURL.ipServer + ServiceURL.getDistrictsUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.getCodeDescriptionUrl;
 
 			GetCodeDescriptionRq postData = new GetCodeDescriptionRq();
 
@@ -54,7 +54,7 @@ namespace MasterQ
 		}
 		public GetCodeDescriptionRs CallGetCodeDescription(String groups, String functions,String code)
 		{
-			string serviceUrl = ServiceURL.ipServer + ServiceURL.getDistrictsUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.getCodeDescriptionUrl;
 
 			GetCodeDescriptionRq postData = new GetCodeDescriptionRq();
             postData.groups = groups;
