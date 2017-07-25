@@ -42,5 +42,28 @@ namespace MasterQ
 			return JObject.Parse(resJSON).ToObject<GetDistrictsRs>();
 
 		}
+        public GetCodeDescriptionRs CallGetCodeDescription()
+		{
+			string serviceUrl = ServiceURL.ipServer + ServiceURL.getDistrictsUrl;
+
+			GetCodeDescriptionRq postData = new GetCodeDescriptionRq();
+
+			String resJSON = CallServices.callPost(serviceUrl, postData);
+			return JObject.Parse(resJSON).ToObject<GetCodeDescriptionRs>();
+
+		}
+		public GetCodeDescriptionRs CallGetCodeDescription(String groups, String functions,String code)
+		{
+			string serviceUrl = ServiceURL.ipServer + ServiceURL.getDistrictsUrl;
+
+			GetCodeDescriptionRq postData = new GetCodeDescriptionRq();
+            postData.groups = groups;
+            postData.functions = functions;
+            postData.code = code;
+
+			String resJSON = CallServices.callPost(serviceUrl, postData);
+			return JObject.Parse(resJSON).ToObject<GetCodeDescriptionRs>();
+
+		}
     }
 }

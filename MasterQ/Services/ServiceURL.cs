@@ -5,7 +5,7 @@ namespace MasterQ
     {
         public static String ipDev = "http://192.1.1.206";
         public static String ipPro = "http://202.129.59.21";
-        public static String ipServer = ipPro;
+        public static String ipServer = ipDev;
         public static String serviceName = "/QueueService.svc/";
         public static String sampleUrlGet = serviceName+"Member/";
         public static String sampleUrlPost = serviceName + "Login/";
@@ -16,5 +16,6 @@ namespace MasterQ
         public static String getProvicesUrl = serviceName + "GetProvinces/";
         public static String getDistrictsUrl = serviceName + "GetDistricts/";
         public static String getBranchesUrl = serviceName + "GetBranches/";
+        public static String getCodeDescriptionUrl = serviceName + "GetCodeDescription/";
     }
 }

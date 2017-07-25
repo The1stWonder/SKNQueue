@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -37,7 +37,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", "Register Fail : "+uiReturn.description, "Close");
+                DisplayAlert("Click", "Register Fail : "+uiReturn.getDescription(), "Close");
 			}
 		}
 	}

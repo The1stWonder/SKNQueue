@@ -10,5 +10,9 @@ namespace MasterQ
 		public static String notExistingEmail = "This email is not register";
 		public static String notSamePassword = "Please input same password";
 		public static String invalidEmail = "Invalid Email Format. For Example aaa@bbb.com";
+
+        public static String GROUPS_VALIDATE = "VALIDATE";
+        public static String FUNCTIONS_EMAIL = "EMAIL";
+        public static String CODE_INVALIDEMAIL = "00";
 	}
 }

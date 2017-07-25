@@ -15,29 +15,17 @@ namespace MasterQ
         }
         public UIReturn register(Member input)
         {
-            if (String.IsNullOrEmpty(input.email)) return new UIReturn(input, false, "", Constants.emptyEmail);
-            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
-            if (String.IsNullOrEmpty(input.confirmPassword)) return new UIReturn(input, false, "", Constants.emptyPassword);
-            if (String.IsNullOrEmpty(input.firstName)) return new UIReturn(input, false, "", Constants.emptyUserName);
-            if ( String.IsNullOrEmpty(input.lastName)) return new UIReturn(input, false, "", Constants.emptyUserName);
-			if (!Validate.email(input.email)) return new UIReturn(input, false, "", Constants.invalidEmail);
-            if (!isSamePassword(input)) return new UIReturn(input, false, "", Constants.notSamePassword);
+            if (String.IsNullOrEmpty(input.email)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if (String.IsNullOrEmpty(input.confirmPassword)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if (String.IsNullOrEmpty(input.firstName)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if ( String.IsNullOrEmpty(input.lastName)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+			if (!Validate.email(input.email)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if (!isSamePassword(input)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
 
             RegisterRs result = MemberService.getInstance().CallRegister(input);
 
-            UIReturn ret = new UIReturn(input);
-            if (result.header.isSuccess)
-            {
-                Login memberLogin = new Login(input.memberID, input.password);
-                memberLogin.isLogin = true;
-                MCust.login = memberLogin;
-                MCust.member = input;
-                ret.setSuccess();
-            }
-            else
-            {
-                ret.setFail("", "Error Message");
-            }
+            UIReturn ret = new UIReturn(input,result.header);
             return ret;
         }
         private bool isSamePassword(Member input)

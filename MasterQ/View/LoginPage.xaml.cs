@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -53,13 +53,8 @@ namespace MasterQ
             }
             else
             {
-                DisplayAlert("Click", uiReturn.description, "Close");
+                DisplayAlert("Click", uiReturn.getDescription(), "Close");
             }
         }
-
-		public void OnLabelTapped(object sender, EventArgs args)
-		{
-			Navigation.PushAsync(new ForgetpasswordPage());
-		}
     }
 }

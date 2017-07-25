@@ -5,43 +5,46 @@ namespace MasterQ
     {
         public Boolean isSuccess { get; set; }
         public String code { get; set; }
-        public String description { get; set; }
+		public String codeValue { get; set; }
+        public String descriptionTH { get; set; }
+        public String descriptionEN { get; set; }
         public Object returnObject { get; set; }
 
         public UIReturn()
         {
             this.isSuccess = false;
         }
-        public UIReturn(Object o)
-        {
-            this.isSuccess = false;
-            this.returnObject = o;
+        public String getDescription(){
+            return (true)?descriptionTH:descriptionEN;
         }
-        public UIReturn(Object o, Boolean isSuccess, String code, String description)
+        public UIReturn(bool isSuccess, string code, string codeValue, string descriptionTH, string descriptionEN, object returnObject)
         {
             this.isSuccess = isSuccess;
             this.code = code;
-            this.description = description;
-            this.returnObject = o;
+            this.codeValue = codeValue;
+            this.descriptionTH = descriptionTH;
+            this.descriptionEN = descriptionEN;
+            this.returnObject = returnObject;
         }
-
-        public void setFail(String code, String description)
-        {
-            this.isSuccess = false;
-            this.code = code;
-            this.description = description;
-        }
-        public void setSuccess()
-        {
-            this.isSuccess = true;
-            this.code = String.Empty;
-            this.description = String.Empty;
-        }
-        public void setSuccess(String code, String description)
-        {
-            this.isSuccess = true;
-            this.code = code;
-            this.description = description;
-        }
+		public UIReturn(Object returnObject,bool isSuccess, String groups,String functions,String code)
+		{
+			this.isSuccess = isSuccess;
+            CodeDescription codeDesc = Utils.getCodeDesc(groups, functions, code);
+            this.code = codeDesc.code;
+			this.codeValue = codeDesc.codeValue;
+			this.descriptionTH = codeDesc.descriptionTH;
+			this.descriptionEN = codeDesc.descriptionEN;
+			this.returnObject = returnObject;
+		}
+        public UIReturn(Object returnObject,HeaderResponse header)
+		{
+			this.isSuccess = header.isSuccess;
+			CodeDescription codeDesc = Utils.getCodeDesc(header.groups, header.functions, header.code);
+            this.code = codeDesc.code;
+			this.codeValue = codeDesc.codeValue;
+			this.descriptionTH = codeDesc.descriptionTH;
+			this.descriptionEN = codeDesc.descriptionEN;
+			this.returnObject = returnObject;
+		}
     }
 }

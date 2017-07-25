@@ -37,24 +37,14 @@ namespace MasterQ
         //}
         public UIReturn Authenuser(Login input)
         {
-            if (String.IsNullOrEmpty(input.username)) return new UIReturn(input, false, "", Constants.emptyUserName);
-            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, "", Constants.emptyPassword);
-            if (!Validate.email(input.username)) return new UIReturn(input, false, "", Constants.invalidEmail);
+            if (String.IsNullOrEmpty(input.username)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if (String.IsNullOrEmpty(input.password)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
+            if (!Validate.email(input.username)) return new UIReturn(input, false, Constants.GROUPS_VALIDATE, Constants.FUNCTIONS_EMAIL, Constants.CODE_INVALIDEMAIL);
 
-            LoginRs result = LoginService.getInstance().CallLogin(input);
+            LoginRs res = LoginService.getInstance().CallLogin(input);
 
 
-            UIReturn ret = new UIReturn(input);
-            if (authen(input, result))
-            {
-                input.isLogin = true;
-                MCust.login = input;
-                ret.setSuccess();
-            }
-            else
-            {
-                ret.setFail("", Constants.authenFail);
-            }
+            UIReturn ret = new UIReturn(input,res.header);
             return ret;
         }
         private bool authen(Login input, LoginRs loginuser)

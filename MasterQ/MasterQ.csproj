@@ -134,6 +134,9 @@
     <Compile Include="Services\model\GetProvincesRq.cs" />
     <Compile Include="Services\model\GetDistrictsRq.cs" />
     <Compile Include="Model\District.cs" />
+    <Compile Include="Services\model\GetCodeDescriptionRs.cs" />
+    <Compile Include="Services\model\GetCodeDescriptionRq.cs" />
+    <Compile Include="Model\CodeDescription.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
