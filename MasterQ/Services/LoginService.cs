@@ -34,7 +34,7 @@ namespace MasterQ
             string serviceUrl = ServiceURL.ipServer + ServiceURL.forgetPasswordUrl;
 
             ForgetPasswordRq postData = new ForgetPasswordRq();
-            postData.eMail = email;
+            postData.email = email;
 
 			String resJSON = CallServices.callPost(serviceUrl, postData);
 			return JObject.Parse(resJSON).ToObject<ForgetPasswordRs>();

@@ -22,7 +22,7 @@ namespace MasterQ
             postData.firstName = input.firstName;
             postData.lastName = input.lastName;
             postData.password = input.password;
-            postData.eMail = input.email;
+            postData.email = input.email;
             postData.birthDate = input.birthDate;
 
 			String resJSON = CallServices.callPost(serviceUrl, postData);
@@ -37,7 +37,7 @@ namespace MasterQ
             postData.firstName = input.firstName;
             postData.lastName = input.lastName;
 			postData.password = input.password;
-			postData.eMail = input.email;
+			postData.email = input.email;
             postData.birthDate = input.birthDate;
 
 			String resJSON = CallServices.callPost(serviceUrl, postData);

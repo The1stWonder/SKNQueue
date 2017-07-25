@@ -3,6 +3,6 @@ namespace MasterQ
 {
     public class ForgetPasswordRq
     {
-        public string eMail { get; set; }
+        public string email { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace MasterQ
     {
         public string birthDate { get; set; }
         public string degree { get; set; }
-        public string eMail { get; set; }
+        public string email { get; set; }
         public string firstName { get; set; }
         public string job { get; set; }
         public string lastName { get; set; }
