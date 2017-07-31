@@ -11,5 +11,10 @@ namespace MasterQ
 		{
 			InitializeComponent();
 		}
+
+		public void OnImageTapped(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new EditProfilePage());
+		}
 	}
 }

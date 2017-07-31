@@ -156,6 +156,7 @@
     <None Include="Image\buttons2.png" />
     <None Include="Image\buttons3.png" />
     <None Include="Image\Circle1.png" />
+    <None Include="Image\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
