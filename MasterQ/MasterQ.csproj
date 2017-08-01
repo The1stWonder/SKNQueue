@@ -57,6 +57,9 @@
     <EmbeddedResource Include="View\ForgetPasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MainProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -143,6 +146,9 @@
     <Compile Include="View\ForgetPasswordPage.xaml.cs">
       <DependentUpon>ForgetPasswordPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MainProfilePage.xaml.cs">
+      <DependentUpon>MainProfilePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -157,6 +163,9 @@
     <None Include="Image\buttons3.png" />
     <None Include="Image\Circle1.png" />
     <None Include="Image\user.png" />
+    <None Include="Image\MainP1.png" />
+    <None Include="Image\MainP2.png" />
+    <None Include="Image\MainP3.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	Title="MainProfile" 
+	BackgroundImage="bg.png"
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MasterQ.MainProfilePage">
+	<Grid
+			Margin="20,20,20,20"
+			VerticalOptions="Fill"
+			HorizontalOptions="Fill">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image
+				Grid.Row="0"
+				Grid.Column="0"
+				Grid.ColumnSpan="5"
+				HeightRequest="90"
+				Source="header_main.png" />
+			<!--<Image
+				Grid.Row="1"
+				Grid.Column="0"
+				Grid.ColumnSpan="5"
+				HeightRequest="50"
+				Source="" />-->
+			<Image
+				Grid.Row="1"
+				Grid.Column="0"
+				Grid.ColumnSpan="5"
+				HeightRequest="100"
+				Source="MainP1.png" />
+		<Image
+				Grid.Row="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="5"
+				HeightRequest="100"
+				Source="MainP2.png" />
+		<Image
+				Grid.Row="3"
+				Grid.Column="0"
+				Grid.ColumnSpan="5"
+				HeightRequest="100"
+				Source="MainP3.png" />
+		</Grid>
+</ContentPage>

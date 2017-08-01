@@ -14,7 +14,7 @@ namespace MasterQ
 
 		public void OnImageTapped(object sender, System.EventArgs args)
 		{
-			Navigation.PushAsync(new EditProfilePage());
+			Navigation.PushAsync(new MainProfilePage());
 		}
 	}
 }
