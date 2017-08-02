@@ -7,5 +7,6 @@ namespace MasterQ
 		public bool isSuccess { get; set; }
 		public string groups { get; set; }
 		public string functions { get; set; }
+        public string message { get; set; }
     }
 }
