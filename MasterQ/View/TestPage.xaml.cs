@@ -10,15 +10,21 @@ namespace MasterQ
 		public TestPage()
 		{
 			InitializeComponent();
-			//register();
-			//login();
-			//editProfile();
+            //register();
+            //login();
+            //editProfile();
             //forgetpassword();
 
             // MetaData
             getBranch();
-            //getProvince();
-            //getDistrict();
+            getProvince();
+            getDistrict();
+			//getBranchQ();
+			List<CodeDescription> list1 = TempDB.codeDescriptions;
+			List<Province> list2 = TempDB.provinces;
+			List<District> list3 = TempDB.districts;
+			List<Branch> list4 = TempDB.branches;
+            List<Service> list5 = TempDB.services;
 		}
         private void editProfile(){
 			Member member = new Member();
@@ -61,7 +67,8 @@ namespace MasterQ
 		}
 		private void getBranch()
 		{
-            UIReturn result = SearchController.getInstance().getBranches("1","2");
+            UIReturn result = SearchController.getInstance().getBranches("01","01");
+			UIReturn result1 = SearchController.getInstance().getBranches("test");
 
 		}
 		private void getProvince()
@@ -71,7 +78,12 @@ namespace MasterQ
 		}
 		private void getDistrict()
 		{
-            UIReturn result = SearchController.getInstance().getDistricts("1");
+            UIReturn result = SearchController.getInstance().getDistricts("01");
+
+		}
+		private void getBranchQ()
+		{
+            UIReturn result = SearchController.getInstance().getBranchQueue("01");
 
 		}
 	}

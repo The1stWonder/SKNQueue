@@ -149,6 +149,12 @@
     <Compile Include="View\MainProfilePage.xaml.cs">
       <DependentUpon>MainProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\TempDB.cs" />
+    <Compile Include="Services\model\GetServicesRq.cs" />
+    <Compile Include="Services\model\GetServicesRs.cs" />
+    <Compile Include="Services\model\ReserveQueueRq.cs" />
+    <Compile Include="Services\model\ReserveQueueRs.cs" />
+    <Compile Include="Services\ReserveQueueService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

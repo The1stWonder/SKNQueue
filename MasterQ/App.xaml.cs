@@ -7,7 +7,7 @@ namespace MasterQ
 		public App()
 		{
 			InitializeComponent();
-			Initial.init();
+            Initial.init();
 			//MainPage = new NavigationPage(new TestPage());
             MainPage = new NavigationPage(new LoginPage());
 		}

@@ -3,8 +3,7 @@ namespace MasterQ
 {
 	public class Service
 	{
-		public Service()
-		{
-		}
+		public string serviceID { get; set; }
+        public string branchID { get; set; }
 	}
 }

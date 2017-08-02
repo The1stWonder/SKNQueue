@@ -18,6 +18,15 @@ namespace MasterQ
         public static String FUNCTIONS_PASSWORD = "PASSWORD";
         public static String CODE_PASSWORD_NOTMATCH = "01";
 
+		public static String GROUPS_DEFAULT = "DEFAULT";
+		public static String FUNCTIONS_SUCCESS = "SUCCESS";
+		public static String CODE_DEFAULT_SUCCESS = "00";
+		public static String FUNCTIONS_ERROR = "ERROR";
+        public static String CODE_DEFAULT_ERROR = "00";
+
+        public static UIReturn uiErrorDefault = new UIReturn(false, GROUPS_DEFAULT, FUNCTIONS_ERROR, CODE_DEFAULT_ERROR);
+        public static UIReturn uiSuccessDefault = new UIReturn(true, GROUPS_DEFAULT, FUNCTIONS_SUCCESS, CODE_DEFAULT_SUCCESS);
+
         public static UIReturn uiPassValidEmail = new UIReturn(true, GROUPS_VALIDATE, FUNCTIONS_EMAIL, CODE_VALID_EMAIL);
 
         public static UIReturn uiErrorInvalidEmail = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMAIL, CODE_INVALID_EMAIL);
