@@ -10,10 +10,10 @@ namespace MasterQ
         public TestPage()
         {
             InitializeComponent();
-            //register();
-            //login();
-            //editProfile();
-            //forgetpassword();
+			//register();
+			//login();
+			//editProfile();
+			//forgetpassword();
 
             // MetaData
             getBranch();
@@ -25,6 +25,8 @@ namespace MasterQ
             List<District> list3 = TempDB.districts;
             List<Branch> list4 = TempDB.branches;
             List<Service> list5 = TempDB.services;
+
+			reserveQ();
         }
         private void editProfile()
         {
@@ -87,5 +89,10 @@ namespace MasterQ
             UIReturn result = SearchController.getInstance().getBranchQueue("01");
 
         }
+		private void reserveQ()
+		{
+            UIReturn result = ReserveQController.getInstance().reserveQueue("01", "0001");
+
+		}
     }
 }
