@@ -25,15 +25,15 @@ namespace MasterQ
 			return JObject.Parse(resJSON).ToObject<ReserveQueueRs>();
 
 		}
-		public GetServicesRs CallGetBranchServices(Branch input)
+		public GetBranchServicesRs CallGetBranchServices(Branch input)
 		{
 			string serviceUrl = ServiceURL.ipServer + ServiceURL.getBranchServicesUrl;
 
-			GetServicesRq postData = new GetServicesRq();
+			GetBranchServicesRq postData = new GetBranchServicesRq();
 			postData.branchID = input.branchID;
 
 			String resJSON = CallServices.callPost(serviceUrl, postData);
-			return JObject.Parse(resJSON).ToObject<GetServicesRs>();
+			return JObject.Parse(resJSON).ToObject<GetBranchServicesRs>();
 
 		}
     }

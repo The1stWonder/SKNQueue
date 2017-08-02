@@ -150,8 +150,8 @@
       <DependentUpon>MainProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\TempDB.cs" />
-    <Compile Include="Services\model\GetServicesRq.cs" />
-    <Compile Include="Services\model\GetServicesRs.cs" />
+    <Compile Include="Services\model\GetBranchServicesRq.cs" />
+    <Compile Include="Services\model\GetBranchServicesRs.cs" />
     <Compile Include="Services\model\ReserveQueueRq.cs" />
     <Compile Include="Services\model\ReserveQueueRs.cs" />
     <Compile Include="Services\ReserveQueueService.cs" />

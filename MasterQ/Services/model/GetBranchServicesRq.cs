@@ -1,7 +1,7 @@
 ﻿using System;
 namespace MasterQ
 {
-    public class GetServicesRq
+    public class GetBranchServicesRq
     {
 
 		public string branchID { get; set; }
