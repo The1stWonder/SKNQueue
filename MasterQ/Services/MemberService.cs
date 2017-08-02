@@ -44,5 +44,16 @@ namespace MasterQ
 			return JObject.Parse(resJSON).ToObject<EditProfileRs>();
 
 		}
+        public GetHistoryRs CallGetHistory(Member input)
+		{
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.getHistoryUrl;
+
+			GetHistoryRq postData = new GetHistoryRq();
+            postData.memberID = input.memberID;
+
+			String resJSON = CallServices.callPost(serviceUrl, postData);
+			return JObject.Parse(resJSON).ToObject<GetHistoryRs>();
+
+		}
     }
 }

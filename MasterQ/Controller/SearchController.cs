@@ -22,17 +22,17 @@ namespace MasterQ
             ret.isSuccess = true;
             return ret;
         }
-        public UIReturn getDistricts(String provinceId)
+        public UIReturn getDistricts(Province input)
         {
             //GetDistrictsRs res = MetaDataService.getInstance().CallGetDistricts();
             List<District> districts = new List<District>();
-            if (String.IsNullOrEmpty(provinceId))
+            if (String.IsNullOrEmpty(input.provinceID))
             {
                 districts = TempDB.districts;
             }
             else
             {
-                districts = TempDB.districts.FindAll(s => s.provinceID == provinceId);
+                districts = TempDB.districts.FindAll(s => s.provinceID == input.provinceID);
             }
 
             UIReturn ret = new UIReturn();
@@ -40,21 +40,21 @@ namespace MasterQ
             ret.isSuccess = true;
             return ret;
         }
-        public UIReturn getBranches(String provinceId, String districtId)
+        public UIReturn getBranches(Province inputP,District inputD)
         {
             //GetBranchesRs res = MetaDataService.getInstance().CallGetBranches();
             List<Branch> branches = new List<Branch>();
-            if (String.IsNullOrEmpty(provinceId) && String.IsNullOrEmpty(districtId))
+            if (String.IsNullOrEmpty(inputP.provinceID) && String.IsNullOrEmpty(inputD.districtID))
             {
                 branches = TempDB.branches;
             }
-            else if (!String.IsNullOrEmpty(provinceId))
+            else if (!String.IsNullOrEmpty(inputP.provinceID))
             {
-                branches = TempDB.branches.FindAll(s => s.provinceID == provinceId);
+                branches = TempDB.branches.FindAll(s => s.provinceID == inputP.provinceID);
             }
             else
             {
-                branches = TempDB.branches.FindAll(s => s.provinceID == provinceId && s.districtID == districtId);
+                branches = TempDB.branches.FindAll(s => s.provinceID == inputP.provinceID && s.districtID == inputD.districtID);
             }
 
             UIReturn ret = new UIReturn();
@@ -73,17 +73,17 @@ namespace MasterQ
 			ret.isSuccess = true;
 			return ret;
 		}
-        public UIReturn getBranchDetail(String branchId)
+        public UIReturn getBranchDetail(Branch input)
         {
-            Branch branch = TempDB.branches.Find(s => s.branchID == branchId);
+            Branch branch = TempDB.branches.Find(s => s.branchID == input.branchID);
             UIReturn ret = new UIReturn();
             ret.returnObject = branch;
             ret.isSuccess = true;
             return ret;
         }
-        public UIReturn getBranchQueue(String branchId)
+        public UIReturn getBranchQueue(Branch input)
         {
-            Branch inputBranch = TempDB.branches.Find(s => s.branchID == branchId);
+            Branch inputBranch = TempDB.branches.Find(s => s.branchID == input.branchID);
             GetBranchServicesRs res = ReserveQueueService.getInstance().CallGetBranchServices(inputBranch);
             TempDB.services = res.services;
             UIReturn ret = new UIReturn(res.header);

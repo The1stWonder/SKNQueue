@@ -155,6 +155,10 @@
     <Compile Include="Services\model\ReserveQueueRq.cs" />
     <Compile Include="Services\model\ReserveQueueRs.cs" />
     <Compile Include="Services\ReserveQueueService.cs" />
+    <Compile Include="Controller\ShowHistoryController.cs" />
+    <Compile Include="Services\model\GetHistoryRq.cs" />
+    <Compile Include="Services\model\GetHistoryRs.cs" />
+    <Compile Include="Model\History.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

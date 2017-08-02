@@ -18,6 +18,7 @@ namespace MasterQ
         public static String getBranchesUrl = serviceName + "GetBranches/";
         public static String getBranchServicesUrl = serviceName + "GetBranchServices/";
         public static String reserveQueueUrl = serviceName + "ReserveQueue/";
+        public static String getHistoryUrl = serviceName + "GetHistory/";
         public static String getCodeDescriptionUrl = serviceName + "GetCodeDescription/";
     }
 }

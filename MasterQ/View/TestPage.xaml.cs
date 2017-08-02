@@ -10,10 +10,10 @@ namespace MasterQ
         public TestPage()
         {
             InitializeComponent();
-			//register();
-			//login();
-			//editProfile();
-			//forgetpassword();
+            //register();
+            //login();
+            //editProfile();
+            //forgetpassword();
 
             // MetaData
             getBranch();
@@ -25,8 +25,8 @@ namespace MasterQ
             List<District> list3 = TempDB.districts;
             List<Branch> list4 = TempDB.branches;
             List<Service> list5 = TempDB.services;
-
-			reserveQ();
+            getHistory();
+            reserveQ();
         }
         private void editProfile()
         {
@@ -70,7 +70,12 @@ namespace MasterQ
         }
         private void getBranch()
         {
-            UIReturn result = SearchController.getInstance().getBranches("01", "01");
+            Province p = new Province();
+            p.provinceID = "01";
+            District d = new District();
+            d.districtID = "01";
+            UIReturn result = SearchController.getInstance().getBranches(p, d);
+            //OR
             UIReturn result1 = SearchController.getInstance().getBranches("test");
 
         }
@@ -81,18 +86,30 @@ namespace MasterQ
         }
         private void getDistrict()
         {
-            UIReturn result = SearchController.getInstance().getDistricts("01");
+            Province p = new Province();
+            p.provinceID = "01";
+            UIReturn result = SearchController.getInstance().getDistricts(p);
 
         }
         private void getBranchQ()
         {
-            UIReturn result = SearchController.getInstance().getBranchQueue("01");
+            Branch b = new Branch();
+            b.branchID = "01";
+            UIReturn result = SearchController.getInstance().getBranchQueue(b);
 
         }
-		private void reserveQ()
-		{
-            UIReturn result = ReserveQController.getInstance().reserveQueue("01", "0001");
-
-		}
+        private void reserveQ()
+        {
+            Service s = new Service();
+            s.serviceID = "0001";
+            s.branchID = "01";
+            UIReturn result = ReserveQController.getInstance().reserveQueue(s);
+        }
+        private void getHistory()
+        {
+            Member member = new Member();
+            member.memberID = "01";
+            UIReturn result = ShowHistoryController.getInstance().getHistory(member);
+        }
     }
 }

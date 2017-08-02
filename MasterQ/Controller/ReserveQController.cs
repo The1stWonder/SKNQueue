@@ -12,9 +12,9 @@ namespace MasterQ
 		{
 			return instance;
 		}
-		public UIReturn reserveQueue(String branchId,String serviceId)
+		public UIReturn reserveQueue(Service input)
 		{
-            Service inputService = TempDB.services.Find(s => s.serviceID == serviceId && s.branchID==branchId);
+            Service inputService = TempDB.services.Find(s => s.serviceID == input.serviceID && s.branchID==input.branchID);
             ReserveQueueRs res = ReserveQueueService.getInstance().CallReserveQueue(inputService);
 
 			UIReturn ret = new UIReturn(res.header);
