@@ -51,7 +51,7 @@
 				Source="MainP1.png" >
 		<Image.GestureRecognizers>
         			<TapGestureRecognizer
-            			Tapped="OnImageTapped1"
+            			Tapped="OnImageMainPage"
             			 />
     			</Image.GestureRecognizers>
 		</Image>
@@ -63,7 +63,7 @@
 				Source="MainP2.png" >
 		<Image.GestureRecognizers>
         			<TapGestureRecognizer
-            			Tapped="OnImageTapped2"
+            			Tapped="OnImageEditProfilePage"
             			 />
     			</Image.GestureRecognizers>
 		</Image>
@@ -75,7 +75,7 @@
 				Source="MainP3.png" >
 		<Image.GestureRecognizers>
         			<TapGestureRecognizer
-            			Tapped="OnImageTapped3"
+            			Tapped="OnImageLogout"
             			 />
     			</Image.GestureRecognizers>
 		</Image>

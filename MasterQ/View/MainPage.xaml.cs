@@ -12,9 +12,24 @@ namespace MasterQ
 			InitializeComponent();
 		}
 
-		public void OnImageTapped(object sender, System.EventArgs args)
+		public void OnImageMainProfilePage(object sender, System.EventArgs args)
 		{
 			Navigation.PushAsync(new MainProfilePage());
+		}
+
+		public void OnImageHistoryPage(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new HistoryPage());
+		}
+
+		public void OnImageQueuePage(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new QueuePage());
+		}
+
+		public void OnImageQRcodePage(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new QRcodePage());
 		}
 	}
 }

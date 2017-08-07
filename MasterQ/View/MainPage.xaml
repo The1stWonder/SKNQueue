@@ -52,7 +52,7 @@
 				Source="user.png" >
 				<Image.GestureRecognizers>
         			<TapGestureRecognizer
-            			Tapped="OnImageTapped"
+            			Tapped="OnImageMainProfilePage"
             			 />
     			</Image.GestureRecognizers>
 		</Image>
@@ -72,16 +72,34 @@
 				Grid.Row="3"
 				Grid.Column="1"
 				Source="buttons1.png"
-				HeightRequest="200" />
+				HeightRequest="200" >
+				<Image.GestureRecognizers>
+        			<TapGestureRecognizer
+            			Tapped="OnImageHistoryPage"
+            			 />
+    			</Image.GestureRecognizers>
+			</Image>
 			<Image
 				Grid.Row="3"
 				Grid.Column="2"
 				Source="buttons2.png"
-				HeightRequest="200" />
+				HeightRequest="200" >
+			<Image.GestureRecognizers>
+        			<TapGestureRecognizer
+            			Tapped="OnImageQueuePage"
+            			 />
+    			</Image.GestureRecognizers>
+			</Image>
 			<Image
 				Grid.Row="3"
 				Grid.Column="3"
 				Source="buttons3.png"
-				HeightRequest="200" />
+				HeightRequest="200" >
+			<Image.GestureRecognizers>
+        			<TapGestureRecognizer
+            			Tapped="OnImageQRcodePage"
+            			 />
+    			</Image.GestureRecognizers>
+			</Image>
 		</Grid>
 </ContentPage>
