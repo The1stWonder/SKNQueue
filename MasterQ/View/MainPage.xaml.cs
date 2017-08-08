@@ -24,7 +24,7 @@ namespace MasterQ
 
 		public void OnImageQueuePage(object sender, System.EventArgs args)
 		{
-			Navigation.PushAsync(new QueuePage());
+            Navigation.PushAsync(new SearchPage());
 		}
 
 		public void OnImageQRcodePage(object sender, System.EventArgs args)

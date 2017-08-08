@@ -1,5 +1,89 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.SearchPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="จองคิว" BackgroundImage="bg.png" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.SearchPage">
+    <Grid Margin="20,20,20,20" VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+       
+        <Picker 
+            x:Name="ColumnPicker" 
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            Title="ค้นหาจังหวัด"
+            HorizontalOptions="FillAndExpand">
+
+        </Picker>
+
+        <Picker 
+            x:Name="ColumnPicker2" 
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            Title="ค้นหาอำเภอ"
+            HorizontalOptions="FillAndExpand">
+
+        </Picker>
+
+ <!--       <Button
+                Clicked="Search_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="ค้นหา"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="5"
+                BackgroundColor="#006699"
+                TextColor="White" />-->
+
+
+
+
+
+
+        
+        <!--<Image Grid.Row="0" Grid.Column="4" HeightRequest="50" Source="user.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnImageMainProfilePage" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="90" Source="header_main.png" />
+        <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="200" Source="Circle1.png" />
+        <Image Grid.Row="3" Grid.Column="1" Source="buttons1.png" HeightRequest="200">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnImageHistoryPage" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Row="3" Grid.Column="2" Source="buttons2.png" HeightRequest="200">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnImageQueuePage" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Row="3" Grid.Column="3" Source="buttons3.png" HeightRequest="200">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnImageQRcodePage" />
+            </Image.GestureRecognizers>
+        </Image>-->
+    </Grid>
+
+   <!-- <ListView x:Name="EmployeeView">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <TextCell Text="{Binding DisplayName}" />
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>-->
+    
 </ContentPage>

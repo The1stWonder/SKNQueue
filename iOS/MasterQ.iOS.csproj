@@ -133,35 +133,17 @@
     <BundleResource Include="..\MasterQ\Image\username_icon.png">
       <Link>Resources\username_icon.png</Link>
     </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\bg2.jpg">
-      <Link>Resources\bg2.jpg</Link>
-    </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\bg3.png">
-      <Link>Resources\bg3.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\buttons1-1.png">
-      <Link>Resources\buttons1-1.png</Link>
-    </BundleResource>
     <BundleResource Include="..\MasterQ\Image\buttons1.png">
       <Link>Resources\buttons1.png</Link>
     </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\buttons2-1.png">
-      <Link>Resources\buttons2-1.png</Link>
-    </BundleResource>
     <BundleResource Include="..\MasterQ\Image\buttons2.png">
       <Link>Resources\buttons2.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\buttons3-1.png">
-      <Link>Resources\buttons3-1.png</Link>
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\buttons3.png">
       <Link>Resources\buttons3.png</Link>
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\Circle1.png">
       <Link>Resources\Circle1.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\Profile-icon.png">
-      <Link>Resources\Profile-icon.png</Link>
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\forget2.png">
       <Link>Resources\forget2.png</Link>
