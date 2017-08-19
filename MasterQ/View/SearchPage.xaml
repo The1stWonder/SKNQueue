@@ -37,7 +37,7 @@
 
         </Picker>
 
- <!--       <Button
+        <Button
                 Clicked="Search_Clicked"
                 Margin="0,20,0,0"
                 FontAttributes="Bold"
@@ -46,7 +46,7 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="5"
                 BackgroundColor="#006699"
-                TextColor="White" />-->
+                TextColor="White" />
 
 
 

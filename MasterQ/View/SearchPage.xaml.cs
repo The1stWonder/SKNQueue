@@ -50,6 +50,9 @@ namespace MasterQ
 
         }
 
+		void Search_Clicked(object sender, System.EventArgs e)
+		{
+		}
 
     }
 }
