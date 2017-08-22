@@ -7,6 +7,8 @@ namespace MasterQ
 {
     public partial class SearchPage : ContentPage
     {
+        public Province searchProvince = new Province();
+        public District searchDistrict = new District();
         public SearchPage()
         {
             InitializeComponent();
@@ -16,52 +18,50 @@ namespace MasterQ
         public void gennaratepicker()
         {
             List<Province> provinces = (List<Province>)SearchController.getInstance().getProvinces().returnObject;
-			foreach (Province p in provinces )
+            foreach (Province p in provinces)
             {
                 ColumnPicker.Items.Add(p.provinceNameTh);
+
             }
-            ColumnPicker.SelectedIndexChanged += (sender, args) =>
+            ColumnPicker.Unfocused += (sender, args) =>
             {
-                Province p = provinces.ToArray()[ColumnPicker.SelectedIndex];
-                List<District> districts = (List<District>)SearchController.getInstance().getDistricts(p).returnObject;
-                ColumnPicker2.Items.Clear();
-                foreach (District d in districts)
-				{
-                    ColumnPicker2.Items.Add(d.districtNameTh);
-				}
-			};
-            
-                //ColumnPicker2.SelectedIndexChanged += (sender2, args2) =>
-                //{
-                //    District d = districts.ToArray()[ColumnPicker2.SelectedIndex];
-                //    UIReturn uiR = SearchController.getInstance().getBranches(p, d);
-                //    if (uiR.isSuccess)
-                //    {
-                //        List<Branch> b = (List<Branch>)uiR.returnObject;
-                //        DisplayAlert("Branch", b.ToArray().Length + "", "Cancel");
-                //    }
-                //    else
-                //    {
-                //        DisplayAlert("A", uiR.getDescription(), "Cancel");
-                //    }
-
-                //};
-
-
+                if (ColumnPicker.SelectedIndex >= 0)
+                {
+                    Province p = provinces.ToArray()[ColumnPicker.SelectedIndex];
+                    List<District> districts = (List<District>)SearchController.getInstance().getDistricts(p).returnObject;
+                    ColumnPicker2.Items.Clear();
+                    searchDistrict = new District();
+                    foreach (District d in districts)
+                    {
+                        ColumnPicker2.Items.Add(d.districtNameTh);
+                    }
+                    searchProvince = p;
+                    ColumnPicker2.Unfocused += (sender2, args2) =>
+                    {
+                        if (ColumnPicker2.SelectedIndex >= 0)
+                        {
+                            District d = districts.ToArray()[ColumnPicker2.SelectedIndex];
+                            searchDistrict = d;
+                        }
+                    };
+                }
+            };
         }
 
 		void Search_Clicked(object sender, EventArgs e)
 		{
-			//var Branch = new List<Detail> {
-			//	new Person ("Steve", 21, "USA"),
-			//	new Person ("John", 37, "USA"),
-			//	new Person ("Tom", 42, "UK"),
-			//	new Person ("Lucas", 29, "Germany"),
-			//	new Person ("Tariq", 39, "UK"),
-			//	new Person ("Jane", 30, "USA")
-			//};
+            var Search = mSearch.Text;
 
-			//listView.ItemsSource = Detail;
+			//Province p = new Province();
+			//p.provinceID = "01";
+			//District d = new District();
+			//d.districtID = "01";
+			//UIReturn result = SearchController.getInstance().getBranches(p, d);
+			
+            List<Branch> Branch = (List<Branch>)SearchController.getInstance().getBranches(searchProvince, searchDistrict).returnObject;
+            BranchView.ItemsSource = Branch;
+			//OR
+			//UIReturn result1 = SearchController.getInstance().getBranches("test");
 		}
 
     }
