@@ -48,7 +48,7 @@ namespace MasterQ
             {
                 branches = TempDB.branches;
             }
-            else if (!String.IsNullOrEmpty(inputP.provinceID))
+            else if (!String.IsNullOrEmpty(inputP.provinceID) && String.IsNullOrEmpty(inputD.districtID) )
             {
                 branches = TempDB.branches.FindAll(s => s.provinceID == inputP.provinceID);
             }
