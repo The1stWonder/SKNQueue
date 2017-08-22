@@ -50,35 +50,6 @@
                 Grid.ColumnSpan="5"
                 BackgroundColor="#006699"
                 TextColor="White" />
-
-
-
-
-
-
-        
-        <!--<Image Grid.Row="0" Grid.Column="4" HeightRequest="50" Source="user.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnImageMainProfilePage" />
-            </Image.GestureRecognizers>
-        </Image>
-        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="90" Source="header_main.png" />
-        <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HeightRequest="200" Source="Circle1.png" />
-        <Image Grid.Row="3" Grid.Column="1" Source="buttons1.png" HeightRequest="200">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnImageHistoryPage" />
-            </Image.GestureRecognizers>
-        </Image>
-        <Image Grid.Row="3" Grid.Column="2" Source="buttons2.png" HeightRequest="200">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnImageQueuePage" />
-            </Image.GestureRecognizers>
-        </Image>
-        <Image Grid.Row="3" Grid.Column="3" Source="buttons3.png" HeightRequest="200">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnImageQRcodePage" />
-            </Image.GestureRecognizers>
-        </Image>-->
     </Grid>
 
    <!-- <ListView x:Name="EmployeeView">
@@ -88,5 +59,13 @@
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>-->
+
+	<ListView x:Name="listView">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+				<TextCell Text="{Binding name}" Detail="{Binding comment}" />
+			</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
     
 </ContentPage>
