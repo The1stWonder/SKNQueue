@@ -5,5 +5,20 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="MasterQ.HistoryPage">
 	<ContentPage.Content>
+		<ListView
+			BackgroundColor="Transparent"
+			RowHeight="75"
+			SeparatorVisibility="None"
+			x:Name="mListview"
+			VerticalOptions="Fill"
+			HorizontalOptions="Fill">
+			<ListView.Header>
+				<Image
+					Source="header_main.png"
+					HeightRequest="100"
+					Margin="0,0,0,20"
+					Aspect="AspectFill" />
+			</ListView.Header>
+		</ListView>
 	</ContentPage.Content>
 </ContentPage>
