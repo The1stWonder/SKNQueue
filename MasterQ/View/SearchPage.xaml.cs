@@ -63,6 +63,5 @@ namespace MasterQ
 			//OR
 			//UIReturn result1 = SearchController.getInstance().getBranches("test");
 		}
-
     }
 }

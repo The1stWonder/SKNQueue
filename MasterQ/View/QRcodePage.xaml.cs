@@ -10,6 +10,8 @@ namespace MasterQ
 		public QRcodePage()
 		{
 			InitializeComponent();
+
+
 		}
 	}
 }
