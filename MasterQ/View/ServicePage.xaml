@@ -1,5 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.ServicePage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    Title="เลือกบริการ" 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.ServicePage">
 	<ContentPage.Content>
-	</ContentPage.Content>
+        <ListView
+            BackgroundColor="Transparent"
+            RowHeight="75"
+            SeparatorVisibility="None"
+            x:Name="ServiceListview"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+            <ListView.ItemTemplate>
+      <DataTemplate>
+        <TextCell Text="{Binding serviceName}" />
+                    
+      </DataTemplate>
+    </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
 </ContentPage>

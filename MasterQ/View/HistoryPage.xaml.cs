@@ -17,14 +17,8 @@ namespace MasterQ
 		{
 			Member member = new Member();
 			member.memberID = "01";
-			//UIReturn result = ShowHistoryController.getInstance().getHistory(member);
 			List<History> History = (List<History>)ShowHistoryController.getInstance().getHistory(member).returnObject;
 			mListview.ItemsSource = History;
-            //foreach (History h in History)
-			//{
-			//	mListview.ItemsSource = h.serviceID;
-			//	mListview.ItemsSource = h.timeAccept;
-			//}
 		}
 
 	}

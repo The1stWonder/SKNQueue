@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage Title="จองคิว" 
-	xmlns="http://xamarin.com/schemas/2014/forms" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="MasterQ.SearchPage">
-
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.SearchPage">
+    
     <!--<ScrollView>-->
 
     <StackLayout HorizontalOptions="FillAndExpand" 
@@ -19,7 +19,7 @@
         <StackLayout BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" >-->
             <!--<BoxView BackgroundColor="Maroon" HeightRequest="1" />-->
         <!--</StackLayout> --> 
-        <!--<Frame VerticalOptions="Fill" HorizontalOptions="Fill" Margin="20,20,20,20" >-->
+      <Frame VerticalOptions="Fill" HorizontalOptions="Fill" Margin="5,5,5,5" >
 
       <Grid Margin="20,20,20,20" VerticalOptions="Fill" HorizontalOptions="Fill">
         <Grid.RowDefinitions>
@@ -76,16 +76,25 @@
                 BackgroundColor="#006699"
                 TextColor="White" />
     </Grid>
-                <!--</Frame>-->
+                </Frame>
 
     <ListView x:Name="BranchView">
     <ListView.ItemTemplate>
       <DataTemplate>
-        <TextCell Text="{Binding branchName}" />
+        <!--<TextCell Text="{Binding branchName}" />-->
+                    <ViewCell>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding branchName}" />
+                    <Image HorizontalOptions="EndAndExpand" Source="icon.png" />
+                </StackLayout>
+            </StackLayout>
+        </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
     </ListView>
-    </StackLayout>          
+    </StackLayout>  
+
        
     
 
@@ -101,10 +110,10 @@
   </ListView>-->
 
     <!--<ListView x:Name="listView">
-			<ListView.ItemTemplate>
-				<DataTemplate>
-				<TextCell Text="{Binding name}" Detail="{Binding comment}" />
-			</DataTemplate>
-			</ListView.ItemTemplate>
-		</ListView>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                <TextCell Text="{Binding name}" Detail="{Binding comment}" />
+            </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
 </ContentPage>
