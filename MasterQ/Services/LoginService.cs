@@ -26,9 +26,7 @@ namespace MasterQ
         }
         public LoginRq getLoginRq(Login input)
         {
-            LoginRq ret = new LoginRq();
-            ret.userName = input.username;
-            ret.password = input.password;
+            LoginRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<LoginRq>();
             return ret;
 
         }
@@ -39,12 +37,12 @@ namespace MasterQ
             return JObject.Parse(resJSON).ToObject<ForgetPasswordRs>();
 
         }
-		public ForgetPasswordRq getForgetPasswordRq(String email)
-		{
-			ForgetPasswordRq ret = new ForgetPasswordRq();
-			ret.email = email;
-			return ret;
+        public ForgetPasswordRq getForgetPasswordRq(String email)
+        {
+            ForgetPasswordRq ret = new ForgetPasswordRq();
+            ret.email = email;
+            return ret;
 
-		}
+        }
     }
 }

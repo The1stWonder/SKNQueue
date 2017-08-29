@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace MasterQ
@@ -30,7 +31,7 @@ namespace MasterQ
 
         private String getQueueType(String input)
         {
-            String ret = "";
+            String ret = String.Empty;
             if (Constants.APPLICATION_TYPE_USER.Equals(input))
             {
                 ret = Constants.QUEUE_TYPE_USER;
@@ -44,26 +45,21 @@ namespace MasterQ
 
         public ReserveQueueRq getReserveQueueRq(Service input)
         {
-            ReserveQueueRq ret = new ReserveQueueRq();
-            ret.branchID = input.branchID;
-            ret.serviceID = input.serviceID;
+            ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
             ret.memberID = TempDB.loginMember.memberID;
             ret.queueType = getQueueType(Constants.APPLICATION_TYPE);
             return ret;
         }
 		public ReserveQueueRq getReserveQueueRq(Queue input)
 		{
-			ReserveQueueRq ret = new ReserveQueueRq();
-			ret.branchID = input.branchID;
-			ret.serviceID = input.serviceID;
+			ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
 			ret.memberID = TempDB.loginMember.memberID;
 			ret.queueType = getQueueType(Constants.APPLICATION_TYPE);
 			return ret;
 		}
         public GetBranchServicesRq getBranchServicesRq(Branch input)
 		{
-			GetBranchServicesRq ret = new GetBranchServicesRq();
-			ret.branchID = input.branchID;
+			GetBranchServicesRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<GetBranchServicesRq>();
 			return ret;
 		}
     }

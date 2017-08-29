@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace MasterQ
@@ -23,12 +24,7 @@ namespace MasterQ
 		}
 		public RegisterRq getRegisterRq(Member input)
 		{
-			RegisterRq ret = new RegisterRq();
-			ret.firstName = input.firstName;
-			ret.lastName = input.lastName;
-			ret.password = input.password;
-			ret.email = input.email;
-			ret.birthDate = input.birthDate;
+			RegisterRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<RegisterRq>();
             return ret;
 
 		}
@@ -41,12 +37,7 @@ namespace MasterQ
 		}
 		public EditProfileRq getEditProfileRq(Member input)
 		{
-			EditProfileRq ret = new EditProfileRq();
-			ret.firstName = input.firstName;
-			ret.lastName = input.lastName;
-			ret.password = input.password;
-			ret.email = input.email;
-			ret.birthDate = input.birthDate;
+			EditProfileRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<EditProfileRq>();
             return ret;
 
 		}
@@ -59,8 +50,7 @@ namespace MasterQ
 		}
 		public GetHistoryRq getGetHistoryRq(Member input)
 		{
-			GetHistoryRq ret = new GetHistoryRq();
-			ret.memberID = input.memberID;
+			GetHistoryRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<GetHistoryRq>();
             return ret;
 
 		}
