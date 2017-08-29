@@ -32,22 +32,6 @@ namespace MasterQ
 
         public void OnImageQRcodePage(object sender, System.EventArgs args)
         {
-            //ZXingScannerPage scanPage = new ZXingScannerPage();
-            //Navigation.PushAsync(scanPage);
-            //Navigation.PushAsync(new QRcodePage());
-
-            //scanPage.OnScanResult += (result) =>
-            //{
-            //	scanPage.IsScanning = false;
-            //	ZXing.BarcodeFormat barcodeFormat = result.BarcodeFormat;
-            //	string type = barcodeFormat.ToString();
-            //	Device.BeginInvokeOnMainThread(() =>
-            //	{
-            //		Navigation.PopAsync();
-            //		DisplayAlert("The Barcode type is : " + type, "The text is : " + result.Text, "OK");
-            //	});
-            //};
-
             var scanPage = new ZXingScannerPage();
             // Navigate to our scanner page
             Navigation.PushAsync(scanPage);

@@ -38,13 +38,13 @@
             <ColumnDefinition Width="30" />
         </Grid.ColumnDefinitions>
 
-        <Entry
+       <!-- <Entry
                 x:Name="mSearch"
                 Keyboard="Email"
                 Placeholder="ค้นหา"
                 Grid.Row="0"
                 Grid.Column="0"
-         Grid.ColumnSpan="5"/>
+         Grid.ColumnSpan="5"/>-->
         <Picker 
             x:Name="ColumnPicker" 
             Grid.Row="1"
@@ -86,7 +86,11 @@
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding branchName}" />
-                    <Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" />
+                    <Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" >
+					<Image.GestureRecognizers>
+        			<TapGestureRecognizer Tapped="OnImageNextQ" />
+    			</Image.GestureRecognizers>
+			</Image>
                 </StackLayout>
             </StackLayout>
         </ViewCell>
