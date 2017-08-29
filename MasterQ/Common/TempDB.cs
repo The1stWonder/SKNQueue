@@ -10,5 +10,6 @@ namespace MasterQ
         public static List<District> districts;
         public static List<Branch> branches;
         public static List<Service> services;
+        public static Member loginMember;
     }
 }

@@ -5,6 +5,7 @@ namespace MasterQ
     {
         public string branchID { get; set; }
         public string serviceID { get; set; }
-        public string tranID { get; set; }
+        public string queueType { get; set; }
+        public string memberID { get; set; }
     }
 }

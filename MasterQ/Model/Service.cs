@@ -15,5 +15,6 @@ namespace MasterQ
         public string serviceID { get; set; }
         public string serviceName { get; set; }
         public string branchID { get; set; }
+        public string memberID { get; set; }
     }
 }

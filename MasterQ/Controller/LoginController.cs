@@ -42,7 +42,7 @@ namespace MasterQ
             if (!Validate.email(input.username)) return Constants.uiErrorInvalidEmail;
 
             LoginRs res = LoginService.getInstance().CallLogin(input);
-
+            TempDB.loginMember = res.member;
 
             UIReturn ret = new UIReturn(res.header);
             return ret;

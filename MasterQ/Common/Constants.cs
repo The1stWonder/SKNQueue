@@ -3,6 +3,15 @@ namespace MasterQ
 {
 	public class Constants
 	{
+        // Application Type
+        public static String APPLICATION_TYPE_USER = "USER";
+        public static String APPLICATION_TYPE_MEMBER = "MEMBER";
+        public static String APPLICATION_TYPE_BRANCH = "BRANCH";
+        public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
+        public static String QUEUE_TYPE_USER = "O";
+        public static String QUEUE_TYPE_BRANCH = "K";
+
+        // Validation
         public static String GROUPS_VALIDATE = "VALIDATE";
 		public static String FUNCTIONS_EMAIL = "EMAIL";
 		public static String CODE_VALID_EMAIL = "00";
