@@ -50,24 +50,17 @@ namespace MasterQ
 
 		void Search_Clicked(object sender, EventArgs e)
 		{
-
-			//Province p = new Province();
-			//p.provinceID = "01";
-			//District d = new District();
-			//d.districtID = "01";
-			//UIReturn result = SearchController.getInstance().getBranches(p, d);
 			if (ColumnPicker.SelectedIndex >= 0)
 			{
 				List<Branch> Branch = (List<Branch>)SearchController.getInstance().getBranches(searchProvince, searchDistrict).returnObject;
 				BranchView.ItemsSource = Branch;
 			}
-			//OR
-			//UIReturn result1 = SearchController.getInstance().getBranches("test");
 		}
 
-		public void OnImageNextQ(object sender, System.EventArgs args)
+		public void itemTapped(object sender, System.EventArgs args)
 		{
-			Navigation.PushAsync(new ServicePage());
+            Branch BranchID = (Branch)BranchView.SelectedItem;
+            Navigation.PushAsync(new ServicePage(BranchID));
 		}
 	}
 }

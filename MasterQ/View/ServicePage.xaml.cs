@@ -7,24 +7,22 @@ namespace MasterQ
 {
 	public partial class ServicePage : ContentPage
 	{
-		public ServicePage()
+		public ServicePage(Branch selectedBranch)
 		{
 			InitializeComponent();
-            getService();
+            getService(selectedBranch);
 		}
 
-		public void getService()
+		public void getService(Branch selectedBranch)
 		{
-			//Member member = new Member();
-			//member.memberID = "01";
-			//List<History> History = (List<History>)ShowHistoryController.getInstance().getHistory(member).returnObject;
-			//mListview.ItemsSource = History;
-
-			Service s = new Service();
-			s.serviceID = "0001";
-			s.branchID = "01";
-			List<Service> Service = (List<Service>)ReserveQController.getInstance().reserveQueue(s).returnObject;
+            List<Service> Service = (List<Service>)SearchController.getInstance().getBranchQueue(selectedBranch).returnObject;
             ServiceListview.ItemsSource = Service;
+		}
+
+		public void itemTapped(object sender, System.EventArgs args)
+		{
+			Service serviceID = (Service)ServiceListview.SelectedItem;
+            Navigation.PushAsync(new QueuePage(serviceID));
 		}
 	}
 }
