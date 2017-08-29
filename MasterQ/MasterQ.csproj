@@ -69,9 +69,6 @@
     <EmbeddedResource Include="View\QRcodePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SearchResultPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -180,9 +177,6 @@
     <Compile Include="View\QRcodePage.xaml.cs">
       <DependentUpon>QRcodePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SearchResultPage.xaml.cs">
-      <DependentUpon>SearchResultPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -200,6 +194,7 @@
     <None Include="Image\MainP1.png" />
     <None Include="Image\MainP2.png" />
     <None Include="Image\MainP3.png" />
+    <None Include="Image\NextQ1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
