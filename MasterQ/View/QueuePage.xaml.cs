@@ -22,8 +22,9 @@ namespace MasterQ
 
             queueNumber2.Text = Queue.queueNumber.ToString();
             estimateTime2.Text = Queue.estimateTime.ToString();
-            //serviceID2.Text = Queue.serviceID.ToString();
-            //transID1.Text = Queue.transID.ToString();
+			//serviceID2.Text = Queue.serviceID.ToString();
+			//transID1.Text = Queue.transID.ToString();
+			//transID1.Text = Queue.transID.ToString();
 		}
 	}
 }
