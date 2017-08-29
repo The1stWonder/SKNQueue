@@ -12,8 +12,9 @@ namespace MasterQ
 		public string districtID { get; set; }
 		public string email { get; set; }
 		public string expired { get; set; }
-		public string location { get; set; }
+		public string latitude { get; set; }
 		public string logo { get; set; }
+		public string longitude { get; set; }
 		public bool openClose { get; set; }
 		public string provinceID { get; set; }
 		public string qrCode { get; set; }
