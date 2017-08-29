@@ -11,7 +11,8 @@ namespace MasterQ
 		}
         public UIReturn getHistory(Member input)
 		{
-            GetHistoryRs res = MemberService.getInstance().CallGetHistory(input);
+            GetHistoryRq req = MemberService.getInstance().getGetHistoryRq(input);
+            GetHistoryRs res = MemberService.getInstance().CallGetHistory(req);
 
 			UIReturn ret = new UIReturn(res.header);
             ret.returnObject = res.histories;

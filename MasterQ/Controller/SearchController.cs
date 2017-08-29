@@ -84,7 +84,8 @@ namespace MasterQ
         public UIReturn getBranchQueue(Branch input)
         {
             Branch inputBranch = TempDB.branches.Find(s => s.branchID == input.branchID);
-            GetBranchServicesRs res = ReserveQueueService.getInstance().CallGetBranchServices(inputBranch);
+            GetBranchServicesRq req = ReserveQueueService.getInstance().getBranchServicesRq(inputBranch);
+            GetBranchServicesRs res = ReserveQueueService.getInstance().CallGetBranchServices(req);
             TempDB.services = res.services;
             UIReturn ret = new UIReturn(res.header);
             ret.returnObject = res.services;

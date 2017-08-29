@@ -24,7 +24,8 @@ namespace MasterQ
 			if (!Validate.email(input.email)) return Constants.uiErrorInvalidEmail;
 			if (!isSamePassword(input)) return Constants.uiErrorPasswordNotMatch;
 
-            EditProfileRs res = MemberService.getInstance().CallEditProfile(input);
+            EditProfileRq req = MemberService.getInstance().getEditProfileRq(input);
+            EditProfileRs res = MemberService.getInstance().CallEditProfile(req);
 
             UIReturn ret = new UIReturn(res.header);
             return ret;

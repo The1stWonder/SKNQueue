@@ -15,7 +15,8 @@ namespace MasterQ
 		public UIReturn reserveQueue(Service input)
 		{
             Service inputService = TempDB.services.Find(s => s.serviceID == input.serviceID && s.branchID==input.branchID);
-            ReserveQueueRs res = ReserveQueueService.getInstance().CallReserveQueue(inputService);
+            ReserveQueueRq req = ReserveQueueService.getInstance().getReserveQueueRq(inputService); 
+            ReserveQueueRs res = ReserveQueueService.getInstance().CallReserveQueue(req);
 
 			UIReturn ret = new UIReturn(res.header);
             ret.returnObject = res.queue;

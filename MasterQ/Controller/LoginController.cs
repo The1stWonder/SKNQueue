@@ -41,7 +41,8 @@ namespace MasterQ
             if (String.IsNullOrEmpty(input.password)) return Constants.uiErrorEmptyPassword;
             if (!Validate.email(input.username)) return Constants.uiErrorInvalidEmail;
 
-            LoginRs res = LoginService.getInstance().CallLogin(input);
+            LoginRq req = LoginService.getInstance().getLoginRq(input);
+            LoginRs res = LoginService.getInstance().CallLogin(req);
             TempDB.loginMember = res.member;
 
             UIReturn ret = new UIReturn(res.header);

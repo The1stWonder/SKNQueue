@@ -13,38 +13,17 @@ namespace MasterQ
         {
             return instance;
         }
-        public ReserveQueueRs CallReserveQueue(Service input)
+        public ReserveQueueRs CallReserveQueue(ReserveQueueRq request)
         {
             string serviceUrl = ServiceURL.ipServer + ServiceURL.reserveQueueUrl;
-
-            ReserveQueueRq postData = new ReserveQueueRq();
-            postData.branchID = input.branchID;
-            postData.serviceID = input.serviceID;
-            postData.memberID = TempDB.loginMember.memberID;
-            postData.queueType = getQueueType(Constants.APPLICATION_TYPE);
-
-            String resJSON = CallServices.callPost(serviceUrl, postData);
+            String resJSON = CallServices.callPost(serviceUrl, request);
             return JObject.Parse(resJSON).ToObject<ReserveQueueRs>();
 
         }
-        public ReserveQueueRs CallReserveQueue(Queue input)
-        {
-            string serviceUrl = ServiceURL.ipServer + ServiceURL.reserveQueueUrl;
-
-            ReserveQueueRq postData = new ReserveQueueRq();
-
-            String resJSON = CallServices.callPost(serviceUrl, postData);
-            return JObject.Parse(resJSON).ToObject<ReserveQueueRs>();
-
-        }
-        public GetBranchServicesRs CallGetBranchServices(Branch input)
+        public GetBranchServicesRs CallGetBranchServices(GetBranchServicesRq request)
         {
             string serviceUrl = ServiceURL.ipServer + ServiceURL.getBranchServicesUrl;
-
-            GetBranchServicesRq postData = new GetBranchServicesRq();
-            postData.branchID = input.branchID;
-
-            String resJSON = CallServices.callPost(serviceUrl, postData);
+            String resJSON = CallServices.callPost(serviceUrl, request);
             return JObject.Parse(resJSON).ToObject<GetBranchServicesRs>();
 
         }
@@ -62,5 +41,30 @@ namespace MasterQ
             }
             return ret;
         }
+
+        public ReserveQueueRq getReserveQueueRq(Service input)
+        {
+            ReserveQueueRq ret = new ReserveQueueRq();
+            ret.branchID = input.branchID;
+            ret.serviceID = input.serviceID;
+            ret.memberID = TempDB.loginMember.memberID;
+            ret.queueType = getQueueType(Constants.APPLICATION_TYPE);
+            return ret;
+        }
+		public ReserveQueueRq getReserveQueueRq(Queue input)
+		{
+			ReserveQueueRq ret = new ReserveQueueRq();
+			ret.branchID = input.branchID;
+			ret.serviceID = input.serviceID;
+			ret.memberID = TempDB.loginMember.memberID;
+			ret.queueType = getQueueType(Constants.APPLICATION_TYPE);
+			return ret;
+		}
+        public GetBranchServicesRq getBranchServicesRq(Branch input)
+		{
+			GetBranchServicesRq ret = new GetBranchServicesRq();
+			ret.branchID = input.branchID;
+			return ret;
+		}
     }
 }

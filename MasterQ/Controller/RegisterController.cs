@@ -24,7 +24,8 @@ namespace MasterQ
             if (!Validate.email(input.email)) return Constants.uiErrorInvalidEmail;
             if (!isSamePassword(input)) return Constants.uiErrorPasswordNotMatch;
 
-            RegisterRs result = MemberService.getInstance().CallRegister(input);
+            RegisterRq req = MemberService.getInstance().getRegisterRq(input);
+            RegisterRs result = MemberService.getInstance().CallRegister(req);
 
             UIReturn ret = new UIReturn(result.header);
             return ret;

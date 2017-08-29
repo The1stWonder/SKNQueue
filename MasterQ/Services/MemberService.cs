@@ -14,45 +14,54 @@ namespace MasterQ
 		{
 			return instance;
 		}
-        public RegisterRs CallRegister(Member input)
+        public RegisterRs CallRegister(RegisterRq request)
 		{
             string serviceUrl = ServiceURL.ipServer + ServiceURL.registerUrl;
-
-			RegisterRq postData = new RegisterRq();
-            postData.firstName = input.firstName;
-            postData.lastName = input.lastName;
-            postData.password = input.password;
-            postData.email = input.email;
-            postData.birthDate = input.birthDate;
-
-			String resJSON = CallServices.callPost(serviceUrl, postData);
+            String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<RegisterRs>();
 
 		}
-        public EditProfileRs CallEditProfile(Member input)
+		public RegisterRq getRegisterRq(Member input)
+		{
+			RegisterRq ret = new RegisterRq();
+			ret.firstName = input.firstName;
+			ret.lastName = input.lastName;
+			ret.password = input.password;
+			ret.email = input.email;
+			ret.birthDate = input.birthDate;
+            return ret;
+
+		}
+        public EditProfileRs CallEditProfile(EditProfileRq request)
 		{
 			string serviceUrl = ServiceURL.ipServer + ServiceURL.editProfileUrl;
-
-			EditProfileRq postData = new EditProfileRq();
-            postData.firstName = input.firstName;
-            postData.lastName = input.lastName;
-			postData.password = input.password;
-			postData.email = input.email;
-            postData.birthDate = input.birthDate;
-
-			String resJSON = CallServices.callPost(serviceUrl, postData);
+            String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<EditProfileRs>();
 
 		}
-        public GetHistoryRs CallGetHistory(Member input)
+		public EditProfileRq getEditProfileRq(Member input)
+		{
+			EditProfileRq ret = new EditProfileRq();
+			ret.firstName = input.firstName;
+			ret.lastName = input.lastName;
+			ret.password = input.password;
+			ret.email = input.email;
+			ret.birthDate = input.birthDate;
+            return ret;
+
+		}
+        public GetHistoryRs CallGetHistory(GetHistoryRq request)
 		{
             string serviceUrl = ServiceURL.ipServer + ServiceURL.getHistoryUrl;
-
-			GetHistoryRq postData = new GetHistoryRq();
-            postData.memberID = input.memberID;
-
-			String resJSON = CallServices.callPost(serviceUrl, postData);
+            String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<GetHistoryRs>();
+
+		}
+		public GetHistoryRq getGetHistoryRq(Member input)
+		{
+			GetHistoryRq ret = new GetHistoryRq();
+			ret.memberID = input.memberID;
+            return ret;
 
 		}
     }
