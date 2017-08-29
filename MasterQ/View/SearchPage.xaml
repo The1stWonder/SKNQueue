@@ -86,7 +86,7 @@
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding branchName}" />
-                    <Image HorizontalOptions="EndAndExpand" Source="icon.png" />
+                    <Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" />
                 </StackLayout>
             </StackLayout>
         </ViewCell>
