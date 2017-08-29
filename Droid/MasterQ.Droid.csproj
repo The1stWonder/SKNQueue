@@ -161,6 +161,9 @@
     <AndroidResource Include="..\MasterQ\Image\MainP3.png">
       <Link>Resources\drawable-xxhdpi\MainP3.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\NextQ1.png">
+      <Link>Resources\drawable-xxhdpi\NextQ1.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

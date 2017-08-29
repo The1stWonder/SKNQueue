@@ -27,6 +27,12 @@ namespace MasterQ.Droid
 		public static void UpdateIdValues()
 		{
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MasterQ.Droid.Resource.Attribute.actionBarSize;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::MasterQ.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::MasterQ.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::MasterQ.Droid.Resource.String.library_name;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::MasterQ.Droid.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::MasterQ.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::MasterQ.Droid.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Animation
@@ -2227,17 +2233,20 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f0200a9
 			public const int mr_ic_play_light = 2130837673;
 			
-			// aapt resource value: 0x7f0200ad
-			public const int notification_template_icon_bg = 2130837677;
-			
 			// aapt resource value: 0x7f0200aa
-			public const int password_icon = 2130837674;
+			public const int NextQ1 = 2130837674;
+			
+			// aapt resource value: 0x7f0200ae
+			public const int notification_template_icon_bg = 2130837678;
 			
 			// aapt resource value: 0x7f0200ab
-			public const int user = 2130837675;
+			public const int password_icon = 2130837675;
 			
 			// aapt resource value: 0x7f0200ac
-			public const int username_icon = 2130837676;
+			public const int user = 2130837676;
+			
+			// aapt resource value: 0x7f0200ad
+			public const int username_icon = 2130837677;
 			
 			static Drawable()
 			{
@@ -2341,6 +2350,9 @@ namespace MasterQ.Droid
 			
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
+			
+			// aapt resource value: 0x7f07009a
+			public const int contentFrame = 2131165338;
 			
 			// aapt resource value: 0x7f07004a
 			public const int contentPanel = 2131165258;
@@ -2960,6 +2972,12 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f030038
 			public const int Toolbar = 2130903096;
 			
+			// aapt resource value: 0x7f030039
+			public const int zxingscanneractivitylayout = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int zxingscannerfragmentlayout = 2130903098;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -3038,6 +3056,9 @@ namespace MasterQ.Droid
 			
 			// aapt resource value: 0x7f080025
 			public const int character_counter_pattern = 2131230757;
+			
+			// aapt resource value: 0x7f080026
+			public const int library_name = 2131230758;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;
