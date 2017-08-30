@@ -78,7 +78,13 @@
     </Grid>
                 </Frame>
 
-    <ListView x:Name="BranchView" ItemTapped="itemTapped">
+    <ListView x:Name="BranchView" 
+			 BackgroundColor="Transparent"
+            RowHeight="45"
+            SeparatorVisibility="None"
+			  VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+			ItemTapped="itemTapped">
     <ListView.ItemTemplate>
       <DataTemplate>
         <!--<TextCell Text="{Binding branchName}" />-->
@@ -86,9 +92,9 @@
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding branchName}" />
-                    <Label Text="{Binding branchID}" />
-                    <!--<Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" >
-					<Image.GestureRecognizers>
+                   <!-- <Label Text="{Binding branchID}" />-->
+                   <Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" />
+					 <!--<Image.GestureRecognizers>
         			<TapGestureRecognizer Tapped="OnImageNextQ" />
     			</Image.GestureRecognizers>
 			</Image>-->

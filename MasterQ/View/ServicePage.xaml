@@ -14,9 +14,15 @@
             VerticalOptions="Fill"
             HorizontalOptions="Fill">
             <ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell Text="{Binding serviceDesc}" />
-                    
+           <DataTemplate>
+					 <ViewCell>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+        <Label Text="{Binding serviceDesc}" />
+					<Image HorizontalOptions="EndAndExpand" Source="NextQ2.png" />
+				</StackLayout>
+            </StackLayout>
+        </ViewCell>             
       </DataTemplate>
     </ListView.ItemTemplate>
         </ListView>
