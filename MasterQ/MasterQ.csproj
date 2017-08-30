@@ -195,6 +195,7 @@
     <None Include="Image\MainP2.png" />
     <None Include="Image\MainP3.png" />
     <None Include="Image\NextQ1.png" />
+    <None Include="Image\NextQ2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
