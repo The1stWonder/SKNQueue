@@ -8,13 +8,12 @@ namespace MasterQ
 	{
 		public static CodeDescription getCodeDesc(int id)
 		{
-			CodeDescription ret = new CodeDescription();
 			CodeDescription temp = TempDB.codeDescriptions.Find(s => s.id == id);
 			if (temp == null)
 			{
                 temp = TempDB.codeDescriptions.Find(s => s.id == Constants.ERROR_DEFAULT_ID);
 			}
-			return ret;
+            return temp;
 		}
 	}
 }
