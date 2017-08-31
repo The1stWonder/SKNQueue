@@ -69,6 +69,9 @@
     <EmbeddedResource Include="View\QRcodePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserApplication\UserLoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -117,9 +120,6 @@
     <Compile Include="Controller\RegisterController.cs" />
     <Compile Include="Controller\EditProfileController.cs" />
     <Compile Include="Controller\ReserveQController.cs" />
-    <Compile Include="Model\MSearch.cs" />
-    <Compile Include="Model\MCust.cs" />
-    <Compile Include="Model\MTrans.cs" />
     <Compile Include="Controller\Validate.cs" />
     <Compile Include="Model\Validation.cs" />
     <Compile Include="Common\Constants.cs" />
@@ -130,27 +130,20 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Model\UIReturn.cs" />
     <Compile Include="Services\LoginService.cs" />
-    <Compile Include="Services\model\LoginRq.cs" />
-    <Compile Include="Services\model\LoginRs.cs" />
+    <Compile Include="Services\MemberAppModel\LoginRq.cs" />
+    <Compile Include="Services\MemberAppModel\LoginRs.cs" />
     <Compile Include="Services\CallServices.cs" />
     <Compile Include="Services\MemberService.cs" />
-    <Compile Include="Services\model\RegisterRq.cs" />
-    <Compile Include="Services\model\RegisterRs.cs" />
-    <Compile Include="Services\model\ForgetPasswordRq.cs" />
-    <Compile Include="Services\model\ForgetPasswordRs.cs" />
-    <Compile Include="Services\model\EditProfileRq.cs" />
-    <Compile Include="Services\model\EditProfileRs.cs" />
-    <Compile Include="Services\model\HeaderResponse.cs" />
+    <Compile Include="Services\MemberAppModel\RegisterRq.cs" />
+    <Compile Include="Services\MemberAppModel\RegisterRs.cs" />
+    <Compile Include="Services\MemberAppModel\ForgetPasswordRq.cs" />
+    <Compile Include="Services\MemberAppModel\ForgetPasswordRs.cs" />
+    <Compile Include="Services\MemberAppModel\EditProfileRq.cs" />
+    <Compile Include="Services\MemberAppModel\EditProfileRs.cs" />
     <Compile Include="Services\MetaDataService.cs" />
-    <Compile Include="Services\model\GetProvincesRs.cs" />
-    <Compile Include="Services\model\GetDistrictsRs.cs" />
-    <Compile Include="Services\model\GetBranchesRs.cs" />
-    <Compile Include="Services\model\GetBranchesRq.cs" />
-    <Compile Include="Services\model\GetProvincesRq.cs" />
-    <Compile Include="Services\model\GetDistrictsRq.cs" />
+    <Compile Include="Services\MemberAppModel\GetBranchesRs.cs" />
+    <Compile Include="Services\MemberAppModel\GetBranchesRq.cs" />
     <Compile Include="Model\District.cs" />
-    <Compile Include="Services\model\GetCodeDescriptionRs.cs" />
-    <Compile Include="Services\model\GetCodeDescriptionRq.cs" />
     <Compile Include="Model\CodeDescription.cs" />
     <Compile Include="View\ForgetPasswordPage.xaml.cs">
       <DependentUpon>ForgetPasswordPage.xaml</DependentUpon>
@@ -159,14 +152,14 @@
       <DependentUpon>MainProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\TempDB.cs" />
-    <Compile Include="Services\model\GetBranchServicesRq.cs" />
-    <Compile Include="Services\model\GetBranchServicesRs.cs" />
-    <Compile Include="Services\model\ReserveQueueRq.cs" />
-    <Compile Include="Services\model\ReserveQueueRs.cs" />
+    <Compile Include="Services\MemberAppModel\GetBranchServicesRq.cs" />
+    <Compile Include="Services\MemberAppModel\GetBranchServicesRs.cs" />
+    <Compile Include="Services\MemberAppModel\ReserveQueueRq.cs" />
+    <Compile Include="Services\MemberAppModel\ReserveQueueRs.cs" />
     <Compile Include="Services\ReserveQueueService.cs" />
     <Compile Include="Controller\ShowHistoryController.cs" />
-    <Compile Include="Services\model\GetHistoryRq.cs" />
-    <Compile Include="Services\model\GetHistoryRs.cs" />
+    <Compile Include="Services\MemberAppModel\GetHistoryRq.cs" />
+    <Compile Include="Services\MemberAppModel\GetHistoryRs.cs" />
     <Compile Include="Model\History.cs" />
     <Compile Include="View\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
@@ -177,6 +170,18 @@
     <Compile Include="View\QRcodePage.xaml.cs">
       <DependentUpon>QRcodePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\UserAppModel\UserLoginRq.cs" />
+    <Compile Include="Services\UserAppModel\UserLoginRs.cs" />
+    <Compile Include="View\UserApplication\UserLoginPage.xaml.cs">
+      <DependentUpon>UserLoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AppModel\GetCodeDescriptionRq.cs" />
+    <Compile Include="Services\AppModel\GetCodeDescriptionRs.cs" />
+    <Compile Include="Services\AppModel\GetDistrictsRq.cs" />
+    <Compile Include="Services\AppModel\GetDistrictsRs.cs" />
+    <Compile Include="Services\AppModel\GetProvincesRq.cs" />
+    <Compile Include="Services\AppModel\GetProvincesRs.cs" />
+    <Compile Include="Services\AppModel\HeaderResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -204,7 +209,10 @@
     <Folder Include="Image\" />
     <Folder Include="Common\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\model\" />
+    <Folder Include="Services\MemberAppModel\" />
+    <Folder Include="View\UserApplication\" />
+    <Folder Include="Services\UserAppModel\" />
+    <Folder Include="Services\AppModel\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

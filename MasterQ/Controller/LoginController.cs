@@ -8,10 +8,12 @@ namespace MasterQ
     public class LoginController
     {
         private static LoginController instance = new LoginController();
-        LoginController(){
-            
+        LoginController()
+        {
+
         }
-        public static LoginController getInstance(){
+        public static LoginController getInstance()
+        {
             return instance;
         }
         //public async Task<UIReturn> AuthenuserAsync(Login input)
@@ -35,7 +37,19 @@ namespace MasterQ
         //    }
         //    return ret;
         //}
-        public UIReturn Authenuser(Login input)
+        public UIReturn Login(Login input)
+        {
+            if (Constants.isAppForMember())
+            {
+                return LoginMember(input);
+            }
+            else if (Constants.isAppForUser())
+            {
+                return LoginUser(input);
+            }
+            return new UIReturn();
+        }
+        public UIReturn LoginMember(Login input)
         {
             if (String.IsNullOrEmpty(input.username)) return Constants.uiErrorEmptyUserName;
             if (String.IsNullOrEmpty(input.password)) return Constants.uiErrorEmptyPassword;
@@ -48,10 +62,17 @@ namespace MasterQ
             UIReturn ret = new UIReturn(res.header);
             return ret;
         }
-        private bool authen(Login input, LoginRs loginuser)
+        public UIReturn LoginUser(Login input)
         {
-            return loginuser.member.email == input.username && loginuser.member.password == input.password;
-        }
+            if (String.IsNullOrEmpty(input.username)) return Constants.uiErrorEmptyUserName;
+            if (String.IsNullOrEmpty(input.password)) return Constants.uiErrorEmptyPassword;
 
+            UserLoginRq req = LoginService.getInstance().getUserLoginRq(input);
+            UserLoginRs res = LoginService.getInstance().CallLogin(req);
+            TempDB.loginUser = res.user;
+
+            UIReturn ret = new UIReturn(res.header);
+            return ret;
+        }
     }
 }

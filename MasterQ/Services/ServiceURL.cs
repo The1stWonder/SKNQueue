@@ -6,19 +6,28 @@ namespace MasterQ
         public static String ipDev = "http://192.1.1.206";
         public static String ipPro = "http://202.129.59.21";
         public static String ipServer = ipPro;
-        public static String serviceName = "/QueueService.svc/";
-        public static String sampleUrlGet = serviceName+"Member/";
-        public static String sampleUrlPost = serviceName + "Login/";
-		public static String loginUrl = serviceName + "Login/";
-        public static String registerUrl = serviceName + "Register/";
-		public static String editProfileUrl = serviceName + "EditProfile/";
-		public static String forgetPasswordUrl = serviceName + "ForgetPassword/";
-        public static String getProvicesUrl = serviceName + "GetProvinces/";
-        public static String getDistrictsUrl = serviceName + "GetDistricts/";
-        public static String getBranchesUrl = serviceName + "GetBranches/";
-        public static String getBranchServicesUrl = serviceName + "GetBranchServices/";
-        public static String reserveQueueUrl = serviceName + "ReserveQueue/";
-        public static String getHistoryUrl = serviceName + "GetHistory/";
-        public static String getCodeDescriptionUrl = serviceName + "GetCodeDescription/";
+		public static String serviceName = "/QueueService.svc/";
+        public static String memberPrefix = "Member/";
+        public static String userPrefix = "User/";
+        public static String branchPrefix = "Branch/";
+
+        public static String sampleUrlGet = serviceName+memberPrefix + "Member/";
+        public static String sampleUrlPost = serviceName + memberPrefix + "Login/";
+
+		public static String getCodeDescriptionUrl = serviceName + "GetCodeDescription/";
+		public static String getProvicesUrl = serviceName + "GetProvinces/";
+		public static String getDistrictsUrl = serviceName + "GetDistricts/";
+
+		public static String loginUrl = serviceName + memberPrefix+"Login/";
+        public static String registerUrl = serviceName + memberPrefix + "Register/";
+		public static String editProfileUrl = serviceName + memberPrefix + "EditProfile/";
+		public static String forgetPasswordUrl = serviceName + memberPrefix + "ForgetPassword/";
+        public static String getBranchesUrl = serviceName + memberPrefix + "GetBranches/";
+        public static String getBranchServicesUrl = serviceName + memberPrefix + "GetBranchServices/";
+        public static String reserveQueueUrl = serviceName + memberPrefix + "ReserveQueue/";
+        public static String getHistoryUrl = serviceName + memberPrefix + "GetHistory/";
+
+        public static String userLoginUrl = serviceName + userPrefix + "Login/";
+        public static String userOpenServiceUrl = serviceName + userPrefix + "OpenService/";
     }
 }

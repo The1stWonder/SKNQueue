@@ -43,6 +43,19 @@ namespace MasterQ
             ret.email = email;
             return ret;
 
-        }
+		}
+		public UserLoginRs CallLogin(UserLoginRq request)
+		{
+			string serviceUrl = ServiceURL.ipServer + ServiceURL.userLoginUrl;
+			String resJSON = CallServices.callPost(serviceUrl, request);
+			return JObject.Parse(resJSON).ToObject<UserLoginRs>();
+
+		}
+		public UserLoginRq getUserLoginRq(Login input)
+		{
+			UserLoginRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<UserLoginRq>();
+			return ret;
+
+		}
     }
 }

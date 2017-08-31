@@ -11,5 +11,6 @@ namespace MasterQ
         public static List<Branch> branches;
         public static List<Service> services;
         public static Member loginMember;
+        public static User loginUser;
     }
 }

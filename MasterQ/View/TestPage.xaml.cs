@@ -45,7 +45,7 @@ namespace MasterQ
             Login m = new Login();
             m.username = "first@gmail.com";
             m.password = "editPassword";
-            UIReturn result = LoginController.getInstance().Authenuser(m);
+            UIReturn result = LoginController.getInstance().Login(m);
 
         }
         private void register()

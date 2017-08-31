@@ -29,14 +29,14 @@ namespace MasterQ
 
         }
 
-        private String getQueueType(String input)
+        private String getQueueType()
         {
             String ret = String.Empty;
-            if (Constants.APPLICATION_TYPE_USER.Equals(input))
+            if (Constants.isAppForUser())
             {
                 ret = Constants.QUEUE_TYPE_USER;
             }
-            else if (Constants.APPLICATION_TYPE_BRANCH.Equals(input))
+            else if (Constants.isAppForBranch())
             {
                 ret = Constants.QUEUE_TYPE_BRANCH;
             }
@@ -47,14 +47,14 @@ namespace MasterQ
         {
             ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
             ret.memberID = TempDB.loginMember.memberID;
-            ret.queueType = getQueueType(Constants.APPLICATION_TYPE);
+            ret.queueType = getQueueType();
             return ret;
         }
 		public ReserveQueueRq getReserveQueueRq(Queue input)
 		{
 			ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
 			ret.memberID = TempDB.loginMember.memberID;
-			ret.queueType = getQueueType(Constants.APPLICATION_TYPE);
+			ret.queueType = getQueueType();
 			return ret;
 		}
         public GetBranchServicesRq getBranchServicesRq(Branch input)

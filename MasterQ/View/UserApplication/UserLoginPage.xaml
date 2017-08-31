@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.UserLoginPage">
+	<Grid
+            Margin="20,20,20,20"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="40" />
+                <ColumnDefinition
+                    Width="*" />
+        </Grid.ColumnDefinitions>
+        <Entry
+                x:Name="mUsernameEntry"
+                Keyboard="Email"
+                Placeholder="Username"
+                Grid.Row="1"
+                Grid.Column="1" />
+        <Entry
+                x:Name="mPasswordEntry"
+                IsPassword="true"
+                Placeholder="Password"
+                Grid.Row="2"
+                Grid.Column="1" />
+        <Button
+                Clicked="Login_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="Login"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BackgroundColor="#006699"
+                TextColor="White" />
+    </Grid>
+</ContentPage>

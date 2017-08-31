@@ -8,6 +8,7 @@ namespace MasterQ
         public static String APPLICATION_TYPE_MEMBER = "MEMBER";
         public static String APPLICATION_TYPE_BRANCH = "BRANCH";
         public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
+        //public static String APPLICATION_TYPE = APPLICATION_TYPE_MEMBER;
         public static String QUEUE_TYPE_USER = "O";
         public static String QUEUE_TYPE_BRANCH = "K";
 
@@ -47,6 +48,19 @@ namespace MasterQ
         public static UIReturn uiErrorEmptyLastName = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_LASTNAME);
 		public static UIReturn uiErrorEmptyBirthdate = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_BIRTHDATE);
         public static UIReturn uiErrorEmptyConfirmPassword = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_CONFIRMPASSWORD);
+         
+		public static bool isAppForMember()
+		{
+			return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_MEMBER);
+		}
+		public static bool isAppForUser()
+		{
+			return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_USER);
+		}
+		public static bool isAppForBranch()
+		{
+			return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_BRANCH);
+		}
 
 	}
 }
