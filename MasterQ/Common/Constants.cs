@@ -1,8 +1,8 @@
 ﻿using System;
 namespace MasterQ
 {
-	public class Constants
-	{
+    public class Constants
+    {
         // Application Type
         public static String APPLICATION_TYPE_USER = "USER";
         public static String APPLICATION_TYPE_MEMBER = "MEMBER";
@@ -13,54 +13,45 @@ namespace MasterQ
         public static String QUEUE_TYPE_BRANCH = "K";
 
         // Validation
-        public static String GROUPS_VALIDATE = "VALIDATE";
-		public static String FUNCTIONS_EMAIL = "EMAIL";
-		public static String CODE_VALID_EMAIL = "00";
-        public static String CODE_INVALID_EMAIL = "01";
-		public static String FUNCTIONS_EMPTY_INPUT = "EMPTYINPUT";
-		public static String CODE_EMPTY_USERNAME = "01";
-		public static String CODE_EMPTY_PASSWORD = "02";
-        public static String CODE_EMPTY_EMAIL = "03";
-        public static String CODE_EMPTY_FIRSTNAME = "04";
-		public static String CODE_EMPTY_LASTNAME = "05";
-		public static String CODE_EMPTY_BIRTHDATE = "06";
-        public static String CODE_EMPTY_CONFIRMPASSWORD = "07";
-        public static String FUNCTIONS_PASSWORD = "PASSWORD";
-        public static String CODE_PASSWORD_NOTMATCH = "01";
+        public static int ERROR_DEFAULT_ID = 1;
+        public static int SUCCESS_DEFAULT_ID = 2;
+        public static int ERROR_INVALID_EMAIL_ID = 16;
+        public static int ERROR_PASSWORD_NOT_MATCH_ID = 24;
+        public static int ERROR_EMPTY_USERNAME_ID = 17;
+        public static int ERROR_EMPTY_PASSWORD_ID = 18;
+        public static int ERROR_EMPTY_EMAIL_ID = 19;
+        public static int ERROR_EMPTY_FIRSTNAME_ID = 20;
+        public static int ERROR_EMPTY_LASTNAME_ID = 21;
+        public static int ERROR_EMPTY_BIRTHDATE_ID = 22;
+        public static int ERROR_EMPTY_CONFIRM_PASSWORD_ID = 23;
 
-		public static String GROUPS_DEFAULT = "DEFAULT";
-		public static String FUNCTIONS_SUCCESS = "SUCCESS";
-		public static String CODE_DEFAULT_SUCCESS = "00";
-		public static String FUNCTIONS_ERROR = "ERROR";
-        public static String CODE_DEFAULT_ERROR = "00";
 
-        public static UIReturn uiErrorDefault = new UIReturn(false, GROUPS_DEFAULT, FUNCTIONS_ERROR, CODE_DEFAULT_ERROR);
-        public static UIReturn uiSuccessDefault = new UIReturn(true, GROUPS_DEFAULT, FUNCTIONS_SUCCESS, CODE_DEFAULT_SUCCESS);
+        public static UIReturn uiErrorDefault = new UIReturn(false, ERROR_DEFAULT_ID);
+        public static UIReturn uiSuccessDefault = new UIReturn(true, SUCCESS_DEFAULT_ID);
 
-        public static UIReturn uiPassValidEmail = new UIReturn(true, GROUPS_VALIDATE, FUNCTIONS_EMAIL, CODE_VALID_EMAIL);
+        public static UIReturn uiPassValidEmail = new UIReturn(true, SUCCESS_DEFAULT_ID);
+        public static UIReturn uiErrorInvalidEmail = new UIReturn(false, ERROR_INVALID_EMAIL_ID);
+        public static UIReturn uiErrorPasswordNotMatch = new UIReturn(false, ERROR_PASSWORD_NOT_MATCH_ID);
+        public static UIReturn uiErrorEmptyUserName = new UIReturn(false, ERROR_EMPTY_USERNAME_ID);
+        public static UIReturn uiErrorEmptyPassword = new UIReturn(false, ERROR_EMPTY_PASSWORD_ID);
+        public static UIReturn uiErrorEmptyEmail = new UIReturn(false, ERROR_EMPTY_EMAIL_ID);
+        public static UIReturn uiErrorEmptyFirstName = new UIReturn(false, ERROR_EMPTY_FIRSTNAME_ID);
+        public static UIReturn uiErrorEmptyLastName = new UIReturn(false, ERROR_EMPTY_LASTNAME_ID);
+        public static UIReturn uiErrorEmptyBirthdate = new UIReturn(false, ERROR_EMPTY_BIRTHDATE_ID);
+        public static UIReturn uiErrorEmptyConfirmPassword = new UIReturn(false, ERROR_EMPTY_CONFIRM_PASSWORD_ID);
 
-        public static UIReturn uiErrorInvalidEmail = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMAIL, CODE_INVALID_EMAIL);
-        public static UIReturn uiErrorPasswordNotMatch = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_PASSWORD, CODE_PASSWORD_NOTMATCH);
-        public static UIReturn uiErrorEmptyUserName = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_USERNAME);
-        public static UIReturn uiErrorEmptyPassword = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_PASSWORD);
-        public static UIReturn uiErrorEmptyEmail = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_EMAIL);
-		public static UIReturn uiErrorEmptyFirstName = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_FIRSTNAME);
-        public static UIReturn uiErrorEmptyLastName = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_LASTNAME);
-		public static UIReturn uiErrorEmptyBirthdate = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_BIRTHDATE);
-        public static UIReturn uiErrorEmptyConfirmPassword = new UIReturn(false, GROUPS_VALIDATE, FUNCTIONS_EMPTY_INPUT, CODE_EMPTY_CONFIRMPASSWORD);
-         
-		public static bool isAppForMember()
-		{
-			return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_MEMBER);
-		}
-		public static bool isAppForUser()
-		{
-			return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_USER);
-		}
-		public static bool isAppForBranch()
-		{
-			return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_BRANCH);
-		}
+        public static bool isAppForMember()
+        {
+            return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_MEMBER);
+        }
+        public static bool isAppForUser()
+        {
+            return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_USER);
+        }
+        public static bool isAppForBranch()
+        {
+            return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_BRANCH);
+        }
 
-	}
+    }
 }

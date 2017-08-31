@@ -3,7 +3,7 @@ namespace MasterQ
 {
     public class UserLoginRq
     {
-        public String userName { get; set; }
+        public String username { get; set; }
         public String password { get; set; }
     }
 }

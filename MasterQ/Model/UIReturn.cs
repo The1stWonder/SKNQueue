@@ -5,7 +5,7 @@ namespace MasterQ
     {
         public Boolean isSuccess { get; set; }
         public String code { get; set; }
-		public String codeValue { get; set; }
+        public String codeValue { get; set; }
         public String descriptionTH { get; set; }
         public String descriptionEN { get; set; }
         public Object returnObject { get; set; }
@@ -14,26 +14,27 @@ namespace MasterQ
         {
             this.isSuccess = false;
         }
-        public String getDescription(){
-            return (false)?descriptionTH:descriptionEN;
+        public String getDescription()
+        {
+            return (false) ? descriptionTH : descriptionEN;
         }
-		public UIReturn(bool isSuccess, String groups, String functions, String code)
-		{
-			this.isSuccess = isSuccess;
-			CodeDescription codeDesc = Utils.getCodeDesc(groups, functions, code);
-			this.code = codeDesc.code;
-			this.codeValue = codeDesc.codeValue;
-			this.descriptionTH = codeDesc.descriptionTH;
-			this.descriptionEN = codeDesc.descriptionEN;
-		}
-		public UIReturn(HeaderResponse header)
-		{
-			this.isSuccess = header.isSuccess;
-			CodeDescription codeDesc = Utils.getCodeDesc(header.groups, header.functions, header.code);
-			this.code = codeDesc.code;
-			this.codeValue = codeDesc.codeValue;
-			this.descriptionTH = codeDesc.descriptionTH;
-			this.descriptionEN = codeDesc.descriptionEN;
-		}
+        public UIReturn(HeaderResponse header)
+        {
+            this.isSuccess = header.isSuccess;
+            CodeDescription codeDesc = Utils.getCodeDesc(header.id);
+            this.code = codeDesc.code;
+            this.codeValue = codeDesc.codeValue;
+            this.descriptionTH = codeDesc.descriptionTH;
+            this.descriptionEN = codeDesc.descriptionEN;
+        }
+        public UIReturn(bool isSuccess, int id)
+        {
+            this.isSuccess = isSuccess;
+            CodeDescription codeDesc = Utils.getCodeDesc(id);
+            this.code = codeDesc.code;
+            this.codeValue = codeDesc.codeValue;
+            this.descriptionTH = codeDesc.descriptionTH;
+            this.descriptionEN = codeDesc.descriptionEN;
+        }
     }
 }
