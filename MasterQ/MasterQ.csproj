@@ -201,6 +201,23 @@
     <None Include="Image\MainP3.png" />
     <None Include="Image\NextQ1.png" />
     <None Include="Image\NextQ2.png" />
+    <None Include="Image\btn_join_click.png" />
+    <None Include="Image\btn_join.png" />
+    <None Include="Image\btn_signin_click.png" />
+    <None Include="Image\btn_signin.png" />
+    <None Include="Image\btn_submit_click.png" />
+    <None Include="Image\btn_submit.png" />
+    <None Include="Image\bubble_sample.png" />
+    <None Include="Image\bubble.png" />
+    <None Include="Image\divider.png" />
+    <None Include="Image\icn_birthday.png" />
+    <None Include="Image\icn_confirm_password.png" />
+    <None Include="Image\icn_email.png" />
+    <None Include="Image\icn_password.png" />
+    <None Include="Image\icn_phone.png" />
+    <None Include="Image\icn_usename.png" />
+    <None Include="Image\man.png" />
+    <None Include="Image\manWithBubble_Q.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

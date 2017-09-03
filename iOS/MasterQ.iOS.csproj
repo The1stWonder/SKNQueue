@@ -160,6 +160,57 @@
     <BundleResource Include="..\MasterQ\Image\user.png">
       <Link>Resources\user.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_join_click.png">
+      <Link>Resources\btn_join_click.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_join.png">
+      <Link>Resources\btn_join.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_signin_click.png">
+      <Link>Resources\btn_signin_click.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_signin.png">
+      <Link>Resources\btn_signin.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_submit_click.png">
+      <Link>Resources\btn_submit_click.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_submit.png">
+      <Link>Resources\btn_submit.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\bubble_sample.png">
+      <Link>Resources\bubble_sample.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\bubble.png">
+      <Link>Resources\bubble.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\divider.png">
+      <Link>Resources\divider.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\icn_birthday.png">
+      <Link>Resources\icn_birthday.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\icn_confirm_password.png">
+      <Link>Resources\icn_confirm_password.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\icn_email.png">
+      <Link>Resources\icn_email.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\icn_password.png">
+      <Link>Resources\icn_password.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\icn_phone.png">
+      <Link>Resources\icn_phone.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\icn_usename.png">
+      <Link>Resources\icn_usename.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\man.png">
+      <Link>Resources\man.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\manWithBubble_Q.png">
+      <Link>Resources\manWithBubble_Q.png</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

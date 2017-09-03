@@ -167,6 +167,57 @@
     <AndroidResource Include="..\MasterQ\Image\NextQ2.png">
       <Link>Resources\drawable-xxhdpi\NextQ2.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_join_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_join_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_join.png">
+      <Link>Resources\drawable-xxhdpi\btn_join.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_signin_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_signin_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_signin.png">
+      <Link>Resources\drawable-xxhdpi\btn_signin.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_submit_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_submit_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_submit.png">
+      <Link>Resources\drawable-xxhdpi\btn_submit.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\bubble_sample.png">
+      <Link>Resources\drawable-xxhdpi\bubble_sample.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\bubble.png">
+      <Link>Resources\drawable-xxhdpi\bubble.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\divider.png">
+      <Link>Resources\drawable-xxhdpi\divider.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\icn_birthday.png">
+      <Link>Resources\drawable-xxhdpi\icn_birthday.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\icn_confirm_password.png">
+      <Link>Resources\drawable-xxhdpi\icn_confirm_password.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\icn_email.png">
+      <Link>Resources\drawable-xxhdpi\icn_email.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\icn_password.png">
+      <Link>Resources\drawable-xxhdpi\icn_password.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\icn_phone.png">
+      <Link>Resources\drawable-xxhdpi\icn_phone.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\icn_usename.png">
+      <Link>Resources\drawable-xxhdpi\icn_usename.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\man.png">
+      <Link>Resources\drawable-xxhdpi\man.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\manWithBubble_Q.png">
+      <Link>Resources\drawable-xxhdpi\manWithBubble_Q.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
