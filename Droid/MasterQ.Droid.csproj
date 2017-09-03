@@ -218,6 +218,39 @@
     <AndroidResource Include="..\MasterQ\Image\manWithBubble_Q.png">
       <Link>Resources\drawable-xxhdpi\manWithBubble_Q.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_back_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_back_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_back.png">
+      <Link>Resources\drawable-xxhdpi\btn_back.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_booking_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_booking_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_booking.png">
+      <Link>Resources\drawable-xxhdpi\btn_booking.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_history_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_history_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_history.png">
+      <Link>Resources\drawable-xxhdpi\btn_history.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_profile_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_profile_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_profile.png">
+      <Link>Resources\drawable-xxhdpi\btn_profile.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_qr_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_qr_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_qr.png">
+      <Link>Resources\drawable-xxhdpi\btn_qr.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\Qcircle.png">
+      <Link>Resources\drawable-xxhdpi\Qcircle.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

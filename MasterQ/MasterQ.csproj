@@ -218,6 +218,17 @@
     <None Include="Image\icn_usename.png" />
     <None Include="Image\man.png" />
     <None Include="Image\manWithBubble_Q.png" />
+    <None Include="Image\btn_back_click.png" />
+    <None Include="Image\btn_back.png" />
+    <None Include="Image\btn_booking_click.png" />
+    <None Include="Image\btn_booking.png" />
+    <None Include="Image\btn_history_click.png" />
+    <None Include="Image\btn_history.png" />
+    <None Include="Image\btn_profile_click.png" />
+    <None Include="Image\btn_profile.png" />
+    <None Include="Image\btn_qr_click.png" />
+    <None Include="Image\btn_qr.png" />
+    <None Include="Image\Qcircle.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
