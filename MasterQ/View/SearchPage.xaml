@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage Title="จองคิว" 
+    BackgroundImage="bg4.png"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.SearchPage">
@@ -91,9 +92,9 @@
                     <ViewCell>
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding branchName}" />
+                    <Label Text="{Binding branchName}" TextColor="White"/>
                    <!-- <Label Text="{Binding branchID}" />-->
-                   <Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" />
+                   <Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" HeightRequest="40" />
 					 <!--<Image.GestureRecognizers>
         			<TapGestureRecognizer Tapped="OnImageNextQ" />
     			</Image.GestureRecognizers>

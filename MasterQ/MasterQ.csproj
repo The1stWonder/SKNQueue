@@ -229,6 +229,7 @@
     <None Include="Image\btn_qr_click.png" />
     <None Include="Image\btn_qr.png" />
     <None Include="Image\Qcircle.png" />
+    <None Include="Image\bg4.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

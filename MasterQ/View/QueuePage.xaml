@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
     Title="จองคิว"
+    BackgroundImage="bg4.png"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.QueuePage">
@@ -38,16 +39,14 @@
                 x:Name="queueNumber1"
                 Grid.Row="1" 
                 Grid.Column="0" 
-
-                TextColor="Black" 
+                TextColor="White"
                 FontSize = "20" 
             Text = "คิวที่ : " />
         <Label 
                 x:Name="queueNumber2"
                 Grid.Row="1" 
                 Grid.Column="1" 
-
-                TextColor="Black" 
+                TextColor="White" 
                 FontSize = "20" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" />
@@ -55,16 +54,14 @@
                 x:Name="estimateTime1"
                 Grid.Row="2" 
                 Grid.Column="0" 
-
-                TextColor="Black" 
+                TextColor="White"
                 FontSize = "20" 
             Text = "EstimateTime : " />
         <Label 
                 x:Name="estimateTime2"
                 Grid.Row="2" 
                 Grid.Column="1" 
-
-                TextColor="Black" 
+                TextColor="White"
                 FontSize = "20" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" />

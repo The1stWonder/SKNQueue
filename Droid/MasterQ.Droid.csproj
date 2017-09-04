@@ -251,6 +251,9 @@
     <AndroidResource Include="..\MasterQ\Image\Qcircle.png">
       <Link>Resources\drawable-xxhdpi\Qcircle.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\bg4.png">
+      <Link>Resources\drawable-xxhdpi\bg4.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
