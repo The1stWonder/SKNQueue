@@ -41,7 +41,7 @@ namespace MasterQ
         {
             if (String.IsNullOrEmpty(input.username)) return Constants.uiErrorEmptyUserName;
             if (String.IsNullOrEmpty(input.password)) return Constants.uiErrorEmptyPassword;
-            if (!Validate.email(input.username)) return Constants.uiErrorInvalidEmail;
+            if (!Validate.isEmailFormat(input.username)) return Constants.uiErrorInvalidEmail;
 
             LoginRq req = LoginService.getInstance().getLoginRq(input);
             LoginRs res = LoginService.getInstance().CallLogin(req);

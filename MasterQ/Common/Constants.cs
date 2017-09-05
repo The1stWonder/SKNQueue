@@ -16,6 +16,8 @@ namespace MasterQ
         public static int ERROR_DEFAULT_ID = 1;
         public static int SUCCESS_DEFAULT_ID = 2;
         public static int ERROR_INVALID_EMAIL_ID = 16;
+		public static int ERROR_INVALID_PHONE_NUMBER = 47;
+		public static int ERROR_INVALID_DATE_FORMAT = 48;
         public static int ERROR_PASSWORD_NOT_MATCH_ID = 24;
         public static int ERROR_EMPTY_USERNAME_ID = 17;
         public static int ERROR_EMPTY_PASSWORD_ID = 18;
@@ -31,6 +33,8 @@ namespace MasterQ
 
         public static UIReturn uiPassValidEmail = new UIReturn(true, SUCCESS_DEFAULT_ID);
         public static UIReturn uiErrorInvalidEmail = new UIReturn(false, ERROR_INVALID_EMAIL_ID);
+        public static UIReturn uiErrorInvalidPhoneNumber = new UIReturn(false, ERROR_INVALID_PHONE_NUMBER);
+        public static UIReturn uiErrorInvalidDateFormat = new UIReturn(false, ERROR_INVALID_DATE_FORMAT);
         public static UIReturn uiErrorPasswordNotMatch = new UIReturn(false, ERROR_PASSWORD_NOT_MATCH_ID);
         public static UIReturn uiErrorEmptyUserName = new UIReturn(false, ERROR_EMPTY_USERNAME_ID);
         public static UIReturn uiErrorEmptyPassword = new UIReturn(false, ERROR_EMPTY_PASSWORD_ID);

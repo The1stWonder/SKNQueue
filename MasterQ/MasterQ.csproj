@@ -86,7 +86,6 @@
     <Compile Include="Model\Login.cs" />
     <Compile Include="Controller\Utils.cs" />
     <Compile Include="Controller\Validate.cs" />
-    <Compile Include="Model\Validation.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Services\SampleService.cs" />
     <Compile Include="Services\SampleJSONService.cs" />
@@ -177,12 +176,26 @@
     <Compile Include="Model\MemberAppModel\History.cs" />
     <Compile Include="Model\MemberAppModel\Province.cs" />
     <Compile Include="Model\MemberAppModel\Queue.cs" />
-    <Compile Include="Model\MemberAppModel\Service.cs" />
     <Compile Include="Controller\UserAppController\UserLoginController.cs" />
-    <Compile Include="Services\MemberAppService\GetDistrictsRq.cs" />
-    <Compile Include="Services\MemberAppService\GetDistrictsRs.cs" />
-    <Compile Include="Services\MemberAppService\GetProvincesRq.cs" />
-    <Compile Include="Services\MemberAppService\GetProvincesRs.cs" />
+    <Compile Include="Services\UserAppModel\AcceptQueueRq.cs" />
+    <Compile Include="Services\UserAppModel\AcceptQueueRs.cs" />
+    <Compile Include="Services\UserAppModel\CallQueueRq.cs" />
+    <Compile Include="Services\UserAppModel\CallQueueRs.cs" />
+    <Compile Include="Services\UserAppModel\FinishQueueRq.cs" />
+    <Compile Include="Services\UserAppModel\FinishQueueRs.cs" />
+    <Compile Include="Services\UserAppModel\GetServiceRq.cs" />
+    <Compile Include="Services\UserAppModel\GetServiceRs.cs" />
+    <Compile Include="Model\Service.cs" />
+    <Compile Include="Services\UserAppModel\SkipQueueRq.cs" />
+    <Compile Include="Services\UserAppModel\SkipQueueRs.cs" />
+    <Compile Include="Services\UserAppModel\OpenServiceRq.cs" />
+    <Compile Include="Services\UserAppModel\OpenServiceRs.cs" />
+    <Compile Include="Services\MemberAppModel\GetDistrictsRq.cs" />
+    <Compile Include="Services\MemberAppModel\GetDistrictsRs.cs" />
+    <Compile Include="Services\MemberAppModel\GetProvincesRq.cs" />
+    <Compile Include="Services\MemberAppModel\GetProvincesRs.cs" />
+    <Compile Include="Services\UserAppService\UserActionService.cs" />
+    <Compile Include="Services\UserAppService\UserActionQueueService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

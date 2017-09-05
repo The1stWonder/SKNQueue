@@ -14,7 +14,7 @@ namespace MasterQ
         public UIReturn getPassword(Login input)
 		{
             if (String.IsNullOrEmpty(input.username)) return Constants.uiErrorEmptyEmail;
-            if (!Validate.email(input.username)) return Constants.uiErrorInvalidEmail;
+            if (!Validate.isEmailFormat(input.username)) return Constants.uiErrorInvalidEmail;
 
             ForgetPasswordRq req = LoginService.getInstance().getForgetPasswordRq(input.username);
             ForgetPasswordRs res = LoginService.getInstance().CallForgetPassword(req);

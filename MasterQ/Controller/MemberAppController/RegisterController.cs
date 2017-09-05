@@ -21,7 +21,9 @@ namespace MasterQ
             if (String.IsNullOrEmpty(input.firstName)) return Constants.uiErrorEmptyFirstName;
             if (String.IsNullOrEmpty(input.lastName)) return Constants.uiErrorEmptyLastName;
             if (String.IsNullOrEmpty(input.birthDate)) return Constants.uiErrorEmptyBirthdate;
-            if (!Validate.email(input.email)) return Constants.uiErrorInvalidEmail;
+            if (!Validate.isDateFormat(input.birthDate)) return Constants.uiErrorInvalidDateFormat;
+            if (!Validate.isPhoneNumber(input.tel)) return Constants.uiErrorInvalidPhoneNumber;
+            if (!Validate.isEmailFormat(input.email)) return Constants.uiErrorInvalidEmail;
             if (!isSamePassword(input)) return Constants.uiErrorPasswordNotMatch;
 
             RegisterRq req = MemberService.getInstance().getRegisterRq(input);
