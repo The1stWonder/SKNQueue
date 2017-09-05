@@ -119,10 +119,6 @@
     </Compile>
     <Compile Include="Services\AppModel\GetCodeDescriptionRq.cs" />
     <Compile Include="Services\AppModel\GetCodeDescriptionRs.cs" />
-    <Compile Include="Services\AppModel\GetDistrictsRq.cs" />
-    <Compile Include="Services\AppModel\GetDistrictsRs.cs" />
-    <Compile Include="Services\AppModel\GetProvincesRq.cs" />
-    <Compile Include="Services\AppModel\GetProvincesRs.cs" />
     <Compile Include="Services\AppModel\HeaderResponse.cs" />
     <Compile Include="View\MemberAppView\EditProfilePage.xaml.cs">
       <DependentUpon>EditProfilePage.xaml</DependentUpon>
@@ -183,6 +179,10 @@
     <Compile Include="Model\MemberAppModel\Queue.cs" />
     <Compile Include="Model\MemberAppModel\Service.cs" />
     <Compile Include="Controller\UserAppController\UserLoginController.cs" />
+    <Compile Include="Services\MemberAppService\GetDistrictsRq.cs" />
+    <Compile Include="Services\MemberAppService\GetDistrictsRs.cs" />
+    <Compile Include="Services\MemberAppService\GetProvincesRq.cs" />
+    <Compile Include="Services\MemberAppService\GetProvincesRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -254,6 +254,7 @@
     <Folder Include="Model\MemberAppModel\" />
     <Folder Include="Model\BranchAppModel\" />
     <Folder Include="Model\UserAppModel\" />
+    <Folder Include="Services\BranchAppModel\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
