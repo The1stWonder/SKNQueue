@@ -32,9 +32,9 @@ namespace MasterQ
         private String getQueueType()
         {
             String ret = String.Empty;
-            if (Constants.isAppForUser())
+            if (Constants.isAppForMember())
             {
-                ret = Constants.QUEUE_TYPE_USER;
+                ret = Constants.QUEUE_TYPE_MEMBER;
             }
             else if (Constants.isAppForBranch())
             {
