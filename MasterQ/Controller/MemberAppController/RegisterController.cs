@@ -22,7 +22,7 @@ namespace MasterQ
             if (String.IsNullOrEmpty(input.lastName)) return Constants.uiErrorEmptyLastName;
             if (String.IsNullOrEmpty(input.birthDate)) return Constants.uiErrorEmptyBirthdate;
             if (!Validate.isDateFormat(input.birthDate)) return Constants.uiErrorInvalidDateFormat;
-            if (!Validate.isPhoneNumber(input.tel)) return Constants.uiErrorInvalidPhoneNumber;
+            if (!String.IsNullOrEmpty(input.tel) && !Validate.isPhoneNumber(input.tel)) return Constants.uiErrorInvalidPhoneNumber;
             if (!Validate.isEmailFormat(input.email)) return Constants.uiErrorInvalidEmail;
             if (!isSamePassword(input)) return Constants.uiErrorPasswordNotMatch;
 

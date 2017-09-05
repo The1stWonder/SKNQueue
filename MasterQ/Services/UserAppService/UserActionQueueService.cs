@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MasterQ.Services.UserAppService
+namespace MasterQ
 {
     public class UserActionQueueService
     {
@@ -14,7 +14,7 @@ namespace MasterQ.Services.UserAppService
         }
         public CallQueueRs callQueue(CallQueueRq request)
         {
-            string serviceUrl = ServiceURL.ipServer + ServiceURL.userLoginUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.userCallQueueUrl;
             String resJSON = CallServices.callPost(serviceUrl, request);
             return JObject.Parse(resJSON).ToObject<CallQueueRs>();
 
@@ -30,7 +30,7 @@ namespace MasterQ.Services.UserAppService
         }
         public AcceptQueueRs acceptQueue(AcceptQueueRq request)
         {
-            string serviceUrl = ServiceURL.ipServer + ServiceURL.userLoginUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.userAcceptQueueUrl;
             String resJSON = CallServices.callPost(serviceUrl, request);
             return JObject.Parse(resJSON).ToObject<AcceptQueueRs>();
 
@@ -43,7 +43,7 @@ namespace MasterQ.Services.UserAppService
         }
         public FinishQueueRs finishQueue(FinishQueueRq request)
 		{
-			string serviceUrl = ServiceURL.ipServer + ServiceURL.userLoginUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.userFinishQueueUrl;
 			String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<FinishQueueRs>();
 
@@ -56,7 +56,7 @@ namespace MasterQ.Services.UserAppService
 		}
         public SkipQueueRs skipQueue(SkipQueueRq request)
 		{
-			string serviceUrl = ServiceURL.ipServer + ServiceURL.userLoginUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.userSkipQueueUrl;
 			String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<SkipQueueRs>();
 

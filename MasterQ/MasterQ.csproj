@@ -196,6 +196,8 @@
     <Compile Include="Services\MemberAppModel\GetProvincesRs.cs" />
     <Compile Include="Services\UserAppService\UserActionService.cs" />
     <Compile Include="Services\UserAppService\UserActionQueueService.cs" />
+    <Compile Include="Controller\UserAppController\UserActionServiceController.cs" />
+    <Compile Include="Controller\UserAppController\UserActionQueueController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

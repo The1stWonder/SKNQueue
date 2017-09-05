@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MasterQ.Services.UserAppService
+namespace MasterQ
 {
     public class UserActionService
     {
@@ -17,7 +17,7 @@ namespace MasterQ.Services.UserAppService
         }
         public GetServiceRs getServices(GetServiceRq request)
 		{
-			string serviceUrl = ServiceURL.ipServer + ServiceURL.userLoginUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.userGetServiceUrl;
 			String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<GetServiceRs>();
 
@@ -30,7 +30,7 @@ namespace MasterQ.Services.UserAppService
 		}
         public OpenServiceRs openService(OpenServiceRq request)
 		{
-			string serviceUrl = ServiceURL.ipServer + ServiceURL.userLoginUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.userOpenServiceUrl;
 			String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<OpenServiceRs>();
 
