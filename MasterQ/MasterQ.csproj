@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -30,46 +29,46 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="MasterQPage.xaml" />
-    <EmbeddedResource Include="View\LoginPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\RegisterPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SummaryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\EditProfilePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MainPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SearchPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ServicePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\TestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ForgetPasswordPage.xaml">
+    <EmbeddedResource Include="View\UserAppView\UserLoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainProfilePage.xaml">
+    <EmbeddedResource Include="View\MemberAppView\EditProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\HistoryPage.xaml">
+    <EmbeddedResource Include="View\MemberAppView\ForgetPasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\QueuePage.xaml">
+    <EmbeddedResource Include="View\MemberAppView\HistoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\QRcodePage.xaml">
+    <EmbeddedResource Include="View\MemberAppView\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserApplication\UserLoginPage.xaml">
+    <EmbeddedResource Include="View\MemberAppView\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\MainProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\QRcodePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\QueuePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\SearchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\ServicePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\SummaryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -81,98 +80,41 @@
       <DependentUpon>MasterQPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RegisterPage.xaml.cs">
-      <DependentUpon>RegisterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SummaryPage.xaml.cs">
-      <DependentUpon>SummaryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditProfilePage.xaml.cs">
-      <DependentUpon>EditProfilePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SearchPage.xaml.cs">
-      <DependentUpon>SearchPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ServicePage.xaml.cs">
-      <DependentUpon>ServicePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\User.cs" />
     <Compile Include="Model\Login.cs" />
-    <Compile Include="Model\Province.cs" />
-    <Compile Include="Controller\Initial.cs" />
-    <Compile Include="Model\Member.cs" />
-    <Compile Include="Model\Queue.cs" />
     <Compile Include="Controller\Utils.cs" />
-    <Compile Include="Model\Branch.cs" />
-    <Compile Include="Model\Company.cs" />
-    <Compile Include="Model\Service.cs" />
-    <Compile Include="Controller\LoginController.cs" />
-    <Compile Include="Controller\SearchController.cs" />
-    <Compile Include="Controller\RegisterController.cs" />
-    <Compile Include="Controller\EditProfileController.cs" />
-    <Compile Include="Controller\ReserveQController.cs" />
     <Compile Include="Controller\Validate.cs" />
     <Compile Include="Model\Validation.cs" />
     <Compile Include="Common\Constants.cs" />
-    <Compile Include="Controller\ForgetPasswordController.cs" />
     <Compile Include="Services\SampleService.cs" />
     <Compile Include="Services\SampleJSONService.cs" />
     <Compile Include="Services\ServiceURL.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Model\UIReturn.cs" />
-    <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\MemberAppModel\LoginRq.cs" />
     <Compile Include="Services\MemberAppModel\LoginRs.cs" />
     <Compile Include="Services\CallServices.cs" />
-    <Compile Include="Services\MemberService.cs" />
     <Compile Include="Services\MemberAppModel\RegisterRq.cs" />
     <Compile Include="Services\MemberAppModel\RegisterRs.cs" />
     <Compile Include="Services\MemberAppModel\ForgetPasswordRq.cs" />
     <Compile Include="Services\MemberAppModel\ForgetPasswordRs.cs" />
     <Compile Include="Services\MemberAppModel\EditProfileRq.cs" />
     <Compile Include="Services\MemberAppModel\EditProfileRs.cs" />
-    <Compile Include="Services\MetaDataService.cs" />
     <Compile Include="Services\MemberAppModel\GetBranchesRs.cs" />
     <Compile Include="Services\MemberAppModel\GetBranchesRq.cs" />
-    <Compile Include="Model\District.cs" />
     <Compile Include="Model\CodeDescription.cs" />
-    <Compile Include="View\ForgetPasswordPage.xaml.cs">
-      <DependentUpon>ForgetPasswordPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainProfilePage.xaml.cs">
-      <DependentUpon>MainProfilePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Common\TempDB.cs" />
     <Compile Include="Services\MemberAppModel\GetBranchServicesRq.cs" />
     <Compile Include="Services\MemberAppModel\GetBranchServicesRs.cs" />
     <Compile Include="Services\MemberAppModel\ReserveQueueRq.cs" />
     <Compile Include="Services\MemberAppModel\ReserveQueueRs.cs" />
-    <Compile Include="Services\ReserveQueueService.cs" />
-    <Compile Include="Controller\ShowHistoryController.cs" />
     <Compile Include="Services\MemberAppModel\GetHistoryRq.cs" />
     <Compile Include="Services\MemberAppModel\GetHistoryRs.cs" />
-    <Compile Include="Model\History.cs" />
-    <Compile Include="View\HistoryPage.xaml.cs">
-      <DependentUpon>HistoryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\QueuePage.xaml.cs">
-      <DependentUpon>QueuePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\QRcodePage.xaml.cs">
-      <DependentUpon>QRcodePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Services\UserAppModel\UserLoginRq.cs" />
     <Compile Include="Services\UserAppModel\UserLoginRs.cs" />
-    <Compile Include="View\UserApplication\UserLoginPage.xaml.cs">
+    <Compile Include="View\UserAppView\UserLoginPage.xaml.cs">
       <DependentUpon>UserLoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\AppModel\GetCodeDescriptionRq.cs" />
@@ -182,6 +124,65 @@
     <Compile Include="Services\AppModel\GetProvincesRq.cs" />
     <Compile Include="Services\AppModel\GetProvincesRs.cs" />
     <Compile Include="Services\AppModel\HeaderResponse.cs" />
+    <Compile Include="View\MemberAppView\EditProfilePage.xaml.cs">
+      <DependentUpon>EditProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\ForgetPasswordPage.xaml.cs">
+      <DependentUpon>ForgetPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\MainProfilePage.xaml.cs">
+      <DependentUpon>MainProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\QRcodePage.xaml.cs">
+      <DependentUpon>QRcodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\QueuePage.xaml.cs">
+      <DependentUpon>QueuePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\ServicePage.xaml.cs">
+      <DependentUpon>ServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberAppView\SummaryPage.xaml.cs">
+      <DependentUpon>SummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\MemberAppController\EditProfileController.cs" />
+    <Compile Include="Controller\MemberAppController\ForgetPasswordController.cs" />
+    <Compile Include="Controller\MemberAppController\Initial.cs" />
+    <Compile Include="Controller\MemberAppController\LoginController.cs" />
+    <Compile Include="Controller\MemberAppController\RegisterController.cs" />
+    <Compile Include="Controller\MemberAppController\ReserveQController.cs" />
+    <Compile Include="Controller\MemberAppController\SearchController.cs" />
+    <Compile Include="Controller\MemberAppController\ShowHistoryController.cs" />
+    <Compile Include="Services\MemberAppService\LoginService.cs" />
+    <Compile Include="Services\MemberAppService\MemberService.cs" />
+    <Compile Include="Services\MemberAppService\MetaDataService.cs" />
+    <Compile Include="Services\MemberAppService\ReserveQueueService.cs" />
+    <Compile Include="Services\UserAppService\UserLoginService.cs" />
+    <Compile Include="Model\UserAppModel\User.cs" />
+    <Compile Include="Model\MemberAppModel\Member.cs" />
+    <Compile Include="Model\MemberAppModel\Branch.cs" />
+    <Compile Include="Model\MemberAppModel\Company.cs" />
+    <Compile Include="Model\MemberAppModel\District.cs" />
+    <Compile Include="Model\MemberAppModel\History.cs" />
+    <Compile Include="Model\MemberAppModel\Province.cs" />
+    <Compile Include="Model\MemberAppModel\Queue.cs" />
+    <Compile Include="Model\MemberAppModel\Service.cs" />
+    <Compile Include="Controller\UserAppController\UserLoginController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -239,9 +240,20 @@
     <Folder Include="Common\" />
     <Folder Include="Services\" />
     <Folder Include="Services\MemberAppModel\" />
-    <Folder Include="View\UserApplication\" />
+    <Folder Include="View\UserAppView\" />
     <Folder Include="Services\UserAppModel\" />
     <Folder Include="Services\AppModel\" />
+    <Folder Include="Controller\UserAppController\" />
+    <Folder Include="Controller\BranchAppController\" />
+    <Folder Include="View\BranchAppView\" />
+    <Folder Include="View\MemberAppView\" />
+    <Folder Include="Controller\MemberAppController\" />
+    <Folder Include="Services\BranchAppService\" />
+    <Folder Include="Services\MemberAppService\" />
+    <Folder Include="Services\UserAppService\" />
+    <Folder Include="Model\MemberAppModel\" />
+    <Folder Include="Model\BranchAppModel\" />
+    <Folder Include="Model\UserAppModel\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

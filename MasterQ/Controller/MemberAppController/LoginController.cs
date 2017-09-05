@@ -37,18 +37,6 @@ namespace MasterQ
         //    }
         //    return ret;
         //}
-        public UIReturn Login(Login input)
-        {
-            if (Constants.isAppForMember())
-            {
-                return LoginMember(input);
-            }
-            else if (Constants.isAppForUser())
-            {
-                return LoginUser(input);
-            }
-            return new UIReturn();
-        }
         public UIReturn LoginMember(Login input)
         {
             if (String.IsNullOrEmpty(input.username)) return Constants.uiErrorEmptyUserName;
@@ -58,18 +46,6 @@ namespace MasterQ
             LoginRq req = LoginService.getInstance().getLoginRq(input);
             LoginRs res = LoginService.getInstance().CallLogin(req);
             TempDB.loginMember = res.member;
-
-            UIReturn ret = new UIReturn(res.header);
-            return ret;
-        }
-        public UIReturn LoginUser(Login input)
-        {
-            if (String.IsNullOrEmpty(input.username)) return Constants.uiErrorEmptyUserName;
-            if (String.IsNullOrEmpty(input.password)) return Constants.uiErrorEmptyPassword;
-
-            UserLoginRq req = LoginService.getInstance().getUserLoginRq(input);
-            UserLoginRs res = LoginService.getInstance().CallLogin(req);
-            TempDB.loginUser = res.user;
 
             UIReturn ret = new UIReturn(res.header);
             return ret;

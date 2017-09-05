@@ -17,7 +17,7 @@ namespace MasterQ
 			var username = mUsernameEntry.Text;
 			var password = mPasswordEntry.Text;
 			Login MasQLogin = new Login(username, password);
-			UIReturn uiReturn = LoginController.getInstance().Login(MasQLogin);
+            UIReturn uiReturn = UserLoginController.getInstance().LoginUser(MasQLogin);
 
 			if (uiReturn.isSuccess)
 			{
