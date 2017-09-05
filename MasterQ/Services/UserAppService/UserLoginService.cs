@@ -30,5 +30,18 @@ namespace MasterQ
 			return ret;
 
 		}
+        public UserLogoutRs callLogout(UserLogoutRq request)
+		{
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.userLogoutUrl;
+			String resJSON = CallServices.callPost(serviceUrl, request);
+			return JObject.Parse(resJSON).ToObject<UserLogoutRs>();
+
+		}
+        public UserLogoutRq getUserLogoutRq(User input)
+		{
+			UserLogoutRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<UserLogoutRq>();
+			return ret;
+
+		}
 	}
 }

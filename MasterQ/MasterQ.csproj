@@ -198,6 +198,8 @@
     <Compile Include="Services\UserAppService\UserActionQueueService.cs" />
     <Compile Include="Controller\UserAppController\UserActionServiceController.cs" />
     <Compile Include="Controller\UserAppController\UserActionQueueController.cs" />
+    <Compile Include="Services\UserAppModel\UserLogoutRq.cs" />
+    <Compile Include="Services\UserAppModel\UserLogoutRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
