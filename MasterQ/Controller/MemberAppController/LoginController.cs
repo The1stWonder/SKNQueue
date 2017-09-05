@@ -49,6 +49,15 @@ namespace MasterQ
 
             UIReturn ret = new UIReturn(res.header);
             return ret;
-        }
+		}
+		public UIReturn LogutMember()
+		{
+            LogoutRq req = LoginService.getInstance().getLogoutRq(TempDB.loginMember);
+            LogoutRs res = LoginService.getInstance().callLogout(req);
+            TempDB.loginMember = new Member();
+
+			UIReturn ret = new UIReturn(res.header);
+			return ret;
+		}
     }
 }

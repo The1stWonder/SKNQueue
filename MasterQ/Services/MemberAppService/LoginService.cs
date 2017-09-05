@@ -30,6 +30,19 @@ namespace MasterQ
             return ret;
 
         }
+        public LogoutRs callLogout(LogoutRq request)
+		{
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.loginUrl;
+			String resJSON = CallServices.callPost(serviceUrl, request);
+			return JObject.Parse(resJSON).ToObject<LogoutRs>();
+
+		}
+        public LogoutRq getLogoutRq(Member input)
+		{
+			LogoutRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<LogoutRq>();
+			return ret;
+
+		}
         public ForgetPasswordRs CallForgetPassword(ForgetPasswordRq request)
         {
             string serviceUrl = ServiceURL.ipServer + ServiceURL.forgetPasswordUrl;

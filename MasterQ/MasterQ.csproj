@@ -200,6 +200,8 @@
     <Compile Include="Controller\UserAppController\UserActionQueueController.cs" />
     <Compile Include="Services\UserAppModel\UserLogoutRq.cs" />
     <Compile Include="Services\UserAppModel\UserLogoutRs.cs" />
+    <Compile Include="Services\MemberAppModel\LogoutRq.cs" />
+    <Compile Include="Services\MemberAppModel\LogoutRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
