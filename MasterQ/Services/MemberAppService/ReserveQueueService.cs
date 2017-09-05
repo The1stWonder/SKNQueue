@@ -62,5 +62,17 @@ namespace MasterQ
 			GetBranchServicesRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<GetBranchServicesRq>();
 			return ret;
 		}
+        public CancelQueueRs cancelQueue(CancelQueueRq request)
+		{
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.cancelQueueUrl;
+			String resJSON = CallServices.callPost(serviceUrl, request);
+			return JObject.Parse(resJSON).ToObject<CancelQueueRs>();
+
+		}
+        public CancelQueueRq getCancelQueueRq(Queue input)
+		{
+			CancelQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<CancelQueueRq>();
+			return ret;
+		}
     }
 }

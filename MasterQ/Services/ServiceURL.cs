@@ -19,6 +19,7 @@ namespace MasterQ
         public static String getDistrictsUrl = serviceName + "GetDistricts/";
 
         public static String loginUrl = serviceName + memberPrefix + "Login/";
+		public static String logoutUrl = serviceName + memberPrefix + "Logout/";
         public static String registerUrl = serviceName + memberPrefix + "Register/";
         public static String editProfileUrl = serviceName + memberPrefix + "EditProfile/";
         public static String forgetPasswordUrl = serviceName + memberPrefix + "ForgetPassword/";
@@ -26,6 +27,7 @@ namespace MasterQ
         public static String getBranchServicesUrl = serviceName + memberPrefix + "GetBranchServices/";
         public static String reserveQueueUrl = serviceName + memberPrefix + "ReserveQueue/";
         public static String getHistoryUrl = serviceName + memberPrefix + "GetHistory/";
+        public static String cancelQueueUrl = serviceName + memberPrefix + "CancelQueue/";
 
         public static String userLoginUrl = serviceName + userPrefix + "Login/";
         public static String userLogoutUrl = serviceName + userPrefix + "Logout/";

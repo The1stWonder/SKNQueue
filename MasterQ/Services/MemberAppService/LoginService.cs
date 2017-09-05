@@ -32,7 +32,7 @@ namespace MasterQ
         }
         public LogoutRs callLogout(LogoutRq request)
 		{
-            string serviceUrl = ServiceURL.ipServer + ServiceURL.loginUrl;
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.logoutUrl;
 			String resJSON = CallServices.callPost(serviceUrl, request);
 			return JObject.Parse(resJSON).ToObject<LogoutRs>();
 

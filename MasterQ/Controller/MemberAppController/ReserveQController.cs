@@ -22,5 +22,13 @@ namespace MasterQ
             ret.returnObject = res.queue;
 			return ret;
 		}
+        public UIReturn cancelQueue(Queue input)
+		{
+            CancelQueueRq req = ReserveQueueService.getInstance().getCancelQueueRq(input);
+            CancelQueueRs res = ReserveQueueService.getInstance().cancelQueue(req);
+
+			UIReturn ret = new UIReturn(res.header);
+			return ret;
+		}
 	}
 }
