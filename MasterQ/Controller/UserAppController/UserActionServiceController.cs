@@ -24,5 +24,5 @@ namespace MasterQ
             return ret;
         }
     }
-}
+
 }

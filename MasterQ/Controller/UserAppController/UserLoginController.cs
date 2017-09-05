@@ -38,5 +38,5 @@ namespace MasterQ
 			return ret;
 		}
 	}
-	}
+	
 }
