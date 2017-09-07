@@ -27,6 +27,7 @@ namespace MasterQ
 		{
             CancelQueueRq req = ReserveQueueService.getInstance().getCancelQueueRq(input);
             CancelQueueRs res = ReserveQueueService.getInstance().cancelQueue(req);
+            SessionModel.bookingQ = null;
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;
