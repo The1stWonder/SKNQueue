@@ -34,7 +34,7 @@ namespace MasterQ
             if (uiReturn.isSuccess)
             {
                 CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
-                UserSessionModel.choosedQueue.transID = uiRes.tranID;
+                UserSessionModel.choosedQueue.tranID = uiRes.tranID;
                 qNumber.Text = uiRes.queueNumber + "";
             }
             else

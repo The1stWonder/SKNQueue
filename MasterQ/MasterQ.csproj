@@ -176,12 +176,9 @@
     <Compile Include="Services\UserAppService\UserLoginService.cs" />
     <Compile Include="Model\UserAppModel\User.cs" />
     <Compile Include="Model\MemberAppModel\Member.cs" />
-    <Compile Include="Model\MemberAppModel\Branch.cs" />
-    <Compile Include="Model\MemberAppModel\Company.cs" />
     <Compile Include="Model\MemberAppModel\District.cs" />
     <Compile Include="Model\MemberAppModel\History.cs" />
     <Compile Include="Model\MemberAppModel\Province.cs" />
-    <Compile Include="Model\MemberAppModel\Queue.cs" />
     <Compile Include="Controller\UserAppController\UserLoginController.cs" />
     <Compile Include="Services\UserAppModel\AcceptQueueRq.cs" />
     <Compile Include="Services\UserAppModel\AcceptQueueRs.cs" />
@@ -218,6 +215,9 @@
     </Compile>
     <Compile Include="Model\MemberAppModel\SessionModel.cs" />
     <Compile Include="Model\UserAppModel\UserSessionModel.cs" />
+    <Compile Include="Model\Branch.cs" />
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\Queue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
