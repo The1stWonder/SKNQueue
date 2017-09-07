@@ -15,9 +15,8 @@ namespace MasterQ
 
 		public void getHistory()
 		{
-			Member member = new Member();
-			member.memberID = "01";
-			List<History> History = (List<History>)ShowHistoryController.getInstance().getHistory(member).returnObject;
+            Member memberid = TempDB.loginMember;
+			List<History> History = (List<History>)ShowHistoryController.getInstance().getHistory(memberid).returnObject;
 			mListview.ItemsSource = History;
 		}
 

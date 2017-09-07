@@ -5,79 +5,178 @@
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="MasterQ.EditProfilePage">
-	<Frame
-		Margin="20,20,20,20"
-		VerticalOptions="Fill"
-		HorizontalOptions="Fill"
-		BackgroundColor="White"
-		HasShadow="true">
-		<Grid
-			Margin="5,5,5,5"
-			VerticalOptions="Fill"
-			HorizontalOptions="Fill">
-			<Grid.RowDefinitions>
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-				<RowDefinition
-					Height="Auto" />
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition
-					Width="*" />
-			</Grid.ColumnDefinitions>
-			<Image
-				Grid.Row="0"
-				Grid.Column="0"
-				HeightRequest="40"
-				Source="header_main.png" />
-			<Entry
-				x:Name="mNameEntry"
-				Placeholder="ชื่อ"
-				Grid.Row="1"
-				Grid.Column="0"/>
-			<Entry
-				x:Name="mLastNameEntry"
-				Placeholder="นามสกุล"
-				Grid.Row="2"
-				Grid.Column="0"/>
-			<Entry
-				x:Name="mEmailEntry"
-				Keyboard="Email"
-				Placeholder="อีเมลของคุณ"
-				Grid.Row="3"
-				Grid.Column="0"/>
-			<Entry
-				x:Name="mBirthdateEntry"
-				Placeholder="วันเกิดของคุณ"
-				Grid.Row="4"
-				Grid.Column="0"/>
-			<Entry
-				x:Name="mPasswordEntry"
-				IsPassword="true"
-				Placeholder="รหัสผ่าน"
-				Grid.Row="5"
-				Grid.Column="0"/>
-			<Button
-				Clicked="Submit_Clicked"
-				Margin="0,20,0,0"
-				FontAttributes="Bold"
-				Text="ยืนยัน"
-				Grid.Row="6"
-				Grid.Column="0"
-				BackgroundColor="#00CC33"
-				TextColor="White" />
-		</Grid>
-	</Frame>
+    <Grid
+        Margin="25,0,25,0"
+        VerticalOptions="Fill"
+        HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />                
+            <RowDefinition
+            Height="Auto" />                
+            <RowDefinition
+            Height="Auto" />                
+            <RowDefinition
+            Height="Auto" />                
+            <RowDefinition
+            Height="Auto" />                
+            <RowDefinition
+            Height="Auto" />                
+            <RowDefinition
+            Height="Auto" />
+            <RowDefinition
+            Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+            Width="40" />
+            <ColumnDefinition
+            Width="*" />
+            <ColumnDefinition
+            Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label 
+            Margin="5,30,5,25" 
+        FontSize="40" 
+        Text="Edit Profile" 
+        TextColor="Fuchsia" 
+        Grid.Row="0" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="3" />
+        <Image
+            Margin="5,5,5,5"
+            Grid.Row="1"
+            Grid.Column="0"
+            Source="icn_usename.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mNameEntry"
+            Placeholder="Name"
+            TextColor="White"
+            BackgroundColor="#333"
+            Grid.Row="1"
+        Grid.Column="1"/>
+        <Entry
+            x:Name="mLastNameEntry"
+            Placeholder="LastName"
+            TextColor="White"
+            BackgroundColor="#333"
+            Grid.Row="1"
+        Grid.Column="2"/>
+        <Image 
+            Margin="5,5,5,15"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,5,5,5"
+            Grid.Row="3"
+            Grid.Column="0"
+            Source="icn_email.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mEmailEntry"
+            Keyboard="Email"
+            Placeholder="Email"
+            TextColor="White"
+            BackgroundColor="#333"
+            Grid.Row="3"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"/>
+        <Image 
+            Margin="5,5,5,15"
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,5,5,5"
+            Grid.Row="5"
+            Grid.Column="0"
+            Source="icn_phone.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mPhone"
+            Placeholder="Tel"
+            TextColor="White"
+            BackgroundColor="#333"
+            Grid.Row="5"
+            Grid.ColumnSpan="2"
+        Grid.Column="1"/>
+        <Image 
+            Margin="5,5,5,15"
+            Grid.Row="6"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,5,5,5"
+            Grid.Row="7"
+            Grid.Column="0"
+            Source="icn_birthday.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mBirthdateEntry"
+            Placeholder="BirthDate"
+            TextColor="White"
+            BackgroundColor="#333"
+            Grid.Row="7"
+            Grid.ColumnSpan="2"
+        Grid.Column="1"/>
+        <Image 
+            Margin="5,5,5,15"
+            Grid.Row="8"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,5,5,5"
+            Grid.Row="9"
+            Grid.Column="0"
+            Source="icn_password.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mPasswordEntry"
+            IsPassword="true"
+            Placeholder="Password"
+            TextColor="White"
+            BackgroundColor="#333"
+            Grid.Row="9"
+            Grid.ColumnSpan="2"
+        Grid.Column="1"/>
+        <Image 
+            Margin="5,5,5,15"
+            Grid.Row="10"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+
+        <Image 
+            Margin="5,50,5,5"
+            Grid.Row="13"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="btn_join.png" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageJoin"
+                         />
+                </Image.GestureRecognizers>
+            </Image>
+    </Grid>
 </ContentPage>
