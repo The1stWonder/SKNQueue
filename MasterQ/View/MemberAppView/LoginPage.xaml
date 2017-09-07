@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="MasterQ.LoginPage"
-    NavigationPage.HasNavigationBar="False"
-    BackgroundImage="bg4.png">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.LoginPage" NavigationPage.HasNavigationBar="False" BackgroundImage="bg4.png">
     <Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40*" />
@@ -17,148 +12,38 @@
                 </ContentView>
             </StackLayout>
         </StackLayout>
- 
-            <StackLayout Grid.Row="1" Orientation="Vertical" >
-                <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5*" />
-                        <RowDefinition Height="15*" />
-                        <RowDefinition Height="5*" />
-                        <RowDefinition Height="15*" />
-                        <RowDefinition Height="5*" />
-                        <RowDefinition Height="5*" />
-                        <RowDefinition Height="30*" />
-                        <RowDefinition Height="20*" />
-
-                       
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition  Width="10*" />
-                        <ColumnDefinition  Width="90*" />
-                    </Grid.ColumnDefinitions>
-
-                   <Image
-                        
-                        Margin="0,5,0,5"
-
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Source="icn_usename.png"
-                        HeightRequest="10" />
-                    <Entry
-                        
-                        x:Name="mUsernameEntry"
-                        Keyboard="Email"
-                        Placeholder="Username"  
-                        TextColor="White"
-                        BackgroundColor="#333"
-                        Grid.Row="1"
-                        Grid.Column="1" />
-
-                    <Image 
-                        Margin="0,5,0,5"
-                        
-                        Grid.Row="2"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        Source="divider.png" />
-                    
-                    <Image
-
-                        Margin="0,5,0,5"
-                        Grid.Row="3"
-                        Grid.Column="0"
-                        Source="icn_password.png"
-                        HeightRequest="10" />
-
-                    <Entry
-                        x:Name="mPasswordEntry"
-                        IsPassword="true"
-                        Placeholder="Password"
-                        TextColor="White"
-                        BackgroundColor="#333"
-                        Grid.Row="3"
-                        Grid.Column="1" />
-
-                    <Image 
-                        Margin="0,5,0,5"
-                        
-                        Grid.Row="4"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        Source="divider.png" />
-                    
-                    <Label x:Name="forgetpassword"
-                        FontSize="Small"
-                        HorizontalTextAlignment="End"
-                        Grid.Row="5"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        TextColor="White" >
+        <StackLayout Grid.Row="1" Orientation="Vertical">
+            <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="15*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="15*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="20*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="90*" />
+                </Grid.ColumnDefinitions>
+                <Image Margin="0,5,0,5" Grid.Row="1" Grid.Column="0" Source="icn_usename.png" HeightRequest="10" />
+                <Entry x:Name="mUsernameEntry" Keyboard="Email" Placeholder="Username" TextColor="White" BackgroundColor="#333" Grid.Row="1" Grid.Column="1" />
+                <Image Margin="0,5,0,5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
+                <Image Margin="0,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
+                <Entry x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="White" BackgroundColor="#333" Grid.Row="3" Grid.Column="1" />
+                <Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
+                <Label x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White">
                         Forgot Password | Help
 
                     </Label>
-
-                    
-                    <Image 
-                        Margin="0,5,0,5"
-                        
-                        Grid.Row="6"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        Source="btn_signin.png">
-                        <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Tapped="OnImageSignin"
-                         />
-                </Image.GestureRecognizers>
-            </Image>
-
-
-                    <Grid 
-                        Grid.Row="7"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        VerticalOptions="Fill" HorizontalOptions="Fill">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />                                                     
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="70*" />
-                            <ColumnDefinition  Width="30*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label 
-                            
-                            Grid.Row="0" 
-                            Grid.Column="0" 
-                            TextColor="White"
-                            FontSize = "Small" 
-                            HorizontalOptions="EndAndExpand" 
-                            VerticalOptions="Start">
-                            Don't have an account? 
-
-                        </Label>
-                        <Label 
-                            
-                            Grid.Row="0" 
-                            Grid.Column="1" 
-                            TextColor="Fuchsia"
-                            FontSize = "Small" 
-                            HorizontalOptions="StartAndExpand" 
-                            VerticalOptions="Start">
-                            Sign Up
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="OnLabelSignUp" />
-                </Label.GestureRecognizers>
-             </Label>
-
-                     </Grid>
-                    
-                </Grid>
-              
-            </StackLayout>
+                <Image Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageSignin" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
     </Grid>
-
 </ContentPage>

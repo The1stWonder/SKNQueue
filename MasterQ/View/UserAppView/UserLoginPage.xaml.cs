@@ -11,22 +11,21 @@ namespace MasterQ
         {
             InitializeComponent();
         }
-		void Login_Clicked(object sender, System.EventArgs e)
-		{
-
-			var username = mUsernameEntry.Text;
-			var password = mPasswordEntry.Text;
-			Login MasQLogin = new Login(username, password);
+        public void OnImageSignin(object sender, System.EventArgs args)
+        {
+            var username = mUsernameEntry.Text;
+            var password = mPasswordEntry.Text;
+            Login MasQLogin = new Login(username, password);
             UIReturn uiReturn = UserLoginController.getInstance().LoginUser(MasQLogin);
 
-			if (uiReturn.isSuccess)
-			{
-				Navigation.PushAsync(new MainPage());
-			}
-			else
-			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
-			}
-		}
+            if (uiReturn.isSuccess)
+            {
+                Navigation.PushAsync(new UserChooseServicePage());
+            }
+            else
+            {
+                DisplayAlert("Click", uiReturn.getDescription(), "Close");
+            }
+        }
     }
 }
