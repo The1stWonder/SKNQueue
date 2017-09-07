@@ -4,7 +4,8 @@
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="MasterQ.MainPage"
-    BackgroundImage="bg4.png">
+    BackgroundImage="bg4.png"
+    NavigationPage.HasNavigationBar="False">
 		
     <Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
@@ -36,7 +37,20 @@
             </StackLayout>
         </StackLayout>
 
-        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Source="QCircle.png" VerticalOptions="Center" HeightRequest="260" />
+        <Image 
+        Grid.Row="1" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="3" 
+        Source="Qcircle.png" 
+        VerticalOptions="Center" 
+        HeightRequest="260">
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageSummaryPage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+        
         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="888" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">

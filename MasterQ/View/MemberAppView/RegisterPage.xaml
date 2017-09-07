@@ -4,54 +4,54 @@
     BackgroundImage="bg4.png"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="MasterQ.RegisterPage">
-    
+    x:Class="MasterQ.RegisterPage"
+    NavigationPage.HasNavigationBar="true">
     <Grid
         Margin="25,0,25,0"
         VerticalOptions="Fill"
         HorizontalOptions="Fill">
         <Grid.RowDefinitions>
             <RowDefinition
-            Height="Auto" />
+            Height="15*" />
             <RowDefinition
-            Height="Auto" />
+            Height="10*" />
             <RowDefinition
-            Height="Auto" />
+            Height="2*" />
             <RowDefinition
-            Height="Auto" />
+            Height="10*" />
             <RowDefinition
-            Height="Auto" />
+            Height="2*" />
             <RowDefinition
-            Height="Auto" />
+            Height="10*" />
             <RowDefinition
-            Height="Auto" />
+            Height="2*" />
             <RowDefinition
-            Height="Auto" />                
+            Height="10*" />                
             <RowDefinition
-            Height="Auto" />                
+            Height="2*" />                
             <RowDefinition
-            Height="Auto" />                
+            Height="10*" />                
             <RowDefinition
-            Height="Auto" />                
+            Height="2*" />                
             <RowDefinition
-            Height="Auto" />                
+            Height="10*" />                
             <RowDefinition
-            Height="Auto" />                
+            Height="2*" />                
             <RowDefinition
-            Height="Auto" />
+            Height="10*" />
             <RowDefinition
-            Height="Auto" />
+            Height="10*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition
-            Width="40" />
+            Width="10*" />
             <ColumnDefinition
-            Width="*" />
+            Width="45*" />
             <ColumnDefinition
-            Width="*" />
+            Width="45*" />
         </Grid.ColumnDefinitions>
         <Label 
-            Margin="5,30,5,25" 
+            Margin="5,15,5,0" 
         FontSize="40" 
         Text="Sign Up" 
         TextColor="Fuchsia" 
@@ -59,7 +59,7 @@
         Grid.Column="0" 
         Grid.ColumnSpan="3" />
         <Image
-            Margin="5,5,5,5"
+            Margin="5,0,5,0"
             Grid.Row="1"
             Grid.Column="0"
             Source="icn_usename.png"
@@ -79,13 +79,13 @@
             Grid.Row="1"
         Grid.Column="2"/>
         <Image 
-            Margin="5,5,5,15"
+            Margin="5,0,5,0"
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="divider.png" />
         <Image
-            Margin="5,5,5,5"
+            Margin="5,0,5,0"
             Grid.Row="3"
             Grid.Column="0"
             Source="icn_email.png"
@@ -100,13 +100,13 @@
         Grid.Column="1"
         Grid.ColumnSpan="2"/>
         <Image 
-            Margin="5,5,5,15"
+           Margin="5,0,5,0"
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="divider.png" />
         <Image
-            Margin="5,5,5,5"
+            Margin="5,0,5,0"
             Grid.Row="5"
             Grid.Column="0"
             Source="icn_phone.png"
@@ -120,13 +120,13 @@
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
         <Image 
-            Margin="5,5,5,15"
+            Margin="5,0,5,0"
             Grid.Row="6"
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="divider.png" />
         <Image
-            Margin="5,5,5,5"
+            Margin="5,0,5,0"
             Grid.Row="7"
             Grid.Column="0"
             Source="icn_birthday.png"
@@ -140,13 +140,13 @@
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
         <Image 
-            Margin="5,5,5,15"
+            Margin="5,0,5,0"
             Grid.Row="8"
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="divider.png" />
         <Image
-            Margin="5,5,5,5"
+            Margin="5,0,5,0"
             Grid.Row="9"
             Grid.Column="0"
             Source="icn_password.png"
@@ -161,13 +161,13 @@
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
         <Image 
-            Margin="5,5,5,15"
+            Margin="5,0,5,0"
             Grid.Row="10"
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="divider.png" />
         <Image
-            Margin="5,5,5,5"
+            Margin="5,0,5,0"
             Grid.Row="11"
             Grid.Column="0"
             Source="icn_confirm_password.png"
@@ -182,13 +182,13 @@
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
         <Image 
-            Margin="5,5,5,15"
+            Margin="5,0,5,0"
             Grid.Row="12"
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="divider.png" />
         <Image 
-            Margin="5,50,5,5"
+            Margin="5,0,5,0"
             Grid.Row="13"
             Grid.Column="0"
             Grid.ColumnSpan="3"

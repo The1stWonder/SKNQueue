@@ -4,7 +4,8 @@
     BackgroundImage="bg4.png"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="MasterQ.QueuePage">
+    x:Class="MasterQ.QueuePage"
+    NavigationPage.HasNavigationBar="False">
     <Grid
             Margin="20,20,20,20"
             VerticalOptions="Fill"
@@ -65,6 +66,16 @@
                 FontSize = "20" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" />
+        <Button
+                Clicked="SendHome_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="Home"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2" 
+                BackgroundColor="#006699"
+                TextColor="White" />
         <!--<Label 
                 x:Name="serviceID1"
                 Grid.Row="3" 

@@ -68,5 +68,10 @@ namespace MasterQ
                 DefaultOverlayShowFlashButton = true
             };
         }
+
+		public void OnImageSummaryPage(object sender, System.EventArgs args)
+		{
+            Navigation.PushAsync(new SummaryPage());
+		}
     }
 }

@@ -11,5 +11,10 @@ namespace MasterQ
 		{
 			InitializeComponent();
 		}
+
+		public void OnImageHomePage(object sender, System.EventArgs args)
+		{
+            Navigation.PushAsync(new MainPage());
+		}
 	}
 }

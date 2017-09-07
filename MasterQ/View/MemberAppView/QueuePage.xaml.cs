@@ -26,5 +26,10 @@ namespace MasterQ
 			//transID1.Text = Queue.transID.ToString();
 			//transID1.Text = Queue.transID.ToString();
 		}
+
+		void SendHome_Clicked(object sender, System.EventArgs e)
+		{
+            Navigation.PushAsync(new MainPage());
+		}
 	}
 }
