@@ -74,6 +74,9 @@
     <EmbeddedResource Include="View\UserAppView\UserChooseServicePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserAppView\UserActionQueuePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -207,10 +210,14 @@
     <Compile Include="Services\MemberAppModel\LogoutRs.cs" />
     <Compile Include="Services\MemberAppModel\CancelQueueRq.cs" />
     <Compile Include="Services\MemberAppModel\CancelQueueRs.cs" />
-    <Compile Include="Model\SessionModel.cs" />
     <Compile Include="View\UserAppView\UserChooseServicePage.xaml.cs">
       <DependentUpon>UserChooseServicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserAppView\UserActionQueuePage.xaml.cs">
+      <DependentUpon>UserActionQueuePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MemberAppModel\SessionModel.cs" />
+    <Compile Include="Model\UserAppModel\UserSessionModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

@@ -14,7 +14,9 @@ namespace MasterQ
         {
             CallQueueRq req = UserActionQueueService.getInstance().getCallQueueRq(b, s);
             CallQueueRs res = UserActionQueueService.getInstance().callQueue(req);
+
             UIReturn ret = new UIReturn(res.header);
+            ret.returnObject = res;
             return ret;
         }
         public UIReturn acceptQueue(Queue q)

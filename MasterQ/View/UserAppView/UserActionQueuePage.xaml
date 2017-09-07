@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.UserActionQueuePage">
+	 <Grid>
+        <Entry x:Name="qNumber" Placeholder="staffName" TextColor="White" BackgroundColor="#333" Grid.Row="0" />
+        <Button Clicked="callBtn_Clicked" Text="Call" Grid.Row="1">
+        </Button>
+        <Button Clicked="acceptBtn_Clicked" Text="Accept" Grid.Row="2">
+        </Button>
+        <Button Clicked="finishBtn_Clicked" Text="Finish" Grid.Row="3">
+        </Button>
+        <Button Clicked="skipBtn_Clicked" Text="Skip" Grid.Row="4">
+        </Button>
+    </Grid>
+</ContentPage>

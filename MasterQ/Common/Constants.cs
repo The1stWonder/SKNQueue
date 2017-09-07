@@ -7,8 +7,8 @@ namespace MasterQ
         public static String APPLICATION_TYPE_USER = "USER";
         public static String APPLICATION_TYPE_MEMBER = "MEMBER";
         public static String APPLICATION_TYPE_BRANCH = "BRANCH";
-        public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
-        //public static String APPLICATION_TYPE = APPLICATION_TYPE_MEMBER;
+        //public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
+        public static String APPLICATION_TYPE = APPLICATION_TYPE_MEMBER;
         public static String QUEUE_TYPE_MEMBER = "O";
         public static String QUEUE_TYPE_BRANCH = "K";
 
@@ -25,7 +25,8 @@ namespace MasterQ
         public static int ERROR_EMPTY_FIRSTNAME_ID = 20;
         public static int ERROR_EMPTY_LASTNAME_ID = 21;
         public static int ERROR_EMPTY_BIRTHDATE_ID = 22;
-        public static int ERROR_EMPTY_CONFIRM_PASSWORD_ID = 23;
+		public static int ERROR_EMPTY_CONFIRM_PASSWORD_ID = 23;
+		public static int ERROR_EMPTY_COUNTER_NUMBER = 50;
 
 
         public static UIReturn uiErrorDefault = new UIReturn(false, ERROR_DEFAULT_ID);
@@ -42,7 +43,8 @@ namespace MasterQ
         public static UIReturn uiErrorEmptyFirstName = new UIReturn(false, ERROR_EMPTY_FIRSTNAME_ID);
         public static UIReturn uiErrorEmptyLastName = new UIReturn(false, ERROR_EMPTY_LASTNAME_ID);
         public static UIReturn uiErrorEmptyBirthdate = new UIReturn(false, ERROR_EMPTY_BIRTHDATE_ID);
-        public static UIReturn uiErrorEmptyConfirmPassword = new UIReturn(false, ERROR_EMPTY_CONFIRM_PASSWORD_ID);
+		public static UIReturn uiErrorEmptyConfirmPassword = new UIReturn(false, ERROR_EMPTY_CONFIRM_PASSWORD_ID);
+        public static UIReturn uiErrorEmptyCounterNumber = new UIReturn(false, ERROR_EMPTY_COUNTER_NUMBER);
 
         public static bool isAppForMember()
         {
