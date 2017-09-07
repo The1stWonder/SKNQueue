@@ -204,6 +204,8 @@
     <Compile Include="Services\MemberAppModel\LogoutRs.cs" />
     <Compile Include="Services\MemberAppModel\CancelQueueRq.cs" />
     <Compile Include="Services\MemberAppModel\CancelQueueRs.cs" />
+    <Compile Include="View\UserAppView\UserChooseServicePage.cs" />
+    <Compile Include="Model\SessionModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

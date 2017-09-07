@@ -23,7 +23,7 @@ namespace MasterQ
         {
             CallQueueRq ret = new CallQueueRq();
             ret.branchID = branch.branchID;
-            ret.userCode = TempDB.loginUser.userCode;
+            ret.userCode = SessionModel.loginUser.userCode;
             ret.serviceID = service.serviceID;
             return ret;
 

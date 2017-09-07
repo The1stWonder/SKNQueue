@@ -24,7 +24,7 @@ namespace MasterQ
             List<Province> list2 = TempDB.provinces;
             List<District> list3 = TempDB.districts;
             List<Branch> list4 = TempDB.branches;
-            List<Service> list5 = TempDB.services;
+            List<Service> list5 = SessionModel.services;
             getHistory();
             reserveQ();
         }

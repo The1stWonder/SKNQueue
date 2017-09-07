@@ -39,7 +39,7 @@ namespace MasterQ
 		{
             OpenServiceRq ret = new OpenServiceRq();
             ret.branchID = branch.branchID;
-			ret.userCode = TempDB.loginUser.userCode;
+			ret.userCode = SessionModel.loginUser.userCode;
             ret.serviceID = service.serviceID;
             ret.counterNumber = counterNumber;
 			return ret;

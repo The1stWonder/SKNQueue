@@ -23,16 +23,16 @@ namespace MasterQ
 
 			UserLoginRq req = UserLoginService.getInstance().getUserLoginRq(input);
 			UserLoginRs res = UserLoginService.getInstance().CallLogin(req);
-			TempDB.loginUser = res.user;
+			SessionModel.loginUser = res.user;
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;
 		}
         public UIReturn LogutUser()
 		{
-            UserLogoutRq req = UserLoginService.getInstance().getUserLogoutRq(TempDB.loginUser);
+            UserLogoutRq req = UserLoginService.getInstance().getUserLogoutRq(SessionModel.loginUser);
             UserLogoutRs res = UserLoginService.getInstance().callLogout(req);
-            TempDB.loginUser = new User();
+            SessionModel.loginUser = new User();
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;
