@@ -25,7 +25,7 @@
 
 
         <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source="Qcircle.png" VerticalOptions="Center" HeightRequest="320" />
-        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="888" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
@@ -51,7 +51,13 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Image Grid.Row="4" Grid.Column="1"  Source="btn_history_click.png" VerticalOptions="Center" HeightRequest="60" />
+        <Image Grid.Row="4" Grid.Column="1"  Source="btn_history_click.png" VerticalOptions="Center" HeightRequest="60">
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageDelete"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
 
         <Label Grid.Row="5" Grid.Column="0"  Text="Back"  FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
         <Label Grid.Row="5" Grid.Column="1"  Text="Cancel" FontSize="12" TextColor="Aqua"   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />

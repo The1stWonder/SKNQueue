@@ -13,6 +13,10 @@ namespace MasterQ
         public MainPage()
         {
             InitializeComponent();
+            if (SessionModel.bookingQ != null)
+            {
+                NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+            }
         }
 
         public void OnImageMainProfilePage(object sender, System.EventArgs args)

@@ -43,7 +43,7 @@
         Grid.ColumnSpan="3" 
         Source="Qcircle.png" 
         VerticalOptions="Center" 
-        HeightRequest="260">
+        HeightRequest="320">
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageSummaryPage"
@@ -51,7 +51,7 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="888" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
