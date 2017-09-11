@@ -48,7 +48,7 @@ namespace MasterQ
 			};
 		}
 
-		void Search_Clicked(object sender, EventArgs e)
+		public void OnImageSearch(object sender, System.EventArgs args)
 		{
 			if (ColumnPicker.SelectedIndex >= 0)
 			{
@@ -61,6 +61,11 @@ namespace MasterQ
 		{
             Branch BranchID = (Branch)BranchView.SelectedItem;
             Navigation.PushAsync(new ServicePage(BranchID));
+		}
+
+		public void OnImageBack(object sender, System.EventArgs args)
+		{
+            Navigation.PushAsync(new MainPage());
 		}
 	}
 }

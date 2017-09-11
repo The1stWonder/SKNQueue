@@ -3,23 +3,13 @@
     BackgroundImage="bg4.png"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="MasterQ.SearchPage">
+    x:Class="MasterQ.SearchPage"
+    NavigationPage.HasNavigationBar="False">
     
-    <!--<ScrollView>-->
 
-    <StackLayout HorizontalOptions="FillAndExpand" 
+  <!--  <StackLayout HorizontalOptions="FillAndExpand" 
             VerticalOptions="FillAndExpand" Padding="20" 
-            BackgroundColor="Transparent">  
-        <!--<StackLayout 
-                BackgroundColor="Transparent" 
-                Padding="10" 
-                Orientation="Horizontal" 
-                HorizontalOptions="Center" >-->
-            <!--<Image HeightRequest="100" WidthRequest="100" Source="queue.png" />-->
-        <!--</StackLayout>
-        <StackLayout BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" >-->
-            <!--<BoxView BackgroundColor="Maroon" HeightRequest="1" />-->
-        <!--</StackLayout> --> 
+            BackgroundColor="Transparent">   
       <Frame VerticalOptions="Fill" HorizontalOptions="Fill" Margin="5,5,5,5" >
 
       <Grid Margin="20,20,20,20" VerticalOptions="Fill" HorizontalOptions="Fill">
@@ -39,13 +29,6 @@
             <ColumnDefinition Width="30" />
         </Grid.ColumnDefinitions>
 
-       <!-- <Entry
-                x:Name="mSearch"
-                Keyboard="Email"
-                Placeholder="ค้นหา"
-                Grid.Row="0"
-                Grid.Column="0"
-         Grid.ColumnSpan="5"/>-->
         <Picker 
             x:Name="ColumnPicker" 
             Grid.Row="1"
@@ -88,44 +71,107 @@
 			ItemTapped="itemTapped">
     <ListView.ItemTemplate>
       <DataTemplate>
-        <!--<TextCell Text="{Binding branchName}" />-->
                     <ViewCell>
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding branchName}" TextColor="White"/>
-                   <!-- <Label Text="{Binding branchID}" />-->
                    <Image HorizontalOptions="EndAndExpand" Source="NextQ1.png" HeightRequest="40" />
-					 <!--<Image.GestureRecognizers>
-        			<TapGestureRecognizer Tapped="OnImageNextQ" />
-    			</Image.GestureRecognizers>
-			</Image>-->
                 </StackLayout>
             </StackLayout>
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
     </ListView>
-    </StackLayout>  
-
-       
-    
+    </StackLayout>  -->
 
 
-    <!--</ScrollView>-->
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="70*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <Image Grid.Row="0" Grid.Column="0"  Source="bg4.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+        <Grid Margin="10,30,10,0" Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="33*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="30*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="10*" />       
+                <ColumnDefinition  Width="40*" />
+                <ColumnDefinition  Width="40*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageBack" />
+                    </Image.GestureRecognizers>
+                </Image>
+            
+            <Entry                        
+                x:Name="mSearchEntry"
+                Placeholder="Search"  
+                TextColor="White"
+                BackgroundColor="#333"
+                HeightRequest="40"
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="2" />
+           <!-- <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Advance" FontSize="8" TextColor="White" HorizontalOptions="EndAndExpand" />-->
+            <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
 
-   <!-- <ListView x:Name="EmployeeView">
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell Text="{Binding DisplayName}" />
-      </DataTemplate>
-    </ListView.ItemTemplate>
-  </ListView>-->
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="50*" />
+                    <ColumnDefinition  Width="50*" />
+                </Grid.ColumnDefinitions>
+                    <Picker x:Name="ColumnPicker" Grid.Row="0" Grid.Column="0" Title="Province" />
+                    <Picker x:Name="ColumnPicker2" Grid.Row="0" Grid.Column="1" Title="Amphor" />
+            </Grid>
+            <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
 
-    <!--<ListView x:Name="listView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                <TextCell Text="{Binding name}" Detail="{Binding comment}" />
-            </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
+            <Image Grid.Row="4" Grid.Column="2"  Source="btn_search_click.png" HorizontalOptions="End" HeightRequest="60">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageSearch" />
+                    </Image.GestureRecognizers>
+                </Image>
+        </Grid>
+
+
+        <StackLayout Grid.Row="1" Grid.Column="0">
+            <ListView 
+                x:Name="BranchView" 
+                BackgroundColor="Transparent"
+                ItemsSource="{Binding Items}" 
+                VerticalOptions="FillAndExpand"  
+                RefreshCommand="{Binding LoadItemsCommand}" 
+                IsPullToRefreshEnabled="true" 
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                CachingStrategy="RecycleElement"
+                ItemTapped="itemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <!--<Label Text="{Binding Text}"  Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                <Label Text="{Binding Description}"  Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />-->
+                                <Label Text="{Binding branchName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
+                                <!--<Image HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Source="NextQ1.png" HeightRequest="40" />-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+
 </ContentPage>
