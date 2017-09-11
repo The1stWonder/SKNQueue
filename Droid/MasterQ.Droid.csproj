@@ -260,6 +260,9 @@
     <AndroidResource Include="..\MasterQ\Image\btn_search.png">
       <Link>Resources\drawable-xxhdpi\btn_search.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_history.jpg">
+      <Link>Resources\drawable-xxhdpi\h_history.jpg</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

@@ -20,5 +20,15 @@ namespace MasterQ
 			mListview.ItemsSource = History;
 		}
 
+		public void OnImageBack(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new MainPage());
+		}
+
+		public void OnImageSearch(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new SearchPage());
+		}
+
 	}
 }

@@ -4,22 +4,64 @@
     BackgroundImage="bg4.png"
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="MasterQ.HistoryPage">
-	<ContentPage.Content>
-		<ListView
-			BackgroundColor="Transparent"
-			RowHeight="75"
-			SeparatorVisibility="None"
-			x:Name="mListview"
-			VerticalOptions="Fill"
-			HorizontalOptions="Fill">
-            <ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell Text="{Binding queueNumber}" TextColor="White"/>
-        <!--<TextCell Text="{Binding queueDate}" TextColor="White"/>-->
-                    
-      </DataTemplate>
-    </ListView.ItemTemplate>
-		</ListView>
-	</ContentPage.Content>
+	x:Class="MasterQ.HistoryPage"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="70*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <Image Grid.Row="0" Grid.Column="0"  Source="h_history.jpg" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+        <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="50*" />
+                <ColumnDefinition  Width="50*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageBack" />
+                    </Image.GestureRecognizers>
+                </Image>
+            <Image Grid.Row="0" Grid.Column="1"  Source="btn_search.png"  HorizontalOptions="End" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageSearch" />
+                    </Image.GestureRecognizers>
+                </Image>
+            <Label Grid.Row="1" Grid.Column="0"  Text="History"  FontSize="40" TextColor="Aqua"  HorizontalTextAlignment="End" />
+        </Grid>
+
+      
+        <StackLayout Grid.Row="1" Grid.Column="0">
+            <ListView 
+                x:Name="mListview" 
+                ItemsSource="{Binding Items}" 
+                VerticalOptions="FillAndExpand"  
+                RefreshCommand="{Binding LoadItemsCommand}" 
+                IsPullToRefreshEnabled="true" 
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                CachingStrategy="RecycleElement" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding queueNumber}"  Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                <Label Text="{Binding queueDate}"  Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </Grid>
+
 </ContentPage>
