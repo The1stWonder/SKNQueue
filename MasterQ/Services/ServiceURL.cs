@@ -36,6 +36,9 @@ namespace MasterQ
         public static String userAcceptQueueUrl = serviceName + userPrefix + "AcceptQueue/";
         public static String userCallQueueUrl = serviceName + userPrefix + "CallQueue/";
         public static String userFinishQueueUrl = serviceName + userPrefix + "FinishQueue/";
-        public static String userSkipQueueUrl = serviceName + userPrefix + "SkipQueue/";
+		public static String userSkipQueueUrl = serviceName + userPrefix + "SkipQueue/";
+
+        public static String branchLoginUrl = serviceName + branchPrefix + "Login/";
+		public static String branchLogoutUrl = serviceName + branchPrefix + "Logout/";
     }
 }

@@ -74,6 +74,12 @@
     <EmbeddedResource Include="View\UserAppView\UserActionQueuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\BranchLoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\BranchChooseServiceQueuePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -218,6 +224,19 @@
     <Compile Include="Model\Branch.cs" />
     <Compile Include="Model\Company.cs" />
     <Compile Include="Model\Queue.cs" />
+    <Compile Include="View\BranchAppView\BranchLoginPage.xaml.cs">
+      <DependentUpon>BranchLoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\BranchAppController\BranchLoginController.cs" />
+    <Compile Include="Services\BranchAppModel\BranchLoginRq.cs" />
+    <Compile Include="Services\BranchAppModel\BranchLoginRs.cs" />
+    <Compile Include="Services\BranchAppService\BranchLoginService.cs" />
+    <Compile Include="Services\BranchAppModel\BranchLogoutRq.cs" />
+    <Compile Include="Services\BranchAppModel\BranchLogoutRs.cs" />
+    <Compile Include="Model\BranchAppModel\BranchSessionModel.cs" />
+    <Compile Include="View\BranchAppView\BranchChooseServiceQueuePage.xaml.cs">
+      <DependentUpon>BranchChooseServiceQueuePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

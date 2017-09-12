@@ -1,10 +1,7 @@
 ﻿using System;
-
-using Xamarin.Forms;
-
 namespace MasterQ
 {
-    public class UserSessionModel : ContentPage
+    public class UserSessionModel
 	{
         public static Member loginMember=new Member();
         public static Branch choosedBranch=new Branch();

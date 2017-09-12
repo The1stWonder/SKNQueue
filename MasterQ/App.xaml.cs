@@ -14,7 +14,11 @@ namespace MasterQ
                 MainPage = new NavigationPage(new LoginPage());
             }else if(Constants.isAppForUser()){
 				MainPage = new NavigationPage(new UserLoginPage());
-            }
+			}
+            else if (Constants.isAppForBranch())
+			{
+				MainPage = new NavigationPage(new BranchLoginPage());
+			}
 		}
 
 		protected override void OnStart()
