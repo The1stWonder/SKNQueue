@@ -237,6 +237,7 @@
     <Compile Include="View\BranchAppView\BranchChooseServiceQueuePage.xaml.cs">
       <DependentUpon>BranchChooseServiceQueuePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\GroupService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

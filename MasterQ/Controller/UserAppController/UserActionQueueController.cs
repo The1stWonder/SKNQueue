@@ -10,9 +10,9 @@ namespace MasterQ
         {
             return instance;
         }
-        public UIReturn callQueue(Branch b, Service s)
+        public UIReturn callQueue(Branch b, GroupService g)
         {
-            CallQueueRq req = UserActionQueueService.getInstance().getCallQueueRq(b, s);
+            CallQueueRq req = UserActionQueueService.getInstance().getCallQueueRq(b, g);
             CallQueueRs res = UserActionQueueService.getInstance().callQueue(req);
 
             UIReturn ret = new UIReturn(res.header);

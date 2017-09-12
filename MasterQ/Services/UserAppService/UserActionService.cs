@@ -35,12 +35,12 @@ namespace MasterQ
 			return JObject.Parse(resJSON).ToObject<OpenServiceRs>();
 
 		}
-        public OpenServiceRq getOpenServiceRq(Branch branch,Service service,String counterNumber)
+        public OpenServiceRq getOpenServiceRq(Branch branch,GroupService groupS,String counterNumber)
 		{
             OpenServiceRq ret = new OpenServiceRq();
             ret.branchID = branch.branchID;
 			ret.userCode = SessionModel.loginUser.userCode;
-            ret.serviceID = service.serviceID;
+            ret.groupID = groupS.groupID;
             ret.counterNumber = counterNumber;
 			return ret;
 

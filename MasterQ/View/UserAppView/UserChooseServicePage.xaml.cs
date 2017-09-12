@@ -16,7 +16,7 @@ namespace MasterQ
         public void OnImageSubmit(object sender, System.EventArgs args)
         {
             var counterNum = counterNumber.Text;
-            UIReturn uiReturn = UserActionServiceController.getInstance().openService(UserSessionModel.choosedBranch, UserSessionModel.choosedService, counterNum);
+            UIReturn uiReturn = UserActionServiceController.getInstance().openService(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup, counterNum);
             if (uiReturn.isSuccess)
             {
                 Navigation.PushAsync(new UserActionQueuePage());
@@ -31,15 +31,34 @@ namespace MasterQ
             UserSessionModel.choosedBranch.branchID = SessionModel.loginUser.branchID;
             UIReturn uiReturn = UserActionServiceController.getInstance().getServices(UserSessionModel.choosedBranch);
             List<Service> services = (List<Service>)uiReturn.returnObject;
+
             foreach (Service s in services)
             {
-                chooseService.Items.Add(s.serviceDesc);
+                String groupID = s.groupID;
+                GroupService group = new GroupService();
+                group.groupID = groupID;
+                group.services = services.FindAll(sv => sv.groupID.Equals(groupID));
+				if (UserSessionModel.groupServices.FindAll(gs => gs.groupID.Equals(groupID)).Count <= 0)
+				{
+                    UserSessionModel.groupServices.Add(group);
+                }
             }
+
+            foreach (GroupService tempGS in UserSessionModel.groupServices)
+            {
+                String showText = "";
+                foreach (Service tempS in tempGS.services)
+                {
+                    showText+=tempS.serviceName+",";
+                }
+                chooseService.Items.Add(showText.Substring(0,showText.Length-1));
+            }
+
             chooseService.Unfocused += (sender, args) =>
             {
                 if (chooseService.SelectedIndex >= 0)
                 {
-                    UserSessionModel.choosedService = services.ToArray()[chooseService.SelectedIndex];
+                    UserSessionModel.choosedGroup = UserSessionModel.groupServices.ToArray()[chooseService.SelectedIndex];
                 }
             };
             staffName.Text = SessionModel.loginUser.firstName + " " + SessionModel.loginUser.lastName;

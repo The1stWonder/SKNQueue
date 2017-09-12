@@ -7,9 +7,9 @@ namespace MasterQ
         public static String APPLICATION_TYPE_USER = "USER";
         public static String APPLICATION_TYPE_MEMBER = "MEMBER";
         public static String APPLICATION_TYPE_BRANCH = "BRANCH";
-        //public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
+        public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
 		//public static String APPLICATION_TYPE = APPLICATION_TYPE_MEMBER;
-		public static String APPLICATION_TYPE = APPLICATION_TYPE_BRANCH;
+		//public static String APPLICATION_TYPE = APPLICATION_TYPE_BRANCH;
 		public static String QUEUE_TYPE_MEMBER = "O";
         public static String QUEUE_TYPE_BRANCH = "K";
 

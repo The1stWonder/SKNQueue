@@ -30,7 +30,7 @@ namespace MasterQ
         }
         void callBtn_Clicked(Object sender, System.EventArgs e)
         {
-            UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedService);
+            UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
             if (uiReturn.isSuccess)
             {
                 CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;

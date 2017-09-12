@@ -13,6 +13,7 @@ namespace MasterQ
         public long queueNumber { get; set; }
         public string serviceDesc { get; set; }
         public string serviceID { get; set; }
+		public string groupID { get; set; }
         public string serviceName { get; set; }
         public string branchID { get; set; }
         public string memberID { get; set; }

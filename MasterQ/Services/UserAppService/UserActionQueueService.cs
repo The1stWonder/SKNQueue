@@ -19,12 +19,12 @@ namespace MasterQ
             return JObject.Parse(resJSON).ToObject<CallQueueRs>();
 
         }
-        public CallQueueRq getCallQueueRq(Branch branch, Service service)
+        public CallQueueRq getCallQueueRq(Branch branch, GroupService g)
         {
             CallQueueRq ret = new CallQueueRq();
             ret.branchID = branch.branchID;
             ret.userCode = SessionModel.loginUser.userCode;
-            ret.serviceID = service.serviceID;
+            ret.groupID = g.groupID;
             return ret;
 
         }

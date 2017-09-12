@@ -17,11 +17,11 @@ namespace MasterQ
             ret.returnObject = res.services;
             return ret;
         }
-        public UIReturn openService(Branch b, Service s, String counterNumber)
+        public UIReturn openService(Branch b, GroupService g, String counterNumber)
         {
             if (String.IsNullOrEmpty(counterNumber)) return Constants.uiErrorEmptyCounterNumber;
 
-            OpenServiceRq req = UserActionService.getInstance().getOpenServiceRq(b, s, counterNumber);
+            OpenServiceRq req = UserActionService.getInstance().getOpenServiceRq(b, g, counterNumber);
             OpenServiceRs res = UserActionService.getInstance().openService(req);
             UIReturn ret = new UIReturn(res.header);
             return ret;
