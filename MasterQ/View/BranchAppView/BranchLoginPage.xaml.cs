@@ -20,7 +20,7 @@ namespace MasterQ
 
 			if (uiReturn.isSuccess)
 			{
-				Navigation.PushAsync(new UserChooseServicePage());
+                Navigation.PushAsync(new BranchChooseServiceQueuePage());
 			}
 			else
 			{

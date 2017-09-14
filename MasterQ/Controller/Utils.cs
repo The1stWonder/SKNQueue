@@ -15,5 +15,18 @@ namespace MasterQ
 			}
             return temp;
 		}
+        public static String getQueueType()
+		{
+			String ret = String.Empty;
+			if (Constants.isAppForMember())
+			{
+				ret = Constants.QUEUE_TYPE_MEMBER;
+			}
+			else if (Constants.isAppForBranch())
+			{
+				ret = Constants.QUEUE_TYPE_BRANCH;
+			}
+			return ret;
+		}
 	}
 }

@@ -10,6 +10,25 @@ namespace MasterQ
         public BranchChooseServiceQueuePage()
         {
             InitializeComponent();
+            getService();
         }
+		public void getService()
+		{
+            List<Service> Service = (List<Service>)BranchActionsController.getInstance().getBranchServices().returnObject;
+			ServiceListview.ItemsSource = Service;
+		}
+
+		public void itemTapped(object sender, System.EventArgs args)
+		{
+			Service service = (Service)ServiceListview.SelectedItem;
+            UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
+            if (uiReturn.isSuccess)
+            {
+                BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
+                Navigation.PushAsync(new BranchSummaryQueuePage());
+            }else{
+                DisplayAlert("Error",uiReturn.getDescription(),"Cancel");
+            }
+		}
     }
 }

@@ -40,5 +40,7 @@ namespace MasterQ
 
         public static String branchLoginUrl = serviceName + branchPrefix + "Login/";
 		public static String branchLogoutUrl = serviceName + branchPrefix + "Logout/";
+		public static String branchGetServiceUrl = serviceName + branchPrefix + "GetService/";
+		public static String branchReserveQueueUrl = serviceName + branchPrefix + "ReserveQueue/";
     }
 }

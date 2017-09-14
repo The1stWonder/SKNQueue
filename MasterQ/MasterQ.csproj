@@ -80,6 +80,9 @@
     <EmbeddedResource Include="View\BranchAppView\BranchChooseServiceQueuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\BranchSummaryQueuePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -169,7 +172,6 @@
     </Compile>
     <Compile Include="Controller\MemberAppController\EditProfileController.cs" />
     <Compile Include="Controller\MemberAppController\ForgetPasswordController.cs" />
-    <Compile Include="Controller\MemberAppController\Initial.cs" />
     <Compile Include="Controller\MemberAppController\LoginController.cs" />
     <Compile Include="Controller\MemberAppController\RegisterController.cs" />
     <Compile Include="Controller\MemberAppController\ReserveQController.cs" />
@@ -238,6 +240,16 @@
       <DependentUpon>BranchChooseServiceQueuePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\GroupService.cs" />
+    <Compile Include="View\BranchAppView\BranchSummaryQueuePage.xaml.cs">
+      <DependentUpon>BranchSummaryQueuePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\BranchAppModel\BranchGetServicesRq.cs" />
+    <Compile Include="Services\BranchAppModel\BranchGetServicesRs.cs" />
+    <Compile Include="Services\BranchAppModel\BranchReserveQueueRq.cs" />
+    <Compile Include="Services\BranchAppModel\BranchReserveQueueRs.cs" />
+    <Compile Include="Services\BranchAppService\BranchActionService.cs" />
+    <Compile Include="Controller\BranchAppController\BranchActionsController.cs" />
+    <Compile Include="Controller\Initial.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
