@@ -263,6 +263,12 @@
     <AndroidResource Include="..\MasterQ\Image\h_history.jpg">
       <Link>Resources\drawable-xxhdpi\h_history.jpg</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_save_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_save_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_save.png">
+      <Link>Resources\drawable-xxhdpi\btn_save.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

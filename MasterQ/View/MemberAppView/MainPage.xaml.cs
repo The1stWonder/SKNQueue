@@ -10,12 +10,40 @@ namespace MasterQ
 {
     public partial class MainPage : ContentPage
     {
+		int timercount = 0;
+		bool timercheck = false;
+
         public MainPage()
         {
             InitializeComponent();
             if (SessionModel.bookingQ != null)
             {
                 NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+                timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+
+                if (timercount.ToString() == "0")
+                {
+                    timercheck = false;
+                }
+                else
+                {
+					timercheck = true;
+                    Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+                    {
+                    // do something every 60 seconds
+                    timercount--;
+
+                        TimesQ.Text = timercount.ToString();
+
+                        if (timercount.ToString() == "0")
+                        {
+
+                            timercheck = false;
+                        }
+
+                        return timercheck;
+                    });
+                }
             }
         }
 

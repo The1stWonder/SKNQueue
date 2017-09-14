@@ -43,6 +43,7 @@
         <StackLayout Grid.Row="1" Grid.Column="0">
             <ListView 
                 x:Name="mListview" 
+                BackgroundColor="Transparent"
                 ItemsSource="{Binding Items}" 
                 VerticalOptions="FillAndExpand"  
                 RefreshCommand="{Binding LoadItemsCommand}" 
@@ -53,8 +54,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding queueNumber}"  Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding queueDate}"  Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding queueNumber}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                <Label Text="{Binding queueDate}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

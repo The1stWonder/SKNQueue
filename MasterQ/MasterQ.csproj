@@ -289,6 +289,8 @@
     <None Include="Image\btn_search_click.png" />
     <None Include="Image\btn_search.png" />
     <None Include="Image\h_history.jpg" />
+    <None Include="Image\btn_save_click.png" />
+    <None Include="Image\btn_save.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

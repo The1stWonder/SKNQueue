@@ -55,6 +55,12 @@ namespace MasterQ
 				List<Branch> Branch = (List<Branch>)SearchController.getInstance().getBranches(searchProvince, searchDistrict).returnObject;
 				BranchView.ItemsSource = Branch;
 			}
+            else if (mSearchEntry.Text != null)
+            {
+                var searchtxt = mSearchEntry.Text;
+                List<Branch> Branch = (List<Branch>)SearchController.getInstance().getBranches(searchtxt).returnObject;
+				BranchView.ItemsSource = Branch;
+            }
 		}
 
 		public void itemTapped(object sender, System.EventArgs args)
@@ -67,5 +73,7 @@ namespace MasterQ
 		{
             Navigation.PushAsync(new MainPage());
 		}
+
+
 	}
 }
