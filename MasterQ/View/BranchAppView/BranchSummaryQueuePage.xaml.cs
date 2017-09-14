@@ -13,7 +13,7 @@ namespace MasterQ
             if (BranchSessionModel.bookingQ != null)
 			{
 				NumberQ.Text = BranchSessionModel.bookingQ.queueNumber.ToString();
-                TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime);
+                TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime*60);
                 estimateTime.Text = time.ToString(@"hh\:mm\:ss");
 			}
         }
