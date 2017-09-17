@@ -39,7 +39,10 @@
                 <Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
                 <Label x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White">
                         Forgot Password | Help
-
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnLabelForgetpassword" />
+                </Label.GestureRecognizers>
                     </Label>
                 <Image Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
                     <Image.GestureRecognizers>

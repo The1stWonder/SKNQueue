@@ -11,19 +11,19 @@ namespace MasterQ
 		{
 			InitializeComponent(); 
 
-            var username = "t@t.co";
-			var password = "1";
-			Login MasQLogin = new Login(username, password);
-			UIReturn uiReturn = LoginController.getInstance().LoginMember(MasQLogin);
+   //         var username = "t@t.co";
+			//var password = "1";
+			//Login MasQLogin = new Login(username, password);
+			//UIReturn uiReturn = LoginController.getInstance().LoginMember(MasQLogin);
 
-			if (uiReturn.isSuccess)
-			{
-				Navigation.PushAsync(new MainPage());
-			}
-			else
-			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
-			}
+			//if (uiReturn.isSuccess)
+			//{
+			//	Navigation.PushAsync(new MainPage());
+			//}
+			//else
+			//{
+			//	DisplayAlert("Click", uiReturn.getDescription(), "Close");
+			//}
 
 
 		}
@@ -53,9 +53,9 @@ namespace MasterQ
 			}
 		}
 
-		//public void OnLabelForgetpassword(object sender, System.EventArgs args)
-		//{
-		//	Navigation.PushAsync(new ForgetPasswordPage());
-		//}
+		public void OnLabelForgetpassword(object sender, System.EventArgs args)
+		{
+			Navigation.PushAsync(new ForgetPasswordPage());
+		}
 	}
 }

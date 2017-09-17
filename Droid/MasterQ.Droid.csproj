@@ -269,6 +269,9 @@
     <AndroidResource Include="..\MasterQ\Image\btn_save.png">
       <Link>Resources\drawable-xxhdpi\btn_save.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\dropdown_arrow.png">
+      <Link>Resources\drawable-xxhdpi\dropdown_arrow.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

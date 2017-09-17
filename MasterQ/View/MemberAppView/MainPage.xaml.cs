@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ZXing.Net.Mobile.Forms;
+using System.Threading.Tasks;
 
 
 using Xamarin.Forms;
@@ -8,18 +9,21 @@ using ZXing.Mobile;
 
 namespace MasterQ
 {
+    internal delegate Task TimerCallback(object state);
     public partial class MainPage : ContentPage
     {
 		int timercount = 0;
-		bool timercheck = false;
+        bool timercheck = true;
 
         public MainPage()
         {
             InitializeComponent();
+
             if (SessionModel.bookingQ != null)
             {
                 NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
                 timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+
 
                 if (timercount.ToString() == "0")
                 {
@@ -32,8 +36,9 @@ namespace MasterQ
                     {
                     // do something every 60 seconds
                     timercount--;
+                        TimeSpan time = TimeSpan.FromSeconds(timercount);
 
-                        TimesQ.Text = timercount.ToString();
+                        TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
                         if (timercount.ToString() == "0")
                         {
@@ -41,7 +46,7 @@ namespace MasterQ
                             timercheck = false;
                         }
 
-                        return timercheck;
+						return timercheck;
                     });
                 }
             }
@@ -49,17 +54,27 @@ namespace MasterQ
 
         public void OnImageMainProfilePage(object sender, System.EventArgs args)
         {
-            Navigation.PushAsync(new MainProfilePage());
+            //Navigation.PushAsync(new MainProfilePage());
+
+			Navigation.InsertPageBefore(new MainProfilePage(), this);
+			Navigation.PopAsync();
+
         }
 
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {
-            Navigation.PushAsync(new HistoryPage());
+            //Navigation.PushAsync(new HistoryPage());
+
+			Navigation.InsertPageBefore(new HistoryPage(), this);
+			Navigation.PopAsync();
         }
 
         public void OnImageQueuePage(object sender, System.EventArgs args)
         {
-            Navigation.PushAsync(new SearchPage());
+            //Navigation.PushAsync(new SearchPage());
+
+			Navigation.InsertPageBefore(new SearchPage(), this);
+			Navigation.PopAsync();
         }
 
         public void OnImageQRcodePage(object sender, System.EventArgs args)
@@ -103,7 +118,10 @@ namespace MasterQ
 
 		public void OnImageSummaryPage(object sender, System.EventArgs args)
 		{
-            Navigation.PushAsync(new SummaryPage());
+            //Navigation.PushAsync(new SummaryPage());
+
+			Navigation.InsertPageBefore(new SummaryPage(), this);
+			Navigation.PopAsync();
 		}
     }
 }

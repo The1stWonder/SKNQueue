@@ -9,18 +9,20 @@
         <ListView
             ItemTapped="itemTapped"
             BackgroundColor="Transparent"
-            RowHeight="75"
-            SeparatorVisibility="None"
             x:Name="ServiceListview"
-            VerticalOptions="Fill"
-            HorizontalOptions="Fill">
+            VerticalOptions="FillAndExpand" 
+            HasUnevenRows="true" 
+            RefreshCommand="{Binding LoadItemsCommand}" 
+            IsPullToRefreshEnabled="true" 
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+            CachingStrategy="RecycleElement" >
             <ListView.ItemTemplate>
            <DataTemplate>
 					 <ViewCell>
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-        <Label Text="{Binding serviceDesc}" TextColor="White" />
-					<Image HorizontalOptions="EndAndExpand" Source="NextQ2.png" HeightRequest="40"/>
+        <Label Text="{Binding serviceName}" TextColor="White" />
+					<Image HorizontalOptions="EndAndExpand" Source="dropdown_arrow.png" HeightRequest="40"/>
 				</StackLayout>
             </StackLayout>
         </ViewCell>             

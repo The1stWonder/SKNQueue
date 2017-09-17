@@ -11,6 +11,7 @@ namespace MasterQ
 		{
 			InitializeComponent();
 			getHistory();
+
 		}
 
 		public void getHistory()

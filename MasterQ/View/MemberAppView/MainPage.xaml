@@ -64,7 +64,7 @@
         <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
-                    <Label x:Name="TimesQ" FontSize="50" Text="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label x:Name="TimesQ" FontSize="50" Text="00:00:00" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
