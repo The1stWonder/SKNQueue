@@ -9,57 +9,67 @@ using ZXing.Mobile;
 
 namespace MasterQ
 {
-    internal delegate Task TimerCallback(object state);
-    public partial class MainPage : ContentPage
-    {
-		int timercount = 0;
-        bool timercheck = true;
+	public partial class MainPage : ContentPage
+	{
+		public static int timercount;
+		bool timercheck = true;
 
-        public MainPage()
-        {
-            InitializeComponent();
+		public MainPage()
+		{
+			InitializeComponent();
 
-            if (SessionModel.bookingQ != null)
-            {
-                NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
-                timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+			if (SessionModel.bookingQ != null)
+			{
+				if (SessionModel.bookingQ.queueNumber != 0)
+				{
+					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
 
+					timerStart();
+				}
+			}
+		}
 
-                if (timercount.ToString() == "0")
-                {
-                    timercheck = false;
-                }
-                else
-                {
-					timercheck = true;
-                    Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-                    {
-                    // do something every 60 seconds
-                    timercount--;
-                        TimeSpan time = TimeSpan.FromSeconds(timercount);
+		public void timerStart()
+		{
+			if (timercount == 0)
+			{
+				timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+			}
 
-                        TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+			if (timercount.ToString() == "0")
+			{
+				timercheck = false;
+			}
+			else
+			{
+				timercheck = true;
+				Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+				{
+					// do something every 60 seconds
+					timercount--;
+					TimeSpan time = TimeSpan.FromSeconds(timercount);
 
-                        if (timercount.ToString() == "0")
-                        {
+					TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
-                            timercheck = false;
-                        }
+					if (timercount.ToString() == "0")
+					{
 
-						return timercheck;
-                    });
-                }
-            }
-        }
+						timercheck = false;
+					}
 
-        public void OnImageMainProfilePage(object sender, System.EventArgs args)
-        {
-            //Navigation.PushAsync(new MainProfilePage());
+					return timercheck;
+				});
+			}
+		}
+
+		public void OnImageMainProfilePage(object sender, System.EventArgs args)
+		{
+			//Navigation.PushAsync(new MainProfilePage());
 
 			Navigation.InsertPageBefore(new MainProfilePage(), this);
 			Navigation.PopAsync();
-
-        }
+		}
+ 	
 
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {

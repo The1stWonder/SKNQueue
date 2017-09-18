@@ -7,8 +7,8 @@ namespace MasterQ
 {
 	public partial class SummaryPage : ContentPage
 	{
-		int timercount = 0;
-		bool timercheck = false;
+		//int timercount = 0;
+		//bool timercheck = false;
 
 		public SummaryPage()
 		{
@@ -18,32 +18,32 @@ namespace MasterQ
 			{
 				NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
 
-				timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+				//timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
 
-				if (timercount.ToString() == "0")
-				{
-					timercheck = false;
-				}
-				else
-				{
-					timercheck = true;
-					Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-					{
-						// do something every 60 seconds
-						timercount--;
-						TimeSpan time = TimeSpan.FromSeconds(timercount);
+				//if (timercount.ToString() == "0")
+				//{
+				//	timercheck = false;
+				//}
+				//else
+				//{
+				//	timercheck = true;
+				//	Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+				//	{
+				//		// do something every 60 seconds
+				//		timercount--;
+				//		TimeSpan time = TimeSpan.FromSeconds(timercount);
 
-						TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+				//		TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
-						if (timercount.ToString() == "0")
-						{
+				//		if (timercount.ToString() == "0")
+				//		{
 
-							timercheck = false;
-						}
+				//			timercheck = false;
+				//		}
 
-						return timercheck;
-					});
-				}
+				//		return timercheck;
+				//	});
+				//}
 			}
 		}
 

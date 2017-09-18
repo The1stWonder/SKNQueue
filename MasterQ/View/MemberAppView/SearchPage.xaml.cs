@@ -7,12 +7,39 @@ namespace MasterQ
 {
 	public partial class SearchPage : ContentPage
 	{
+		bool timercheck = true;
 		public Province searchProvince = new Province();
 		public District searchDistrict = new District();
 		public SearchPage()
 		{
 			InitializeComponent();
 			gennaratepicker();
+
+			if (SessionModel.bookingQ != null)
+			{
+				if (timercheck == true)
+				{
+                    timerStart();
+				}
+			}
+		}
+
+		public void timerStart()
+		{
+			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+				{
+			// do something every 60 seconds
+			// ItemsPage i = new ItemsPage();
+			if (timercheck == true)
+					{
+						MainPage.timercount.ToString();
+						return true; // runs again, or false to stop
+			}
+					else
+					{
+						return false;
+					}
+				});
 		}
 
 		public void gennaratepicker()
@@ -65,12 +92,14 @@ namespace MasterQ
 
 		public void itemTapped(object sender, System.EventArgs args)
 		{
+			timercheck = false;
             Branch BranchID = (Branch)BranchView.SelectedItem;
             Navigation.PushAsync(new ServicePage(BranchID));
 		}
 
 		public void OnImageBack(object sender, System.EventArgs args)
 		{
+			timercheck = false;
             Navigation.PushAsync(new MainPage());
 		}
 
