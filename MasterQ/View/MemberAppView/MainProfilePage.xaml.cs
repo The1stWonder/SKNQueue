@@ -8,7 +8,6 @@ namespace MasterQ
 {
 	public partial class MainProfilePage : ContentPage
 	{
-		int timercount = 0;
 		bool timercheck = true;
 		public MainProfilePage()
 		{
