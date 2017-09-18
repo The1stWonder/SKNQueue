@@ -7,27 +7,26 @@
     x:Class="MasterQ.ServicePage">
 	<ContentPage.Content>
         <ListView
-            ItemTapped="itemTapped"
-            BackgroundColor="Transparent"
-            x:Name="ServiceListview"
-            VerticalOptions="FillAndExpand" 
-            HasUnevenRows="true" 
-            RefreshCommand="{Binding LoadItemsCommand}" 
-            IsPullToRefreshEnabled="true" 
-            IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
-            CachingStrategy="RecycleElement" >
-            <ListView.ItemTemplate>
-           <DataTemplate>
-					 <ViewCell>
-            <StackLayout Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-        <Label Text="{Binding serviceName}" TextColor="White" />
-					<Image HorizontalOptions="EndAndExpand" Source="dropdown_arrow.png" HeightRequest="40"/>
-				</StackLayout>
-            </StackLayout>
-        </ViewCell>             
-      </DataTemplate>
-    </ListView.ItemTemplate>
+				Margin="20,0,5,0"
+			 	ItemTapped="itemTapped"
+         		x:Name="ServiceListview" 
+                BackgroundColor="Transparent"
+                ItemsSource="{Binding Items}" 
+                VerticalOptions="FillAndExpand"  
+                RefreshCommand="{Binding LoadItemsCommand}" 
+                IsPullToRefreshEnabled="true" 
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                CachingStrategy="RecycleElement" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding serviceName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                <Label Text="{Binding serviceDesc}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
 </ContentPage>

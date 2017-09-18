@@ -77,6 +77,7 @@ namespace MasterQ
 
 		public void OnImageSearch(object sender, System.EventArgs args)
 		{
+			
 			if (ColumnPicker.SelectedIndex >= 0)
 			{
 				List<Branch> Branch = (List<Branch>)SearchController.getInstance().getBranches(searchProvince, searchDistrict).returnObject;

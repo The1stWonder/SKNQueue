@@ -6,14 +6,11 @@ namespace MasterQ
 {
 	public class TimerCount : ContentPage
 	{
+		public static int timercount = 0;
+
 		public TimerCount()
 		{
-			Content = new StackLayout
-			{
-				Children = {
-					new Label { Text = "Hello ContentPage" }
-				}
-			};
+			
 		}
 	}
 }
