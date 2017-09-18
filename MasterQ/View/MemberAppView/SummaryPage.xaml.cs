@@ -30,6 +30,7 @@ namespace MasterQ
 				{
 					if (timercheck == true)
 					{
+						MainPage.timercount--;
 						TimeSpan time = TimeSpan.FromSeconds(MainPage.timercount);
 
 						TimesQ.Text = time.ToString(@"hh\:mm\:ss");

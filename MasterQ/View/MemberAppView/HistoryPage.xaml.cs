@@ -30,6 +30,7 @@ namespace MasterQ
 					// ItemsPage i = new ItemsPage();
 					if (timercheck == true)
 					{
+						//MainPage.timercount--;
 						MainPage.timercount.ToString();
 						return true; // runs again, or false to stop
 					}

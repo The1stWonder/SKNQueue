@@ -23,7 +23,6 @@ namespace MasterQ
 				if (SessionModel.bookingQ.queueNumber != 0)
 				{
 					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
-
 					timerStart();
 				}
 			}
@@ -42,21 +41,18 @@ namespace MasterQ
 			}
 			else
 			{
-				timercheck = true;
 				Device.StartTimer(new TimeSpan(0, 0, 1), () =>
 				{
-					// do something every 60 seconds
-					timercount--;
-					TimeSpan time = TimeSpan.FromSeconds(timercount);
+					// do something every 60 seconds					//timercheck = true;
+						timercount--;
+						TimeSpan time = TimeSpan.FromSeconds(timercount);
 
-					TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+						TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
-					if (timercount.ToString() == "0")
-					{
-
-						timercheck = false;
-					}
-
+						if (timercount.ToString() == "0")
+						{
+							timercheck = false;
+						}
 					return timercheck;
 				});
 			}
@@ -65,7 +61,7 @@ namespace MasterQ
 		public void OnImageMainProfilePage(object sender, System.EventArgs args)
 		{
 			//Navigation.PushAsync(new MainProfilePage());
-
+			timercheck = false;
 			Navigation.InsertPageBefore(new MainProfilePage(), this);
 			Navigation.PopAsync();
 		}
@@ -74,7 +70,7 @@ namespace MasterQ
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {
             //Navigation.PushAsync(new HistoryPage());
-
+			timercheck = false;
 			Navigation.InsertPageBefore(new HistoryPage(), this);
 			Navigation.PopAsync();
         }
@@ -82,7 +78,7 @@ namespace MasterQ
         public void OnImageQueuePage(object sender, System.EventArgs args)
         {
             //Navigation.PushAsync(new SearchPage());
-
+			timercheck = false;
 			Navigation.InsertPageBefore(new SearchPage(), this);
 			Navigation.PopAsync();
         }
@@ -129,7 +125,7 @@ namespace MasterQ
 		public void OnImageSummaryPage(object sender, System.EventArgs args)
 		{
             //Navigation.PushAsync(new SummaryPage());
-
+			timercheck = false;
 			Navigation.InsertPageBefore(new SummaryPage(), this);
 			Navigation.PopAsync();
 		}
