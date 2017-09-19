@@ -31,10 +31,10 @@ namespace MasterQ
 				{
 					// do something every 60 seconds
 					// ItemsPage i = new ItemsPage();
-					if (timercheck == true)
+					if (timercheck == true && QueuePage.timercount != 0)
 					{
-						MainPage.timercount--;
-						MainPage.timercount.ToString();
+						QueuePage.timercount--;
+						QueuePage.timercount.ToString();
 						return true; // runs again, or false to stop
 					}
 					else

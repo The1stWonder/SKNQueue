@@ -15,11 +15,16 @@ namespace MasterQ
 
 			if (SessionModel.bookingQ != null)
 			{
-				NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
-
-				if (timercheck == true)
+				if (SessionModel.bookingQ.queueNumber != 0)
 				{
-                    timerStart();
+					//Service Service = 
+					ServiceQ.Text = "บริการ : ";
+					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+
+					if (timercheck == true)
+					{
+						timerStart();
+					}
 				}
 			}
 		}
@@ -28,10 +33,10 @@ namespace MasterQ
 		{
 			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
 				{
-					if (timercheck == true)
+					if (timercheck == true && QueuePage.timercount != 0)
 					{
-						MainPage.timercount--;
-						TimeSpan time = TimeSpan.FromSeconds(MainPage.timercount);
+						QueuePage.timercount--;
+						TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
 
 						TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 						//setLabel(MainPage.timercount.ToString());
@@ -61,17 +66,20 @@ namespace MasterQ
 		{
             if (SessionModel.bookingQ != null)
             {
-                UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
-                if (uiReturn.isSuccess)
-                {
-                    //DisplayAlert("Click", uiReturn.getDescription(), "Close");
-                    Navigation.PushAsync(new MainPage());
-					timercheck = false;
-                }
-                else
-                {
-                    DisplayAlert("Click", uiReturn.getDescription(), "Close");
-                }
+				if (SessionModel.bookingQ.queueNumber != 0)
+				{
+					UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
+					if (uiReturn.isSuccess)
+					{
+						//DisplayAlert("Click", uiReturn.getDescription(), "Close");
+						Navigation.PushAsync(new MainPage());
+						timercheck = false;
+					}
+					else
+					{
+						DisplayAlert("Click", uiReturn.getDescription(), "Close");
+					}
+				}
             }
 		}
 	}

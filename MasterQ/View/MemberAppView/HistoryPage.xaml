@@ -13,7 +13,7 @@
             <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="Auto" />
+            <ColumnDefinition  Width="100*" />
         </Grid.ColumnDefinitions>
         
         <Image Grid.Row="0" Grid.Column="0"  Source="h_history.jpg" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
@@ -39,10 +39,9 @@
             <Label Grid.Row="1" Grid.Column="0"  Text="History"  FontSize="40" TextColor="Aqua"  HorizontalTextAlignment="End" />
         </Grid>
 
-      
         <StackLayout Grid.Row="1" Grid.Column="0">
             <ListView 
-				Margin="10,0,5,0"
+				Margin="20,0,5,0"
                 x:Name="mListview" 
                 BackgroundColor="Transparent"
                 ItemsSource="{Binding Items}" 
@@ -57,13 +56,13 @@
                             <StackLayout>
                                 <Label Text="{Binding queueNumber, StringFormat='เลขที่คิว : {0}'}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
                                 <Label Text="{Binding queueDate, StringFormat='วันที่และเวลาที่จองคิว : {0:dd/MM/yyyy H:mm:ss zzz}'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+								<!--<Label Text="{Binding serviceID, StringFormat='บริการ : {0}'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />-->
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-
     </Grid>
 
 </ContentPage>

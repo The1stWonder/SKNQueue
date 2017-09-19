@@ -11,7 +11,6 @@ namespace MasterQ
 {
 	public partial class MainPage : ContentPage
 	{
-		public static int timercount;
 		bool timercheck = true;
 
 		public MainPage()
@@ -30,31 +29,28 @@ namespace MasterQ
 
 		public void timerStart()
 		{
-			if (timercount == 0)
-			{
-				timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-			}
-
-			if (timercount.ToString() == "0")
+			if (QueuePage.timercount == 0)
 			{
 				timercheck = false;
 			}
 			else
 			{
 				Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-				{
-					// do something every 60 seconds					//timercheck = true;
-						timercount--;
-						TimeSpan time = TimeSpan.FromSeconds(timercount);
-
-						TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-
-						if (timercount.ToString() == "0")
+					{
+						if (timercheck == true && QueuePage.timercount != 0)
 						{
-							timercheck = false;
+							QueuePage.timercount--;
+							TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
+
+							TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+						//setLabel(MainPage.timercount.ToString());
+						return true; // runs again, or false to stop
+					}
+						else
+						{
+							return false;
 						}
-					return timercheck;
-				});
+					});
 			}
 		}
 
@@ -124,10 +120,16 @@ namespace MasterQ
 
 		public void OnImageSummaryPage(object sender, System.EventArgs args)
 		{
-            //Navigation.PushAsync(new SummaryPage());
-			timercheck = false;
-			Navigation.InsertPageBefore(new SummaryPage(), this);
-			Navigation.PopAsync();
+			if (SessionModel.bookingQ != null)
+			{
+				if (SessionModel.bookingQ.queueNumber != 0)
+				{
+					//Navigation.PushAsync(new SummaryPage());
+					timercheck = false;
+					Navigation.InsertPageBefore(new SummaryPage(), this);
+					Navigation.PopAsync();
+				}
+			}
 		}
     }
 }

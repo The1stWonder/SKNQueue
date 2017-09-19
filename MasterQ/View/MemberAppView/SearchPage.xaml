@@ -12,7 +12,7 @@
             <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="Auto" />
+            <ColumnDefinition  Width="100*" />
         </Grid.ColumnDefinitions>
         
         <Image Grid.Row="0" Grid.Column="0"  Source="bg4.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
@@ -70,7 +70,7 @@
 
         <StackLayout Grid.Row="1" Grid.Column="0">
             <ListView 
-				Margin="10,0,0,0"
+				Margin="20,0,0,0"
                 x:Name="BranchView" 
                 BackgroundColor="Transparent"
                 ItemsSource="{Binding Items}" 

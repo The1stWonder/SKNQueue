@@ -29,10 +29,10 @@ namespace MasterQ
 		{
 			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
 				{
-                    if (timercheck == true)
+                    if (timercheck == true && QueuePage.timercount != 0)
                     {
-                        MainPage.timercount--;
-                        MainPage.timercount.ToString();
+                        QueuePage.timercount--;
+                        QueuePage.timercount.ToString();
                         return true; // runs again, or false to stop
                     }
 					else
