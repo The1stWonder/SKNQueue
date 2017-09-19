@@ -271,6 +271,18 @@
     <BundleResource Include="..\MasterQ\Image\dropdown_arrow.png">
       <Link>Resources\dropdown_arrow.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_gpsSig_click.png">
+      <Link>Resources\btn_gpsSig_click.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_gpsSig.png">
+      <Link>Resources\btn_gpsSig.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_location_click.png">
+      <Link>Resources\btn_location_click.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_location.png">
+      <Link>Resources\btn_location.png</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

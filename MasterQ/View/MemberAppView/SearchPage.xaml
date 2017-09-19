@@ -45,7 +45,7 @@
                 Grid.Column="1"
                 Grid.ColumnSpan="2" />
            <!-- <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Advance" FontSize="8" TextColor="White" HorizontalOptions="EndAndExpand" />-->
-            <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
+            <Image  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
 
             <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
                 <Grid.RowDefinitions>
@@ -85,9 +85,10 @@
                         <ViewCell>
                             <StackLayout>
                                 <!--<Label Text="{Binding Text}"  Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding Description}"  Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />-->
-                                <Label Text="{Binding branchName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
-                                <!--<Image HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Source="NextQ1.png" HeightRequest="40" />-->
+                                <Label Text="{Binding Description}"  Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Image HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Source="btn_location.png" HeightRequest="40" />-->
+                                <Label Text="{Binding branchName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    BackgroundImage="bg4.png"
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.RatingPage"
+    NavigationPage.HasNavigationBar="False">
+
+        <Grid
+            Margin="20,20,20,20"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Clicked="Rating1_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="1 คะแนน"
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="#006699"
+                TextColor="White" />
+
+            <Button
+                Clicked="Rating2_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="2 คะแนน"
+                Grid.Row="1"
+                Grid.Column="0" 
+                BackgroundColor="#006699"
+                TextColor="White" />
+
+            <Button
+                Clicked="Rating3_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="2 คะแนน"
+                Grid.Row="2"
+                Grid.Column="0"
+                BackgroundColor="#006699"
+                TextColor="White" />
+
+            <Button
+                Clicked="Rating4_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="4 คะแนน"
+                Grid.Row="3"
+                Grid.Column="0"
+                BackgroundColor="#006699"
+                TextColor="White" />
+
+            <Button
+                Clicked="Rating5_Clicked"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                Text="5 คะแนน"
+                Grid.Row="4"
+                Grid.Column="0"
+                BackgroundColor="#006699"
+                TextColor="White" />
+        </Grid>
+</ContentPage>

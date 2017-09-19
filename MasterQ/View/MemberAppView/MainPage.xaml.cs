@@ -12,6 +12,7 @@ namespace MasterQ
 	public partial class MainPage : ContentPage
 	{
 		bool timercheck = true;
+        bool timercheck2 = true;
 
 		public MainPage()
 		{
@@ -27,32 +28,33 @@ namespace MasterQ
 			}
 		}
 
-		public void timerStart()
-		{
-			if (QueuePage.timercount == 0)
-			{
-				timercheck = false;
-			}
-			else
-			{
-				Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-					{
-						if (timercheck == true && QueuePage.timercount != 0)
-						{
-							QueuePage.timercount--;
-							TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
+        public void timerStart()
+        {
+            if (QueuePage.timercount == 0)
+            {
+                timercheck = false;
+            }
+            else
+            {
+                Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+                    {
+                        if (timercheck == true && QueuePage.timercount != 0)
+                        {
+                            QueuePage.timercount--;
+                            TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
 
-							TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-						//setLabel(MainPage.timercount.ToString());
-						return true; // runs again, or false to stop
-					}
-						else
-						{
-							return false;
-						}
-					});
-			}
-		}
+                            TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+                            //setLabel(MainPage.timercount.ToString());
+                            return true; // runs again, or false to stop
+                        }
+                        else
+                        {
+                            timercheck2 = false;
+                            return false;
+                        }
+                    });
+            }
+        }
 
 		public void OnImageMainProfilePage(object sender, System.EventArgs args)
 		{
@@ -124,11 +126,25 @@ namespace MasterQ
 			{
 				if (SessionModel.bookingQ.queueNumber != 0)
 				{
-					//Navigation.PushAsync(new SummaryPage());
-					timercheck = false;
-					Navigation.InsertPageBefore(new SummaryPage(), this);
-					Navigation.PopAsync();
+                    if (timercheck2 == true)
+                    {
+                        timercheck = false;
+                        Navigation.InsertPageBefore(new SummaryPage(), this);
+                        Navigation.PopAsync();
+                    }
+                    else
+                    {
+						timercheck = false;
+                        Navigation.InsertPageBefore(new RatingPage(), this);
+						Navigation.PopAsync();
+                    }
 				}
+                else
+                {
+					timercheck = false;
+                    Navigation.InsertPageBefore(new SearchPage(), this);
+					Navigation.PopAsync();
+                }
 			}
 		}
     }

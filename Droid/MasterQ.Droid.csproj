@@ -272,6 +272,18 @@
     <AndroidResource Include="..\MasterQ\Image\dropdown_arrow.png">
       <Link>Resources\drawable-xxhdpi\dropdown_arrow.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_gpsSig_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_gpsSig_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_gpsSig.png">
+      <Link>Resources\drawable-xxhdpi\btn_gpsSig.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_location_click.png">
+      <Link>Resources\drawable-xxhdpi\btn_location_click.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_location.png">
+      <Link>Resources\drawable-xxhdpi\btn_location.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

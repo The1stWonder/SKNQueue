@@ -83,6 +83,9 @@
     <EmbeddedResource Include="View\BranchAppView\BranchSummaryQueuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\RatingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -252,6 +255,9 @@
     <Compile Include="Controller\Initial.cs" />
     <Compile Include="Services\MemberAppModel\RatingRq.cs" />
     <Compile Include="Services\MemberAppModel\RatingRs.cs" />
+    <Compile Include="View\MemberAppView\RatingPage.xaml.cs">
+      <DependentUpon>RatingPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -306,6 +312,10 @@
     <None Include="Image\btn_save_click.png" />
     <None Include="Image\btn_save.png" />
     <None Include="Image\dropdown_arrow.png" />
+    <None Include="Image\btn_gpsSig.png" />
+    <None Include="Image\btn_gpsSig_click.png" />
+    <None Include="Image\btn_location.png" />
+    <None Include="Image\btn_location_click.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

@@ -26,18 +26,21 @@
                 <ColumnDefinition  Width="50*" />
                 <ColumnDefinition  Width="50*" />
             </Grid.ColumnDefinitions>
+
             <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50" >
 			<Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
+            <Image Grid.Row="0" Grid.Column="1"  Source="btn_location.png"  HorizontalOptions="End" HeightRequest="50"/>
 			<Label Grid.Row="1" Grid.Column="0"  Text="Service"  FontSize="40" TextColor="Aqua"  HorizontalTextAlignment="End" />
         </Grid>
 		
         <ListView
 				Grid.Row="1" 
 				Grid.Column="0" 
-				Margin="20,0,5,0"
+				Margin="20,0,7,0"
+            HeightRequest="50"
 			 	ItemTapped="itemTapped"
          		x:Name="ServiceListview" 
                 BackgroundColor="Transparent"
@@ -51,8 +54,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding serviceName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding serviceDesc, StringFormat='รายละเอียด : {0}'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding serviceName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />
+                                <Label Text="{Binding queueNumber, StringFormat='จำนวน  {0} คิว'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

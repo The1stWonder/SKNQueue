@@ -19,7 +19,8 @@ namespace MasterQ
 			{
 				if (SessionModel.bookingQ.queueNumber != 0)
 				{
-					ServiceQ.Text = "บริการ : ";
+                    var ServiceName = SessionModel.getService(SessionModel.bookingQ.serviceID);
+                    ServiceQ.Text = "บริการ : " + ServiceName.serviceName;
 					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
 					timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
                     timerStart();
