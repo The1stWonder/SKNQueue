@@ -9,5 +9,6 @@ namespace MasterQ
 		public long queueNumber { get; set; }
 		public string serviceID { get; set; }
 		public string tranID { get; set; }
+        public String rank { get; set; }
 	}
 }
