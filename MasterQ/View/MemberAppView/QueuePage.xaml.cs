@@ -29,6 +29,7 @@ namespace MasterQ
 
 		void SendHome_Clicked(object sender, System.EventArgs e)
 		{
+            MainPage.timercount = 0;
             Navigation.PushAsync(new MainPage());
 		}
 	}

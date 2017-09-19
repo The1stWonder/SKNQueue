@@ -17,7 +17,10 @@ namespace MasterQ
 			{
 				if (timercheck == true)
 				{
-					timerStart();
+                    if (SessionModel.bookingQ.queueNumber != 0)
+                    {
+                        timerStart();
+                    }
 				}
 			}
 		}
@@ -26,11 +29,12 @@ namespace MasterQ
 		{
 			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
 				{
-					if (timercheck == true)
-					{
-						MainPage.timercount.ToString();
-						return true; // runs again, or false to stop
-					}
+                    if (timercheck == true)
+                    {
+                        MainPage.timercount--;
+                        MainPage.timercount.ToString();
+                        return true; // runs again, or false to stop
+                    }
 					else
 					{
 						return false;
