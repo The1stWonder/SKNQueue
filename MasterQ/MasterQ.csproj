@@ -250,6 +250,8 @@
     <Compile Include="Services\BranchAppService\BranchActionService.cs" />
     <Compile Include="Controller\BranchAppController\BranchActionsController.cs" />
     <Compile Include="Controller\Initial.cs" />
+    <Compile Include="Services\MemberAppModel\RatingRq.cs" />
+    <Compile Include="Services\MemberAppModel\RatingRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

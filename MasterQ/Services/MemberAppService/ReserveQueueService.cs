@@ -36,29 +36,41 @@ namespace MasterQ
             ret.queueType = Utils.getQueueType();
             return ret;
         }
-		public ReserveQueueRq getReserveQueueRq(Queue input)
-		{
-			ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
-			ret.memberID = UserSessionModel.loginMember.memberID;
-			ret.queueType = Utils.getQueueType();
-			return ret;
-		}
+        public ReserveQueueRq getReserveQueueRq(Queue input)
+        {
+            ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
+            ret.memberID = UserSessionModel.loginMember.memberID;
+            ret.queueType = Utils.getQueueType();
+            return ret;
+        }
         public GetBranchServicesRq getBranchServicesRq(Branch input)
-		{
-			GetBranchServicesRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<GetBranchServicesRq>();
-			return ret;
-		}
+        {
+            GetBranchServicesRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<GetBranchServicesRq>();
+            return ret;
+        }
         public CancelQueueRs cancelQueue(CancelQueueRq request)
-		{
+        {
             string serviceUrl = ServiceURL.ipServer + ServiceURL.cancelQueueUrl;
-			String resJSON = CallServices.callPost(serviceUrl, request);
-			return JObject.Parse(resJSON).ToObject<CancelQueueRs>();
+            String resJSON = CallServices.callPost(serviceUrl, request);
+            return JObject.Parse(resJSON).ToObject<CancelQueueRs>();
 
-		}
+        }
         public CancelQueueRq getCancelQueueRq(Queue input)
-		{
-			CancelQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<CancelQueueRq>();
-			return ret;
-		}
+        {
+            CancelQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<CancelQueueRq>();
+            return ret;
+        }
+        public RatingRs rating(RatingRq request)
+        {
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.ratingUrl;
+            String resJSON = CallServices.callPost(serviceUrl, request);
+            return JObject.Parse(resJSON).ToObject<RatingRs>();
+
+        }
+        public RatingRq getRatingRq(Queue input)
+        {
+            RatingRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<RatingRq>();
+            return ret;
+        }
     }
 }
