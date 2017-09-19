@@ -22,7 +22,7 @@
                         <ViewCell>
                             <StackLayout>
                                 <Label Text="{Binding serviceName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding serviceDesc StringFormat='รายละเอียด : {0}'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding serviceDesc, StringFormat='รายละเอียด : {0}'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
