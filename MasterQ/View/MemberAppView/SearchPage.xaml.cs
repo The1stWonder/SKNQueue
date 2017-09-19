@@ -84,14 +84,24 @@ namespace MasterQ
 			
 			if (ColumnPicker.SelectedIndex >= 0)
 			{
-				List<Branch> Branch = (List<Branch>)SearchController.getInstance().getBranches(searchProvince, searchDistrict).returnObject;
+				UIReturn uiR = SearchController.getInstance().getBranches(searchProvince, searchDistrict);
+				List<Branch> Branch = (List<Branch>)uiR.returnObject;
 				BranchView.ItemsSource = Branch;
+				if (!uiR.isSuccess)
+				{
+					DisplayAlert("Error", uiR.getDescription(), "Cancel");
+				}
 			}
             else if (mSearchEntry.Text != null)
             {
                 var searchtxt = mSearchEntry.Text;
-                List<Branch> Branch = (List<Branch>)SearchController.getInstance().getBranches(searchtxt).returnObject;
+                UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
+				List<Branch> Branch = (List<Branch>)uiR.returnObject;
 				BranchView.ItemsSource = Branch;
+				if (!uiR.isSuccess)
+				{
+					DisplayAlert("Error", uiR.getDescription(), "Cancel");
+				}
             }
 		}
 

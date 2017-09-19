@@ -40,7 +40,7 @@ namespace MasterQ
             ret.isSuccess = true;
             return ret;
         }
-        public UIReturn getBranches(Province inputP,District inputD)
+        public UIReturn getBranches(Province inputP, District inputD)
         {
             //GetBranchesRs res = MetaDataService.getInstance().CallGetBranches();
             List<Branch> branches = new List<Branch>();
@@ -48,7 +48,7 @@ namespace MasterQ
             {
                 branches = TempDB.branches;
             }
-            else if (!String.IsNullOrEmpty(inputP.provinceID) && String.IsNullOrEmpty(inputD.districtID) )
+            else if (!String.IsNullOrEmpty(inputP.provinceID) && String.IsNullOrEmpty(inputD.districtID))
             {
                 branches = TempDB.branches.FindAll(s => s.provinceID == inputP.provinceID);
             }
@@ -57,22 +57,15 @@ namespace MasterQ
                 branches = TempDB.branches.FindAll(s => s.provinceID == inputP.provinceID && s.districtID == inputD.districtID);
             }
 
-            UIReturn ret = new UIReturn();
-            ret.returnObject = branches;
-            ret.isSuccess = true;
-            return ret;
-		}
-		public UIReturn getBranches(String textSearch)
-		{
-			//GetBranchesRs res = MetaDataService.getInstance().CallGetBranches();
+            return getUIReturnBranchs(branches);
+        }
+        public UIReturn getBranches(String textSearch)
+        {
+            //GetBranchesRs res = MetaDataService.getInstance().CallGetBranches();
             List<Branch> branches = TempDB.branches.FindAll(s => s.branchName.Contains(textSearch));
-			
 
-			UIReturn ret = new UIReturn();
-			ret.returnObject = branches;
-			ret.isSuccess = true;
-			return ret;
-		}
+            return getUIReturnBranchs(branches);
+        }
         public UIReturn getBranchDetail(Branch input)
         {
             Branch branch = TempDB.branches.Find(s => s.branchID == input.branchID);
@@ -87,9 +80,37 @@ namespace MasterQ
             GetBranchServicesRq req = ReserveQueueService.getInstance().getBranchServicesRq(inputBranch);
             GetBranchServicesRs res = ReserveQueueService.getInstance().CallGetBranchServices(req);
             SessionModel.services = res.services;
-            UIReturn ret = new UIReturn(res.header);
-            ret.returnObject = res.services;
-            return ret;
+
+            return getUIReturnServices(res.services);
+        }
+
+        public UIReturn getUIReturnBranchs(List<Branch> branchs)
+        {
+            if (branchs.ToArray().Length <= 0)
+            {
+                return Constants.uiErrorNoBranch;
+            }
+            else
+            {
+                UIReturn ret = new UIReturn();
+                ret.returnObject = branchs;
+                ret.isSuccess = true;
+                return ret;
+            }
+        }
+        public UIReturn getUIReturnServices(List<Service> services)
+        {
+            if (services.ToArray().Length <= 0)
+            {
+                return Constants.uiErrorNoService;
+            }
+            else
+            {
+                UIReturn ret = new UIReturn();
+                ret.returnObject = services;
+                ret.isSuccess = true;
+                return ret;
+            }
         }
     }
 }
