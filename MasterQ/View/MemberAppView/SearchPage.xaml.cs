@@ -105,12 +105,12 @@ namespace MasterQ
             }
 		}
 
-		public void itemTapped(object sender, System.EventArgs args)
-		{
-			timercheck = false;
+        public void itemTapped(object sender, System.EventArgs args)
+        {
+            timercheck = false;
             Branch BranchID = (Branch)BranchView.SelectedItem;
             Navigation.PushAsync(new ServicePage(BranchID));
-		}
+        }
 
 		public void OnImageBack(object sender, System.EventArgs args)
 		{

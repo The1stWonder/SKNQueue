@@ -32,7 +32,11 @@
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Image Grid.Row="0" Grid.Column="1"  Source="btn_location.png"  HorizontalOptions="End" HeightRequest="50"/>
+            <Image Grid.Row="0" Grid.Column="1"  Source="btn_location.png"  HorizontalOptions="End" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageMap" />
+                    </Image.GestureRecognizers>
+                </Image>
 			<Label Grid.Row="1" Grid.Column="0"  Text="Service"  FontSize="40" TextColor="Aqua"  HorizontalTextAlignment="End" />
         </Grid>
 		
@@ -55,7 +59,7 @@
                         <ViewCell>
                             <StackLayout>
                                 <Label Text="{Binding serviceName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />
-                                <Label Text="{Binding queueNumber, StringFormat='จำนวน  {0} คิว'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14" />
+                                <Label Text="{Binding queueNumber, StringFormat='จำนวนคิวทั้งหมด  {0} คิว'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

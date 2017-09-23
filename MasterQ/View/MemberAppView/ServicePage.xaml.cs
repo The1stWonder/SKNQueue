@@ -62,5 +62,11 @@ namespace MasterQ
 			timercheck = false;
 			Navigation.PushAsync(new SearchPage());
 		}
+
+		public void OnImageMap(object sender, System.EventArgs args)
+		{
+			timercheck = false;
+            Navigation.PushAsync(new MapViewPage());
+		}
 	}
 }

@@ -146,6 +146,12 @@ namespace MasterQ
 					Navigation.PopAsync();
                 }
 			}
+			else
+			{
+				timercheck = false;
+				Navigation.InsertPageBefore(new SearchPage(), this);
+				Navigation.PopAsync();
+			}
 		}
     }
 }
