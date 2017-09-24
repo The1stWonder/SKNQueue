@@ -20,11 +20,11 @@
         <Image Grid.Row="0" Grid.Column="0"  Source="bg4.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
         <Grid Margin="10,30,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="33*" />
+                <RowDefinition Height="38*" />
                 <RowDefinition Height="2*" />
-                <RowDefinition Height="33*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="30*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="20*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="10*" />       
@@ -36,17 +36,12 @@
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
-            
-            <Entry                        
-                x:Name="mSearchEntry"
-                Placeholder="Search"  
-                TextColor="White"
-                BackgroundColor="#333"
-                HeightRequest="40"
-                Grid.Row="0"
-                Grid.Column="1"
-                Grid.ColumnSpan="2" />
-    <Image  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
+            <Label x:Name="branchName" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"  Text="" FontSize="20" TextColor="Aqua"  HorizontalTextAlignment="End" />
+            <Image  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
+            <Label x:Name="branchAddress" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
+            <Label x:Name="branchTel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
+            <Label x:Name="branchEmail" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
+
         </Grid>
 
 

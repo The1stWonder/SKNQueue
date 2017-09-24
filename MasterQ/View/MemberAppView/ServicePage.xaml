@@ -37,14 +37,14 @@
                         <TapGestureRecognizer Tapped="OnImageMap" />
                     </Image.GestureRecognizers>
                 </Image>
-			<Label Grid.Row="1" Grid.Column="0"  Text="Service"  FontSize="40" TextColor="Aqua"  HorizontalTextAlignment="End" />
+			<Label x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="30" TextColor="Aqua"  HorizontalTextAlignment="End" />
         </Grid>
 		
         <ListView
 				Grid.Row="1" 
 				Grid.Column="0" 
 				Margin="20,0,7,0"
-            HeightRequest="50"
+                HeightRequest="50"
 			 	ItemTapped="itemTapped"
          		x:Name="ServiceListview" 
                 BackgroundColor="Transparent"

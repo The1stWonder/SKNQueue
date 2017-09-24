@@ -8,10 +8,14 @@ namespace MasterQ
 	public partial class ServicePage : ContentPage
 	{
 		bool timercheck = true;
+        public Branch searchBranch = new Branch();
 		public ServicePage(Branch selectedBranch)
 		{
 			InitializeComponent();
             getService(selectedBranch);
+            branchName.Text = selectedBranch.branchName;
+
+            searchBranch = (Branch)SearchController.getInstance().getBranchDetail(selectedBranch).returnObject;
 
 			if (SessionModel.bookingQ != null)
 			{
@@ -25,24 +29,24 @@ namespace MasterQ
 			}
 		}
 
-		public void timerStart()
-		{
-			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-				{
-			// do something every 60 seconds
-			// ItemsPage i = new ItemsPage();
-			if (timercheck == true && QueuePage.timercount != 0)
-					{
-						QueuePage.timercount--;
-						QueuePage.timercount.ToString();
-						return true; // runs again, or false to stop
-			}
-					else
-					{
-						return false;
-					}
-				});
-		}
+        public void timerStart()
+        {
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+                {
+                    // do something every 60 seconds
+                    // ItemsPage i = new ItemsPage();
+                    if (timercheck == true && QueuePage.timercount != 0)
+                    {
+                        QueuePage.timercount--;
+                        QueuePage.timercount.ToString();
+                        return true; // runs again, or false to stop
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                });
+        }
 
 		public void getService(Branch selectedBranch)
 		{
@@ -66,7 +70,7 @@ namespace MasterQ
 		public void OnImageMap(object sender, System.EventArgs args)
 		{
 			timercheck = false;
-            Navigation.PushAsync(new MapViewPage());
+            Navigation.PushAsync(new MapViewPage(searchBranch));
 		}
 	}
 }
