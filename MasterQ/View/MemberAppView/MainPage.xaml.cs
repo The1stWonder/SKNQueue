@@ -56,15 +56,16 @@ namespace MasterQ
                             {
                                 DetailQ.Text = "ถึงคิวคุณแล้ว";
                                 TimesQ.Text = "00:00:00";
+                                timercheck = false;
                                 return false;
                             }
-							else
-							{
+                            else
+                            {
                                 if (SessionModel.bookingQ != null)
                                 {
                                     DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
                                 }
-							}
+                            }
 
                             //setLabel(MainPage.timercount.ToString());
                             if (Recount == 10)
@@ -87,6 +88,7 @@ namespace MasterQ
                         {
                             DetailQ.Text = "ถึงคิวคุณแล้ว";
                             TimesQ.Text = "00:00:00";
+                            timercheck = false;
                             timercheck2 = false;
                             return false;
                         }
