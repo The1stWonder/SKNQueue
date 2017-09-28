@@ -47,6 +47,7 @@ namespace MasterQ
                         {
                             TimesQ.Text = "00:00:00";
                             DetailQ.Text = "ถึงคิวคุณแล้ว";
+                            timercheck = false;
                             return false;
                         }
                         else
@@ -78,6 +79,7 @@ namespace MasterQ
                     }
                     else
                     {
+                        timercheck = false;
                         DetailQ.Text = "ถึงคิวคุณแล้ว";
                         TimesQ.Text = "00:00:00";
                         return false;
