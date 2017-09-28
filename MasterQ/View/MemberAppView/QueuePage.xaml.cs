@@ -60,7 +60,10 @@ namespace MasterQ
 					}
 					else
 					{
-						DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
+                        if (SessionModel.bookingQ != null)
+                        {
+                            DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
+                        }
 					}
 
 					if (Recount == 10)
