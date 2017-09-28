@@ -13,6 +13,9 @@ namespace MasterQ
 	{
 		bool timercheck = true;
         bool timercheck2 = true;
+		int Recount = 0;
+		int ChkTime = 0;
+		int ChkTime2 = 0;
 
 		public MainPage()
 		{
@@ -23,6 +26,7 @@ namespace MasterQ
 				if (SessionModel.bookingQ.queueNumber != 0)
 				{
 					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+                    ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
 					timerStart();
 				}
 			}
@@ -40,11 +44,26 @@ namespace MasterQ
                     {
                         if (timercheck == true && QueuePage.timercount != 0)
                         {
+                            Recount = Recount + 1;
                             QueuePage.timercount--;
                             TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
 
                             TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-                            //setLabel(MainPage.timercount.ToString());
+							//setLabel(MainPage.timercount.ToString());
+							if (Recount == 10)
+							{
+								Recount = 0;
+								Service s = new Service();
+								s.serviceID = SessionModel.bookingQ.serviceID;
+								s.branchID = SessionModel.bookingQ.branchID;
+								Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+								ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                                if (ChkTime != ChkTime2)
+                                {
+                                    ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                                    QueuePage.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                                }
+							}
                             return true; // runs again, or false to stop
                         }
                         else
