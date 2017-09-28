@@ -7,6 +7,7 @@ namespace MasterQ
 		public long estimateTime { get; set; }
         public DateTime startTime { get; set; }
 		public long queueNumber { get; set; }
+        public long queueBefore { get; set; }
 		public String serviceID { get; set; }
 		public String tranID { get; set; }
         public String rank { get; set; }
