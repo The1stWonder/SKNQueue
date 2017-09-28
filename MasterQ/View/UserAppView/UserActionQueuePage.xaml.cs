@@ -14,57 +14,58 @@ namespace MasterQ
         }
         private void InitialPage()
         {
-
         }
-        void acceptBtn_Clicked(Object sender, System.EventArgs e)
+        public void OnCallTap(object sender, System.EventArgs args)
         {
-            UIReturn uiReturn = UserActionQueueController.getInstance().acceptQueue(UserSessionModel.choosedQueue);
-            if (uiReturn.isSuccess)
-            {
+			UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
+			if (uiReturn.isSuccess)
+			{
+				CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
+				UserSessionModel.choosedQueue.tranID = uiRes.tranID;
+				qNumber.Text = uiRes.queueNumber + "";
+			}
+			else
+			{
+				DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+			}
+        }
+		public void OnAcceptTap(object sender, System.EventArgs args)
+		{
+			UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
+			if (uiReturn.isSuccess)
+			{
+				CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
+				UserSessionModel.choosedQueue.tranID = uiRes.tranID;
+				qNumber.Text = uiRes.queueNumber + "";
+			}
+			else
+			{
+				DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+			}
+		}
+		public void OnFinishTap(object sender, System.EventArgs args)
+		{
+			UIReturn uiReturn = UserActionQueueController.getInstance().finishQueue(UserSessionModel.choosedQueue);
+			if (uiReturn.isSuccess)
+			{
 
-            }
-            else
-            {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
-            }
-        }
-        void callBtn_Clicked(Object sender, System.EventArgs e)
-        {
-            UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
-            if (uiReturn.isSuccess)
-            {
-                CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
-                UserSessionModel.choosedQueue.tranID = uiRes.tranID;
-                qNumber.Text = uiRes.queueNumber + "";
-            }
-            else
-            {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
-            }
-        }
-        void finishBtn_Clicked(Object sender, System.EventArgs e)
-        {
-            UIReturn uiReturn = UserActionQueueController.getInstance().finishQueue(UserSessionModel.choosedQueue);
-            if (uiReturn.isSuccess)
-            {
+			}
+			else
+			{
+				DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+			}
+		}
+		public void OnSkipTap(object sender, System.EventArgs args)
+		{
+			UIReturn uiReturn = UserActionQueueController.getInstance().skipQueue(UserSessionModel.choosedQueue);
+			if (uiReturn.isSuccess)
+			{
 
-            }
-            else
-            {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
-            }
-        }
-        void skipBtn_Clicked(Object sender, System.EventArgs e)
-        {
-            UIReturn uiReturn = UserActionQueueController.getInstance().skipQueue(UserSessionModel.choosedQueue);
-            if (uiReturn.isSuccess)
-            {
-
-            }
-            else
-            {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
-            }
-        }
+			}
+			else
+			{
+				DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+			}
+		}
     }
 }

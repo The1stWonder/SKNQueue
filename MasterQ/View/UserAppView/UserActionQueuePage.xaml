@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.UserActionQueuePage">
-	 <Grid>
-        <Entry x:Name="qNumber" Placeholder="QueueNumber" TextColor="White" BackgroundColor="#333" Grid.Row="0" />
-        <Button Clicked="callBtn_Clicked" Text="Call" Grid.Row="1">
-        </Button>
-        <Button Clicked="acceptBtn_Clicked" Text="Accept" Grid.Row="2">
-        </Button>
-        <Button Clicked="finishBtn_Clicked" Text="Finish" Grid.Row="3">
-        </Button>
-        <Button Clicked="skipBtn_Clicked" Text="Skip" Grid.Row="4">
-        </Button>
+    <Grid x:Name="mainGrid">
+        <Image Grid.Row="0" Grid.ColumnSpan="2" Source="Qcircle.png">
+        </Image>
+        <Label x:Name="qNumber" Grid.Row="0" Grid.ColumnSpan="2" FontSize="33" Text="คิวที่" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image x:Name="CallBtn" Grid.Row="1" Grid.Column="0" Source="Qcircle.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCallTap" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="1" Grid.Column="0" FontSize="33" Text="Call" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image x:Name="AcceptBtn" Grid.Row="1" Grid.Column="1" Source="Qcircle.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAcceptTap" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="1" Grid.Column="1" FontSize="33" Text="Accept" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image x:Name="FinishBtn" Grid.Row="2" Grid.Column="0" Source="Qcircle.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnFinishTap" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="2" Grid.Column="0" FontSize="33" Text="Finish" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image x:Name="SkipBtn" Grid.Row="2" Grid.Column="1" Source="Qcircle.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnSkipTap" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="2" Grid.Column="1" FontSize="33" Text="Skip" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
     </Grid>
 </ContentPage>
