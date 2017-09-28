@@ -45,16 +45,16 @@ namespace MasterQ
 
             LoginRq req = LoginService.getInstance().getLoginRq(input);
             LoginRs res = LoginService.getInstance().CallLogin(req);
-            UserSessionModel.loginMember = res.member;
+            SessionModel.loginMember = res.member;
 
             UIReturn ret = new UIReturn(res.header);
             return ret;
 		}
 		public UIReturn LogutMember()
 		{
-            LogoutRq req = LoginService.getInstance().getLogoutRq(UserSessionModel.loginMember);
+            LogoutRq req = LoginService.getInstance().getLogoutRq(SessionModel.loginMember);
             LogoutRs res = LoginService.getInstance().callLogout(req);
-            UserSessionModel.loginMember = new Member();
+            SessionModel.loginMember = new Member();
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;

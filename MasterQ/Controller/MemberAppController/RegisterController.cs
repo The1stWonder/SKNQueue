@@ -30,6 +30,7 @@ namespace MasterQ
             RegisterRs result = MemberService.getInstance().CallRegister(req);
 
             UIReturn ret = new UIReturn(result.header);
+            SessionModel.loginMember = result.member;
             return ret;
         }
         private bool isSamePassword(Member input)

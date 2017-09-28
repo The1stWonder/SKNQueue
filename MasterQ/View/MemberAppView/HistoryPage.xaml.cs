@@ -67,7 +67,7 @@ namespace MasterQ
 
 		public void getHistory()
 		{
-            Member memberid = UserSessionModel.loginMember;
+            Member memberid = SessionModel.loginMember;
 			List<History> History = (List<History>)ShowHistoryController.getInstance().getHistory(memberid).returnObject;
 			mListview.ItemsSource = History;
 		}

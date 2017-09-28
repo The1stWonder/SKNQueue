@@ -28,7 +28,7 @@ namespace MasterQ
         }
         private void InitialPage()
         {
-            UserSessionModel.choosedBranch.branchID = SessionModel.loginUser.branchID;
+            UserSessionModel.choosedBranch.branchID = UserSessionModel.loginUser.branchID;
             UIReturn uiReturn = UserActionServiceController.getInstance().getServices(UserSessionModel.choosedBranch);
             List<Service> services = (List<Service>)uiReturn.returnObject;
 
@@ -61,7 +61,7 @@ namespace MasterQ
                     UserSessionModel.choosedGroup = UserSessionModel.groupServices.ToArray()[chooseService.SelectedIndex];
                 }
             };
-            staffName.Text = SessionModel.loginUser.firstName + " " + SessionModel.loginUser.lastName;
+            staffName.Text = UserSessionModel.loginUser.firstName + " " + UserSessionModel.loginUser.lastName;
         }
     }
 }

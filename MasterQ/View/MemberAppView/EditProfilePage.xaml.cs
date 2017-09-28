@@ -16,7 +16,7 @@ namespace MasterQ
 		{
 			InitializeComponent();
 
-            Member memberid = UserSessionModel.loginMember;
+            Member memberid = SessionModel.loginMember;
 
             mNameEntry.Text = memberid.firstName;
             //mLastNameEntry.Text = memberid.lastName;

@@ -23,7 +23,7 @@ namespace MasterQ
         {
             CallQueueRq ret = new CallQueueRq();
             ret.branchID = branch.branchID;
-            ret.userCode = SessionModel.loginUser.userCode;
+            ret.userCode = UserSessionModel.loginUser.userCode;
             ret.groupID = g.groupID;
             return ret;
 

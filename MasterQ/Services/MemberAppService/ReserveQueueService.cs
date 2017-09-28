@@ -32,14 +32,14 @@ namespace MasterQ
         public ReserveQueueRq getReserveQueueRq(Service input)
         {
             ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
-            ret.memberID = UserSessionModel.loginMember.memberID;
+            ret.memberID = SessionModel.loginMember.memberID;
             ret.queueType = Utils.getQueueType();
             return ret;
         }
         public ReserveQueueRq getReserveQueueRq(Queue input)
         {
             ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
-            ret.memberID = UserSessionModel.loginMember.memberID;
+            ret.memberID = SessionModel.loginMember.memberID;
             ret.queueType = Utils.getQueueType();
             return ret;
         }
