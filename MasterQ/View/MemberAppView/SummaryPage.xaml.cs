@@ -43,10 +43,16 @@ namespace MasterQ
                         QueuePage.timercount--;
                         TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
 
-						if (QueuePage.timercount.ToString() == "0")
-						{
-							return false;
-						}
+                        if (QueuePage.timercount.ToString() == "0")
+                        {
+                            TimesQ.Text = "00:00:00";
+                            DetailQ.Text = "ถึงคิวคุณแล้ว";
+                            return false;
+                        }
+                        else
+                        {
+                            DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
+                        }
 
                         TimesQ.Text = time.ToString(@"hh\:mm\:ss");
                         //setLabel(MainPage.timercount.ToString());
@@ -69,6 +75,8 @@ namespace MasterQ
                     }
                     else
                     {
+                        DetailQ.Text = "ถึงคิวคุณแล้ว";
+                        TimesQ.Text = "00:00:00";
                         return false;
                     }
                 });

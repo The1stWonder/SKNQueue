@@ -9,8 +9,9 @@
         
     <Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
             <RowDefinition Height="10*" />
-            <RowDefinition Height="50*" />
+            <RowDefinition Height="45*" />
             <RowDefinition Height="5*" />
             <RowDefinition Height="10*" />
             <RowDefinition Height="10*" />
@@ -37,8 +38,10 @@
             </StackLayout>
         </StackLayout>
 
+        <Label x:Name="DetailQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontSize="15" Text="" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
+
         <Image 
-        Grid.Row="1" 
+        Grid.Row="2" 
         Grid.Column="0" 
         Grid.ColumnSpan="3" 
         Source="Qcircle.png" 
@@ -51,9 +54,9 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="NumberQ" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
 
-        <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,10,0,0" VerticalOptions="FillAndExpand">
                     <Label  FontSize="18" Text="Wait Time" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
@@ -61,7 +64,7 @@
             </StackLayout>
         </StackLayout>
 
-        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
                     <Label x:Name="TimesQ" FontSize="50" Text="00:00:00" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
@@ -69,30 +72,30 @@
             </StackLayout>
         </StackLayout>
         
-        <Image Grid.Row="4" Grid.Column="0"  Source="btn_history.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image Grid.Row="5" Grid.Column="0"  Source="btn_history.png" VerticalOptions="Center" HeightRequest="60" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageHistoryPage"
                          />
                 </Image.GestureRecognizers>
         </Image>
-        <Image Grid.Row="4" Grid.Column="1"  Source="btn_booking.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image Grid.Row="5" Grid.Column="1"  Source="btn_booking.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageQueuePage"
                          />
                 </Image.GestureRecognizers>
         </Image>
-        <Image Grid.Row="4" Grid.Column="2"  Source="btn_qr.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image Grid.Row="5" Grid.Column="2"  Source="btn_qr.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageQRcodePage"
                          />
                 </Image.GestureRecognizers>
         </Image>
-        <Label Grid.Row="5" Grid.Column="0"  Text="History"  FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Grid.Row="5" Grid.Column="1"  Text="Booking" FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Grid.Row="5" Grid.Column="2"  Text="QR" FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="6" Grid.Column="0"  Text="History"  FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="6" Grid.Column="1"  Text="Booking" FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="6" Grid.Column="2"  Text="QR" FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
     </Grid>
 
 </ContentPage>

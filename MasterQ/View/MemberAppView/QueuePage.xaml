@@ -10,8 +10,9 @@
    <Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
 			<RowDefinition Height="5*" />
+            <RowDefinition Height="5*" />
             <RowDefinition Height="10*" />
-            <RowDefinition Height="50*" />
+            <RowDefinition Height="45*" />
             <RowDefinition Height="5*" />
             <RowDefinition Height="10*" />
             <RowDefinition Height="10*" />
@@ -25,12 +26,13 @@
         </Grid.ColumnDefinitions>
 
 		<Label x:Name="ServiceQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" Text="" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
-		
-        <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="Qcircle.png" VerticalOptions="Center" HeightRequest="320" />
-		
-        <Label x:Name="NumberQ" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+		<Label x:Name="DetailQ" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" Text="" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
 
-        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Source="Qcircle.png" VerticalOptions="Center" HeightRequest="320" />
+		
+        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,10,0,0" VerticalOptions="FillAndExpand">
                     <Label  FontSize="18" Text="Wait Time" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
@@ -38,7 +40,7 @@
             </StackLayout>
         </StackLayout>
 
-        <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <StackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
                     <Label x:Name="TimesQ" FontSize="50" Text="00:00:00" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
@@ -46,7 +48,7 @@
             </StackLayout>
         </StackLayout>
         
-        <Image Grid.Row="5" Grid.Column="0"  Source="btn_back.png" VerticalOptions="Center" HeightRequest="60">
+        <Image Grid.Row="6" Grid.Column="0"  Source="btn_back.png" VerticalOptions="Center" HeightRequest="60">
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageHomePage"
@@ -54,7 +56,7 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Image Grid.Row="5" Grid.Column="1"  Source="btn_history_click.png" VerticalOptions="Center" HeightRequest="60">
+        <Image Grid.Row="6" Grid.Column="1"  Source="btn_history_click.png" VerticalOptions="Center" HeightRequest="60">
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageDelete"
@@ -62,8 +64,8 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Label Grid.Row="6" Grid.Column="0"  Text="Home"  FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-        <Label Grid.Row="6" Grid.Column="1"  Text="Cancel" FontSize="12" TextColor="Aqua"   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+        <Label Grid.Row="7" Grid.Column="0"  Text="Home"  FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+        <Label Grid.Row="7" Grid.Column="1"  Text="Cancel" FontSize="12" TextColor="Aqua"   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
 
     </Grid>
 </ContentPage>
