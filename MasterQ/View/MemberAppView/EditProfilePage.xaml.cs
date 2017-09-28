@@ -37,40 +37,45 @@ namespace MasterQ
 			}
 		}
 
-		public void timerStart()
-		{
-			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-				{
-                Recount = Recount + 1;
-					// do something every 60 seconds
-					// ItemsPage i = new ItemsPage();
-					if (timercheck == true && QueuePage.timercount != 0)
-					{
-						QueuePage.timercount--;
-						QueuePage.timercount.ToString();
+        public void timerStart()
+        {
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+                {
+                    Recount = Recount + 1;
+                    // do something every 60 seconds
+                    // ItemsPage i = new ItemsPage();
+                    if (timercheck == true && QueuePage.timercount != 0)
+                    {
+                        QueuePage.timercount--;
+                        QueuePage.timercount.ToString();
 
-						if (Recount == 10)
+						if (QueuePage.timercount.ToString() == "0")
 						{
-							Recount = 0;
-							Service s = new Service();
-							s.serviceID = SessionModel.bookingQ.serviceID;
-							s.branchID = SessionModel.bookingQ.branchID;
-							Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
-							ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-							if (ChkTime != ChkTime2)
-							{
-								ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-								QueuePage.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-							}
+							return false;
 						}
-						return true; // runs again, or false to stop
-					}
-					else
-					{
-						return false;
-					}
-				});
-		}
+
+                        if (Recount == 10)
+                        {
+                            Recount = 0;
+                            Service s = new Service();
+                            s.serviceID = SessionModel.bookingQ.serviceID;
+                            s.branchID = SessionModel.bookingQ.branchID;
+                            Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+                            ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                            if (ChkTime != ChkTime2)
+                            {
+                                ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                                QueuePage.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                            }
+                        }
+                        return true; // runs again, or false to stop
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                });
+        }
 
         public void OnImageJoin(object sender, System.EventArgs args)
         {

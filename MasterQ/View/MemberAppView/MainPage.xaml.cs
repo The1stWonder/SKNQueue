@@ -49,25 +49,33 @@ namespace MasterQ
                             TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
 
                             TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-							//setLabel(MainPage.timercount.ToString());
-							if (Recount == 10)
-							{
-								Recount = 0;
-								Service s = new Service();
-								s.serviceID = SessionModel.bookingQ.serviceID;
-								s.branchID = SessionModel.bookingQ.branchID;
-								Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
-								ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+
+                            if (QueuePage.timercount.ToString() == "0")
+                            {
+                                TimesQ.Text = "00:00:00";
+                                return false;
+                            }
+
+                            //setLabel(MainPage.timercount.ToString());
+                            if (Recount == 10)
+                            {
+                                Recount = 0;
+                                Service s = new Service();
+                                s.serviceID = SessionModel.bookingQ.serviceID;
+                                s.branchID = SessionModel.bookingQ.branchID;
+                                Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+                                ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
                                 if (ChkTime != ChkTime2)
                                 {
                                     ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
                                     QueuePage.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
                                 }
-							}
+                            }
                             return true; // runs again, or false to stop
                         }
                         else
                         {
+                            TimesQ.Text = "00:00:00";
                             timercheck2 = false;
                             return false;
                         }

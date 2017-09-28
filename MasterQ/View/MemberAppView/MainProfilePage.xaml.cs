@@ -40,6 +40,11 @@ namespace MasterQ
                         QueuePage.timercount--;
                         QueuePage.timercount.ToString();
 
+						if (QueuePage.timercount.ToString() == "0")
+						{
+							return false;
+						}
+
 						if (Recount == 10)
 						{
 							Recount = 0;

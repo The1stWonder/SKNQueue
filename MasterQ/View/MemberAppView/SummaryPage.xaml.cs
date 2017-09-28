@@ -8,6 +8,9 @@ namespace MasterQ
 	public partial class SummaryPage : ContentPage
 	{
 		bool timercheck = true;
+		int Recount = 0;
+		int ChkTime = 0;
+		int ChkTime2 = 0;
 
 		public SummaryPage()
 		{
@@ -23,31 +26,53 @@ namespace MasterQ
 
 					if (timercheck == true)
 					{
+                        ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
 						timerStart();
 					}
 				}
 			}
 		}
 
-		public void timerStart()
-		{
-			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-				{
-					if (timercheck == true && QueuePage.timercount != 0)
-					{
-						QueuePage.timercount--;
-						TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
+        public void timerStart()
+        {
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+                {
+                    Recount = Recount + 1;
+                    if (timercheck == true && QueuePage.timercount != 0)
+                    {
+                        QueuePage.timercount--;
+                        TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
 
-						TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-						//setLabel(MainPage.timercount.ToString());
-						return true; // runs again, or false to stop
-					}
-					else
-					{
-						return false;
-					}
-				});
-		}
+						if (QueuePage.timercount.ToString() == "0")
+						{
+							return false;
+						}
+
+                        TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+                        //setLabel(MainPage.timercount.ToString());
+
+                        if (Recount == 10)
+                        {
+                            Recount = 0;
+                            Service s = new Service();
+                            s.serviceID = SessionModel.bookingQ.serviceID;
+                            s.branchID = SessionModel.bookingQ.branchID;
+                            Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+                            ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                            if (ChkTime != ChkTime2)
+                            {
+                                ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                                QueuePage.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                            }
+                        }
+                        return true; // runs again, or false to stop
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                });
+        }
 
 		//public void setLabel(string txt)
 		//{
