@@ -45,44 +45,49 @@ namespace MasterQ
 				Device.StartTimer(new TimeSpan(0, 0, 1), () =>
 				{
                     Recount = Recount + 1;
-					// do something every 60 seconds
-					//timercheck = true;
-					timercount--;
-					TimeSpan time = TimeSpan.FromSeconds(timercount);
-
-					TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-
-					if (timercount.ToString() == "0")
-					{
-                        DetailQ.Text = "ถึงคิวคุณแล้ว";
-                        TimesQ.Text = "00:00:00";
-						timercheck = false;
-					}
-					else
-					{
-                        if (SessionModel.bookingQ != null)
-                        {
-                            DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
-                        }
-					}
-
-					if (Recount == 10)
+                    if (timercheck == true && timercount != 0)
                     {
-                        Recount = 0;
-						Service s = new Service();
-                        s.serviceID = SessionModel.bookingQ.serviceID;
-                        s.branchID = SessionModel.bookingQ.branchID;
-						Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
-                        ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-						if (ChkTime != ChkTime2)
+                        // do something every 60 seconds
+                        //timercheck = true;
+                        timercount--;
+                        TimeSpan time = TimeSpan.FromSeconds(timercount);
+
+                        TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+
+                        if (timercount.ToString() == "0")
                         {
-                            ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-                           timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60; 
+                            DetailQ.Text = "ถึงคิวคุณแล้ว";
+                            TimesQ.Text = "00:00:00";
+                            timercheck = false;
+                        }
+                        else
+                        {
+                            if (SessionModel.bookingQ != null)
+                            {
+                                DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
+                            }
+                        }
+
+                        if (Recount == 10)
+                        {
+                            Recount = 0;
+                            Service s = new Service();
+                            s.serviceID = SessionModel.bookingQ.serviceID;
+                            s.branchID = SessionModel.bookingQ.branchID;
+                            Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+                            ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                            if (ChkTime != ChkTime2)
+                            {
+                                ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                                timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                            }
                         }
                     }
-					return timercheck;
+                        return timercheck;
+                    
 				});
 			}
+                                  
 		}
 
 		private void reserveQ(Service selectedService)
