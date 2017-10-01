@@ -16,6 +16,7 @@ namespace MasterQ
 
 		public SearchPage()
 		{
+            
 			InitializeComponent();
 			gennaratepicker();
 

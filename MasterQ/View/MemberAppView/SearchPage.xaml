@@ -70,25 +70,24 @@
 
         <StackLayout Grid.Row="1" Grid.Column="0">
             <ListView 
-				Margin="20,0,0,0"
+                RowHeight="80"
                 x:Name="BranchView" 
-                BackgroundColor="Transparent"
+                BackgroundColor="White"
                 ItemsSource="{Binding Items}" 
                 VerticalOptions="FillAndExpand"  
                 RefreshCommand="{Binding LoadItemsCommand}" 
-                IsPullToRefreshEnabled="true" 
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
                 CachingStrategy="RecycleElement"
                 ItemTapped="itemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
+                            <StackLayout  Padding="30,20,0,30">
                                 <!--<Label Text="{Binding Text}"  Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
                                 <Label Text="{Binding Description}"  Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                                 <Image HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Source="btn_location.png" HeightRequest="40" />-->
-                                <Label Text="{Binding branchName}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-
+                                <Label Text="{Binding branchName}" TextColor="Black" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />
+                                <Label Text="{Binding address, StringFormat='ที่อยู่ :  {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
