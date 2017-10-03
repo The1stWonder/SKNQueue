@@ -16,7 +16,7 @@ namespace MasterQ
         public QueuePage(Service selectedService)
 		{
 			InitializeComponent();
-            reserveQ(selectedService);
+            //reserveQ(selectedService);
 
 			if (SessionModel.bookingQ != null)
 			{
