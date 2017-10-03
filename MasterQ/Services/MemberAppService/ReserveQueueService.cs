@@ -40,7 +40,7 @@ namespace MasterQ
         {
             ReserveQueueRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<ReserveQueueRq>();
             ret.memberID = SessionModel.loginMember.memberID;
-            ret.queueType = Utils.getQueueType();
+            ret.queueType = Constants.QUEUE_TYPE_RECHECK;
             return ret;
         }
         public GetBranchServicesRq getBranchServicesRq(Branch input)

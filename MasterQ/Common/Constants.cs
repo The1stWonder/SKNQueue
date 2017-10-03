@@ -16,7 +16,8 @@ namespace MasterQ
         public static String APPLICATION_LANGUAGE = APPLICATION_LANGUAGE_THAI;
 
         public static String QUEUE_TYPE_MEMBER = "O";
-        public static String QUEUE_TYPE_BRANCH = "K";
+		public static String QUEUE_TYPE_BRANCH = "K";
+		public static String QUEUE_TYPE_RECHECK = "R";
 
         // Validation
         public static int ERROR_DEFAULT_ID = 1;

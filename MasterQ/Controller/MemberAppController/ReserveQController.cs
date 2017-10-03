@@ -23,6 +23,16 @@ namespace MasterQ
             ret.returnObject = res.queue;
             return ret;
         }
+        public UIReturn reserveQueue(Queue input)
+		{
+			ReserveQueueRq req = ReserveQueueService.getInstance().getReserveQueueRq(input);
+			ReserveQueueRs res = ReserveQueueService.getInstance().CallReserveQueue(req);
+			SessionModel.bookingQ = res.queue;
+
+			UIReturn ret = new UIReturn(res.header);
+			ret.returnObject = res.queue;
+			return ret;
+		}
         public UIReturn cancelQueue(Queue input)
         {
             CancelQueueRq req = ReserveQueueService.getInstance().getCancelQueueRq(input);
