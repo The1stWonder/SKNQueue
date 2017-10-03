@@ -4,6 +4,7 @@ namespace MasterQ
     public class UIReturn
     {
         public Boolean isSuccess { get; set; }
+		public int id { get; set; }
         public String code { get; set; }
         public String codeValue { get; set; }
         public String descriptionTH { get; set; }
@@ -16,10 +17,11 @@ namespace MasterQ
         }
         public String getDescription()
         {
-            return (false) ? descriptionTH : descriptionEN;
+            return (Constants.isThaiLanguage()) ? descriptionTH : descriptionEN;
         }
         public UIReturn(HeaderResponse header)
         {
+            this.id = header.id;
             this.isSuccess = header.isSuccess;
             CodeDescription codeDesc = Utils.getCodeDesc(header.id);
             this.code = codeDesc.code;
@@ -29,6 +31,7 @@ namespace MasterQ
         }
         public UIReturn(bool isSuccess, int id)
         {
+            this.id = id;
             this.isSuccess = isSuccess;
             CodeDescription codeDesc = Utils.getCodeDesc(id);
             this.code = codeDesc.code;

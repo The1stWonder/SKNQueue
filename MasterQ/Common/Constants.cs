@@ -11,6 +11,10 @@ namespace MasterQ
         //public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
         //public static String APPLICATION_TYPE = APPLICATION_TYPE_BRANCH;
 
+        public static String APPLICATION_LANGUAGE_THAI = "TH";
+        public static String APPLICATION_LANGUAGE_ENG = "EN";
+        public static String APPLICATION_LANGUAGE = APPLICATION_LANGUAGE_THAI;
+
         public static String QUEUE_TYPE_MEMBER = "O";
         public static String QUEUE_TYPE_BRANCH = "K";
 
@@ -57,15 +61,23 @@ namespace MasterQ
 
         public static bool isAppForMember()
         {
-            return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_MEMBER);
+            return APPLICATION_TYPE.Equals(APPLICATION_TYPE_MEMBER);
         }
         public static bool isAppForUser()
         {
-            return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_USER);
+            return APPLICATION_TYPE.Equals(APPLICATION_TYPE_USER);
         }
         public static bool isAppForBranch()
         {
-            return Constants.APPLICATION_TYPE.Equals(Constants.APPLICATION_TYPE_BRANCH);
+            return APPLICATION_TYPE.Equals(APPLICATION_TYPE_BRANCH);
+        }
+        public static bool isThaiLanguage()
+        {
+            return APPLICATION_LANGUAGE.Equals(APPLICATION_LANGUAGE_THAI);
+        }
+        public static bool isEnglishLanguage()
+        {
+            return APPLICATION_LANGUAGE.Equals(APPLICATION_LANGUAGE_ENG);
         }
 
     }
