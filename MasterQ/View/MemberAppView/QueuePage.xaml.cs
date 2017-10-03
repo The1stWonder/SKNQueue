@@ -118,7 +118,7 @@ namespace MasterQ
 				}
 				else
 				{
-					DisplayAlert("Click", uiReturn.getDescription(), "Close");
+					DisplayAlert("", uiReturn.getDescription(), "Close");
 				}
 			}
 		}

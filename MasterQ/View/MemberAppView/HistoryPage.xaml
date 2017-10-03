@@ -43,7 +43,7 @@
             <ListView 
                 RowHeight="80"
                 x:Name="mListview" 
-                BackgroundColor="Transparent"
+                BackgroundColor="White"
                 ItemsSource="{Binding Items}" 
                 VerticalOptions="FillAndExpand"  
                 RefreshCommand="{Binding LoadItemsCommand}" 
@@ -53,8 +53,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="30,20,0,30">
-                                <Label Text="{Binding queueNumber, StringFormat='เลขที่คิว : {0}'}" TextColor="White" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding queueDate, StringFormat='วันที่และเวลาที่จองคิว : {0:dd/MM/yyyy H:mm:ss zzz}'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding queueNumber, StringFormat='เลขที่คิว : {0}'}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="20" />
+                                <Label Text="{Binding queueDate, StringFormat='วันที่และเวลาที่จองคิว : {0:dd/MM/yyyy H:mm:ss zzz}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
 								<!--<Label Text="{Binding serviceID, StringFormat='บริการ : {0}'}" TextColor="White" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />-->
                             </StackLayout>
                         </ViewCell>

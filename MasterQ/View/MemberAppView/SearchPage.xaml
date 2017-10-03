@@ -83,7 +83,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout  Padding="30,20,0,30">
-                                <Label Text="{Binding branchName}" TextColor="Black" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />
+                                <Label Text="{Binding branchName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="20" />
                                 <Label Text="{Binding address, StringFormat='ที่อยู่ :  {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             </StackLayout>
                         </ViewCell>

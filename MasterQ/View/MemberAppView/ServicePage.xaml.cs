@@ -82,9 +82,20 @@ namespace MasterQ
 
 		public void itemTapped(object sender, System.EventArgs args)
 		{
-			timercheck = false;
 			Service serviceID = (Service)ServiceListview.SelectedItem;
-            Navigation.PushAsync(new QueuePage(serviceID));
+			Service s = new Service();
+			s.serviceID = serviceID.serviceID;
+			s.branchID = serviceID.branchID;
+			UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
+			if (!ChkQ.isSuccess)
+			{
+				DisplayAlert("", ChkQ.getDescription(), "Close");
+            }
+            else
+            {
+				timercheck = false;
+				Navigation.PushAsync(new QueuePage(serviceID));
+            }
 		}
 
 		public void OnImageBack(object sender, System.EventArgs args)

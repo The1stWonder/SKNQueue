@@ -56,7 +56,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="30,20,0,30">
-                                <Label Text="{Binding serviceName}" TextColor="Black" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />
+                                <Label Text="{Binding serviceName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="25" />
                                 <Label Text="{Binding queueNumber, StringFormat='จำนวนคิวทั้งหมด  {0} คิว'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             </StackLayout>
                         </ViewCell>
