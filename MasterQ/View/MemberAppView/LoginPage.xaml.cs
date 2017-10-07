@@ -49,7 +49,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+				DisplayAlert("Click", uiReturn.descriptionEN, "Close");
 			}
 		}
 

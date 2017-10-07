@@ -89,7 +89,7 @@ namespace MasterQ
 			UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
 			if (!ChkQ.isSuccess)
 			{
-				DisplayAlert("", ChkQ.getDescription(), "Close");
+				DisplayAlert("", ChkQ.descriptionEN, "Close");
             }
             else
             {

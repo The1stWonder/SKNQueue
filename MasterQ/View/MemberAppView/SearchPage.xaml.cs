@@ -127,7 +127,7 @@ namespace MasterQ
 				BranchView.ItemsSource = Branch;
 				if (!uiR.isSuccess)
 				{
-					DisplayAlert("Error", uiR.getDescription(), "Cancel");
+					DisplayAlert("Error", uiR.descriptionEN, "Cancel");
 				}
             }
 		}

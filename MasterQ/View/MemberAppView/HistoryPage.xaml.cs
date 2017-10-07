@@ -7,6 +7,7 @@ namespace MasterQ
 {
 	public partial class HistoryPage : ContentPage
 	{
+        //public History BranchHis = new History();
 		bool timercheck = true;
 		int Recount = 0;
 		int ChkTime = 0;
@@ -87,6 +88,16 @@ namespace MasterQ
 		{
 			timercheck = false;
 			Navigation.PushAsync(new SearchPage());
+		}
+
+		public void itemTapped(object sender, System.EventArgs args)
+		{
+			//timercheck = false;
+			//History BranchHis = (History)mListview.SelectedItem;
+   //         var BranchID2 = BranchHis.branchID;
+   //         Branch BranchID = (Branch)mListview.SelectedItem;
+
+			//Navigation.PushAsync(new ServicePage(BranchID));
 		}
 
 	}

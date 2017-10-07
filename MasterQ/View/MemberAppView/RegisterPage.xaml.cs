@@ -39,7 +39,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", "Register Fail : " + uiReturn.getDescription(), "Close");
+				DisplayAlert("Click", "Register Fail : " + uiReturn.descriptionEN, "Close");
 			}
 		}
 	}

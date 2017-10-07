@@ -99,12 +99,12 @@ namespace MasterQ
 			if (result.isSuccess)
 			{
 				timercheck = false;
-                DisplayAlert("Click", result.getDescription(), "OK");
+                DisplayAlert("Click", result.descriptionEN, "OK");
 				Navigation.PushAsync(new MainPage());
 			}
 			else
 			{
-				DisplayAlert("Click", result.getDescription(), "Close");
+				DisplayAlert("Click", result.descriptionEN, "Close");
 			}
 
         }
