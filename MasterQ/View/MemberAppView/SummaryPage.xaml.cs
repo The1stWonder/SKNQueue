@@ -144,7 +144,7 @@ namespace MasterQ
 					}
 					else
 					{
-						if (ChkQueue.id == 52)
+						if (ChkQueue.id == 58)
 						{
 							TimesQ.Text = "00:00:00";
 							timercheck = false;

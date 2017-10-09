@@ -92,7 +92,7 @@ namespace MasterQ
 					}
 					else
 					{
-                        if (ChkQueue.id == 52)
+                        if (ChkQueue.id == 58)
                         {
 							TimesQ.Text = "00:00:00";
 							timercheck = false;
@@ -138,41 +138,51 @@ namespace MasterQ
 
         public void OnImageQRcodePage(object sender, System.EventArgs args)
         {
-            var scanPage = new ZXingScannerPage();
-            // Navigate to our scanner page
-            Navigation.PushAsync(scanPage);
-
-            scanPage.OnScanResult += (result) =>
+            if (SessionModel.bookingQ.queueNumber == 0)
             {
+                Branch b = new Branch();
+                Branch BranchID = new Branch();
+                timercheck = false;
+                var scanPage = new ZXingScannerPage();
+                // Navigate to our scanner page
+                Navigation.PushAsync(scanPage);
+
+                scanPage.OnScanResult += (result) =>
+                {
                 // Stop scanning
                 scanPage.IsScanning = false;
 
                 // Pop the page and show the result
                 Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Navigation.PopAsync();
-                    await DisplayAlert("Scanned Barcode", result.Text, "OK");
-                });
-            };
+                    {
+                        await Navigation.PopAsync();
+                    //await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                    b.branchID = result.Text;
+                        UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
+                        BranchID = (Branch)uiR.returnObject;
+                        Navigation.PushAsync(new ServicePage(BranchID));
+                    });
+                };
 
-            var options = new MobileBarcodeScanningOptions
-            {
-                AutoRotate = false,
-                UseFrontCameraIfAvailable = true,
-                TryHarder = true,
-                PossibleFormats = new List<ZXing.BarcodeFormat>
+                var options = new MobileBarcodeScanningOptions
+                {
+                    AutoRotate = false,
+                    UseFrontCameraIfAvailable = true,
+                    TryHarder = true,
+                    PossibleFormats = new List<ZXing.BarcodeFormat>
         {
            ZXing.BarcodeFormat.EAN_8, ZXing.BarcodeFormat.EAN_13
         }
-            };
+                };
 
-            //add options and customize page
-            scanPage = new ZXingScannerPage(options)
-            {
-                DefaultOverlayTopText = "Align the barcode within the frame",
-                DefaultOverlayBottomText = string.Empty,
-                DefaultOverlayShowFlashButton = true
-            };
+                //add options and customize page
+                scanPage = new ZXingScannerPage(options)
+                {
+                    DefaultOverlayTopText = "Align the barcode within the frame",
+                    DefaultOverlayBottomText = string.Empty,
+                    DefaultOverlayShowFlashButton = true
+                };
+            }
         }
 
 		public void OnImageSummaryPage(object sender, System.EventArgs args)

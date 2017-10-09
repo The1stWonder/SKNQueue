@@ -62,7 +62,7 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Label Grid.Row="7" Grid.Column="0"  Text="Back"  FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+        <Label Grid.Row="7" Grid.Column="0"  Text="Home"  FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
         <Label Grid.Row="7" Grid.Column="1"  Text="Cancel" FontSize="12" TextColor="Aqua"   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
 
     </Grid>
