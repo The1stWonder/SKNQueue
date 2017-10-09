@@ -92,12 +92,18 @@ namespace MasterQ
 
 		public void itemTapped(object sender, System.EventArgs args)
 		{
-			//timercheck = false;
-			//History BranchHis = (History)mListview.SelectedItem;
-   //         var BranchID2 = BranchHis.branchID;
-   //         Branch BranchID = (Branch)mListview.SelectedItem;
+            if (SessionModel.bookingQ.queueNumber == 0)
+            {
+                Branch b = new Branch();
+                Branch BranchID = new Branch();
+                timercheck = false;
+                History BranchHis = (History)mListview.SelectedItem;
+                b.branchID = BranchHis.branchID;
+                UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
+                BranchID = (Branch)uiR.returnObject;
 
-			//Navigation.PushAsync(new ServicePage(BranchID));
+                Navigation.PushAsync(new ServicePage(BranchID));
+            }
 		}
 
 	}

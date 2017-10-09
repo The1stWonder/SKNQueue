@@ -156,11 +156,11 @@ namespace MasterQ
                 Device.BeginInvokeOnMainThread(async () =>
                     {
                         await Navigation.PopAsync();
-                    //await DisplayAlert("Scanned Barcode", result.Text, "OK");
-                    b.branchID = result.Text;
+                        //await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                        b.branchID = result.Text;
                         UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
                         BranchID = (Branch)uiR.returnObject;
-                        Navigation.PushAsync(new ServicePage(BranchID));
+                        await Navigation.PushAsync(new ServicePage(BranchID));
                     });
                 };
 
