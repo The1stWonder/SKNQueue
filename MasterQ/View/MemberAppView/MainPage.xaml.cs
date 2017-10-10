@@ -34,7 +34,7 @@ namespace MasterQ
             Service s = new Service();
             s.serviceID = SessionModel.bookingQ.serviceID;
             s.branchID = SessionModel.bookingQ.branchID;
-            UIReturn ChkQueue = ReserveQController.getInstance().reserveQueue(s);
+            UIReturn ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
@@ -63,7 +63,7 @@ namespace MasterQ
                 {
                     App.Recount = 0;
 
-                    Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+                    Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
                     ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
                     if (ChkTime != ChkTime2)
                     {
@@ -71,7 +71,7 @@ namespace MasterQ
                         App.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
                     }
 
-                    ChkQueue = ReserveQController.getInstance().reserveQueue(s);
+                    ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
 					if (!ChkQueue.isSuccess)
 					{
 						DisplayAlert("", ChkQueue.getDescription(), "Close");
@@ -82,6 +82,7 @@ namespace MasterQ
 					{
                         if (ChkQueue.id == 58)
                         {
+                            Navigation.PushAsync(new RatingPage());
 							TimesQ.Text = "00:00:00";
 							App.timercheck = false;
                         }
