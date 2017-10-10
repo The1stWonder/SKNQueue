@@ -1,9 +1,14 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace MasterQ
 {
 	public partial class App : Application
 	{
+		public static int timercount = 0;
+        public static int Recount = 0;
+		public static bool timercheck = false;
+
 		public App()
 		{
 			InitializeComponent();
@@ -34,6 +39,32 @@ namespace MasterQ
 		protected override void OnResume()
 		{
 			// Handle when your app resumes
+		}
+
+		public static void timerStart()
+		{
+			timercheck = true;
+
+			Device.StartTimer(new TimeSpan(0, 0, 1), () => {
+                if (timercount > 0)
+                {
+                    timercount--;
+                }
+				// do something every 60 seconds
+				
+				// ItemsPage i = new ItemsPage();
+
+				return timercheck; // runs again, or false to stop
+			});
+		}
+
+
+		public static void timerStop()
+		{
+			//Console.WriteLine("disposing of timer...");
+			//s.tmr.Dispose();
+			//s.tmr = null;
+			timercheck = false;
 		}
 	}
 }

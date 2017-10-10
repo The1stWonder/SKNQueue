@@ -7,8 +7,6 @@ namespace MasterQ
 {
 	public partial class SummaryPage : ContentPage
 	{
-		bool timercheck = true;
-		int Recount = 0;
 		int ChkTime = 0;
 		int ChkTime2 = 0;
 
@@ -24,68 +22,17 @@ namespace MasterQ
                     ServiceQ.Text = "บริการ : " + ServiceName.serviceName;
 					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
 
-					if (timercheck == true)
+					if (App.timercheck == true)
 					{
                         ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-						timerStart();
+						Process();
 					}
 				}
 			}
 		}
 
-        public void timerStart()
+        public void Process()
         {
-			//Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-			//{
-			//    Recount = Recount + 1;
-			//    if (timercheck == true && QueuePage.timercount != 0)
-			//    {
-			//        QueuePage.timercount--;
-			//        TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
-
-			//        if (QueuePage.timercount.ToString() == "0")
-			//        {
-			//            TimesQ.Text = "00:00:00";
-			//            DetailQ.Text = "ถึงคิวคุณแล้ว";
-			//            timercheck = false;
-			//            return false;
-			//        }
-			//        else
-			//        {
-			//            if (SessionModel.bookingQ != null)
-			//            {
-			//                DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
-			//            }
-			//        }
-
-			//        TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-			//        //setLabel(MainPage.timercount.ToString());
-
-			//        if (Recount == 10)
-			//        {
-			//            Recount = 0;
-			//            Service s = new Service();
-			//            s.serviceID = SessionModel.bookingQ.serviceID;
-			//            s.branchID = SessionModel.bookingQ.branchID;
-			//            Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
-			//            ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-			//            if (ChkTime != ChkTime2)
-			//            {
-			//                ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-			//                QueuePage.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-			//            }
-			//        }
-			//        return true; // runs again, or false to stop
-			//    }
-			//    else
-			//    {
-			//        timercheck = false;
-			//        DetailQ.Text = "ถึงคิวคุณแล้ว";
-			//        TimesQ.Text = "00:00:00";
-			//        return false;
-			//    }
-			//});
-
 			Service s = new Service();
 			s.serviceID = SessionModel.bookingQ.serviceID;
 			s.branchID = SessionModel.bookingQ.branchID;
@@ -93,8 +40,8 @@ namespace MasterQ
 
 			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
 			{
-				Recount = Recount + 1;
-				TimeSpan time = TimeSpan.FromSeconds(QueuePage.timercount);
+				App.Recount = App.Recount + 1;
+				TimeSpan time = TimeSpan.FromSeconds(App.timercount);
 
 				TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
@@ -102,36 +49,31 @@ namespace MasterQ
 				{
 					DisplayAlert("", ChkQueue.getDescription(), "Close");
 					TimesQ.Text = "00:00:00";
-					timercheck = false;
-					return false;
+					App.timercheck = false;
 				}
 				else
 				{
-					DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
-					if (QueuePage.timercount != 0)
+                    if (SessionModel.bookingQ != null)
+                    {
+                        DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                    }
+
+					if (App.timercount == 0)
 					{
-						if (timercheck == true)
-						{
-							QueuePage.timercount--;
-						}
-					}
-					else
-					{
-						timercheck = false;
 						TimesQ.Text = "00:00:00";
 					}
 				}
 
-				if (Recount == 10)
+				if (App.Recount == 10)
 				{
-					Recount = 0;
+					App.Recount = 0;
 
 					Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
 					ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
 					if (ChkTime != ChkTime2)
 					{
 						ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-						QueuePage.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+						App.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
 					}
 
 					ChkQueue = ReserveQController.getInstance().reserveQueue(s);
@@ -139,32 +81,33 @@ namespace MasterQ
 					{
 						DisplayAlert("", ChkQueue.getDescription(), "Close");
 						TimesQ.Text = "00:00:00";
-						timercheck = false;
-						return false;
+						App.timercheck = false;
+						
 					}
 					else
 					{
 						if (ChkQueue.id == 58)
 						{
 							TimesQ.Text = "00:00:00";
-							timercheck = false;
-							return false;
+							App.timercheck = false;
+							
 						}
 						else
 						{
-							DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
+                            if (SessionModel.bookingQ != null)
+                            {
+                                DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                            }
 						}
 					}
 				}
-				return true;
+                return App.timercheck;
 			});
 
         }
 
 		public void OnImageHomePage(object sender, System.EventArgs args)
 		{
-            //Navigation.PushAsync(new MainPage());
-			timercheck = false;
 			Navigation.InsertPageBefore(new MainPage(), this);
 			Navigation.PopAsync();
 		}
@@ -178,9 +121,8 @@ namespace MasterQ
 					UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
 					if (uiReturn.isSuccess)
 					{
-						//DisplayAlert("Click", uiReturn.getDescription(), "Close");
 						Navigation.PushAsync(new MainPage());
-						timercheck = false;
+						App.timercheck = false;
 					}
 					else
 					{
