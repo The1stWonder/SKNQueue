@@ -32,139 +32,135 @@ namespace MasterQ
 			}
 		}
 
-		public void timerStart()
-		{
-			//if (timercount.ToString() == "0")
-			//{
-			//	DetailQ.Text = "ถึงคิวคุณแล้ว";
-			//	TimesQ.Text = "00:00:00";
-			//	timercheck = false;
-			//}
-			//else
-			//{
-			//	Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-			//	{
-			//                 Recount = Recount + 1;
-			//                 if (timercheck == true && timercount != 0)
-			//                 {
-			//                     // do something every 60 seconds
-			//                     //timercheck = true;
-			//                     timercount--;
-			//                     TimeSpan time = TimeSpan.FromSeconds(timercount);
+        public void timerStart()
+        {
+            //if (timercount.ToString() == "0")
+            //{
+            //	DetailQ.Text = "ถึงคิวคุณแล้ว";
+            //	TimesQ.Text = "00:00:00";
+            //	timercheck = false;
+            //}
+            //else
+            //{
+            //	Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            //	{
+            //                 Recount = Recount + 1;
+            //                 if (timercheck == true && timercount != 0)
+            //                 {
+            //                     // do something every 60 seconds
+            //                     //timercheck = true;
+            //                     timercount--;
+            //                     TimeSpan time = TimeSpan.FromSeconds(timercount);
 
-			//                     TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+            //                     TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
-			//                     if (timercount.ToString() == "0")
-			//                     {
-			//                         DetailQ.Text = "ถึงคิวคุณแล้ว";
-			//                         TimesQ.Text = "00:00:00";
-			//                         timercheck = false;
-			//                     }
-			//                     else
-			//                     {
-			//                         if (SessionModel.bookingQ != null)
-			//                         {
-			//                             DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
-			//                         }
-			//                     }
+            //                     if (timercount.ToString() == "0")
+            //                     {
+            //                         DetailQ.Text = "ถึงคิวคุณแล้ว";
+            //                         TimesQ.Text = "00:00:00";
+            //                         timercheck = false;
+            //                     }
+            //                     else
+            //                     {
+            //                         if (SessionModel.bookingQ != null)
+            //                         {
+            //                             DetailQ.Text = "คิวก่อนหน้า " + SessionModel.bookingQ.queueBefore + " คิว " + " โปรดรอ";
+            //                         }
+            //                     }
 
-			//                     if (Recount == 10)
-			//                     {
-			//                         Recount = 0;
-			//                         Service s = new Service();
-			//                         s.serviceID = SessionModel.bookingQ.serviceID;
-			//                         s.branchID = SessionModel.bookingQ.branchID;
-			//                         Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
-			//                         ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-			//                         if (ChkTime != ChkTime2)
-			//                         {
-			//                             ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-			//                             timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-			//                         }
-			//                     }
-			//                 }
-			//                     return timercheck;
+            //                     if (Recount == 10)
+            //                     {
+            //                         Recount = 0;
+            //                         Service s = new Service();
+            //                         s.serviceID = SessionModel.bookingQ.serviceID;
+            //                         s.branchID = SessionModel.bookingQ.branchID;
+            //                         Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+            //                         ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+            //                         if (ChkTime != ChkTime2)
+            //                         {
+            //                             ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+            //                             timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+            //                         }
+            //                     }
+            //                 }
+            //                     return timercheck;
 
-			//	});
-			//}
+            //	});
+            //}
 
+            Service s = new Service();
+            s.serviceID = SessionModel.bookingQ.serviceID;
+            s.branchID = SessionModel.bookingQ.branchID;
+            UIReturn ChkQueue = ReserveQController.getInstance().reserveQueue(s);
 
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            {
+                Recount = Recount + 1;
+                TimeSpan time = TimeSpan.FromSeconds(timercount);
 
+                TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
-			Service s = new Service();
-			s.serviceID = SessionModel.bookingQ.serviceID;
-			s.branchID = SessionModel.bookingQ.branchID;
-			UIReturn ChkQueue = ReserveQController.getInstance().reserveQueue(s);
+                if (!ChkQueue.isSuccess)
+                {
+                    DisplayAlert("", ChkQueue.getDescription(), "Close");
+                    TimesQ.Text = "00:00:00";
+                    timercheck = false;
+                    return false;
+                }
+                else
+                {
+                    DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
+                    if (timercount != 0)
+                    {
+                        if (timercheck == true)
+                        {
+                            timercount--;
+                        }
+                    }
+                    else
+                    {
+                        timercheck = false;
+                        TimesQ.Text = "00:00:00";
+                    }
+                }
 
-			Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-			{
-				Recount = Recount + 1;
-				TimeSpan time = TimeSpan.FromSeconds(timercount);
+                if (Recount == 10)
+                {
+                    Recount = 0;
 
-				TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+                    Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
+                    ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                    if (ChkTime != ChkTime2)
+                    {
+                        ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                        timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                    }
 
-				if (!ChkQueue.isSuccess)
-				{
-					DisplayAlert("", ChkQueue.getDescription(), "Close");
-					TimesQ.Text = "00:00:00";
-					timercheck = false;
-					return false;
-				}
-				else
-				{
-					DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
-					if (timercount != 0)
-					{
-						if (timercheck == true)
-						{
-							timercount--;
-						}
-					}
-					else
-					{
-						timercheck = false;
-						TimesQ.Text = "00:00:00";
-					}
-				}
-
-				if (Recount == 10)
-				{
-					Recount = 0;
-
-					Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(s).returnObject;
-					ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-					if (ChkTime != ChkTime2)
-					{
-						ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-						timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-					}
-
-					ChkQueue = ReserveQController.getInstance().reserveQueue(s);
-					if (!ChkQueue.isSuccess)
-					{
-						DisplayAlert("", ChkQueue.getDescription(), "Close");
-						TimesQ.Text = "00:00:00";
-						timercheck = false;
-						return false;
-					}
-					else
-					{
-						if (ChkQueue.id == 58)
-						{
-							TimesQ.Text = "00:00:00";
-							timercheck = false;
-							return false;
-						}
-						else
-						{
-							DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
-						}
-					}
-				}
-				return true;
-			});
-                                  
-		}
+                    ChkQueue = ReserveQController.getInstance().reserveQueue(s);
+                    if (!ChkQueue.isSuccess)
+                    {
+                        DisplayAlert("", ChkQueue.getDescription(), "Close");
+                        TimesQ.Text = "00:00:00";
+                        timercheck = false;
+                        return false;
+                    }
+                    else
+                    {
+                        if (ChkQueue.id == 58)
+                        {
+                            TimesQ.Text = "00:00:00";
+                            timercheck = false;
+                            return timercheck;
+                        }
+                        else
+                        {
+                            DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
+                        }
+                    }
+                }
+                return timercheck;
+            });
+        }
 
 		private void reserveQ(Service selectedService)
 		{

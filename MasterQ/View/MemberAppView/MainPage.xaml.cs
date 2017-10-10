@@ -55,7 +55,7 @@ namespace MasterQ
                 }
                 else
                 {
-                    DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
+                    DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
                     if (QueuePage.timercount != 0)
                     {
                         if (timercheck == true)
@@ -100,7 +100,7 @@ namespace MasterQ
                         }
                         else
                         {
-                            DetailQ.Text = String.Format(ChkQueue.descriptionEN, SessionModel.bookingQ.queueBefore);
+                            DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
                         }
 					}
                 }
