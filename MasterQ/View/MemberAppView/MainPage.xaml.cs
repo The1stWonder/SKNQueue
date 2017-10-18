@@ -64,11 +64,11 @@ namespace MasterQ
                     App.Recount = 0;
 
                     Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
-                    ChkTime2 = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                    ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
                     if (ChkTime != ChkTime2)
                     {
-                        ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-                        App.timercount = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                        ChkTime = SessionModel.bookingQ.estimateTime * 60;
+                        App.timercount = SessionModel.bookingQ.estimateTime * 60;
                     }
 
                     ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
