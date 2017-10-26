@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
     Title="ลงทะเบียน" 
-    BackgroundImage="bg4.png"
+    BackgroundColor="White"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.RegisterPage"
@@ -67,15 +67,15 @@
         <Entry
             x:Name="mNameEntry"
             Placeholder="Name"
-            TextColor="White"
-            BackgroundColor="#333"
+            TextColor="Black"
+            BackgroundColor="White"
             Grid.Row="1"
         Grid.Column="1"/>
         <Entry
             x:Name="mLastNameEntry"
             Placeholder="LastName"
-            TextColor="White"
-            BackgroundColor="#333"
+            TextColor="Black"
+            BackgroundColor="White"
             Grid.Row="1"
         Grid.Column="2"/>
         <Image 
@@ -94,8 +94,8 @@
             x:Name="mEmailEntry"
             Keyboard="Email"
             Placeholder="Email"
-            TextColor="White"
-            BackgroundColor="#333"
+            TextColor="Black"
+            BackgroundColor="White"
             Grid.Row="3"
         Grid.Column="1"
         Grid.ColumnSpan="2"/>
@@ -114,8 +114,8 @@
         <Entry
             x:Name="mPhone"
             Placeholder="Tel"
-            TextColor="White"
-            BackgroundColor="#333"
+            TextColor="Black"
+            BackgroundColor="White"
             Grid.Row="5"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
@@ -134,8 +134,8 @@
         <Entry
             x:Name="mBirthdateEntry"
             Placeholder="BirthDate"
-            TextColor="White"
-            BackgroundColor="#333"
+            TextColor="Black"
+            BackgroundColor="White"
             Grid.Row="7"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
@@ -155,8 +155,8 @@
             x:Name="mPasswordEntry"
             IsPassword="true"
             Placeholder="Password"
-            TextColor="White"
-            BackgroundColor="#333"
+            TextColor="Black"
+            BackgroundColor="White"
             Grid.Row="9"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
@@ -176,8 +176,8 @@
             x:Name="mPassword2Entry"
             IsPassword="true"
             Placeholder="Confirm Password"
-            TextColor="White"
-            BackgroundColor="#333"
+            TextColor="Black"
+            BackgroundColor="White"
             Grid.Row="11"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>

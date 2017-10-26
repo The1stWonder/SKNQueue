@@ -15,7 +15,7 @@
             <ColumnDefinition  Width="100*" />
         </Grid.ColumnDefinitions>
         
-        <Image Grid.Row="0" Grid.Column="0"  Source="bg4.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+        <Image Grid.Row="0" Grid.Column="0"  Source="h_search.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
         <Grid Margin="10,30,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="33*" />
@@ -38,8 +38,8 @@
             <Entry                        
                 x:Name="mSearchEntry"
                 Placeholder="Search"  
-                TextColor="White"
-                BackgroundColor="#333"
+                TextColor="Black"
+                BackgroundColor="White"
                 HeightRequest="40"
                 Grid.Row="0"
                 Grid.Column="1"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
     Title="จองคิว"
-    BackgroundImage="bg4.png"
+    BackgroundColor="White"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.QueuePage"
@@ -25,12 +25,12 @@
 
         </Grid.ColumnDefinitions>
 
-		<Label x:Name="ServiceQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" Text="" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+		<Label x:Name="ServiceQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
 		<Label x:Name="DetailQ" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" Text="" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Source="Qcircle.png" VerticalOptions="Center" HeightRequest="320" />
 		
-        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
@@ -43,7 +43,7 @@
         <StackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
-                    <Label x:Name="TimesQ" FontSize="50" Text="00:00:00" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label x:Name="TimesQ" FontSize="50" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
@@ -56,7 +56,7 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Image Grid.Row="6" Grid.Column="1"  Source="btn_history_click.png" VerticalOptions="Center" HeightRequest="60">
+        <Image Grid.Row="6" Grid.Column="1"  Source="btn_delete.png" VerticalOptions="Center" HeightRequest="60">
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageDelete"
@@ -64,8 +64,8 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Label Grid.Row="7" Grid.Column="0"  Text="Home"  FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-        <Label Grid.Row="7" Grid.Column="1"  Text="Cancel" FontSize="12" TextColor="Aqua"   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+        <Label Grid.Row="7" Grid.Column="0"  Text="Home"  FontSize="12" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+        <Label Grid.Row="7" Grid.Column="1"  Text="Cancel" FontSize="12" TextColor="Black"   VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
 
     </Grid>
 </ContentPage>

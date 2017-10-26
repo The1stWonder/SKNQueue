@@ -108,7 +108,6 @@
     <Compile Include="Services\SampleService.cs" />
     <Compile Include="Services\SampleJSONService.cs" />
     <Compile Include="Services\ServiceURL.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Model\UIReturn.cs" />
     <Compile Include="Services\MemberAppModel\LoginRq.cs" />
     <Compile Include="Services\MemberAppModel\LoginRs.cs" />
@@ -266,6 +265,7 @@
     </Compile>
     <Compile Include="View\MemberAppView\CustomMap.cs" />
     <Compile Include="View\MemberAppView\CustomPin.cs" />
+    <Compile Include="Helpers\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -324,6 +324,10 @@
     <None Include="Image\btn_gpsSig_click.png" />
     <None Include="Image\btn_location.png" />
     <None Include="Image\btn_location_click.png" />
+    <None Include="Image\h_search.png" />
+    <None Include="Image\h_history.png" />
+    <None Include="Image\h_service.png" />
+    <None Include="Image\btn_delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -353,12 +357,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Settings.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Settings">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
-    </Reference>
     <Reference Include="ZXing.Net.Mobile.Core">
       <HintPath>..\packages\ZXing.Net.Mobile.2.2.9\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Core.dll</HintPath>
     </Reference>
@@ -382,6 +380,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Maps">
       <HintPath>..\packages\Xamarin.Forms.Maps.2.4.0.282\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

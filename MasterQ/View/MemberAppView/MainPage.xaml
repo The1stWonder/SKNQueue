@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.MainPage"
-    BackgroundImage="bg4.png"
+    BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
         
     <Grid Margin="25,0,25,0">
@@ -55,7 +55,7 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
@@ -68,7 +68,7 @@
         <StackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
-                    <Label x:Name="TimesQ" FontSize="50" Text="00:00:00" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label x:Name="TimesQ" FontSize="50" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
@@ -94,9 +94,9 @@
                          />
                 </Image.GestureRecognizers>
         </Image>
-        <Label Grid.Row="7" Grid.Column="0"  Text="History"  FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Grid.Row="7" Grid.Column="1"  Text="Booking" FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Grid.Row="7" Grid.Column="2"  Text="QR" FontSize="12" TextColor="Aqua" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="7" Grid.Column="0"  Text="History"  FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="7" Grid.Column="1"  Text="Booking" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="7" Grid.Column="2"  Text="QR" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
     </Grid>
 
 </ContentPage>
