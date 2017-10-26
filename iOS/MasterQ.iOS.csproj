@@ -310,8 +310,20 @@
     <BundleResource Include="..\MasterQ\Image\btn_location.png">
       <Link>Resources\btn_location.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\h_search.png">
+      <Link>Resources\h_search.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\h_history.png">
+      <Link>Resources\h_history.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\h_service.png">
+      <Link>Resources\h_service.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_delete.png">
+      <Link>Resources\btn_delete.png</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets')" />
-  <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
 </Project>
