@@ -17,7 +17,7 @@
             <ColumnDefinition  Width="100*" />
         </Grid.ColumnDefinitions>
         
-        <Image Grid.Row="0" Grid.Column="0"  Source="bg4.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+        <Image Grid.Row="0" Grid.Column="0"  Source="h_map.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
         <Grid Margin="10,30,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25*" />
@@ -38,7 +38,7 @@
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Label x:Name="branchName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="25" TextColor="Aqua"  HorizontalTextAlignment="End" />
+            <Label x:Name="branchName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="25" TextColor="White"  HorizontalTextAlignment="End" />
             <Image  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
             <Label x:Name="branchAddress" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
             <Label x:Name="branchTel" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />

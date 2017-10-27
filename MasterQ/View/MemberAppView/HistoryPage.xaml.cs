@@ -28,7 +28,10 @@ namespace MasterQ
 
 		public void OnImageSearch(object sender, System.EventArgs args)
 		{
-			Navigation.PushAsync(new SearchPage());
+            if (SessionModel.bookingQ.queueNumber == 0)
+            {
+                Navigation.PushAsync(new SearchPage());
+            }
 		}
 
 		public void itemTapped(object sender, System.EventArgs args)
