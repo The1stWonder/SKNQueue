@@ -328,6 +328,8 @@
     <None Include="Image\h_history.png" />
     <None Include="Image\h_service.png" />
     <None Include="Image\btn_delete.png" />
+    <None Include="Image\h_signup.png" />
+    <None Include="Image\h_password.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

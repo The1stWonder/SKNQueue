@@ -42,5 +42,10 @@ namespace MasterQ
 				DisplayAlert("Click", "Register Fail : " + uiReturn.descriptionEN, "Close");
 			}
 		}
+
+        public void OnImageBack(object sender, System.EventArgs args)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
 	}
 }
