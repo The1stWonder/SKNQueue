@@ -189,5 +189,27 @@ namespace MasterQ
 				Navigation.PopAsync();
 			}
 		}
+
+        public void OnLabalMainProfilePage2(object sender, System.EventArgs args)
+        {
+            if (SessionModel.bookingQ != null)
+            {
+                if (SessionModel.bookingQ.queueNumber != 0)
+                {
+                    Navigation.InsertPageBefore(new SummaryPage(), this);
+                    Navigation.PopAsync();
+                }
+                else
+                {
+                    Navigation.InsertPageBefore(new SearchPage(), this);
+                    Navigation.PopAsync();
+                }
+            }
+            else
+            {
+                Navigation.InsertPageBefore(new SearchPage(), this);
+                Navigation.PopAsync();
+            }
+        }
     }
 }

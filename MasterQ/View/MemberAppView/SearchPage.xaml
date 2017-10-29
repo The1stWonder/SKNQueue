@@ -39,7 +39,7 @@
                 x:Name="mSearchEntry"
                 Placeholder="Search"  
                 TextColor="Black"
-                BackgroundColor="White"
+                BackgroundColor="Transparent"
                 HeightRequest="40"
                 Grid.Row="0"
                 Grid.Column="1"

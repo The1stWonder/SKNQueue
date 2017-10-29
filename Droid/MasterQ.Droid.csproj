@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>MasterQ.Droid</RootNamespace>
     <AssemblyName>MasterQ.Droid</AssemblyName>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -302,6 +302,27 @@
     </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\btn_location.png">
       <Link>Resources\drawable-xxhdpi\btn_location.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_delete.png">
+      <Link>Resources\drawable-xxhdpi\btn_delete.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_map.png">
+      <Link>Resources\drawable-xxhdpi\h_map.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_password.png">
+      <Link>Resources\drawable-xxhdpi\h_password.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_search.png">
+      <Link>Resources\drawable-xxhdpi\h_search.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_service.png">
+      <Link>Resources\drawable-xxhdpi\h_service.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_signup.png">
+      <Link>Resources\drawable-xxhdpi\h_signup.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_history2.png">
+      <Link>Resources\drawable-xxhdpi\h_history2.png</Link>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>

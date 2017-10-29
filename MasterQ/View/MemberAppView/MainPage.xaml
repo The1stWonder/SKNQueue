@@ -55,8 +55,12 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
-
+        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center">
+        <Label.GestureRecognizers>
+         <TapGestureRecognizer Tapped="OnLabalMainProfilePage2"/>
+        </Label.GestureRecognizers>
+        </Label>
+        
         <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,10,0,0" VerticalOptions="FillAndExpand">
