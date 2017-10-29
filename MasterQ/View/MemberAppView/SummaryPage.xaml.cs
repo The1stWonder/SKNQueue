@@ -33,6 +33,7 @@ namespace MasterQ
 
         public void Process()
         {
+            App.timercheck = true;
 			Service s = new Service();
 			s.serviceID = SessionModel.bookingQ.serviceID;
 			s.branchID = SessionModel.bookingQ.branchID;

@@ -31,6 +31,7 @@ namespace MasterQ
 
         public void Process()
         {
+            App.timercheck = true;
             Service s = new Service();
             s.serviceID = SessionModel.bookingQ.serviceID;
             s.branchID = SessionModel.bookingQ.branchID;
@@ -38,7 +39,10 @@ namespace MasterQ
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
-                App.Recount = App.Recount + 1;
+                if (App.countstop == true)
+                {
+                    App.Recount = App.Recount + 1;
+                }
                 TimeSpan time = TimeSpan.FromSeconds(App.timercount);
 
 				
@@ -74,17 +78,18 @@ namespace MasterQ
                     ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
 					if (!ChkQueue.isSuccess)
 					{
+                        App.timercheck = false;
 						DisplayAlert("", ChkQueue.getDescription(), "Close");
 						TimesQ.Text = "00:00:00";
-                        App.timercheck = false;
 					}
 					else
 					{
                         if (ChkQueue.id == 58)
                         {
+                            App.timercheck = false;
+                            App.countstop = false;
                             Navigation.PushAsync(new RatingPage());
 							TimesQ.Text = "00:00:00";
-							App.timercheck = false;
                         }
                         else
                         {
@@ -101,12 +106,16 @@ namespace MasterQ
 
 		public void OnImageMainProfilePage(object sender, System.EventArgs args)
 		{
+            App.timercheck = false;
+            App.countstop = false;
 			Navigation.InsertPageBefore(new MainProfilePage(), this);
 			Navigation.PopAsync();
 		}
 
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {
+            App.timercheck = false;
+            App.countstop = false;
 			Navigation.InsertPageBefore(new HistoryPage(), this);
 			Navigation.PopAsync();
         }
@@ -115,6 +124,8 @@ namespace MasterQ
         {
             if (SessionModel.bookingQ.queueNumber == 0)
             {
+                App.timercheck = false;
+                App.countstop = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
             }
@@ -144,6 +155,7 @@ namespace MasterQ
                         UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
                         BranchID = (Branch)uiR.returnObject;
                         await Navigation.PushAsync(new ServicePage(BranchID));
+
                     });
                 };
 
@@ -174,17 +186,23 @@ namespace MasterQ
             {
                 if (SessionModel.bookingQ.queueNumber != 0)
                 {
+                    App.timercheck = false;
+                    App.countstop = false;
                     Navigation.InsertPageBefore(new SummaryPage(), this);
                     Navigation.PopAsync();
                 }
                 else
                 {
+                    App.timercheck = false;
+                    App.countstop = false;
                     Navigation.InsertPageBefore(new SearchPage(), this);
 					Navigation.PopAsync();
                 }
 			}
 			else
 			{
+                App.timercheck = false;
+                App.countstop = false;
 				Navigation.InsertPageBefore(new SearchPage(), this);
 				Navigation.PopAsync();
 			}
@@ -196,17 +214,23 @@ namespace MasterQ
             {
                 if (SessionModel.bookingQ.queueNumber != 0)
                 {
+                    App.timercheck = false;
+                    App.countstop = false;
                     Navigation.InsertPageBefore(new SummaryPage(), this);
                     Navigation.PopAsync();
                 }
                 else
                 {
+                    App.timercheck = false;
+                    App.countstop = false;
                     Navigation.InsertPageBefore(new SearchPage(), this);
                     Navigation.PopAsync();
                 }
             }
             else
             {
+                App.timercheck = false;
+                App.countstop = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
             }

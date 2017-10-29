@@ -37,7 +37,11 @@ namespace MasterQ
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
-                App.Recount = App.Recount + 1;
+                if (App.countstop == true)
+                {
+                    App.Recount = App.Recount + 1;
+                }
+
                 TimeSpan time = TimeSpan.FromSeconds(App.timercount);
 
 					TimesQ.Text = time.ToString(@"hh\:mm\:ss");
@@ -45,9 +49,9 @@ namespace MasterQ
 
                 if (!ChkQueue.isSuccess)
                 {
+                    App.timercheck = false;
                     DisplayAlert("", ChkQueue.getDescription(), "Close");
                     TimesQ.Text = "00:00:00";
-                    App.timercheck = false;
                 }
                 else
                 {
@@ -77,17 +81,18 @@ namespace MasterQ
                     ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
                     if (!ChkQueue.isSuccess)
                     {
+                        App.timercheck = false;
                         DisplayAlert("", ChkQueue.getDescription(), "Close");
                         TimesQ.Text = "00:00:00";
-                        App.timercheck = false;
                     }
                     else
                     {
                         if (ChkQueue.id == 58)
                         {
+                            App.timercheck = false;
+                            App.countstop = false;
                             Navigation.PushAsync(new RatingPage());
                             TimesQ.Text = "00:00:00";
-                            App.timercheck = false;
                         }
                         else
                         {
@@ -104,6 +109,8 @@ namespace MasterQ
 
 		public void OnImageHomePage(object sender, System.EventArgs args)
 		{
+            App.timercheck = false;
+            App.countstop = false;
 			Navigation.InsertPageBefore(new MainPage(), this);
 			Navigation.PopAsync();
 		}
@@ -115,11 +122,14 @@ namespace MasterQ
 				UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
 				if (uiReturn.isSuccess)
 				{
+                    App.timercheck = false;
+                    App.countstop = false;
 					Navigation.PushAsync(new MainPage());
-					App.timercheck = false;
 				}
 				else
 				{
+                    App.timercheck = false;
+                    App.countstop = false;
 					DisplayAlert("", uiReturn.getDescription(), "Close");
 				}
 			}
