@@ -21,6 +21,7 @@ namespace MasterQ
 
                 SessionModel.loginMember = getMemberFormDB();
                 SessionModel.bookingQ = getBookinQFormDB();
+                SessionModel.services = getServicesFormDB();
             }
         }
 
@@ -33,6 +34,11 @@ namespace MasterQ
         {
             SessionTable temp = App.Database.GetItem(DBConstants.ID_RESERVED_QUEUE);
             return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Queue>();
+        }
+        private static List<Service> getServicesFormDB()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_SERVICE_LIST);
+            return (temp == null) ? null : JArray.Parse(temp.JSON_DATA).ToObject<List<Service>>();
         }
     }
 }
