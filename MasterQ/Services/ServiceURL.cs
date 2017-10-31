@@ -28,7 +28,8 @@ namespace MasterQ
         public static String reserveQueueUrl = serviceName + memberPrefix + "ReserveQueue/";
         public static String getHistoryUrl = serviceName + memberPrefix + "GetHistory/";
 		public static String cancelQueueUrl = serviceName + memberPrefix + "CancelQueue/";
-		public static String ratingUrl = serviceName + memberPrefix + "Rating/";
+        public static String ratingUrl = serviceName + memberPrefix + "Rating/";
+        public static String getSessionUrl = serviceName + memberPrefix + "GetSession/";
 
         public static String userLoginUrl = serviceName + userPrefix + "Login/";
         public static String userLogoutUrl = serviceName + userPrefix + "Logout/";

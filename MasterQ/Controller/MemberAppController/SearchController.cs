@@ -82,13 +82,6 @@ namespace MasterQ
             GetBranchServicesRs res = ReserveQueueService.getInstance().CallGetBranchServices(req);
             SessionModel.services = res.services;
 
-            if(res.header.isSuccess){
-                SessionTable temp = new SessionTable();
-                temp.ID = DBConstants.ID_SERVICE_LIST;
-                temp.JSON_DATA= JsonConvert.SerializeObject(SessionModel.services);
-                App.Database.SaveItem(temp);
-            }
-
             return getUIReturnServices(res.services);
         }
 

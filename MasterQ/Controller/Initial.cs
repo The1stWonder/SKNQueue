@@ -20,8 +20,7 @@ namespace MasterQ
                 TempDB.branches = (tempBranch == null) ? new List<Branch>() : tempBranch;
 
                 SessionModel.loginMember = getMemberFormDB();
-                SessionModel.bookingQ = getBookinQFormDB();
-                SessionModel.services = getServicesFormDB();
+                UIReturn uiReturn = ReserveQController.getInstance().getMemberSession(SessionModel.loginMember);
             }
         }
 
@@ -29,16 +28,6 @@ namespace MasterQ
         {
             SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_MEMBER);
             return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Member>();
-        }
-        private static Queue getBookinQFormDB()
-        {
-            SessionTable temp = App.Database.GetItem(DBConstants.ID_RESERVED_QUEUE);
-            return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Queue>();
-        }
-        private static List<Service> getServicesFormDB()
-        {
-            SessionTable temp = App.Database.GetItem(DBConstants.ID_SERVICE_LIST);
-            return (temp == null) ? null : JArray.Parse(temp.JSON_DATA).ToObject<List<Service>>();
         }
     }
 }

@@ -270,6 +270,8 @@
     <Compile Include="Native\DatabaseModel\SessionTable.cs" />
     <Compile Include="Native\DatabaseDAO\MasterQDatabaseDAO.cs" />
     <Compile Include="Common\DBConstants.cs" />
+    <Compile Include="Services\MemberAppModel\GetSessionRq.cs" />
+    <Compile Include="Services\MemberAppModel\GetSessionRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

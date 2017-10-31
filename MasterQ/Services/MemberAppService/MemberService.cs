@@ -54,5 +54,17 @@ namespace MasterQ
             return ret;
 
 		}
+        public GetSessionRs CallGetSession(GetSessionRq request)
+        {
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.getSessionUrl;
+            String resJSON = CallServices.callPost(serviceUrl, request);
+            return JObject.Parse(resJSON).ToObject<GetSessionRs>();
+
+        }
+        public GetSessionRq getGetSessionRq(Member input)
+        {
+            GetSessionRq ret = JObject.Parse(JsonConvert.SerializeObject(input)).ToObject<GetSessionRq>();
+            return ret;
+        }
     }
 }
