@@ -8,7 +8,7 @@ namespace MasterQ
 		public static int timercount = 0;
         public static int Recount = 0;
 		public static bool timercheck = false;
-        public static bool countstop = true;
+       // public static bool countstop = true;
 
 		public App()
 		{

@@ -13,6 +13,7 @@ namespace MasterQ
 	{
 		int ChkTime = 0;
 		int ChkTime2 = 0;
+        bool CountstartMain = true;
 
 		public MainPage()
 		{
@@ -39,7 +40,7 @@ namespace MasterQ
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
-                if (App.countstop == true)
+                if (CountstartMain == true)
                 {
                     App.Recount = App.Recount + 1;
                 }
@@ -87,7 +88,7 @@ namespace MasterQ
                         if (ChkQueue.id == 58)
                         {
                             App.timercheck = false;
-                            App.countstop = false;
+                            CountstartMain = false;
                             Navigation.PushAsync(new RatingPage());
 							TimesQ.Text = "00:00:00";
                         }
@@ -107,7 +108,7 @@ namespace MasterQ
 		public void OnImageMainProfilePage(object sender, System.EventArgs args)
 		{
             App.timercheck = false;
-            App.countstop = false;
+            CountstartMain = false;
 			Navigation.InsertPageBefore(new MainProfilePage(), this);
 			Navigation.PopAsync();
 		}
@@ -115,17 +116,17 @@ namespace MasterQ
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {
             App.timercheck = false;
-            App.countstop = false;
+            CountstartMain = false;
 			Navigation.InsertPageBefore(new HistoryPage(), this);
 			Navigation.PopAsync();
         }
 
         public void OnImageQueuePage(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ.queueNumber == 0)
+            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
             {
                 App.timercheck = false;
-                App.countstop = false;
+                CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
             }
@@ -133,7 +134,7 @@ namespace MasterQ
 
         public void OnImageQRcodePage(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ.queueNumber == 0)
+            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
             {
                 Branch b = new Branch();
                 Branch BranchID = new Branch();
@@ -187,14 +188,14 @@ namespace MasterQ
                 if (SessionModel.bookingQ.queueNumber != 0)
                 {
                     App.timercheck = false;
-                    App.countstop = false;
-                    Navigation.InsertPageBefore(new SummaryPage(), this);
+                    CountstartMain = false;
+                    Navigation.InsertPageBefore(new QueuePage(), this);
                     Navigation.PopAsync();
                 }
                 else
                 {
                     App.timercheck = false;
-                    App.countstop = false;
+                    CountstartMain = false;
                     Navigation.InsertPageBefore(new SearchPage(), this);
 					Navigation.PopAsync();
                 }
@@ -202,7 +203,7 @@ namespace MasterQ
 			else
 			{
                 App.timercheck = false;
-                App.countstop = false;
+                CountstartMain = false;
 				Navigation.InsertPageBefore(new SearchPage(), this);
 				Navigation.PopAsync();
 			}
@@ -215,14 +216,14 @@ namespace MasterQ
                 if (SessionModel.bookingQ.queueNumber != 0)
                 {
                     App.timercheck = false;
-                    App.countstop = false;
-                    Navigation.InsertPageBefore(new SummaryPage(), this);
+                    CountstartMain = false;
+                    Navigation.InsertPageBefore(new QueuePage(), this);
                     Navigation.PopAsync();
                 }
                 else
                 {
                     App.timercheck = false;
-                    App.countstop = false;
+                    CountstartMain = false;
                     Navigation.InsertPageBefore(new SearchPage(), this);
                     Navigation.PopAsync();
                 }
@@ -230,7 +231,7 @@ namespace MasterQ
             else
             {
                 App.timercheck = false;
-                App.countstop = false;
+                CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
             }

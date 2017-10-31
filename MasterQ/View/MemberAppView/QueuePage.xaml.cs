@@ -9,6 +9,7 @@ namespace MasterQ
 	{
         int ChkTime = 0;
         int ChkTime2 = 0;
+        bool CountstartQ = true;
 
         public QueuePage()
 		{
@@ -37,7 +38,7 @@ namespace MasterQ
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
-                if (App.countstop == true)
+                if (CountstartQ == true)
                 {
                     App.Recount = App.Recount + 1;
                 }
@@ -90,7 +91,7 @@ namespace MasterQ
                         if (ChkQueue.id == 58)
                         {
                             App.timercheck = false;
-                            App.countstop = false;
+                            CountstartQ = false;
                             Navigation.PushAsync(new RatingPage());
                             TimesQ.Text = "00:00:00";
                         }
@@ -110,7 +111,7 @@ namespace MasterQ
 		public void OnImageHomePage(object sender, System.EventArgs args)
 		{
             App.timercheck = false;
-            App.countstop = false;
+            CountstartQ = false;
 			Navigation.InsertPageBefore(new MainPage(), this);
 			Navigation.PopAsync();
 		}
@@ -123,13 +124,13 @@ namespace MasterQ
 				if (uiReturn.isSuccess)
 				{
                     App.timercheck = false;
-                    App.countstop = false;
+                    CountstartQ = false;
 					Navigation.PushAsync(new MainPage());
 				}
 				else
 				{
                     App.timercheck = false;
-                    App.countstop = false;
+                    CountstartQ = false;
 					DisplayAlert("", uiReturn.getDescription(), "Close");
 				}
 			}

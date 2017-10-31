@@ -26,17 +26,18 @@ namespace MasterQ
 			Navigation.PushAsync(new MainPage());
 		}
 
-		public void OnImageSearch(object sender, System.EventArgs args)
-		{
-            if (SessionModel.bookingQ.queueNumber == 0)
+        public void OnImageSearch(object sender, System.EventArgs args)
+        {
+            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
             {
                 Navigation.PushAsync(new SearchPage());
             }
-		}
 
-		public void itemTapped(object sender, System.EventArgs args)
-		{
-            if (SessionModel.bookingQ.queueNumber == 0)
+        }
+
+        public void itemTapped(object sender, System.EventArgs args)
+        {
+            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
             {
                 Branch b = new Branch();
                 Branch BranchID = new Branch();
@@ -47,7 +48,6 @@ namespace MasterQ
 
                 Navigation.PushAsync(new ServicePage(BranchID));
             }
-		}
-
+        }
 	}
 }
