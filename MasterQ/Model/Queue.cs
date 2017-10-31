@@ -9,6 +9,7 @@ namespace MasterQ
         public String queueNumber { get; set; }
         public int queueBefore { get; set; }
 		public String serviceID { get; set; }
+        public String serviceName { get; set; }
 		public String tranID { get; set; }
         public String rank { get; set; }
 	}
