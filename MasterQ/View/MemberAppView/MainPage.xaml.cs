@@ -21,7 +21,7 @@ namespace MasterQ
 
 			if (SessionModel.bookingQ != null)
 			{
-				if (SessionModel.bookingQ.queueNumber != 0)
+                if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
 				{
 					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
                     ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
@@ -32,6 +32,7 @@ namespace MasterQ
 
         public void Process()
         {
+            CountstartMain = true;
             App.timercheck = true;
             Service s = new Service();
             s.serviceID = SessionModel.bookingQ.serviceID;
@@ -58,6 +59,7 @@ namespace MasterQ
                 else
                 {
                     DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                    NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
                     if (App.timercount == 0)
                     {
                         TimesQ.Text = "00:00:00";
@@ -109,9 +111,27 @@ namespace MasterQ
 		{
             App.timercheck = false;
             CountstartMain = false;
-			Navigation.InsertPageBefore(new MainProfilePage(), this);
+            Navigation.InsertPageBefore(new EditProfilePage(), this);
 			Navigation.PopAsync();
 		}
+
+        public void OnImageMainExit(object sender, System.EventArgs args)
+        {
+            UIReturn Chklogout = LoginController.getInstance().LogutMember();
+            if (!Chklogout.isSuccess)
+            {
+                App.timercheck = false;
+                CountstartMain = false;
+                DisplayAlert("", Chklogout.getDescription(), "Close");
+            }
+            else
+            {
+                App.timercheck = false;
+                CountstartMain = false;
+                Navigation.InsertPageBefore(new LoginPage(), this);
+                Navigation.PopAsync();
+            }
+        }
 
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {
@@ -123,7 +143,7 @@ namespace MasterQ
 
         public void OnImageQueuePage(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
+            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
                 App.timercheck = false;
                 CountstartMain = false;
@@ -134,7 +154,7 @@ namespace MasterQ
 
         public void OnImageQRcodePage(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
+            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
                 Branch b = new Branch();
                 Branch BranchID = new Branch();
@@ -185,7 +205,7 @@ namespace MasterQ
 		{
             if (SessionModel.bookingQ != null)
             {
-                if (SessionModel.bookingQ.queueNumber != 0)
+                if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                 {
                     App.timercheck = false;
                     CountstartMain = false;
@@ -213,7 +233,7 @@ namespace MasterQ
         {
             if (SessionModel.bookingQ != null)
             {
-                if (SessionModel.bookingQ.queueNumber != 0)
+                if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                 {
                     App.timercheck = false;
                     CountstartMain = false;

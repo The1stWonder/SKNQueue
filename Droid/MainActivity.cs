@@ -37,5 +37,10 @@ namespace MasterQ.Droid
 		{
 			global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		}
+
+        public override void OnBackPressed()
+        {
+            
+        }
 	}
 }

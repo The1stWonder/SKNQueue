@@ -28,7 +28,7 @@ namespace MasterQ
 
         public void OnImageSearch(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
+            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
                 Navigation.PushAsync(new SearchPage());
             }
@@ -37,7 +37,7 @@ namespace MasterQ
 
         public void itemTapped(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ == null || SessionModel.bookingQ.queueNumber == 0)
+            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
                 Branch b = new Branch();
                 Branch BranchID = new Branch();

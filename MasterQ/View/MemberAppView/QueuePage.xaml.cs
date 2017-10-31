@@ -17,7 +17,7 @@ namespace MasterQ
 
 			if (SessionModel.bookingQ != null)
 			{
-				if (SessionModel.bookingQ.queueNumber != 0)
+                if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
 				{
                     var ServiceName = SessionModel.getService(SessionModel.bookingQ.serviceID);
                     ServiceQ.Text = "บริการ : " + ServiceName.serviceName;
@@ -135,7 +135,5 @@ namespace MasterQ
 				}
 			}
 		}
-
-
 	}
 }

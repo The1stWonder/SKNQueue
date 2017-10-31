@@ -6,7 +6,7 @@ namespace MasterQ
 		public String branchID { get; set; }
 		public int estimateTime { get; set; }
         public DateTime startTime { get; set; }
-		public int queueNumber { get; set; }
+        public String queueNumber { get; set; }
         public int queueBefore { get; set; }
 		public String serviceID { get; set; }
 		public String tranID { get; set; }

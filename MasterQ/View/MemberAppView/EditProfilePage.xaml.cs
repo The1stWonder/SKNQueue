@@ -55,7 +55,7 @@ namespace MasterQ
 
 		public void OnImageBack(object sender, System.EventArgs args)
 		{
-            Navigation.PushAsync(new MainProfilePage());
+            Navigation.PushAsync(new MainPage());
 		}
 	}
 }

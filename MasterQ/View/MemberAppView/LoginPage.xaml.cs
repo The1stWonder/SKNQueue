@@ -47,6 +47,7 @@ namespace MasterQ
 
 			if (uiReturn.isSuccess)
 			{
+                App.timerStart();
 				Navigation.PushAsync(new MainPage());
 			}
 			else

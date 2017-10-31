@@ -335,6 +335,7 @@
     <None Include="Image\h_signup.png" />
     <None Include="Image\h_password.png" />
     <None Include="Image\h_map.png" />
+    <None Include="Image\btn_exit.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
