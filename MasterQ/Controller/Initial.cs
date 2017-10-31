@@ -20,6 +20,7 @@ namespace MasterQ
                 TempDB.branches = (tempBranch == null) ? new List<Branch>() : tempBranch;
 
                 SessionModel.loginMember = getMemberFormDB();
+                SessionModel.bookingQ = getBookinQFormDB();
             }
         }
 
@@ -27,6 +28,11 @@ namespace MasterQ
         {
             SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_MEMBER);
             return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Member>();
+        }
+        private static Queue getBookinQFormDB()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_RESERVED_QUEUE);
+            return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Queue>();
         }
     }
 }
