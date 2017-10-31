@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace MasterQ
 {
@@ -17,7 +18,15 @@ namespace MasterQ
                 TempDB.districts = (tempDistrict == null) ? new List<District>() : tempDistrict;
                 List<Branch> tempBranch = MetaDataService.getInstance().CallGetBranches().branches;
                 TempDB.branches = (tempBranch == null) ? new List<Branch>() : tempBranch;
+
+                SessionModel.loginMember = getMemberFormDB();
             }
+        }
+
+        private static Member getMemberFormDB()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_MEMBER);
+            return JObject.Parse(temp.JSON_DATA).ToObject<Member>();
         }
     }
 }

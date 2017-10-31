@@ -9,6 +9,7 @@ namespace MasterQ
         public static int Recount = 0;
 		public static bool timercheck = false;
        // public static bool countstop = true;
+        static MasterQDatabaseDAO database;
 
 		public App()
 		{
@@ -26,6 +27,19 @@ namespace MasterQ
 				MainPage = new NavigationPage(new BranchLoginPage());
 			}
 		}
+
+
+        public static MasterQDatabaseDAO Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new MasterQDatabaseDAO(DependencyService.Get<IFileHelper>().GetLocalFilePath(DBConstants.MAIN_DATABASE_DB3_FILE_NAME));
+                }
+                return database;
+            }
+        }
 
 		protected override void OnStart()
 		{

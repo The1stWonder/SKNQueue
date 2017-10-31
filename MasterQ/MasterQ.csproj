@@ -266,6 +266,10 @@
     <Compile Include="View\MemberAppView\CustomMap.cs" />
     <Compile Include="View\MemberAppView\CustomPin.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Native\IFileHelper.cs" />
+    <Compile Include="Native\DatabaseModel\SessionTable.cs" />
+    <Compile Include="Native\DatabaseDAO\MasterQDatabaseDAO.cs" />
+    <Compile Include="Common\DBConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -355,6 +359,9 @@
     <Folder Include="Model\BranchAppModel\" />
     <Folder Include="Model\UserAppModel\" />
     <Folder Include="Services\BranchAppModel\" />
+    <Folder Include="Native\" />
+    <Folder Include="Native\DatabaseModel\" />
+    <Folder Include="Native\DatabaseDAO\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -389,6 +396,18 @@
     </Reference>
     <Reference Include="ZXing.Net.Mobile.Forms">
       <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.3.2\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.4.118\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

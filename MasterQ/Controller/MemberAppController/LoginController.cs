@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+using Newtonsoft.Json;
 
 namespace MasterQ
 {
@@ -47,6 +45,13 @@ namespace MasterQ
             LoginRs res = LoginService.getInstance().CallLogin(req);
             SessionModel.loginMember = res.member;
 
+            if(res.header.isSuccess){
+                SessionTable loginMember = new SessionTable();
+                loginMember.ID = DBConstants.ID_LOGIN_MEMBER;
+                loginMember.JSON_DATA = JsonConvert.SerializeObject(SessionModel.loginMember);
+                App.Database.SaveItem(loginMember);
+            }
+
             UIReturn ret = new UIReturn(res.header);
             return ret;
 		}
@@ -55,6 +60,11 @@ namespace MasterQ
             LogoutRq req = LoginService.getInstance().getLogoutRq(SessionModel.loginMember);
             LogoutRs res = LoginService.getInstance().callLogout(req);
             SessionModel.loginMember = new Member();
+
+            if (res.header.isSuccess)
+            {
+                App.Database.DeleteItem(DBConstants.ID_LOGIN_MEMBER);
+            }
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;

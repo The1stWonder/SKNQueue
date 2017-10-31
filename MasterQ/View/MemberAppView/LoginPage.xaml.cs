@@ -9,22 +9,24 @@ namespace MasterQ
 	{
 		public LoginPage()
 		{
-			InitializeComponent(); 
+			InitializeComponent();
 
-   //         var username = "t@t.co";
-			//var password = "1";
-			//Login MasQLogin = new Login(username, password);
-			//UIReturn uiReturn = LoginController.getInstance().LoginMember(MasQLogin);
+            //         var username = "t@t.co";
+            //var password = "1";
+            //Login MasQLogin = new Login(username, password);
+            //UIReturn uiReturn = LoginController.getInstance().LoginMember(MasQLogin);
 
-			//if (uiReturn.isSuccess)
-			//{
-			//	Navigation.PushAsync(new MainPage());
-			//}
-			//else
-			//{
-			//	DisplayAlert("Click", uiReturn.getDescription(), "Close");
-			//}
-
+            //if (uiReturn.isSuccess)
+            //{
+            //	Navigation.PushAsync(new MainPage());
+            //}
+            //else
+            //{
+            //	DisplayAlert("Click", uiReturn.getDescription(), "Close");
+            //}
+            if(SessionModel.loginMember!=null){
+                Navigation.PushAsync(new MainPage());
+            }
 
 		}
 
