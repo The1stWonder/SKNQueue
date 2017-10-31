@@ -59,7 +59,7 @@ namespace MasterQ
 		{
             LogoutRq req = LoginService.getInstance().getLogoutRq(SessionModel.loginMember);
             LogoutRs res = LoginService.getInstance().callLogout(req);
-            SessionModel.loginMember = new Member();
+            SessionModel.loginMember = null;
 
             if (res.header.isSuccess)
             {

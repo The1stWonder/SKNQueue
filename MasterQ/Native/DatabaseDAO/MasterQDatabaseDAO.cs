@@ -39,7 +39,7 @@ namespace MasterQ
 
         public int DeleteItem(String ID)
         {
-            return database.Delete(ID);
+            return database.Delete<SessionTable>(ID);
         }
     }
 }
