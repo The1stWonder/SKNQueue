@@ -22,7 +22,10 @@ namespace MasterQ
                 TempDB.services = (tempService == null) ? new List<Service>() : tempService;
 
                 SessionModel.loginMember = getMemberFormDB();
-                UIReturn uiReturn = ReserveQController.getInstance().getMemberSession(SessionModel.loginMember);
+                if (SessionModel.loginMember != null)
+                {
+                    UIReturn uiReturn = ReserveQController.getInstance().getMemberSession(SessionModel.loginMember);
+                }
             }
         }
 
