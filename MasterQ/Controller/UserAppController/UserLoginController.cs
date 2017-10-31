@@ -32,7 +32,7 @@ namespace MasterQ
 		{
             UserLogoutRq req = UserLoginService.getInstance().getUserLogoutRq(UserSessionModel.loginUser);
             UserLogoutRs res = UserLoginService.getInstance().callLogout(req);
-            UserSessionModel.loginUser = new User();
+            UserSessionModel.loginUser = null;
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;

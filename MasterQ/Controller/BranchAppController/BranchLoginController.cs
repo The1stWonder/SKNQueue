@@ -32,7 +32,7 @@ namespace MasterQ
 		{
             BranchLogoutRq req = BranchLoginService.getInstance().getBranchLogoutRq(BranchSessionModel.loginBranch);
             BranchLogoutRs res = BranchLoginService.getInstance().callLogout(req);
-            BranchSessionModel.loginBranch = new Branch();
+            BranchSessionModel.loginBranch = null;
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;
