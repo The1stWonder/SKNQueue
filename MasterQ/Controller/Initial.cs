@@ -26,7 +26,7 @@ namespace MasterQ
         private static Member getMemberFormDB()
         {
             SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_MEMBER);
-            return JObject.Parse(temp.JSON_DATA).ToObject<Member>();
+            return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Member>();
         }
     }
 }
