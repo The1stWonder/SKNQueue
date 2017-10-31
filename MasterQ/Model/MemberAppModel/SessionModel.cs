@@ -9,9 +9,9 @@ namespace MasterQ
         public static Member loginMember = new Member();
         public static Queue bookingQ = new Queue();
 
-        public static Service getService(String serviceID)
+        public static Service getServiceFromBookingQ()
         {
-            return TempDB.services.Find(i => i.serviceID.Equals(serviceID));
+            return TempDB.services.Find(s => s.serviceID.Equals(bookingQ.serviceID) && s.branchID.Equals(bookingQ.branchID));
         }
     }
 }
