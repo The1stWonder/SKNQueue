@@ -68,5 +68,17 @@ namespace MasterQ
             return ret;
 
 		}
+
+        public GetBranchServicesRs CallGetBranchServices()
+        {
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.getBranchServicesUrl;
+
+            GetBranchServicesRq postData = new GetBranchServicesRq();
+            postData.branchID = "";
+
+            String resJSON = CallServices.callPost(serviceUrl, postData);
+            return JObject.Parse(resJSON).ToObject<GetBranchServicesRs>();
+
+        }
     }
 }

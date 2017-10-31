@@ -18,6 +18,8 @@ namespace MasterQ
                 TempDB.districts = (tempDistrict == null) ? new List<District>() : tempDistrict;
                 List<Branch> tempBranch = MetaDataService.getInstance().CallGetBranches().branches;
                 TempDB.branches = (tempBranch == null) ? new List<Branch>() : tempBranch;
+                List<Service> tempService = MetaDataService.getInstance().CallGetBranchServices().services;
+                TempDB.services = (tempService == null) ? new List<Service>() : tempService;
 
                 SessionModel.loginMember = getMemberFormDB();
                 UIReturn uiReturn = ReserveQController.getInstance().getMemberSession(SessionModel.loginMember);

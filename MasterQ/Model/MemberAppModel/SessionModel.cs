@@ -8,5 +8,10 @@ namespace MasterQ
         public static List<Service> services = new List<Service>();
         public static Member loginMember = new Member();
         public static Queue bookingQ = new Queue();
+
+        public static Service getService(String serviceID)
+        {
+            return TempDB.services.Find(i => i.serviceID.Equals(serviceID));
+        }
     }
 }

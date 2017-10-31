@@ -9,5 +9,6 @@ namespace MasterQ
         public static List<Province> provinces;
         public static List<District> districts;
         public static List<Branch> branches;
+        public static List<Service> services;
     }
 }
