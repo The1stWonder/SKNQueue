@@ -42,7 +42,7 @@
         <StackLayout Grid.Row="1" Grid.Column="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,20,0,0" VerticalOptions="FillAndExpand">
-                    <Image Source="btn_exit.png" VerticalOptions="Start" HeightRequest="60" >
+                    <Image Source="btn_exit2.png" VerticalOptions="Start" HeightRequest="60" >
                         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainExit"
