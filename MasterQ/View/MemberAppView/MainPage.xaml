@@ -69,7 +69,7 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="100" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center">
+        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="90" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center">
         <Label.GestureRecognizers>
          <TapGestureRecognizer Tapped="OnLabalMainProfilePage2"/>
         </Label.GestureRecognizers>

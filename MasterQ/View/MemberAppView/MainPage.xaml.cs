@@ -19,89 +19,101 @@ namespace MasterQ
 		{
 			InitializeComponent();
 
-			if (SessionModel.bookingQ != null)
-			{
+            if (SessionModel.bookingQ != null)
+            {
                 if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
-				{
-					NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
-                    ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
-					Process();
-				}
-			}
+                {
+                    if (App.fristtime)
+                    {
+                        NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+                        App.timercheck = true;
+                        App.timerStart();
+                    }
+                }
+                Process();
+            }
 		}
 
         public void Process()
         {
             CountstartMain = true;
-            App.timercheck = true;
             Service s = new Service();
             s.serviceID = SessionModel.bookingQ.serviceID;
             s.branchID = SessionModel.bookingQ.branchID;
             UIReturn ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
+            if (App.fristtime)
+            {
+                App.fristtime = false;
+                ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
+                App.timercount = ChkTime;
+            }
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
-                if (CountstartMain == true)
+                if (SessionModel.bookingQ != null)
                 {
-                    App.Recount = App.Recount + 1;
-                }
-                TimeSpan time = TimeSpan.FromSeconds(App.timercount);
-
-				
-					TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-				
-                if (!ChkQueue.isSuccess)
-                {
-                    DisplayAlert("", ChkQueue.getDescription(), "Close");
-                    TimesQ.Text = "00:00:00";
-                    App.timercheck = false;
-                }
-                else
-                {
-                    DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
-                    NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
-                    if (App.timercount == 0)
+                    if (CountstartMain == true)
                     {
+                        App.Recount = App.Recount + 1;
+                    }
+                    TimeSpan time = TimeSpan.FromSeconds(App.timercount);
+
+                    TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+
+                    if (!ChkQueue.isSuccess)
+                    {
+                        DisplayAlert("", ChkQueue.getDescription(), "Close");
                         TimesQ.Text = "00:00:00";
-                    }
-                }
-
-                if (App.Recount == 10)
-                {
-                    App.Recount = 0;
-
-                    Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
-                    ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
-                    if (ChkTime != ChkTime2)
-                    {
-                        ChkTime = SessionModel.bookingQ.estimateTime * 60;
-                        App.timercount = SessionModel.bookingQ.estimateTime * 60;
-                    }
-
-                    ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
-					if (!ChkQueue.isSuccess)
-					{
                         App.timercheck = false;
-						DisplayAlert("", ChkQueue.getDescription(), "Close");
-						TimesQ.Text = "00:00:00";
-					}
-					else
-					{
-                        if (ChkQueue.id == 58)
+                    }
+                    else
+                    {
+                        DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                        NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+
+                        if (App.timercount == 0)
+                        {
+                            TimesQ.Text = "00:00:00";
+                        }
+                    }
+
+                    if (App.Recount == 10)
+                    {
+                        App.Recount = 0;
+
+                        Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
+                        ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
+                        if (ChkTime2 < App.timercount)
+                        {
+                            ChkTime = SessionModel.bookingQ.estimateTime * 60;
+                            App.timercount = SessionModel.bookingQ.estimateTime * 60;
+                        }
+
+                        ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
+                        if (!ChkQueue.isSuccess)
                         {
                             App.timercheck = false;
-                            CountstartMain = false;
-                            Navigation.PushAsync(new RatingPage());
-							TimesQ.Text = "00:00:00";
+                            DisplayAlert("", ChkQueue.getDescription(), "Close");
+                            TimesQ.Text = "00:00:00";
                         }
                         else
                         {
-                            if (SessionModel.bookingQ != null)
+                            if (ChkQueue.id == 58)
                             {
-                                DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                                App.timercheck = false;
+                                CountstartMain = false;
+                                Navigation.PushAsync(new RatingPage());
+                                TimesQ.Text = "00:00:00";
+                            }
+                            else
+                            {
+                                if (SessionModel.bookingQ != null)
+                                {
+                                    DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                                }
                             }
                         }
-					}
+                    }
                 }
                 return App.timercheck;
             });
@@ -109,7 +121,6 @@ namespace MasterQ
 
 		public void OnImageMainProfilePage(object sender, System.EventArgs args)
 		{
-            App.timercheck = false;
             CountstartMain = false;
             Navigation.InsertPageBefore(new EditProfilePage(), this);
 			Navigation.PopAsync();
@@ -135,7 +146,6 @@ namespace MasterQ
 
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {
-            App.timercheck = false;
             CountstartMain = false;
 			Navigation.InsertPageBefore(new HistoryPage(), this);
 			Navigation.PopAsync();
@@ -145,7 +155,6 @@ namespace MasterQ
         {
             if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
-                App.timercheck = false;
                 CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
@@ -203,46 +212,26 @@ namespace MasterQ
 
 		public void OnImageSummaryPage(object sender, System.EventArgs args)
 		{
-            if (SessionModel.bookingQ != null)
-            {
-                if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
-                {
-                    App.timercheck = false;
-                    CountstartMain = false;
-                    Navigation.InsertPageBefore(new QueuePage(), this);
-                    Navigation.PopAsync();
-                }
-                else
-                {
-                    App.timercheck = false;
-                    CountstartMain = false;
-                    Navigation.InsertPageBefore(new SearchPage(), this);
-					Navigation.PopAsync();
-                }
-			}
-			else
-			{
-                App.timercheck = false;
-                CountstartMain = false;
-				Navigation.InsertPageBefore(new SearchPage(), this);
-				Navigation.PopAsync();
-			}
+            SelectingPage();
 		}
 
         public void OnLabalMainProfilePage2(object sender, System.EventArgs args)
+        {
+            SelectingPage();
+        }
+
+        public void SelectingPage()
         {
             if (SessionModel.bookingQ != null)
             {
                 if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                 {
-                    App.timercheck = false;
                     CountstartMain = false;
                     Navigation.InsertPageBefore(new QueuePage(), this);
                     Navigation.PopAsync();
                 }
                 else
                 {
-                    App.timercheck = false;
                     CountstartMain = false;
                     Navigation.InsertPageBefore(new SearchPage(), this);
                     Navigation.PopAsync();
@@ -250,7 +239,6 @@ namespace MasterQ
             }
             else
             {
-                App.timercheck = false;
                 CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();

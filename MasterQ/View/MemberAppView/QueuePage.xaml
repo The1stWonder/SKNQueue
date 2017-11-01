@@ -30,7 +30,7 @@
 
         <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Source="Qcircle.png" VerticalOptions="Center" HeightRequest="320" />
 		
-        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="90" Text="-" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
 
         <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">

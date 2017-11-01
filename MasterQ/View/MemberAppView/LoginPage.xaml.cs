@@ -24,10 +24,12 @@ namespace MasterQ
             //{
             //	DisplayAlert("Click", uiReturn.getDescription(), "Close");
             //}
-            if(SessionModel.loginMember!=null){
+
+            if(SessionModel.loginMember!=null)
+            {
+                App.fristtime = true;
                 Navigation.PushAsync(new MainPage());
             }
-
 		}
 
 		public void OnLabelSignUp(object sender, System.EventArgs args)
@@ -39,7 +41,6 @@ namespace MasterQ
 
 		public void OnImageSignin(object sender, System.EventArgs args)
 		{
-
 			var username = mUsernameEntry.Text;
 			var password = mPasswordEntry.Text;
 			Login MasQLogin = new Login(username, password);
@@ -47,7 +48,7 @@ namespace MasterQ
 
 			if (uiReturn.isSuccess)
 			{
-                App.timerStart();
+                App.fristtime = true;
 				Navigation.PushAsync(new MainPage());
 			}
 			else
