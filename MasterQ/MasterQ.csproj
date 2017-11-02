@@ -273,7 +273,6 @@
     <Compile Include="Services\MemberAppModel\GetSessionRq.cs" />
     <Compile Include="Services\MemberAppModel\GetSessionRs.cs" />
     <Compile Include="Helpers\IFSocket.cs" />
-    <Compile Include="Helpers\IFiOSSocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

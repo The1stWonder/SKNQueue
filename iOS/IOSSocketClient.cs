@@ -9,7 +9,7 @@ using MasterQ.iOS;
 [assembly: Xamarin.Forms.Dependency(implementorType: typeof(iOSSocketClient))]
 namespace MasterQ.iOS
 {
-    public class iOSSocketClient : IFiOSSocket
+    public class iOSSocketClient : IFSocket
     {
         public static string sendText;
 
