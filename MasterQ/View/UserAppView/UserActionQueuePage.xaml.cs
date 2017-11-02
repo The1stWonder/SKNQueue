@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MasterQ.Helpers;
 using Xamarin.Forms;
 
 namespace MasterQ
 {
     public partial class UserActionQueuePage : ContentPage
     {
-        public UserActionQueuePage()
+        string counterNumber;
+
+        public UserActionQueuePage(string counterNum)
         {
             InitializeComponent();
             InitialPage();
+            counterNumber = counterNum;
         }
         private void InitialPage()
         {
@@ -27,10 +30,22 @@ namespace MasterQ
                 CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
                 UserSessionModel.choosedQueue.tranID = uiRes.tranID;
                 qNumber.Text = uiRes.queueNumber + "";
-                CallBtn.IsVisible = false;
+                //CallBtn.IsVisible = false;
                 AcceptBtn.IsVisible = true;
                 SkipBtn.IsVisible = true;
 				FinishBtn.IsVisible = false;
+
+                switch (Device.RuntimePlatform)
+                {
+                    case Device.iOS:
+                        DependencyService.Get<IFiOSSocket>().SendMessage("'" + uiRes.queueNumber + "','" + counterNumber + "',<EOF>","192.168.1.38",11111);
+                        //DependencyService.Get<IFiOSSocket>().SendMessage("I001,9,<EOF>", "192.168.1.38", 11111);
+                        break;
+                    default:
+                        DependencyService.Get<IFSocket>().SendMessage("'" + uiRes.queueNumber + "','" + counterNumber + "',<EOF>", "192.168.1.38", 11111);
+                        //DependencyService.Get<IFiOSSocket>().SendMessage("I002,8,<EOF>", "192.168.1.38", 11111);
+                        break;
+                }
             }
             else
             {

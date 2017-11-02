@@ -19,7 +19,7 @@ namespace MasterQ
             UIReturn uiReturn = UserActionServiceController.getInstance().openService(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup, counterNum);
             if (uiReturn.isSuccess)
             {
-                Navigation.PushAsync(new UserActionQueuePage());
+                Navigation.PushAsync(new UserActionQueuePage(counterNum));
             }
             else
             {

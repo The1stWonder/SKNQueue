@@ -6,7 +6,7 @@ namespace MasterQ
 		public string branchID { get; set; }
 		public string memberID { get; set; }
 		public string queueDate { get; set; }
-		public long queueNumber { get; set; }
+        public string queueNumber { get; set; }
 		public string queueType { get; set; }
 		public long ranking { get; set; }
 		public string serviceID { get; set; }
