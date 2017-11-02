@@ -272,6 +272,8 @@
     <Compile Include="Common\DBConstants.cs" />
     <Compile Include="Services\MemberAppModel\GetSessionRq.cs" />
     <Compile Include="Services\MemberAppModel\GetSessionRs.cs" />
+    <Compile Include="Helpers\IFSocket.cs" />
+    <Compile Include="Helpers\IFiOSSocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -376,18 +378,6 @@
     <Reference Include="Plugin.Settings">
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.18342\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.18342\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.18342\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Maps">
-      <HintPath>..\packages\Xamarin.Forms.Maps.2.4.0.18342\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Maps.dll</HintPath>
-    </Reference>
     <Reference Include="ZXing.Net.Mobile.Core">
       <HintPath>..\packages\ZXing.Net.Mobile.2.3.2\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Core.dll</HintPath>
     </Reference>
@@ -400,21 +390,33 @@
     <Reference Include="ZXing.Net.Mobile.Forms">
       <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.3.2\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.core">
-      <HintPath>..\packages\SQLitePCLRaw.core.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_green">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_v2">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
-    </Reference>
     <Reference Include="SQLite-net">
       <HintPath>..\packages\sqlite-net-pcl.1.4.118\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.8\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.38779\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.38779\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.38779\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps">
+      <HintPath>..\packages\Xamarin.Forms.Maps.2.4.0.38779\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Maps.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.1.0.2\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.1.0.2\build\Xamarin.Google.iOS.Maps.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.2.4.0.18342\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.18342\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
 </Project>
