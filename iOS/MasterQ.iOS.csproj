@@ -163,6 +163,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="FileHelper.cs" />
     <Compile Include="IOSSocketClient.cs" />
+    <Compile Include="iOSNotification.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="..\MasterQ\Image\bg.png">

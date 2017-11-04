@@ -14,6 +14,9 @@ namespace MasterQ.Droid
               ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
+        public static Notification.Builder builder;
+        public static NotificationManager notificationManager;
+
 		protected override void OnCreate(Bundle bundle)
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;
@@ -21,17 +24,20 @@ namespace MasterQ.Droid
 
 			base.OnCreate(bundle);
 
+            notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+
+            builder = new Notification.Builder(this)
+                                 .SetContentTitle("")
+                                 .SetContentText("")
+                                 .SetSmallIcon(Resource.Drawable.icon);
+
+
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 			global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Xamarin.FormsMaps.Init(this, bundle);
 
 			LoadApplication(new App());
 		}
-
-		//public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
-		//{
-		//	global::ZXing.Net.Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-		//}
 
 		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
 		{

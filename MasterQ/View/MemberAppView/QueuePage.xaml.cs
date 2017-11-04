@@ -15,8 +15,8 @@ namespace MasterQ
 		{
 			InitializeComponent();
 
-            //var ServiceName = SessionModel.getServiceFromBookingQ();
-            //ServiceQ.Text = "บริการ : " + ServiceName.serviceName;
+            var ServiceName = SessionModel.getServiceFromBookingQ();
+            ServiceQ.Text = "บริการ : " + ServiceName.serviceName;
 
             App.timercheck = true;
             NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
