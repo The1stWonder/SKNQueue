@@ -10,7 +10,6 @@ namespace MasterQ
         public RatingPage()
         {
             InitializeComponent();
-
         }
 
 		void Rating1_Clicked(object sender, System.EventArgs e)
@@ -19,7 +18,9 @@ namespace MasterQ
             UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
 			if (uiReturn.isSuccess)
 			{
-				//DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                App.Massage0 = true;
+                App.Massage5 = true;
+                App.Massage15 = true;
 				Navigation.PushAsync(new MainPage());
 			}
 			else
@@ -34,7 +35,9 @@ namespace MasterQ
 			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
 			if (uiReturn.isSuccess)
 			{
-				//DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                App.Massage0 = true;
+                App.Massage5 = true;
+                App.Massage15 = true;
 				Navigation.PushAsync(new MainPage());
 			}
 			else
@@ -49,7 +52,9 @@ namespace MasterQ
 			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
 			if (uiReturn.isSuccess)
 			{
-				//DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                App.Massage0 = true;
+                App.Massage5 = true;
+                App.Massage15 = true;
 				Navigation.PushAsync(new MainPage());
 			}
 			else
@@ -64,7 +69,9 @@ namespace MasterQ
 			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
 			if (uiReturn.isSuccess)
 			{
-				//DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                App.Massage0 = true;
+                App.Massage5 = true;
+                App.Massage15 = true;
 				Navigation.PushAsync(new MainPage());
 			}
 			else
@@ -79,7 +86,9 @@ namespace MasterQ
 			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
 			if (uiReturn.isSuccess)
 			{
-				//DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                App.Massage0 = true;
+                App.Massage5 = true;
+                App.Massage15 = true;
 				Navigation.PushAsync(new MainPage());
 			}
 			else

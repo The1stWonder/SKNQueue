@@ -18,7 +18,7 @@ namespace MasterQ
 			var lastname = mLastNameEntry.Text;
             var Phone = mPhone.Text;
 			var Email = mEmailEntry.Text;
-			var birthdate = mBirthdateEntry.Text;
+            var birthdate = mBirthdateEntry.Date.ToString("dd/MM/yyyy");
 			var Password1 = mPasswordEntry.Text;
 			var Password2 = mPassword2Entry.Text;
 

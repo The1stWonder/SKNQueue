@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MasterQ.Helpers;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -49,6 +49,23 @@ namespace MasterQ
 
                     TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
+                    if (App.timercount == 0 && App.Massage0 == true)
+                    {
+                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
+                        App.Massage0 = false;
+                    }
+
+                    if (App.timercount == 300 && App.Massage5 == true)
+                    {
+                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 5 นาทีจะถึงคิวของคุณ");
+                        App.Massage5 = false;
+                    }
+
+                    if (App.timercount == 900 && App.Massage15 == true)
+                    {
+                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 15 นาทีจะถึงคิวของคุณ");
+                        App.Massage15 = false;
+                    }
 
                     if (!ChkQueue.isSuccess)
                     {
@@ -129,6 +146,9 @@ namespace MasterQ
                     App.timercheck = false;
                     CountstartQ = false;
 					Navigation.PushAsync(new MainPage());
+                    App.Massage0 = true;
+                    App.Massage5 = true;
+                    App.Massage15 = true;
 				}
 				else
 				{

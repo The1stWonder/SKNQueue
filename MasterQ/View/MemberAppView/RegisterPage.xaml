@@ -5,7 +5,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.RegisterPage"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" >
     
         <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
@@ -156,14 +157,33 @@
             Grid.Column="0"
             Source="icn_birthday.png"
         HeightRequest="10" />
-        <Entry
+<!--        <Entry
             x:Name="mBirthdateEntry"
             Placeholder="BirthDate"
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="7"
             Grid.ColumnSpan="2"
-        Grid.Column="1"/>
+        Grid.Column="1"/>-->
+            <StackLayout Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+      <DatePicker x:Name="mBirthdateEntry" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+         <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+         <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+               <x:Arguments>
+                  <x:String>Jan 1 2000</x:String>
+               </x:Arguments>
+            </sys:DateTime>
+         </DatePicker.MinimumDate>
+         <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+               <x:Arguments>
+                  <x:String>Dec 31 2050</x:String>
+               </x:Arguments>
+            </sys:DateTime>
+         </DatePicker.MaximumDate>
+      </DatePicker>
+   </StackLayout>
         <Image 
             Margin="5,0,5,0"
             Grid.Row="8"

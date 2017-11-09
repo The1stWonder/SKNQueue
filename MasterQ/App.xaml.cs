@@ -9,7 +9,9 @@ namespace MasterQ
         public static int Recount = 0;
 		public static bool timercheck = false;
         public static bool fristtime = true;
-       // public static bool countstop = true;
+        public static bool Massage0 = true;
+        public static bool Massage5 = true;
+        public static bool Massage15 = true;
         static MasterQDatabaseDAO database;
 
 		public App()
