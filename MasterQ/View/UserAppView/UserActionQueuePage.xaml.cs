@@ -79,7 +79,7 @@ namespace MasterQ
         }
         public void OnAcceptTap(object sender, System.EventArgs args)
         {
-            UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
+            UIReturn uiReturn = UserActionQueueController.getInstance().acceptQueue(UserSessionModel.choosedQueue);
             if (uiReturn.isSuccess)
             {
                 CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
