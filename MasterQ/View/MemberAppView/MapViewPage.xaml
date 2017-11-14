@@ -18,9 +18,11 @@
         </Grid.ColumnDefinitions>
         
         <Image Grid.Row="0" Grid.Column="0"  Source="h_map.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-        <Grid Margin="10,30,10,0" Grid.Row="0" Grid.Column="0">
+
+        <StackLayout Grid.Row="0" Orientation="Vertical">
+        <Grid VerticalOptions="Fill" HorizontalOptions="Fill" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="25*" />
+                <RowDefinition Height="30*" />
                 <RowDefinition Height="5*" />
                 <RowDefinition Height="23*" />
                 <RowDefinition Height="2*" />
@@ -45,6 +47,7 @@
             <Label x:Name="branchEmail" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
 
         </Grid>
+            </StackLayout>
 
 
         <StackLayout Grid.Row="1" Grid.Column="0">

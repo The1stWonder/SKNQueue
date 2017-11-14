@@ -7,16 +7,13 @@
     x:Class="MasterQ.RegisterPage"
     NavigationPage.HasNavigationBar="False"
     xmlns:sys="clr-namespace:System;assembly=mscorlib" >
-    
+
         <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*" />
-            <RowDefinition Height="70*" />
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="77*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="100*" />
-        </Grid.ColumnDefinitions>
-       <Image Grid.Row="0" Grid.Column="0"  Source="h_signup.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+       <Image Grid.Row="0" Source="h_signup.png" />
         <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*" />
@@ -33,40 +30,41 @@
                 </Image>
             <Label Grid.Row="1" Grid.Column="0"  Text="Sign Up" FontSize="30" TextColor="White" HorizontalTextAlignment="End" />
         </Grid>
-    <Grid Margin="10,20,10,0" Grid.Row="1" Grid.Column="0">
+    <StackLayout Grid.Row="1" Orientation="Vertical">
+    <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
         <Grid.RowDefinitions>
             <RowDefinition
             Height="1*" />
             <RowDefinition
-            Height="10*" />
+            Height="20*" />
             <RowDefinition
-            Height="2*" />
+            Height="1*" />
             <RowDefinition
-            Height="10*" />
+            Height="20*" />
             <RowDefinition
-            Height="2*" />
+            Height="1*" />
             <RowDefinition
-            Height="10*" />
+            Height="20*" />
             <RowDefinition
-            Height="2*" />
+            Height="1*" />
             <RowDefinition
-            Height="10*" />                
+            Height="20*" />                
             <RowDefinition
-            Height="2*" />                
+            Height="1*" />                
             <RowDefinition
-            Height="10*" />                
+            Height="20*" />                
             <RowDefinition
-            Height="2*" />                
+            Height="1*" />                
             <RowDefinition
-            Height="10*" />                
+            Height="20*" />                
             <RowDefinition
-            Height="2*" />                
-            <RowDefinition
-            Height="5*" />
-            <RowDefinition
-            Height="15*" />
+            Height="1*" />                
             <RowDefinition
             Height="5*" />
+            <RowDefinition
+            Height="20*" />
+            <RowDefinition
+            Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition
@@ -92,6 +90,7 @@
         HeightRequest="10" />
         <Entry
             x:Name="mNameEntry"
+            WidthRequest="20"
             Placeholder="Name"
             TextColor="Black"
             BackgroundColor="White"
@@ -99,6 +98,7 @@
         Grid.Column="1"/>
         <Entry
             x:Name="mLastNameEntry"
+            WidthRequest="20"
             Placeholder="LastName"
             TextColor="Black"
             BackgroundColor="White"
@@ -118,6 +118,7 @@
         HeightRequest="10" />
         <Entry
             x:Name="mEmailEntry"
+            WidthRequest="20"
             Keyboard="Email"
             Placeholder="Email"
             TextColor="Black"
@@ -141,6 +142,7 @@
             x:Name="mPhone"
             Placeholder="Tel"
             TextColor="Black"
+            Keyboard="Numeric"
             BackgroundColor="White"
             Grid.Row="5"
             Grid.ColumnSpan="2"
@@ -165,7 +167,7 @@
             Grid.Row="7"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>-->
-            <StackLayout Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+    <StackLayout Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
       <DatePicker x:Name="mBirthdateEntry" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
          <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
          <DatePicker.MinimumDate>
@@ -245,5 +247,7 @@
                 </Image.GestureRecognizers>
             </Image>
     </Grid>
+            </StackLayout>
             </Grid>
+
 </ContentPage>

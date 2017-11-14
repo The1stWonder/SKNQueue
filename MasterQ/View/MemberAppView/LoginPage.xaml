@@ -3,39 +3,76 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.LoginPage" NavigationPage.HasNavigationBar="False" BackgroundColor="White">
-    <Grid Margin="25,0,25,0">
+
+    <Grid Margin="10,0,25,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*" />
-            <RowDefinition Height="60*" />
+            <RowDefinition Height="45*" />
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
         <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="manWithBubble_Q.png" VerticalOptions="Center" HeightRequest="250" />
+                <ContentView Padding="10,40,0,30" VerticalOptions="FillAndExpand">
+                   <Image Source="manWithBubble_Q.png" VerticalOptions="Center" HeightRequest="250" />
                 </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100*" />                                                     
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="70*" />
+                            <ColumnDefinition  Width="30*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label 
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            TextColor="Black"
+                            FontSize = "Small" 
+                            HorizontalOptions="EndAndExpand" 
+                            VerticalOptions="Start">
+                            Don't have an account? 
+                        </Label>
+                        <Label 
+                            Grid.Row="0" 
+                            Grid.Column="1" 
+                            TextColor="Fuchsia"
+                            FontSize = "Small" 
+                            HorizontalOptions="StartAndExpand" 
+                            VerticalOptions="Start" Text = "Sign Up">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnLabelSignUp" />
+                </Label.GestureRecognizers>
+             </Label>
+             </Grid>
             </StackLayout>
         </StackLayout>
         <StackLayout Grid.Row="1" Orientation="Vertical">
             <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5*" />
-                    <RowDefinition Height="15*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="15*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="30*" />
                     <RowDefinition Height="20*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="12*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="8*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*" />
                     <ColumnDefinition Width="90*" />
                 </Grid.ColumnDefinitions>
                 <Image Margin="0,5,0,5" Grid.Row="1" Grid.Column="0" Source="icn_usename.png" HeightRequest="10" />
-                <Entry x:Name="mUsernameEntry" Keyboard="Email" Placeholder="Username" TextColor="Black" BackgroundColor="White" Grid.Row="1" Grid.Column="1" />
+                <Entry x:Name="mUsernameEntry" Keyboard="Email" Placeholder="Username" TextColor="Black" BackgroundColor="Transparent"  Grid.Row="1" Grid.Column="1" />
                 <Image Margin="0,5,0,5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
                 <Image Margin="0,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
-                <Entry x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="White" Grid.Row="3" Grid.Column="1" />
+                <Entry x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" />
                 <Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
                 <Label x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black">
                         Forgot Password | Help
@@ -44,54 +81,13 @@
                                 Tapped="OnLabelForgetpassword" />
                 </Label.GestureRecognizers>
                     </Label>
-                <Image Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
+                <Image Margin="0,5,0,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnImageSignin" />
                     </Image.GestureRecognizers>
                 </Image>
-               <Grid 
-                        Grid.Row="7"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        VerticalOptions="Fill" HorizontalOptions="Fill">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />                                                     
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="70*" />
-                            <ColumnDefinition  Width="30*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label 
-                            
-                            Grid.Row="0" 
-                            Grid.Column="0" 
-                            TextColor="Black"
-                            FontSize = "Small" 
-                            HorizontalOptions="EndAndExpand" 
-                            VerticalOptions="Start">
-                            Don't have an account? 
-
-                        </Label>
-                        <Label 
-                            
-                            Grid.Row="0" 
-                            Grid.Column="1" 
-                            TextColor="#32BEBE"
-                            FontSize = "Small" 
-                            HorizontalOptions="StartAndExpand" 
-                            VerticalOptions="Start">
-                            Sign Up
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="OnLabelSignUp" />
-                </Label.GestureRecognizers>
-             </Label>
-
-                     </Grid>
-                    
-                </Grid>
-              
+               
+               </Grid>
             </StackLayout>
     </Grid>
 </ContentPage>

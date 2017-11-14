@@ -25,12 +25,16 @@ namespace MasterQ
                 {
                     if (App.fristtime)
                     {
-                        NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+                        NumberQ.Text = SessionModel.bookingQ.queueNumber;
                         App.timercheck = true;
                         App.timerStart();
                     }
+
+                    if (SessionModel.bookingQ.queueNumber != "0")
+                    {
+                        Process(); 
+                    }
                 }
-                Process();
             }
 		}
 
@@ -87,7 +91,7 @@ namespace MasterQ
                     else
                     {
                         DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
-                        NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+                        NumberQ.Text = SessionModel.bookingQ.queueNumber;
 
                         if (App.timercount == 0)
                         {
@@ -157,6 +161,7 @@ namespace MasterQ
             {
                 App.timercheck = false;
                 CountstartMain = false;
+                //SessionModel.bookingQ = null;
                 Navigation.InsertPageBefore(new LoginPage(), this);
                 Navigation.PopAsync();
             }

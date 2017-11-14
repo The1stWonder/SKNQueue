@@ -16,7 +16,9 @@
         </Grid.ColumnDefinitions>
         
         <Image Grid.Row="0" Grid.Column="0"  Source="h_search.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-        <Grid Margin="10,30,10,0" Grid.Row="0" Grid.Column="0">
+
+        <StackLayout Grid.Row="0" Orientation="Vertical">
+        <Grid VerticalOptions="Fill" HorizontalOptions="Fill" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="33*" />
                 <RowDefinition Height="2*" />
@@ -39,12 +41,9 @@
                 x:Name="mSearchEntry"
                 Placeholder="Search"  
                 TextColor="Black"
-
-                HeightRequest="40"
                 Grid.Row="0"
                 Grid.Column="1"
                 Grid.ColumnSpan="2" />
-           <!-- <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Advance" FontSize="8" TextColor="White" HorizontalOptions="EndAndExpand" />-->
             <Image  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
 
             <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
@@ -66,7 +65,7 @@
                     </Image.GestureRecognizers>
                 </Image>
         </Grid>
-
+        </StackLayout>
 
         <StackLayout Grid.Row="1" Grid.Column="0">
             <ListView 
@@ -92,5 +91,6 @@
             </ListView>
         </StackLayout>
     </Grid>
+    
 
 </ContentPage>

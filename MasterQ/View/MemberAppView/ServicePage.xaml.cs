@@ -26,20 +26,24 @@ namespace MasterQ
 
 		public void itemTapped(object sender, System.EventArgs args)
 		{
-			Service serviceID = (Service)ServiceListview.SelectedItem;
-			Service s = new Service();
-			s.serviceID = serviceID.serviceID;
-			s.branchID = serviceID.branchID;
-			UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
-			if (!ChkQ.isSuccess)
-			{
-				DisplayAlert("", ChkQ.getDescription(), "Close");
-            }
-            else
-            {
-                App.timerStart();
-				Navigation.PushAsync(new QueuePage());
-            }
+			//Service serviceID = (Service)ServiceListview.SelectedItem;
+			//Service s = new Service();
+			//s.serviceID = serviceID.serviceID;
+			//s.branchID = serviceID.branchID;
+			//UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
+			//if (!ChkQ.isSuccess)
+			//{
+				//DisplayAlert("", ChkQ.getDescription(), "Close");
+    //            SessionModel.bookingQ = null;
+    //        }
+    //        else
+    //        {
+    //            App.timerStart();
+				//Navigation.PushAsync(new QueuePage());
+            //}
+
+            Service serviceID = (Service)ServiceListview.SelectedItem;
+            Navigation.PushAsync(new SummaryPage(serviceID));
 		}
 
 		public void OnImageBack(object sender, System.EventArgs args)
