@@ -342,6 +342,7 @@
     <None Include="Image\btn_exit2.png" />
     <None Include="Image\btn_booking1.png" />
     <None Include="Image\btn_booking2.png" />
+    <None Include="Image\Qcircle2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

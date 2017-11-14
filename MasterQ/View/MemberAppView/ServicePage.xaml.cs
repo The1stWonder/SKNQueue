@@ -43,7 +43,7 @@ namespace MasterQ
             //}
 
             Service serviceID = (Service)ServiceListview.SelectedItem;
-            Navigation.PushAsync(new SummaryPage(serviceID));
+            Navigation.PushAsync(new SummaryPage(serviceID,searchBranch));
 		}
 
 		public void OnImageBack(object sender, System.EventArgs args)
