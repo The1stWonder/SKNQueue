@@ -109,6 +109,7 @@ namespace MasterQ
                         {
                             if (ChkQueue.id == 58)
                             {
+                                DetailQ.Text = ChkQueue.getDescription();
                                 App.timercheck = false;
                                 CountstartQ = false;
                                 Navigation.PushAsync(new RatingPage());
@@ -116,6 +117,7 @@ namespace MasterQ
                             }
                             else if (ChkQueue.id == 63)
                             {
+                                DetailQ.Text = ChkQueue.getDescription();
                                 SessionModel.clearQueue();
                                 NumberQ.Text = "-";
                                 App.timercheck = false;
