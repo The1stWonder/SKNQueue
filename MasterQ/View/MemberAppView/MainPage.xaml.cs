@@ -127,6 +127,13 @@ namespace MasterQ
                                 Navigation.PushAsync(new RatingPage());
                                 TimesQ.Text = "00:00:00";
                             }
+                            else if (ChkQueue.id == 63)
+                            {
+                                SessionModel.clearQueue();
+                                App.timercheck = false;
+                                CountstartMain = false;
+                                TimesQ.Text = "00:00:00";
+                            }
                             else
                             {
                                 if (SessionModel.bookingQ != null)
