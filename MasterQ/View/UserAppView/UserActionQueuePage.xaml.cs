@@ -82,9 +82,6 @@ namespace MasterQ
             UIReturn uiReturn = UserActionQueueController.getInstance().acceptQueue(UserSessionModel.choosedQueue);
             if (uiReturn.isSuccess)
             {
-                CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
-                UserSessionModel.choosedQueue.tranID = uiRes.tranID;
-                qNumber.Text = uiRes.queueNumber + "";
                 CallBtn.IsVisible = false;
 				AcceptBtn.IsVisible = false;
 				SkipBtn.IsVisible = false;
