@@ -13,5 +13,9 @@ namespace MasterQ
         {
             return TempDB.services.Find(s => s.serviceID.Equals(bookingQ.serviceID) && s.branchID.Equals(bookingQ.branchID));
         }
+        public static void clearQueue()
+        {
+            SessionModel.bookingQ = null;
+        }
     }
 }
