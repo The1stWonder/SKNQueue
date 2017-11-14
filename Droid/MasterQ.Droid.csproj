@@ -360,6 +360,18 @@
     <AndroidResource Include="..\MasterQ\Image\Qcircle2.png">
       <Link>Resources\drawable-xxhdpi\Qcircle2.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\QcircleAccept.png">
+      <Link>Resources\drawable-xxhdpi\QcircleAccept.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\QcircleCall.png">
+      <Link>Resources\drawable-xxhdpi\QcircleCall.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\QcircleFinish.png">
+      <Link>Resources\drawable-xxhdpi\QcircleFinish.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\QcircleSkip.png">
+      <Link>Resources\drawable-xxhdpi\QcircleSkip.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

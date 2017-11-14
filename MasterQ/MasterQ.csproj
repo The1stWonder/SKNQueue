@@ -343,6 +343,10 @@
     <None Include="Image\btn_booking1.png" />
     <None Include="Image\btn_booking2.png" />
     <None Include="Image\Qcircle2.png" />
+    <None Include="Image\QcircleAccept.png" />
+    <None Include="Image\QcircleCall.png" />
+    <None Include="Image\QcircleFinish.png" />
+    <None Include="Image\QcircleSkip.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

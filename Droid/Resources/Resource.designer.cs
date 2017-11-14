@@ -2641,8 +2641,8 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f020105
 			public const int NextQ2 = 2130837765;
 			
-			// aapt resource value: 0x7f02010b
-			public const int notification_template_icon_bg = 2130837771;
+			// aapt resource value: 0x7f02010f
+			public const int notification_template_icon_bg = 2130837775;
 			
 			// aapt resource value: 0x7f020106
 			public const int password_icon = 2130837766;
@@ -2654,10 +2654,22 @@ namespace MasterQ.Droid
 			public const int Qcircle2 = 2130837768;
 			
 			// aapt resource value: 0x7f020109
-			public const int user = 2130837769;
+			public const int QcircleAccept = 2130837769;
 			
 			// aapt resource value: 0x7f02010a
-			public const int username_icon = 2130837770;
+			public const int QcircleCall = 2130837770;
+			
+			// aapt resource value: 0x7f02010b
+			public const int QcircleFinish = 2130837771;
+			
+			// aapt resource value: 0x7f02010c
+			public const int QcircleSkip = 2130837772;
+			
+			// aapt resource value: 0x7f02010d
+			public const int user = 2130837773;
+			
+			// aapt resource value: 0x7f02010e
+			public const int username_icon = 2130837774;
 			
 			static Drawable()
 			{

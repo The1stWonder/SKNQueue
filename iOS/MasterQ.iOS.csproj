@@ -365,6 +365,18 @@
     <BundleResource Include="..\MasterQ\Image\Qcircle2.png">
       <Link>Resources\Qcircle2.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\QcircleAccept.png">
+      <Link>Resources\QcircleAccept.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\QcircleCall.png">
+      <Link>Resources\QcircleCall.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\QcircleFinish.png">
+      <Link>Resources\QcircleFinish.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\QcircleSkip.png">
+      <Link>Resources\QcircleSkip.png</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />

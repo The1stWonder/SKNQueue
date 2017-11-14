@@ -5,49 +5,49 @@
         </Image>
         <Label x:Name="qNumber" Grid.Row="0" Grid.ColumnSpan="2" FontSize="33" Text="คิวที่" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
 
-        <Image x:Name="CallBtn" Grid.Row="1" Grid.Column="0" Source="Qcircle2.png">
+        <Image x:Name="CallBtn" Grid.Row="1" Grid.Column="0" Source="QcircleCall.png">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnCallTap" />
             </Image.GestureRecognizers>
         </Image>
-        <Label Grid.Row="1" Grid.Column="0" FontSize="33" Text="Call" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
+<!--        <Label Grid.Row="1" Grid.Column="0" FontSize="33" Text="Call" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
         <Label.GestureRecognizers>
         <TapGestureRecognizer Tapped="OnCallTap"/>
         </Label.GestureRecognizers>
-        </Label>
+        </Label>-->
         
-        <Image x:Name="AcceptBtn" Grid.Row="1" Grid.Column="1" Source="Qcircle2.png">
+        <Image x:Name="AcceptBtn" Grid.Row="1" Grid.Column="1" Source="QcircleAccept.png">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnAcceptTap" />
             </Image.GestureRecognizers>
         </Image>
-        <Label Grid.Row="1" Grid.Column="1" FontSize="33" Text="Accept" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
+<!--        <Label Grid.Row="1" Grid.Column="1" FontSize="33" Text="Accept" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
         <Label.GestureRecognizers>
         <TapGestureRecognizer Tapped="OnAcceptTap"/>
         </Label.GestureRecognizers>
-        </Label>
+        </Label>-->
         
-        <Image x:Name="FinishBtn" Grid.Row="2" Grid.Column="0" Source="Qcircle2.png">
+        <Image x:Name="FinishBtn" Grid.Row="2" Grid.Column="0" Source="QcircleFinish.png">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnFinishTap" />
             </Image.GestureRecognizers>
         </Image>
-        <Label Grid.Row="2" Grid.Column="0" FontSize="33" Text="Finish" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
+<!--        <Label Grid.Row="2" Grid.Column="0" FontSize="33" Text="Finish" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
         <Label.GestureRecognizers>
         <TapGestureRecognizer Tapped="OnFinishTap"/>
         </Label.GestureRecognizers>
-        </Label>
+        </Label>-->
         
-        <Image x:Name="SkipBtn" Grid.Row="2" Grid.Column="1" Source="Qcircle2.png">
+        <Image x:Name="SkipBtn" Grid.Row="2" Grid.Column="1" Source="QcircleSkip.png">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnSkipTap" />
             </Image.GestureRecognizers>
         </Image>
-        <Label Grid.Row="2" Grid.Column="1" FontSize="33" Text="Skip" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
+<!--        <Label Grid.Row="2" Grid.Column="1" FontSize="33" Text="Skip" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" >
         <Label.GestureRecognizers>
         <TapGestureRecognizer Tapped="OnSkipTap"/>
         </Label.GestureRecognizers>
-        </Label>
+        </Label>-->
         
     </Grid>
 </ContentPage>
