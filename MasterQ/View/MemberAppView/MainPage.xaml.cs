@@ -130,6 +130,7 @@ namespace MasterQ
                             else if (ChkQueue.id == 63)
                             {
                                 SessionModel.clearQueue();
+                                NumberQ.Text = "-";
                                 App.timercheck = false;
                                 CountstartMain = false;
                                 TimesQ.Text = "00:00:00";

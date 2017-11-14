@@ -117,6 +117,7 @@ namespace MasterQ
                             else if (ChkQueue.id == 63)
                             {
                                 SessionModel.clearQueue();
+                                NumberQ.Text = "-";
                                 App.timercheck = false;
                                 CountstartQ = false;
                                 Navigation.PushAsync(new MainPage());
