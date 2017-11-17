@@ -19,7 +19,7 @@ namespace MasterQ
             ServiceQ.Text = "บริการ : " + ServiceName.serviceName;
 
             App.timercheck = true;
-            NumberQ.Text = SessionModel.bookingQ.queueNumber.ToString();
+            NumberQ.Text = SessionModel.bookingQ.queueNumber;
             Process();
 		}
 
@@ -109,6 +109,7 @@ namespace MasterQ
                         {
                             if (ChkQueue.id == 58)
                             {
+                                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
                                 DetailQ.Text = ChkQueue.getDescription();
                                 App.timercheck = false;
                                 CountstartQ = false;
@@ -117,6 +118,7 @@ namespace MasterQ
                             }
                             else if (ChkQueue.id == 63)
                             {
+                                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
                                 DetailQ.Text = ChkQueue.getDescription();
                                 SessionModel.clearQueue();
                                 NumberQ.Text = "-";

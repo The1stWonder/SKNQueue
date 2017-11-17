@@ -122,6 +122,7 @@ namespace MasterQ
                         {
                             if (ChkQueue.id == 58)
                             {
+                                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
                                 DetailQ.Text = ChkQueue.getDescription();
                                 App.timercheck = false;
                                 CountstartMain = false;
@@ -130,6 +131,7 @@ namespace MasterQ
                             }
                             else if (ChkQueue.id == 63)
                             {
+                                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
                                 SessionModel.clearQueue();
                                 DetailQ.Text = ChkQueue.getDescription();
                                 NumberQ.Text = "-";
