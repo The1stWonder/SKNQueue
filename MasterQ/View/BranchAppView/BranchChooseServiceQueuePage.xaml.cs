@@ -25,7 +25,11 @@ namespace MasterQ
             if (uiReturn.isSuccess)
             {
                 BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
-                Navigation.PushAsync(new BranchSummaryQueuePage());
+                //Navigation.PushAsync(new BranchSummaryQueuePage());
+                if (BranchSessionModel.bookingQ != null)
+                {
+                    NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
+                }
             }else{
                 DisplayAlert("Error",uiReturn.getDescription(),"Cancel");
             }

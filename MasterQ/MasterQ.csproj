@@ -347,6 +347,7 @@
     <None Include="Image\QcircleCall.png" />
     <None Include="Image\QcircleFinish.png" />
     <None Include="Image\QcircleSkip.png" />
+    <None Include="Image\circleQiPad.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

@@ -7,6 +7,8 @@ namespace MasterQ
 {
     public partial class BranchLoginPage : ContentPage
     {
+        static bool IsPortrait(Page p) { return p.Width < p.Height; }
+
         public BranchLoginPage()
         {
             InitializeComponent();
