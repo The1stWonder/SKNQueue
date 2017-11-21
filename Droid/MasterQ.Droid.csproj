@@ -403,6 +403,9 @@
     <AndroidResource Include="..\MasterQ\Image\circleQiPad.png">
       <Link>Resources\drawable-xxhdpi\circleQiPad.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\h_profile.png">
+      <Link>Resources\drawable-xxhdpi\h_profile.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
