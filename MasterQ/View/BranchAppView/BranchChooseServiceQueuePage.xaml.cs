@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MasterQ.Helpers;
 
 using Xamarin.Forms;
 
@@ -21,18 +22,46 @@ namespace MasterQ
 		public void itemTapped(object sender, System.EventArgs args)
 		{
 			Service service = (Service)ServiceListview.SelectedItem;
+            string servicename = service.serviceName;
             UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
             if (uiReturn.isSuccess)
             {
                 BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
-                //Navigation.PushAsync(new BranchSummaryQueuePage());
                 if (BranchSessionModel.bookingQ != null)
                 {
                     NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
+                    TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
+                    TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+
+                    switch (Device.RuntimePlatform)
+                    {
+                        case Device.iOS:
+                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", "192.168.1.39", 11111);
+                            break;
+                        default:
+                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", "192.168.1.39", 11111);
+                            break;
+                    }
                 }
-            }else{
+            }
+            else
+            {
                 DisplayAlert("Error",uiReturn.getDescription(),"Cancel");
             }
 		}
+
+        public void OnImageMainExit(object sender, System.EventArgs args)
+        {
+            UIReturn Chklogout = BranchLoginController.getInstance().LogutBranch();
+            if (!Chklogout.isSuccess)
+            {
+                DisplayAlert("", Chklogout.getDescription(), "Close");
+            }
+            else
+            {
+                Navigation.InsertPageBefore(new BranchLoginPage(), this);
+                Navigation.PopAsync();
+            }
+        }
     }
 }

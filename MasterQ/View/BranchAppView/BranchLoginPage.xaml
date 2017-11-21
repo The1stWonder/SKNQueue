@@ -31,9 +31,9 @@
                     <RowDefinition Height="5*" />
                     <RowDefinition Height="15*" />
                     <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="10*" />
                     <RowDefinition Height="20*" />
+                    <RowDefinition Height="10*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*" />
@@ -45,8 +45,8 @@
                 <Image Margin="0,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
                 <Entry x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" />
                 <Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
-                <Label x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White">
-                        Forgot Password | Help
+                <Label x:Name="setIP" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black">
+                        Setting IP Address
 
                     </Label>
                 <Image Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
