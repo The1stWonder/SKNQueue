@@ -36,7 +36,7 @@ namespace MasterQ
             member.confirmPassword = "1234";
             member.firstName = "Sirapop";
             member.lastName = "Fungfuang";
-            member.birthDate = "12/12/1990";
+            //member.birthDate = "12/12/1990";
             UIReturn result = EditProfileController.getInstance().editProfile(member);
 
         }
@@ -56,7 +56,7 @@ namespace MasterQ
             member.confirmPassword = "1234";
             member.firstName = "Sirapop";
             member.lastName = "Fungfuang";
-            member.birthDate = "12/12/1990";
+            //member.birthDate = "12/12/1990";
             UIReturn result = RegisterController.getInstance().register(member);
 
         }

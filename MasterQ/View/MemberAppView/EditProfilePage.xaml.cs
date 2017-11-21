@@ -14,28 +14,32 @@ namespace MasterQ
             Member memberid = SessionModel.loginMember;
 
             mNameEntry.Text = memberid.firstName;
-            //mLastNameEntry.Text = memberid.lastName;
+            mLastNameEntry.Text = memberid.lastName;
             mEmailEntry.Text = memberid.email;
-            mBirthdateEntry.Text = memberid.birthDate;
             mPhone.Text = memberid.tel;
+
+            int Day = Convert.ToInt16(Convert.ToDateTime(memberid.birthDate).Day);
+            int Month = Convert.ToInt16(Convert.ToDateTime(memberid.birthDate).Month);
+            int Year = Convert.ToInt16(Convert.ToDateTime(memberid.birthDate).Year);
+
+            mBirthdateEntry.Date = new DateTime(Year, Month, Day);
 		}
-
-
 
         public void OnImageJoin(object sender, System.EventArgs args)
         {
             var name = mNameEntry.Text;
-            //var lastname = mLastNameEntry.Text;
+            var lastname = mLastNameEntry.Text;
             var Email = mEmailEntry.Text;
-            var birthdate = mBirthdateEntry.Text;
-            //var Password1 = mPasswordEntry.Text;
+
+            var birthdate = mBirthdateEntry.Date.ToString("dd/MM/yyyy");
+            var Password1 = mPasswordEntry.Text;
             var Phone = mPhone.Text;
 
             Member member = new Member();
             member.email = Email;
-            //member.password = Password1;
+            member.password = Password1;
             member.firstName = name;
-            //member.lastName = lastname;
+            member.lastName = lastname;
             member.birthDate = birthdate;
             member.tel = Phone;
 
@@ -57,5 +61,6 @@ namespace MasterQ
 		{
             Navigation.PushAsync(new MainPage());
 		}
+
 	}
 }

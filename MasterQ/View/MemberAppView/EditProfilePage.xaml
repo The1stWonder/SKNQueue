@@ -5,8 +5,252 @@
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="MasterQ.EditProfilePage"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" >
+
     <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="77*" />
+        </Grid.RowDefinitions>
+       <Image Grid.Row="0" Source="h_profile.png" />
+        <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="50*" />
+                <ColumnDefinition  Width="50*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageBack" />
+                    </Image.GestureRecognizers>
+                </Image>
+            <Label Grid.Row="1" Grid.Column="0"  Text="Edit Profile" FontSize="30" TextColor="White" HorizontalTextAlignment="End" />
+        </Grid>
+    <StackLayout Grid.Row="1" Orientation="Vertical">
+    <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition
+            Height="1*" />
+            <RowDefinition
+            Height="20*" />
+            <RowDefinition
+            Height="1*" />
+            <RowDefinition
+            Height="20*" />
+            <RowDefinition
+            Height="1*" />
+            <RowDefinition
+            Height="20*" />
+            <RowDefinition
+            Height="1*" />
+            <RowDefinition
+            Height="20*" />                
+            <RowDefinition
+            Height="1*" />                
+            <RowDefinition
+            Height="20*" />                
+            <RowDefinition
+            Height="1*" />                
+            <RowDefinition
+            Height="10*" />                
+            <RowDefinition
+            Height="1*" />                
+            <RowDefinition
+            Height="5*" />
+            <RowDefinition
+            Height="30*" />
+            <RowDefinition
+            Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+            Width="10*" />
+            <ColumnDefinition
+            Width="45*" />
+            <ColumnDefinition
+            Width="45*" />
+        </Grid.ColumnDefinitions>
+        <Image
+            Margin="5,0,5,0"
+            Grid.Row="1"
+            Grid.Column="0"
+            Source="icn_usename.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mNameEntry"
+            WidthRequest="20"
+            Placeholder="Name"
+            TextColor="Black"
+            BackgroundColor="White"
+            Grid.Row="1"
+        Grid.Column="1"/>
+        <Entry
+            x:Name="mLastNameEntry"
+            WidthRequest="20"
+            Placeholder="LastName"
+            TextColor="Black"
+            BackgroundColor="White"
+            Grid.Row="1"
+        Grid.Column="2"/>
+        <Image 
+            Margin="5,0,5,0"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,0,5,0"
+            Grid.Row="3"
+            Grid.Column="0"
+            Source="icn_email.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mEmailEntry"
+            WidthRequest="20"
+            Keyboard="Email"
+            Placeholder="Email"
+            TextColor="Black"
+            BackgroundColor="White"
+            Grid.Row="3"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"/>
+        <Image 
+           Margin="5,0,5,0"
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,0,5,0"
+            Grid.Row="5"
+            Grid.Column="0"
+            Source="icn_phone.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mPhone"
+            Placeholder="Tel"
+            TextColor="Black"
+            Keyboard="Numeric"
+            BackgroundColor="White"
+            Grid.Row="5"
+            Grid.ColumnSpan="2"
+        Grid.Column="1"/>
+        <Image 
+            Margin="5,0,5,0"
+            Grid.Row="6"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,0,5,0"
+            Grid.Row="7"
+            Grid.Column="0"
+            Source="icn_birthday.png"
+        HeightRequest="10" />
+<!--        <Entry
+            x:Name="mBirthdateEntry"
+            Placeholder="BirthDate"
+            TextColor="Black"
+            BackgroundColor="White"
+            Grid.Row="7"
+            Grid.ColumnSpan="2"
+        Grid.Column="1"/>-->
+    <StackLayout Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+      <DatePicker x:Name="mBirthdateEntry" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+         <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+         <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+               <x:Arguments>
+                  <x:String>Jan 1 1900</x:String>
+               </x:Arguments>
+            </sys:DateTime>
+         </DatePicker.MinimumDate>
+         <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+               <x:Arguments>
+                  <x:String>Dec 31 2050</x:String>
+               </x:Arguments>
+            </sys:DateTime>
+         </DatePicker.MaximumDate>
+      </DatePicker>
+   </StackLayout>
+        <Image 
+            Margin="5,0,5,0"
+            Grid.Row="8"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <Image
+            Margin="5,0,5,0"
+            Grid.Row="9"
+            Grid.Column="0"
+            Source="icn_password.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mPasswordEntry"
+            IsPassword="true"
+            Placeholder="Password"
+            TextColor="Black"
+            BackgroundColor="White"
+            Grid.Row="9"
+            Grid.ColumnSpan="2"
+        Grid.Column="1"/>
+        <Image 
+            Margin="5,0,5,0"
+            Grid.Row="10"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />
+        <!--<Image
+            Margin="5,0,5,0"
+            Grid.Row="11"
+            Grid.Column="0"
+            Source="icn_confirm_password.png"
+        HeightRequest="10" />
+        <Entry
+            x:Name="mPassword2Entry"
+            IsPassword="true"
+            Placeholder="Confirm Password"
+            TextColor="Black"
+            BackgroundColor="White"
+            Grid.Row="11"
+            Grid.ColumnSpan="2"
+        Grid.Column="1"/>-->
+        <!--<Image 
+            Margin="5,0,5,0"
+            Grid.Row="12"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="divider.png" />-->
+        <Image 
+            Margin="5,0,5,0"
+            Grid.Row="14"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="btn_save.png" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageJoin"
+                         />
+                </Image.GestureRecognizers>
+            </Image>
+    </Grid>
+            </StackLayout>
+            </Grid>
+
+
+
+
+
+
+
+
+    
+    <!--<Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="30*" />
             <RowDefinition Height="70*" />
@@ -170,6 +414,6 @@
                     </Image.GestureRecognizers>
                 </Image>
         </Grid>
-    </Grid>
-
+    </Grid>-->
+    
 </ContentPage>

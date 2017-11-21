@@ -348,6 +348,7 @@
     <None Include="Image\QcircleFinish.png" />
     <None Include="Image\QcircleSkip.png" />
     <None Include="Image\circleQiPad.png" />
+    <None Include="Image\h_profile.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
