@@ -4,8 +4,8 @@
         <Entry x:Name="staffName" Placeholder="staffName" TextColor="White" BackgroundColor="#333" Grid.Row="0" />
         <Picker x:Name="chooseService" Title="บริการ" Grid.Row="1">
         </Picker>
-        <Entry x:Name="counterNumber" Placeholder="counterNumber" TextColor="White" BackgroundColor="#333" Grid.Row="2" />
-        <Image Source="btn_signin.png" Grid.Row="3">
+        <Entry x:Name="counterNumber" Placeholder="counterNumber" TextColor="Black" Keyboard="Numeric" BackgroundColor="White" Grid.Row="2" />
+        <Image Source="btn_submit.png" Grid.Row="3">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnImageSubmit" />
             </Image.GestureRecognizers>

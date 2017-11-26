@@ -8,12 +8,12 @@
     NavigationPage.HasNavigationBar="False"
     xmlns:sys="clr-namespace:System;assembly=mscorlib" >
 
-        <Grid Margin="0,0,0,0">
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="23*" />
             <RowDefinition Height="77*" />
         </Grid.RowDefinitions>
-       <Image Grid.Row="0" Source="h_signup.png" />
+        <Image Grid.Row="0" Source="h_signup.png" />
         <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*" />
@@ -30,6 +30,12 @@
                 </Image>
             <Label Grid.Row="1" Grid.Column="0"  Text="Sign Up" FontSize="30" TextColor="White" HorizontalTextAlignment="End" />
         </Grid>
+        
+        <Grid Margin="10,0,10,0" Grid.Row="1" Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="99*" />
+        </Grid.RowDefinitions>
     <StackLayout Grid.Row="1" Orientation="Vertical">
     <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
         <Grid.RowDefinitions>
@@ -60,9 +66,9 @@
             <RowDefinition
             Height="1*" />                
             <RowDefinition
-            Height="5*" />
+            Height="3*" />
             <RowDefinition
-            Height="20*" />
+            Height="22*" />
             <RowDefinition
             Height="1*" />
         </Grid.RowDefinitions>
@@ -104,12 +110,12 @@
             BackgroundColor="White"
             Grid.Row="1"
         Grid.Column="2"/>
-        <Image 
+        <!--<Image 
             Margin="5,0,5,0"
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="divider.png" />
+        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="3"
@@ -126,12 +132,12 @@
             Grid.Row="3"
         Grid.Column="1"
         Grid.ColumnSpan="2"/>
-        <Image 
+        <!--<Image 
            Margin="5,0,5,0"
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="divider.png" />
+        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="5"
@@ -147,26 +153,18 @@
             Grid.Row="5"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
-        <Image 
+        <!--<Image 
             Margin="5,0,5,0"
             Grid.Row="6"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="divider.png" />
+        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="7"
             Grid.Column="0"
             Source="icn_birthday.png"
         HeightRequest="10" />
-<!--        <Entry
-            x:Name="mBirthdateEntry"
-            Placeholder="BirthDate"
-            TextColor="Black"
-            BackgroundColor="White"
-            Grid.Row="7"
-            Grid.ColumnSpan="2"
-        Grid.Column="1"/>-->
     <StackLayout Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
       <DatePicker x:Name="mBirthdateEntry" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
          <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
@@ -186,12 +184,12 @@
          </DatePicker.MaximumDate>
       </DatePicker>
    </StackLayout>
-        <Image 
+<!--        <Image 
             Margin="5,0,5,0"
             Grid.Row="8"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="divider.png" />
+        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="9"
@@ -207,12 +205,12 @@
             Grid.Row="9"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
-        <Image 
+<!--        <Image 
             Margin="5,0,5,0"
             Grid.Row="10"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="divider.png" />
+        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="11"
@@ -228,12 +226,12 @@
             Grid.Row="11"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
-        <Image 
+<!--        <Image 
             Margin="5,0,5,0"
             Grid.Row="12"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="divider.png" />
+        Source="divider.png" />-->
         <Image 
             Margin="5,0,5,0"
             Grid.Row="14"
@@ -249,5 +247,6 @@
     </Grid>
             </StackLayout>
             </Grid>
+        </Grid>
 
 </ContentPage>

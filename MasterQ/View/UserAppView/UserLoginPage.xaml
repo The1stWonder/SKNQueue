@@ -3,7 +3,9 @@
     Title="เคาร์เตอร์"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="MasterQ.UserLoginPage">
+    x:Class="MasterQ.UserLoginPage"
+    BackgroundColor="White">
+    
     <Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40*" />
@@ -11,7 +13,7 @@
         </Grid.RowDefinitions>
         <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand">
+                <ContentView Padding="10,20,0,40" VerticalOptions="FillAndExpand">
                     <Image Source="manWithBubble_Q.png" VerticalOptions="Center" HeightRequest="200" />
                 </ContentView>
             </StackLayout>
@@ -20,13 +22,13 @@
             <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5*" />
-                    <RowDefinition Height="15*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="15*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="30*" />
                     <RowDefinition Height="20*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="10*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*" />
@@ -34,12 +36,12 @@
                 </Grid.ColumnDefinitions>
                 <Image Margin="0,5,0,5" Grid.Row="1" Grid.Column="0" Source="icn_usename.png" HeightRequest="10" />
                 <Entry x:Name="mUsernameEntry" Keyboard="Email" Placeholder="Username" TextColor="Black" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="1" />
-                <Image Margin="0,5,0,5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
+                <!--<Image Margin="0,5,0,5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />-->
                 <Image Margin="0,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
                 <Entry x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" />
-                <Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
-                <Label x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White">
-                        Forgot Password | Help
+                <!--<Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />-->
+                <Label x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black">
+                        Setting IP Address
 
                     </Label>
                 <Image Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">

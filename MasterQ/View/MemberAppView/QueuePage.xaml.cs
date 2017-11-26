@@ -34,6 +34,10 @@ namespace MasterQ
                 ChkTime = SessionModel.bookingQ.estimateTime.GetHashCode() * 60;
                 App.fristtime = false;
                 App.timercount = ChkTime;
+                if (App.timercount < 900)
+                {
+                    App.Massage15 = false;
+                }
             }
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
@@ -49,22 +53,22 @@ namespace MasterQ
 
                     TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
-                    if (App.timercount == 0 && App.Massage0 == true)
+                    if (App.timercount <= 900 && App.Massage15 == true)
                     {
-                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
-                        App.Massage0 = false;
+                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 15 นาทีจะถึงคิวของคุณ");
+                        App.Massage15 = false;
                     }
 
-                    if (App.timercount == 300 && App.Massage5 == true)
+                    if (App.timercount <= 300 && App.Massage5 == true)
                     {
                         DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 5 นาทีจะถึงคิวของคุณ");
                         App.Massage5 = false;
                     }
 
-                    if (App.timercount == 900 && App.Massage15 == true)
+                    if (App.timercount == 0 && App.Massage0 == true)
                     {
-                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 15 นาทีจะถึงคิวของคุณ");
-                        App.Massage15 = false;
+                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
+                        App.Massage0 = false;
                     }
 
                     if (!ChkQueue.isSuccess)
@@ -152,6 +156,8 @@ namespace MasterQ
 		{
 			if (SessionModel.bookingQ != null)
 			{
+                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "ยกเลิกการจองคิวแล้ว");
+
 				UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
 				if (uiReturn.isSuccess)
 				{

@@ -9,6 +9,7 @@ namespace MasterQ
     public partial class UserActionQueuePage : ContentPage
     {
         string counterNumber;
+        int ChkTime = 0;
 
         public UserActionQueuePage(string counterNum)
         {
@@ -25,36 +26,56 @@ namespace MasterQ
         }
         public void OnCallTap(object sender, System.EventArgs args)
         {
-            UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
-            if (uiReturn.isSuccess)
-            {
-                CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
-                UserSessionModel.choosedQueue.tranID = uiRes.tranID;
-                qNumber.Text = uiRes.queueNumber + "";
-                CallBtn.IsVisible = false;
-                AcceptBtn.IsVisible = true;
-                SkipBtn.IsVisible = true;
-				FinishBtn.IsVisible = false;
+            CallBtn.IsEnabled = false;
+            CallBtn.IsVisible = false;
 
-                switch (Device.RuntimePlatform)
+            //if (CallBtn.IsVisible == false)
+            //{
+                UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
+                if (uiReturn.isSuccess)
                 {
-                    case Device.iOS:
-                        DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>","192.168.1.39",11111);
-                        //DependencyService.Get<IFiOSSocket>().SendMessage("I001,9,<EOF>", "192.168.1.38", 11111);
-                        break;
-                    default:
-                        DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>", "192.168.1.39", 11111);
-                        //DependencyService.Get<IFiOSSocket>().SendMessage("I002,8,<EOF>", "192.168.1.38", 11111);
-                        break;
-                }
+                    CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
+                    UserSessionModel.choosedQueue.tranID = uiRes.tranID;
+                    qNumber.Text = uiRes.queueNumber + "";
+                    AcceptBtn.IsVisible = true;
+                    SkipBtn.IsVisible = true;
+                    FinishBtn.IsVisible = false;
+                    CallBtn.IsVisible = false;
 
-                Task.Delay(TimeSpan.FromSeconds(3)).Wait();
-                CallBtn.IsVisible = true;
-            }
-            else
-            {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
-            }
+                    switch (Device.RuntimePlatform)
+                    {
+                        case Device.iOS:
+                            DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>", "192.168.1.39", 11111);
+                            //DependencyService.Get<IFiOSSocket>().SendMessage("I001,9,<EOF>", "192.168.1.38", 11111);
+                            break;
+                        default:
+                            DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>", "192.168.1.39", 11111);
+                            //DependencyService.Get<IFiOSSocket>().SendMessage("I002,8,<EOF>", "192.168.1.38", 11111);
+                            break;
+                    }
+
+                    Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+                    {
+                        ChkTime = ChkTime + 1;
+
+                        if (ChkTime == 2)
+                        {
+                            ChkTime = 0;
+                            CallBtn.IsEnabled = true;
+                            CallBtn.IsVisible = true;
+                            return false;
+                        }
+
+                        return true;
+                    });
+                    //Task.Delay(TimeSpan.FromSeconds(3)).Wait();
+
+                }
+                else
+                {
+                    DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+                }
+            //}
         }
         public void OnAcceptTap(object sender, System.EventArgs args)
         {
