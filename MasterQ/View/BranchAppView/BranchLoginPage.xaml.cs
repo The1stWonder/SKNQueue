@@ -13,6 +13,7 @@ namespace MasterQ
         {
             InitializeComponent();
         }
+
 		public void OnImageSignin(object sender, System.EventArgs args)
 		{
 			var username = mUsernameEntry.Text;
@@ -29,5 +30,12 @@ namespace MasterQ
 				DisplayAlert("Click", uiReturn.getDescription(), "Close");
 			}
 		}
+
+        public void OnLabelSetIP(object sender, System.EventArgs args)
+        {
+            Navigation.PushAsync(new BranchSetIPAddress());
+            mUsernameEntry.Text = "";
+            mPasswordEntry.Text = "";
+        }
     }
 }
