@@ -39,7 +39,7 @@ namespace MasterQ
             else
             {
                 App.timerStart();
-				Navigation.PushAsync(new QueuePage());
+                Navigation.PushAsync(new MainPage());
             }
 
             //Service serviceID = (Service)ServiceListview.SelectedItem;

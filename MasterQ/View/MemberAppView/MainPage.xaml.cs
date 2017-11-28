@@ -18,6 +18,7 @@ namespace MasterQ
 		public MainPage()
 		{
 			InitializeComponent();
+            btn_cancel.IsVisible = false;
 
             if (SessionModel.bookingQ != null)
             {
@@ -26,12 +27,14 @@ namespace MasterQ
                     if (App.fristtime)
                     {
                         NumberQ.Text = SessionModel.bookingQ.queueNumber;
+                        NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
                         App.timercheck = true;
                         App.timerStart();
                     }
 
                     if (SessionModel.bookingQ.queueNumber != "0")
                     {
+                        btn_cancel.IsVisible = true;
                         Process(); 
                     }
                 }
@@ -97,6 +100,7 @@ namespace MasterQ
                     {
                         DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
                         NumberQ.Text = SessionModel.bookingQ.queueNumber;
+                        NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
 
                         if (App.timercount == 0)
                         {
@@ -114,6 +118,7 @@ namespace MasterQ
                         {
                             ChkTime = SessionModel.bookingQ.estimateTime * 60;
                             App.timercount = SessionModel.bookingQ.estimateTime * 60;
+                            NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
                         }
 
                         ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
@@ -266,9 +271,9 @@ namespace MasterQ
             {
                 if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                 {
-                    CountstartMain = false;
-                    Navigation.InsertPageBefore(new QueuePage(), this);
-                    Navigation.PopAsync();
+                    //CountstartMain = false;
+                    //Navigation.InsertPageBefore(new QueuePage(), this);
+                    //Navigation.PopAsync();
                 }
                 else
                 {
@@ -282,6 +287,37 @@ namespace MasterQ
                 CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
+            }
+        }
+
+        public void OnImageDelete(object sender, System.EventArgs args)
+        {
+            if (SessionModel.bookingQ != null)
+            {
+                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "ยกเลิกการจองคิวแล้ว");
+
+                UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
+                if (uiReturn.isSuccess)
+                {
+                    App.fristtime = true;
+                    App.timercheck = false;
+                    CountstartMain = false;
+                    //Navigation.PushAsync(new MainPage());
+                    App.Massage0 = true;
+                    App.Massage5 = true;
+                    App.Massage15 = true;
+                    TimesQ.Text = "00:00:00";
+                    NumberQ.Text = "-";
+                    NumberQ2.Text = " -";
+                    DetailQ.Text = "";
+                    btn_cancel.IsVisible = false;
+                }
+                else
+                {
+                    App.timercheck = false;
+                    CountstartMain = false;
+                    DisplayAlert("", uiReturn.getDescription(), "Close");
+                }
             }
         }
     }

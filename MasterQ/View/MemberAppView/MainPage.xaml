@@ -4,10 +4,167 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.MainPage"
-    BackgroundColor="White"
+    BackgroundImage="bg5.png"
     NavigationPage.HasNavigationBar="False">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="69*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="5*" />
+ 
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*" />
+            <ColumnDefinition  Width="*" />
+            <ColumnDefinition  Width="*" /> 
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="1" Grid.Column="0"  Source="btn_profile.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageMainProfilePage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
         
-    <Grid Margin="25,0,25,0">
+        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageMainExit"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+
+        <Label x:Name="DetailQ" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20" Text="" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image 
+        Grid.Row="3" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="3" 
+        Source="ticket2.png" 
+        VerticalOptions="Center" 
+        HeightRequest="450">
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageSummaryPage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+        
+        <!--<Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="70" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center">
+        <Label.GestureRecognizers>
+         <TapGestureRecognizer Tapped="OnLabalMainProfilePage2"/>
+        </Label.GestureRecognizers>
+        </Label>-->
+
+            <StackLayout Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="42*" />
+                            <RowDefinition Height="24*" />
+                            <RowDefinition Height="15*" />  
+                            <RowDefinition Height="22*" />  
+                            <RowDefinition Height="10*" /> 
+                            <RowDefinition Height="15*" />    
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="60*" />
+                            <ColumnDefinition  Width="40*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" FontSize="50" Text="-" TextColor="#32BEBE" />
+                        <Label x:Name="NumberQ2" Margin="40,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="50" Text=" -" TextColor="#32BEBE" />
+                        <Label x:Name="TimesQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="37" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
+                        <Image x:Name="btn_cancel" Source="btn_cancel.png" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnImageDelete"
+                                />
+                            </Image.GestureRecognizers>
+                        </Image>    
+             </Grid>
+            </StackLayout>
+
+        
+
+        <!--<StackLayout Margin="0,140,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" >
+                <ContentView Padding="20,0,0,10" VerticalOptions="FillAndExpand">
+                    <Label x:Name="NumberQ" FontSize="65" Text="" TextColor="#32BEBE">
+                    </Label>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Margin="0,140,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" >
+                <ContentView Padding="240,0,0,10" VerticalOptions="FillAndExpand">
+                    <Label x:Name="NumberQ2" FontSize="65" Text="" TextColor="#32BEBE">
+                    </Label>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Margin="0,260,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                    <Label x:Name="TimesQ" FontSize="55" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Margin="0,350,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
+                    <Image Source="btn_cancel.png" HeightRequest="45" >
+                    <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageDelete"
+                         />
+                    </Image.GestureRecognizers>
+                    </Image>    
+                </ContentView>
+            </StackLayout>
+        </StackLayout>-->
+        
+        <Image Grid.Row="6" Grid.Column="0"  Source="btn_history.png" VerticalOptions="Center" HeightRequest="60" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageHistoryPage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Row="6" Grid.Column="1"  Source="btn_booking.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageQueuePage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Row="6" Grid.Column="2"  Source="btn_qr.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageQRcodePage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+        <Label Grid.Row="7" Grid.Column="0"  Text="History"  FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="7" Grid.Column="1"  Text="Booking" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Grid.Row="7" Grid.Column="2"  Text="QR" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+    </Grid>
+
+
+
+    
+        
+    <!--<Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition Height="10*" />
@@ -24,35 +181,6 @@
             <ColumnDefinition  Width="*" />
             <ColumnDefinition  Width="*" /> 
         </Grid.ColumnDefinitions>
-        
-        <!--<StackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,10,0,0" VerticalOptions="FillAndExpand">
-                    <Image Source="btn_profile.png" VerticalOptions="Start" HeightRequest="60" >
-                        <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Tapped="OnImageMainProfilePage"
-                         />
-                </Image.GestureRecognizers>
-        </Image>
-                </ContentView>
-            </StackLayout>
-        </StackLayout>-->
-        
-
-        <!--<StackLayout Grid.Row="1" Grid.Column="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,10,0,0" VerticalOptions="FillAndExpand">
-                    <Image Source="btn_exit2.png" VerticalOptions="Start" HeightRequest="60" >
-                        <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Tapped="OnImageMainExit"
-                         />
-                </Image.GestureRecognizers>
-        </Image>
-                </ContentView>
-            </StackLayout>
-        </StackLayout>-->
 
         <Image Grid.Row="1" Grid.Column="0"  Source="btn_profile.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
@@ -132,6 +260,6 @@
         <Label Grid.Row="7" Grid.Column="0"  Text="History"  FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
         <Label Grid.Row="7" Grid.Column="1"  Text="Booking" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
         <Label Grid.Row="7" Grid.Column="2"  Text="QR" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
-    </Grid>
+    </Grid>-->
 
 </ContentPage>

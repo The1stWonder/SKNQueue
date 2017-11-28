@@ -89,6 +89,14 @@
     <EmbeddedResource Include="View\MemberAppView\MapViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserAppView\UserSetIPAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\BranchSetIPAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -274,6 +282,12 @@
     <Compile Include="Services\MemberAppModel\GetSessionRs.cs" />
     <Compile Include="Helpers\IFSocket.cs" />
     <Compile Include="Helpers\IFNotification.cs" />
+    <Compile Include="View\UserAppView\UserSetIPAddress.xaml.cs">
+      <DependentUpon>UserSetIPAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\BranchSetIPAddress.xaml.cs">
+      <DependentUpon>BranchSetIPAddress.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -349,6 +363,11 @@
     <None Include="Image\QcircleSkip.png" />
     <None Include="Image\circleQiPad.png" />
     <None Include="Image\h_profile.png" />
+    <None Include="Image\bg5.png" />
+    <None Include="Image\btn_cancel.png" />
+    <None Include="Image\ticket.png" />
+    <None Include="Image\ticket2.psd" />
+    <None Include="Image\ticket2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
