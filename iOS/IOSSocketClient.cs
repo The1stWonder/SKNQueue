@@ -74,7 +74,7 @@ namespace MasterQ.iOS
             }
             else Console.WriteLine(".client is connected.");
 
-                byte[] sendBuffer = Encoding.ASCII.GetBytes(sendText);
+            byte[] sendBuffer = Encoding.Unicode.GetBytes(sendText);
             IAsyncResult asyncSend = clientSocket.BeginSend(
               sendBuffer,
               0,
@@ -125,7 +125,7 @@ namespace MasterQ.iOS
             Console.WriteLine(
               ".{0} bytes received: {1}{2}{2}Shutting down.",
               bytesReceived.ToString(),
-              Encoding.ASCII.GetString(stateObject.sBuffer),
+                Encoding.Unicode.GetString(stateObject.sBuffer),
               Environment.NewLine);
 
             //stateObject.sSocket.Shutdown(SocketShutdown.Both);
