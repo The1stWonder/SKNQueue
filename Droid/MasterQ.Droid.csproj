@@ -406,6 +406,18 @@
     <AndroidResource Include="..\MasterQ\Image\h_profile.png">
       <Link>Resources\drawable-xxhdpi\h_profile.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\bg5.png">
+      <Link>Resources\drawable-xxhdpi\bg5.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_cancel.png">
+      <Link>Resources\drawable-xxhdpi\btn_cancel.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\ticket.png">
+      <Link>Resources\drawable-xxhdpi\ticket.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\ticket2.png">
+      <Link>Resources\drawable-xxhdpi\ticket2.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
