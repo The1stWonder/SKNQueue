@@ -57,7 +57,6 @@ namespace MasterQ
                 {
                     App.Massage15 = false;
                 }
-
             }
 
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
@@ -307,7 +306,7 @@ namespace MasterQ
                     App.Massage5 = true;
                     App.Massage15 = true;
                     TimesQ.Text = "00:00:00";
-                    NumberQ.Text = "-";
+                    NumberQ.Text = "  -";
                     NumberQ2.Text = " -";
                     DetailQ.Text = "";
                     btn_cancel.IsVisible = false;
