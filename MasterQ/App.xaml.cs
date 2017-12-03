@@ -12,6 +12,7 @@ namespace MasterQ
         public static bool Massage0 = true;
         public static bool Massage5 = true;
         public static bool Massage15 = true;
+        public static string IPAdress;
         static MasterQDatabaseDAO database;
 
 		public App()

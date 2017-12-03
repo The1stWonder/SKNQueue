@@ -10,11 +10,13 @@ namespace MasterQ
         public BranchSetIPAddress()
         {
             InitializeComponent();
+            IPAddress.Text = App.IPAdress;
         }
 
         public void OnImageJoin(object sender, System.EventArgs args)
         {
-
+            App.IPAdress = IPAddress.Text.Trim();
+            Navigation.PushAsync(new BranchLoginPage());
         }
     }
 }

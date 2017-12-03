@@ -11,6 +11,7 @@ namespace MasterQ
         {
             InitializeComponent();
             InitialPage();
+
         }
 
         public void OnImageSubmit(object sender, System.EventArgs args)

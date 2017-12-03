@@ -8,6 +8,9 @@ namespace MasterQ
 {
     public partial class BranchChooseServiceQueuePage : ContentPage
     {
+        //string counterNumber;
+        //int ChkTime = 0;
+
         public BranchChooseServiceQueuePage()
         {
             InitializeComponent();
@@ -21,33 +24,45 @@ namespace MasterQ
 
 		public void itemTapped(object sender, System.EventArgs args)
 		{
-			Service service = (Service)ServiceListview.SelectedItem;
-            string servicename = service.serviceName;
-            UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
-            if (uiReturn.isSuccess)
-            {
-                BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
-                if (BranchSessionModel.bookingQ != null)
-                {
-                    NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
-                    TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
-                    TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+            //Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            //{
+                //ChkTime = ChkTime + 1;
 
-                    switch (Device.RuntimePlatform)
+                //if (ChkTime == 2)
+                //{
+                    //ChkTime = 0;
+                    Service service = (Service)ServiceListview.SelectedItem;
+                    string servicename = service.serviceName;
+                    UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
+                    if (uiReturn.isSuccess)
                     {
-                        case Device.iOS:
-                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", "192.168.1.39", 11111);
-                            break;
-                        default:
-                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", "192.168.1.39", 11111);
-                            break;
+                        BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
+                        if (BranchSessionModel.bookingQ != null)
+                        {
+                            NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
+                            TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
+                            TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+
+                            switch (Device.RuntimePlatform)
+                            {
+                                case Device.iOS:
+                                    DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", App.IPAdress, 11111);
+                                    break;
+                                default:
+                                    DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", App.IPAdress, 11111);
+                                    break;
+                            }
+                        }
                     }
-                }
-            }
-            else
-            {
-                DisplayAlert("Error",uiReturn.getDescription(),"Cancel");
-            }
+                    else
+                    {
+                        DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
+                    }
+
+            //        return false;
+            //    }
+            //    return true;
+            //});
 		}
 
         public void OnImageMainExit(object sender, System.EventArgs args)

@@ -34,7 +34,7 @@
             Source="icn_email.png"
         HeightRequest="10" />
             <Entry
-                x:Name="mUsernameEntry"
+                x:Name="IPAddress"
                 Placeholder="IP Address"
                 Grid.Row="0"
                 Grid.Column="1" />
