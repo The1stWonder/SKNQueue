@@ -10,6 +10,12 @@ namespace MasterQ
         {
             List<CodeDescription> tempCodeDesc = MetaDataService.getInstance().CallGetCodeDescription().codeDescriptions;
             TempDB.codeDescriptions = (tempCodeDesc == null) ? new List<CodeDescription>() : tempCodeDesc;
+
+            init_Member();
+        }
+
+        public static void init_Member()
+        {
             if (Constants.isAppForMember())
             {
                 List<Province> tempProvince = MetaDataService.getInstance().CallGetProvices().provinces;
@@ -26,6 +32,7 @@ namespace MasterQ
                 {
                     UIReturn uiReturn = ReserveQController.getInstance().getMemberSession(SessionModel.loginMember);
                 }
+                Constants.APPLICATION_LANGUAGE = getLanguageFromDB();
             }
         }
 
@@ -33,6 +40,11 @@ namespace MasterQ
         {
             SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_MEMBER);
             return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Member>();
+        }
+        private static String getLanguageFromDB()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_LANGUAGE_MEMBER);
+            return (temp == null) ? Constants.APPLICATION_LANGUAGE_DEFAULT : temp.JSON_DATA;
         }
     }
 }

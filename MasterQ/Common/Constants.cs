@@ -13,7 +13,8 @@ namespace MasterQ
 
         public static String APPLICATION_LANGUAGE_THAI = "TH";
         public static String APPLICATION_LANGUAGE_ENG = "EN";
-        public static String APPLICATION_LANGUAGE = APPLICATION_LANGUAGE_ENG;
+        public static String APPLICATION_LANGUAGE_DEFAULT = APPLICATION_LANGUAGE_THAI;
+        public static String APPLICATION_LANGUAGE = APPLICATION_LANGUAGE_DEFAULT;
 
         public static String QUEUE_TYPE_MEMBER = "O";
 		public static String QUEUE_TYPE_BRANCH = "K";
