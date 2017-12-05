@@ -288,6 +288,7 @@
     <Compile Include="View\BranchAppView\BranchSetIPAddress.xaml.cs">
       <DependentUpon>BranchSetIPAddress.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\LabelConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
