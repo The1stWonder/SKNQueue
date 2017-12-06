@@ -413,6 +413,9 @@
     <BundleResource Include="..\MasterQ\Image\ticket4.png">
       <Link>Resources\ticket4.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_cancel2.png">
+      <Link>Resources\btn_cancel2.png</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
