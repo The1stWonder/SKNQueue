@@ -436,6 +436,9 @@
     <AndroidResource Include="..\MasterQ\Image\ticket4.png">
       <Link>Resources\drawable-xxhdpi\ticket4.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_cancel2.png">
+      <Link>Resources\drawable-xxhdpi\btn_cancel2.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
