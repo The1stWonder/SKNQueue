@@ -11,6 +11,7 @@ namespace MasterQ
 		{
 			InitializeComponent();
 
+            ProfileQ.Text = Utils.getLabel(LabelConstants.PROFILE_PAGE_PROFILE);
             mNameEntry.IsEnabled = false;
             mLastNameEntry.IsEnabled = false;
             mEmailEntry.IsEnabled = false;

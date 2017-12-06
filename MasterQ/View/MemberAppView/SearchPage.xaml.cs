@@ -13,7 +13,9 @@ namespace MasterQ
 		public SearchPage()
 		{
 			InitializeComponent();
-			gennaratepicker();
+            gennaratepicker();
+
+            mSearchEntry.Placeholder = Utils.getLabel(LabelConstants.SEARCH_PAGE_SEARCH);
 		}
 
 		public void gennaratepicker()
@@ -47,8 +49,6 @@ namespace MasterQ
 			//		};
 			//	}
 			//};
-
-
 
             if (App.TextSearch != "")
             {
@@ -88,7 +88,6 @@ namespace MasterQ
             //	DisplayAlert("", uiR.descriptionEN, "Cancel");
             //}
             //}
-
 
 
             if (mSearchEntry.Text != null)

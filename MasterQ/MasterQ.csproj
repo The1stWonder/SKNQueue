@@ -375,6 +375,7 @@
     <None Include="Image\thailand.png" />
     <None Include="Image\unitedkingdom.png" />
     <None Include="Image\ticket4.png" />
+    <None Include="Image\btn_cancel2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

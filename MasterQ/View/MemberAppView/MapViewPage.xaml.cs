@@ -16,9 +16,9 @@ namespace MasterQ
             InitializeComponent();
             searchBranch = (Branch)SearchController.getInstance().getBranchDetail(selectedBranch).returnObject;
             branchName.Text = selectedBranch.branchName;
-            branchAddress.Text = "ที่อยู่ : " + selectedBranch.address;
-            branchTel.Text = "โทร : " + selectedBranch.telNo;
-            branchEmail.Text = "อีเมล : " + searchBranch.email;
+            branchAddress.Text = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_ADDRESS) + " : " + selectedBranch.address;
+            branchTel.Text = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_TEL) + " : " + selectedBranch.telNo;
+            branchEmail.Text = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_EMAIL) + " : " + searchBranch.email;
 
             if (selectedBranch.latitude != "")
             {

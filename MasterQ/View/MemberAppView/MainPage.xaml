@@ -33,7 +33,7 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Image x:Name="LanguageThai" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="thailand.png" VerticalOptions="Center" HeightRequest="40" >
+        <Image x:Name="LanguageThai" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="thailand.png" VerticalOptions="Center" HeightRequest="50" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainchangeAppLanguageThai"
@@ -41,7 +41,7 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Image x:Name="LanguageEng" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="unitedkingdom.png" VerticalOptions="Center" HeightRequest="40" >
+        <Image x:Name="LanguageEng" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="unitedkingdom.png" VerticalOptions="Center" HeightRequest="50" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainchangeAppLanguageEng"
@@ -62,7 +62,7 @@
         Grid.Row="3" 
         Grid.Column="0" 
         Grid.ColumnSpan="3" 
-        Source="ticket2.png" 
+        Source="ticket4.png" 
         VerticalOptions="Center" 
         HeightRequest="450">
             <Image.GestureRecognizers>
@@ -78,21 +78,23 @@
         </Label.GestureRecognizers>
         </Label>-->
 
-            <StackLayout Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
                 <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="47*" />
-                            <RowDefinition Height="27*" />
-                            <RowDefinition Height="15*" />  
-                            <RowDefinition Height="20*" />  
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="30*" />
+                            <RowDefinition Height="5*" /> 
+                            <RowDefinition Height="12*" />  
+                            <RowDefinition Height="22*" />  
                             <RowDefinition Height="10*" />
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="20*" />    
                             <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="60*" />
-                            <ColumnDefinition  Width="40*" />
+                            <ColumnDefinition  Width="50*" />
+                            <ColumnDefinition  Width="50*" />
                         </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
@@ -100,33 +102,55 @@
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
         </Label>
-                        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" FontSize="50" Text=" -" TextColor="#32BEBE" >
+                <Label x:Name="YourQ" Grid.Row="1" Grid.Column="0" FontSize="10" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" >
                     <Label.GestureRecognizers>
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
         </Label>
-                        <Label x:Name="NumberQ2" Margin="35,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="50" Text=" -" TextColor="#32BEBE" >
+                <Label x:Name="AllQ" Grid.Row="1" Grid.Column="1" FontSize="10" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" >
+                    <Label.GestureRecognizers>
+         <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
+        </Label.GestureRecognizers>
+        </Label>
+                        <Label x:Name="NumberQ" Margin="40,0,0,0" Grid.Row="2" Grid.Column="0" FontSize="50" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
+                    <Label.GestureRecognizers>
+         <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
+        </Label.GestureRecognizers>
+        </Label>
+                        <Label x:Name="NumberQ2" Grid.Row="2" Grid.Column="1" FontSize="50" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
                 <Label.GestureRecognizers>
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
         </Label>
-                        <Label x:Name="TimesQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="37" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
+                <Label x:Name="WaitTime" Margin="0,0,0,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="15" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" >
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
                             </Label.GestureRecognizers>
                         </Label>
-                        <Label x:Name="DetailQ" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="15" Text="" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" >
+                        <Label x:Name="TimesQ" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="40" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
                             </Label.GestureRecognizers>
                         </Label>
-                        <Image x:Name="btn_cancel" Source="btn_cancel.png" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" >
+                        <Label x:Name="DetailQ" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="15" Text="" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Image x:Name="btn_cancel" Source="btn_cancel.png" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" >
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Tapped="OnImageDelete"
                                 />
                             </Image.GestureRecognizers>
-                        </Image>    
+                        </Image>
+                        <Image x:Name="btn_cancel2" Source="btn_cancel2.png" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnImageDelete"
+                                />
+                            </Image.GestureRecognizers>
+                        </Image>   
              </Grid>
             </StackLayout>
 

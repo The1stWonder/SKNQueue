@@ -19,6 +19,7 @@ namespace MasterQ
 		{
 			InitializeComponent();
             btn_cancel.IsVisible = false;
+            btn_cancel2.IsVisible = false;
 
             if (App.Thai == true)
             {
@@ -42,6 +43,10 @@ namespace MasterQ
             Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
             Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
             Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
+            YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
+            AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
+            WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+
 
             if (SessionModel.loginMember != null)
             {
@@ -54,7 +59,7 @@ namespace MasterQ
                 {
                     if (App.fristtime)
                     {
-                        NumberQ.Text = " " + SessionModel.bookingQ.queueNumber;
+                        NumberQ.Text = SessionModel.bookingQ.queueNumber;
                         NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
                         App.timercheck = true;
                         App.timerStart();
@@ -63,7 +68,15 @@ namespace MasterQ
 
                     if (SessionModel.bookingQ.queueNumber != "0" || SessionModel.bookingQ.queueNumber != "" || SessionModel.bookingQ.queueNumber != null)
                     {
-                        btn_cancel.IsVisible = true;
+                        if (App.Thai == true)
+                        {
+                            btn_cancel2.IsVisible = true;
+                        }
+                        else
+                        {
+                            btn_cancel.IsVisible = true;
+                        }
+
                         Process(); 
                         App.RePage = false;
                     }
@@ -106,19 +119,19 @@ namespace MasterQ
 
                         if (App.timercount <= 900 && App.Massage15 == true)
                         {
-                            DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 15 นาทีจะถึงคิวของคุณ");
+                            DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, Utils.getLabel(LabelConstants.MAIN_PAGE_NOTIFICATION1));
                             App.Massage15 = false;
                         }
 
                         if (App.timercount <= 300 && App.Massage5 == true)
                         {
-                            DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 5 นาทีจะถึงคิวของคุณ");
+                            DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, Utils.getLabel(LabelConstants.MAIN_PAGE_NOTIFICATION2));
                             App.Massage5 = false;
                         }
 
                         if (App.timercount == 0 && App.Massage0 == true)
                         {
-                            DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
+                            DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
                             App.Massage0 = false;
                         }
 
@@ -131,7 +144,7 @@ namespace MasterQ
                         else
                         {
                             DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
-                            NumberQ.Text = " " + SessionModel.bookingQ.queueNumber;
+                            NumberQ.Text = SessionModel.bookingQ.queueNumber;
                             NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
                             if (SessionModel.loginMember != null)
                             {
@@ -141,6 +154,20 @@ namespace MasterQ
                             Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
                             Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
                             Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
+                            YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
+                            AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
+                            WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+
+                            if (App.Thai == true)
+                            {
+                                btn_cancel.IsVisible = false;
+                                btn_cancel2.IsVisible = true;
+                            }
+                            else
+                            {
+                                btn_cancel.IsVisible = true;
+                                btn_cancel2.IsVisible = false;
+                            }
 
                             if (App.timercount == 0)
                             {
@@ -172,7 +199,7 @@ namespace MasterQ
                             {
                                 if (ChkQueue.id == 58)
                                 {
-                                    DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
+                                    DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
                                     DetailQ.Text = ChkQueue.getDescription();
                                     App.timercheck = false;
                                     CountstartMain = false;
@@ -181,7 +208,7 @@ namespace MasterQ
                                 }
                                 else if (ChkQueue.id == 63)
                                 {
-                                    DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
+                                    DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
                                     SessionModel.clearQueue();
                                     DetailQ.Text = ChkQueue.getDescription();
                                     NumberQ.Text = "-";
@@ -213,7 +240,7 @@ namespace MasterQ
 
         async void OnImageMainExit(object sender, System.EventArgs args)
         {
-            var answer = await DisplayAlert("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ", "Yes", "No");
+            var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
             if (answer == true)
             {
                 UIReturn Chklogout = LoginController.getInstance().LogutMember();
@@ -345,10 +372,10 @@ namespace MasterQ
             App.TextSearch = "";
             if (SessionModel.bookingQ != null)
             {
-                var answer = await DisplayAlert("ยกเลิกคิว", "ยืนยันที่จะยกเลิกคิวที่ " + SessionModel.bookingQ.queueNumber, "Yes", "No");
+                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_CANCEL), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMCANCEL) + " " + SessionModel.bookingQ.queueNumber, "Yes", "No");
                 if (answer == true)
                 {
-                    DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "ยกเลิกการจองคิวแล้ว");
+                    DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, " " + Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKINGCANCEL));
 
                     UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
                     if (uiReturn.isSuccess)
@@ -361,10 +388,11 @@ namespace MasterQ
                         App.Massage5 = true;
                         App.Massage15 = true;
                         TimesQ.Text = "00:00:00";
-                        NumberQ.Text = " -";
-                        NumberQ2.Text = " -";
+                        NumberQ.Text = "-";
+                        NumberQ2.Text = "-";
                         DetailQ.Text = "";
                         btn_cancel.IsVisible = false;
+                        btn_cancel2.IsVisible = false;
                     }
                     else
                     {

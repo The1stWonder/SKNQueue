@@ -31,7 +31,7 @@ namespace MasterQ
 			s.serviceID = serviceID.serviceID;
 			s.branchID = serviceID.branchID;
 
-            var answer = await DisplayAlert("จองคิว", "ยืนยันที่จะจองคิวบริการ " + serviceID.serviceName​, "Yes", "No");
+            var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + serviceID.serviceName​, "Yes", "No");
             if (answer == true)
             {
                 UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);

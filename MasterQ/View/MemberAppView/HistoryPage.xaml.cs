@@ -11,6 +11,8 @@ namespace MasterQ
 		{
 			InitializeComponent();
 			getHistory();
+
+            HistoryQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
 		}
 
 

@@ -36,7 +36,7 @@
                         <TapGestureRecognizer Tapped="OnImageSearch" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Label Grid.Row="1" Grid.Column="0"  Text="History"  FontSize="40" TextColor="White"  HorizontalTextAlignment="End" />
+            <Label x:Name="HistoryQ" Grid.Row="1" Grid.Column="0"  Text=""  FontSize="40" TextColor="White"  HorizontalTextAlignment="End" />
         </Grid>
 
         <StackLayout Grid.Row="1" Grid.Column="0">
