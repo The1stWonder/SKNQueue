@@ -10,9 +10,9 @@
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
-            <RowDefinition Height="10*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="76*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="80*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="10*" />
@@ -25,15 +25,31 @@
             <ColumnDefinition  Width="*" /> 
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Row="1" Grid.Column="0"  Source="btn_profile.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image Margin="10,20,10,0" Grid.Row="1" Grid.Column="0"  Source="btn_profile.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainProfilePage"
                          />
                 </Image.GestureRecognizers>
         </Image>
+
+        <Image x:Name="LanguageThai" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="thailand.png" VerticalOptions="Center" HeightRequest="40" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageMainchangeAppLanguageThai"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+
+        <Image x:Name="LanguageEng" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="unitedkingdom.png" VerticalOptions="Center" HeightRequest="40" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageMainchangeAppLanguageEng"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
         
-        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image Margin="10,20,10,0" Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainExit"
@@ -41,8 +57,7 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <!--<Label x:Name="DetailQ" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20" Text="" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
--->
+        <Label x:Name="UserNames" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="17" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
         <Image 
         Grid.Row="3" 
         Grid.Column="0" 
@@ -66,8 +81,8 @@
             <StackLayout Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50*" />
-                            <RowDefinition Height="25*" />
+                            <RowDefinition Height="47*" />
+                            <RowDefinition Height="27*" />
                             <RowDefinition Height="15*" />  
                             <RowDefinition Height="20*" />  
                             <RowDefinition Height="10*" />
@@ -85,12 +100,12 @@
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
         </Label>
-                        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" FontSize="50" Text="  -" TextColor="#32BEBE" >
+                        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" FontSize="50" Text=" -" TextColor="#32BEBE" >
                     <Label.GestureRecognizers>
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
         </Label>
-                        <Label x:Name="NumberQ2" Margin="50,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="50" Text=" -" TextColor="#32BEBE" >
+                        <Label x:Name="NumberQ2" Margin="35,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="50" Text=" -" TextColor="#32BEBE" >
                 <Label.GestureRecognizers>
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
@@ -162,6 +177,7 @@
                          />
                 </Image.GestureRecognizers>
         </Image>
+        
         <Image Grid.Row="6" Grid.Column="1"  Source="btn_booking.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
@@ -169,6 +185,7 @@
                          />
                 </Image.GestureRecognizers>
         </Image>
+        
         <Image Grid.Row="6" Grid.Column="2"  Source="btn_qr.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
@@ -176,9 +193,9 @@
                          />
                 </Image.GestureRecognizers>
         </Image>
-        <Label Grid.Row="7" Grid.Column="0"  Text="History"  FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Grid.Row="7" Grid.Column="1"  Text="Booking" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Grid.Row="7" Grid.Column="2"  Text="QR" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="Main_History" Grid.Row="7" Grid.Column="0"  Text=""  FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="Main_Booking" Grid.Row="7" Grid.Column="1"  Text="" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="Main_QR" Grid.Row="7" Grid.Column="2"  Text="" FontSize="12" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
     </Grid>
 
 

@@ -8,28 +8,30 @@
 
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*" />
-            <RowDefinition Height="70*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="80*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="100*" />
         </Grid.ColumnDefinitions>
-        
-        <Image Grid.Row="0" Grid.Column="0"  Source="h_search.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
 
-        <StackLayout Grid.Row="0" Orientation="Vertical">
+        <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Source="bg4.png" Grid.Row="0"/>
+        <Image Grid.Row="1" Grid.Column="0"  Source="h_search.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+
+        <StackLayout Grid.Row="1" Orientation="Vertical">
         <Grid VerticalOptions="Fill" HorizontalOptions="Fill" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="33*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="33*" />
-                <RowDefinition Height="2*" />
                 <RowDefinition Height="30*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="10*" />       
-                <ColumnDefinition  Width="40*" />
-                <ColumnDefinition  Width="40*" />
+                <ColumnDefinition  Width="70*" />
+                <ColumnDefinition  Width="10*" />
             </Grid.ColumnDefinitions>
             <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
             <Image.GestureRecognizers>
@@ -42,11 +44,12 @@
                 Placeholder="Search"  
                 TextColor="Black"
                 Grid.Row="0"
-                Grid.Column="1"
-                Grid.ColumnSpan="2" />
-            <Image  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
+                Grid.Column="1"/>
+            <!--<Image  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
+-->
 
-            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+                
+            <!--<Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
@@ -56,10 +59,13 @@
                 </Grid.ColumnDefinitions>
                     <Picker x:Name="ColumnPicker" Grid.Row="0" Grid.Column="0" Title="Province" />
                     <Picker x:Name="ColumnPicker2" Grid.Row="0" Grid.Column="1" Title="Amphor" />
-            </Grid>
-            <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
+            </Grid>-->
 
-            <Image Grid.Row="4" Grid.Column="2"  Source="btn_search_click.png" HorizontalOptions="End" HeightRequest="60">
+
+                
+            <!--<Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
+-->
+            <Image Grid.Row="0" Grid.Column="2"  Source="btn_search_click.png" HorizontalOptions="Start" HeightRequest="60">
             <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnImageSearch" />
                     </Image.GestureRecognizers>
@@ -67,7 +73,7 @@
         </Grid>
         </StackLayout>
 
-        <StackLayout Grid.Row="1" Grid.Column="0">
+        <StackLayout Grid.Row="2" Grid.Column="0">
             <ListView 
                 RowHeight="80"
                 x:Name="BranchView" 
@@ -81,9 +87,30 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout  Padding="30,20,0,30">
-                                <Label Text="{Binding branchName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="20" />
-                                <Label Text="{Binding address, StringFormat='ที่อยู่ :  {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            <StackLayout Padding="0,10,0,20" >
+                                <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition
+            Height="50*" />
+            <RowDefinition
+            Height="50*" /> 
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+            Width="10*" />
+            <ColumnDefinition
+            Width="90*" />
+        </Grid.ColumnDefinitions>
+                                    <Image
+            Margin="10,0,10,0"
+            Grid.Row="0"
+            Grid.Column="0"
+            Source="bullet.png"
+            HeightRequest="5" 
+            Grid.RowSpan="2"/>
+                                <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding branchName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="20" />
+                                <Label Margin="10,0,0,0"  Grid.Row="1" Grid.Column="1" Text="{Binding address, StringFormat='ที่อยู่ :  {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -18,60 +18,90 @@ namespace MasterQ
 
 		public void gennaratepicker()
 		{
-			List<Province> provinces = (List<Province>)SearchController.getInstance().getProvinces().returnObject;
-			foreach (Province p in provinces)
-			{
-				ColumnPicker.Items.Add(p.provinceNameTh);
+			//List<Province> provinces = (List<Province>)SearchController.getInstance().getProvinces().returnObject;
+			//foreach (Province p in provinces)
+			//{
+			//	ColumnPicker.Items.Add(p.provinceNameTh);
 
-			}
-			ColumnPicker.Unfocused += (sender, args) =>
-			{
-				if (ColumnPicker.SelectedIndex >= 0)
-				{
-					Province p = provinces.ToArray()[ColumnPicker.SelectedIndex];
-					List<District> districts = (List<District>)SearchController.getInstance().getDistricts(p).returnObject;
-					ColumnPicker2.Items.Clear();
-					searchDistrict = new District();
-					foreach (District d in districts)
-					{
-						ColumnPicker2.Items.Add(d.districtNameTh);
-					}
-					searchProvince = p;
-					ColumnPicker2.Unfocused += (sender2, args2) =>
-					{
-						if (ColumnPicker2.SelectedIndex >= 0)
-						{
-							District d = districts.ToArray()[ColumnPicker2.SelectedIndex];
-							searchDistrict = d;
-						}
-					};
-				}
-			};
+			//}
+			//ColumnPicker.Unfocused += (sender, args) =>
+			//{
+			//	if (ColumnPicker.SelectedIndex >= 0)
+			//	{
+			//		Province p = provinces.ToArray()[ColumnPicker.SelectedIndex];
+			//		List<District> districts = (List<District>)SearchController.getInstance().getDistricts(p).returnObject;
+			//		ColumnPicker2.Items.Clear();
+			//		searchDistrict = new District();
+			//		foreach (District d in districts)
+			//		{
+			//			ColumnPicker2.Items.Add(d.districtNameTh);
+			//		}
+			//		searchProvince = p;
+			//		ColumnPicker2.Unfocused += (sender2, args2) =>
+			//		{
+			//			if (ColumnPicker2.SelectedIndex >= 0)
+			//			{
+			//				District d = districts.ToArray()[ColumnPicker2.SelectedIndex];
+			//				searchDistrict = d;
+			//			}
+			//		};
+			//	}
+			//};
+
+
+
+            if (App.TextSearch != "")
+            {
+                var searchtxt = App.TextSearch.Trim();
+                mSearchEntry.Text = searchtxt;
+                UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
+                List<Branch> Branch = (List<Branch>)uiR.returnObject;
+                BranchView.ItemsSource = Branch;
+                if (!uiR.isSuccess)
+                {
+                    DisplayAlert("Click", uiR.descriptionEN, "Cancel");
+                }
+            }
 		}
 
 		public void OnImageSearch(object sender, System.EventArgs args)
 		{
-			
-			if (ColumnPicker.SelectedIndex >= 0)
-			{
-				UIReturn uiR = SearchController.getInstance().getBranches(searchProvince, searchDistrict);
-				List<Branch> Branch = (List<Branch>)uiR.returnObject;
-				BranchView.ItemsSource = Branch;
-				if (!uiR.isSuccess)
-				{
-					DisplayAlert("Error", uiR.getDescription(), "Cancel");
-				}
-			}
-            else if (mSearchEntry.Text != null)
+
+            //if (ColumnPicker.SelectedIndex >= 0)
+            //{
+            //	UIReturn uiR = SearchController.getInstance().getBranches(searchProvince, searchDistrict);
+            //	List<Branch> Branch = (List<Branch>)uiR.returnObject;
+            //	BranchView.ItemsSource = Branch;
+            //	if (!uiR.isSuccess)
+            //	{
+            //		DisplayAlert("", uiR.getDescription(), "Cancel");
+            //	}
+            //}
+            //        else if (mSearchEntry.Text != null)
+            //        {
+            //            var searchtxt = mSearchEntry.Text;
+            //            UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
+            //List<Branch> Branch = (List<Branch>)uiR.returnObject;
+            //BranchView.ItemsSource = Branch;
+            //if (!uiR.isSuccess)
+            //{
+            //	DisplayAlert("", uiR.descriptionEN, "Cancel");
+            //}
+            //}
+
+
+
+            if (mSearchEntry.Text != null)
             {
                 var searchtxt = mSearchEntry.Text;
+                App.TextSearch = searchtxt;
                 UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
-				List<Branch> Branch = (List<Branch>)uiR.returnObject;
-				BranchView.ItemsSource = Branch;
-				if (!uiR.isSuccess)
-				{
-					DisplayAlert("Error", uiR.descriptionEN, "Cancel");
-				}
+                List<Branch> Branch = (List<Branch>)uiR.returnObject;
+                BranchView.ItemsSource = Branch;
+                if (!uiR.isSuccess)
+                {
+                    DisplayAlert("Click", uiR.descriptionEN, "Cancel");
+                }
             }
 		}
 
@@ -84,6 +114,7 @@ namespace MasterQ
 		public void OnImageBack(object sender, System.EventArgs args)
 		{
             Navigation.PushAsync(new MainPage());
+            App.TextSearch = "";
 		}
 
 

@@ -20,22 +20,52 @@ namespace MasterQ
 			InitializeComponent();
             btn_cancel.IsVisible = false;
 
+            if (App.Thai == true)
+            {
+                Utils.changeAppLanguageToThai();
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
+
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
+            }
+            else
+            {
+                Utils.changeAppLanguageToEng();
+                LanguageThai.IsVisible = false;
+                LanguageThai.IsEnabled = false;
+
+                LanguageEng.IsVisible = true;
+                LanguageEng.IsEnabled = true;
+            }
+
+            Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
+            Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
+            Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
+
+            if (SessionModel.loginMember != null)
+            {
+                UserNames.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HELLO) + " " + SessionModel.loginMember.firstName + "  " + SessionModel.loginMember.lastName;
+            }
+
             if (SessionModel.bookingQ != null)
             {
                 if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                 {
                     if (App.fristtime)
                     {
-                        NumberQ.Text = SessionModel.bookingQ.queueNumber;
+                        NumberQ.Text = " " + SessionModel.bookingQ.queueNumber;
                         NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
                         App.timercheck = true;
                         App.timerStart();
+                        App.RePage = false;
                     }
 
-                    if (SessionModel.bookingQ.queueNumber != "0")
+                    if (SessionModel.bookingQ.queueNumber != "0" || SessionModel.bookingQ.queueNumber != "" || SessionModel.bookingQ.queueNumber != null)
                     {
                         btn_cancel.IsVisible = true;
                         Process(); 
+                        App.RePage = false;
                     }
                 }
             }
@@ -43,6 +73,7 @@ namespace MasterQ
 
         public void Process()
         {
+            
             CountstartMain = true;
             Service s = new Service();
             s.serviceID = SessionModel.bookingQ.serviceID;
@@ -59,107 +90,118 @@ namespace MasterQ
                 }
             }
 
-            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            if (App.RePage == false)
             {
-                if (SessionModel.bookingQ != null)
+                Device.StartTimer(new TimeSpan(0, 0, 1), () =>
                 {
-                    if (CountstartMain == true)
+                    if (SessionModel.bookingQ != null)
                     {
-                        App.Recount = App.Recount + 1;
-                    }
-                    TimeSpan time = TimeSpan.FromSeconds(App.timercount);
-
-                    TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-
-                    if (App.timercount <= 900 && App.Massage15 == true)
-                    {
-                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 15 นาทีจะถึงคิวของคุณ");
-                        App.Massage15 = false;
-                    }
-
-                    if (App.timercount <= 300 && App.Massage5 == true)
-                    {
-                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 5 นาทีจะถึงคิวของคุณ");
-                        App.Massage5 = false;
-                    }
-
-                    if (App.timercount == 0 && App.Massage0 == true)
-                    {
-                        DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
-                        App.Massage0 = false;
-                    }
-
-                    if (!ChkQueue.isSuccess)
-                    {
-                        DisplayAlert("", ChkQueue.getDescription(), "Close");
-                        TimesQ.Text = "00:00:00";
-                        App.timercheck = false;
-                    }
-                    else
-                    {
-                        DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
-                        NumberQ.Text = SessionModel.bookingQ.queueNumber;
-                        NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
-
-                        if (App.timercount == 0)
+                        if (CountstartMain == true)
                         {
-                            TimesQ.Text = "00:00:00";
+                            App.Recount = App.Recount + 1;
                         }
-                    }
+                        TimeSpan time = TimeSpan.FromSeconds(App.timercount);
 
-                    if (App.Recount == 10)
-                    {
-                        App.Recount = 0;
+                        TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
-                        Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
-                        ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
-                        if (ChkTime2 < App.timercount)
+                        if (App.timercount <= 900 && App.Massage15 == true)
                         {
-                            ChkTime = SessionModel.bookingQ.estimateTime * 60;
-                            App.timercount = SessionModel.bookingQ.estimateTime * 60;
-                            NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                            DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 15 นาทีจะถึงคิวของคุณ");
+                            App.Massage15 = false;
                         }
 
-                        ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
+                        if (App.timercount <= 300 && App.Massage5 == true)
+                        {
+                            DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "อีก 5 นาทีจะถึงคิวของคุณ");
+                            App.Massage5 = false;
+                        }
+
+                        if (App.timercount == 0 && App.Massage0 == true)
+                        {
+                            DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
+                            App.Massage0 = false;
+                        }
+
                         if (!ChkQueue.isSuccess)
                         {
-                            App.timercheck = false;
-                            DisplayAlert("", ChkQueue.getDescription(), "Close");
+                            DisplayAlert("Click", ChkQueue.getDescription(), "Close");
                             TimesQ.Text = "00:00:00";
+                            App.timercheck = false;
                         }
                         else
                         {
-                            if (ChkQueue.id == 58)
+                            DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                            NumberQ.Text = " " + SessionModel.bookingQ.queueNumber;
+                            NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                            if (SessionModel.loginMember != null)
                             {
-                                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
-                                DetailQ.Text = ChkQueue.getDescription();
-                                App.timercheck = false;
-                                CountstartMain = false;
-                                Navigation.PushAsync(new RatingPage());
+                                UserNames.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HELLO) + " " + SessionModel.loginMember.firstName + "  " + SessionModel.loginMember.lastName;
+                            }
+
+                            Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
+                            Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
+                            Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
+
+                            if (App.timercount == 0)
+                            {
                                 TimesQ.Text = "00:00:00";
                             }
-                            else if (ChkQueue.id == 63)
+                        }
+
+                        if (App.Recount == 10)
+                        {
+                            App.Recount = 0;
+
+                            Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
+                            ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
+                            if (ChkTime2 < App.timercount)
                             {
-                                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
-                                SessionModel.clearQueue();
-                                DetailQ.Text = ChkQueue.getDescription();
-                                NumberQ.Text = "-";
+                                ChkTime = SessionModel.bookingQ.estimateTime * 60;
+                                App.timercount = SessionModel.bookingQ.estimateTime * 60;
+                                NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                            }
+
+                            ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
+                            if (!ChkQueue.isSuccess)
+                            {
                                 App.timercheck = false;
-                                CountstartMain = false;
+                                DisplayAlert("", ChkQueue.getDescription(), "Close");
                                 TimesQ.Text = "00:00:00";
                             }
                             else
                             {
-                                if (SessionModel.bookingQ != null)
+                                if (ChkQueue.id == 58)
                                 {
-                                    DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                                    DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
+                                    DetailQ.Text = ChkQueue.getDescription();
+                                    App.timercheck = false;
+                                    CountstartMain = false;
+                                    Navigation.PushAsync(new RatingPage());
+                                    TimesQ.Text = "00:00:00";
+                                }
+                                else if (ChkQueue.id == 63)
+                                {
+                                    DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
+                                    SessionModel.clearQueue();
+                                    DetailQ.Text = ChkQueue.getDescription();
+                                    NumberQ.Text = "-";
+                                    App.timercheck = false;
+                                    CountstartMain = false;
+                                    TimesQ.Text = "00:00:00";
+                                }
+                                else
+                                {
+                                    if (SessionModel.bookingQ != null)
+                                    {
+                                        DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                return App.timercheck;
-            });
+                    return App.timercheck;
+                });
+            }
         }
 
 		public void OnImageMainProfilePage(object sender, System.EventArgs args)
@@ -169,22 +211,26 @@ namespace MasterQ
 			Navigation.PopAsync();
 		}
 
-        public void OnImageMainExit(object sender, System.EventArgs args)
+        async void OnImageMainExit(object sender, System.EventArgs args)
         {
-            UIReturn Chklogout = LoginController.getInstance().LogutMember();
-            if (!Chklogout.isSuccess)
+            var answer = await DisplayAlert("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ", "Yes", "No");
+            if (answer == true)
             {
-                App.timercheck = false;
-                CountstartMain = false;
-                DisplayAlert("", Chklogout.getDescription(), "Close");
-            }
-            else
-            {
-                App.timercheck = false;
-                CountstartMain = false;
-                //SessionModel.bookingQ = null;
-                Navigation.InsertPageBefore(new LoginPage(), this);
-                Navigation.PopAsync();
+                UIReturn Chklogout = LoginController.getInstance().LogutMember();
+                if (!Chklogout.isSuccess)
+                {
+                    App.timercheck = false;
+                    CountstartMain = false;
+                    await DisplayAlert("", Chklogout.getDescription(), "Close");
+                }
+                else
+                {
+                    App.timercheck = false;
+                    CountstartMain = false;
+                    //SessionModel.bookingQ = null;
+                    Navigation.InsertPageBefore(new LoginPage(), this);
+                    await Navigation.PopAsync();
+                }
             }
         }
 
@@ -199,6 +245,7 @@ namespace MasterQ
         {
             if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
+                App.TextSearch = "";
                 CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
@@ -207,6 +254,7 @@ namespace MasterQ
 
         public void OnImageQRcodePage(object sender, System.EventArgs args)
         {
+            App.TextSearch = "";
             if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
                 Branch b = new Branch();
@@ -276,6 +324,8 @@ namespace MasterQ
                 }
                 else
                 {
+                    
+                    App.TextSearch = "";
                     CountstartMain = false;
                     Navigation.InsertPageBefore(new SearchPage(), this);
                     Navigation.PopAsync();
@@ -283,39 +333,103 @@ namespace MasterQ
             }
             else
             {
+                App.TextSearch = "";
                 CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
             }
         }
 
-        public void OnImageDelete(object sender, System.EventArgs args)
+        async void OnImageDelete(object sender, System.EventArgs args)
         {
+            App.TextSearch = "";
             if (SessionModel.bookingQ != null)
             {
-                DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "ยกเลิกการจองคิวแล้ว");
+                var answer = await DisplayAlert("ยกเลิกคิว", "ยืนยันที่จะยกเลิกคิวที่ " + SessionModel.bookingQ.queueNumber, "Yes", "No");
+                if (answer == true)
+                {
+                    DependencyService.Get<IFNotification>().SendNotification("คิวเลขที่ " + SessionModel.bookingQ.queueNumber, "ยกเลิกการจองคิวแล้ว");
 
-                UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
-                if (uiReturn.isSuccess)
-                {
-                    App.fristtime = true;
-                    App.timercheck = false;
-                    CountstartMain = false;
-                    //Navigation.PushAsync(new MainPage());
-                    App.Massage0 = true;
-                    App.Massage5 = true;
-                    App.Massage15 = true;
-                    TimesQ.Text = "00:00:00";
-                    NumberQ.Text = "  -";
-                    NumberQ2.Text = " -";
-                    DetailQ.Text = "";
-                    btn_cancel.IsVisible = false;
+                    UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
+                    if (uiReturn.isSuccess)
+                    {
+                        App.fristtime = true;
+                        App.timercheck = false;
+                        CountstartMain = false;
+                        //Navigation.PushAsync(new MainPage());
+                        App.Massage0 = true;
+                        App.Massage5 = true;
+                        App.Massage15 = true;
+                        TimesQ.Text = "00:00:00";
+                        NumberQ.Text = " -";
+                        NumberQ2.Text = " -";
+                        DetailQ.Text = "";
+                        btn_cancel.IsVisible = false;
+                    }
+                    else
+                    {
+                        App.timercheck = false;
+                        CountstartMain = false;
+                        await DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                    }
                 }
-                else
+            }
+        }
+
+        public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
+        {
+            Utils.changeAppLanguageToEng();
+            LanguageThai.IsVisible = false;
+            LanguageThai.IsEnabled = false;
+
+            LanguageEng.IsVisible = true;
+            LanguageEng.IsEnabled = true;
+            App.Thai = false;
+
+            if (SessionModel.bookingQ == null)
+            {
+                App.timercheck = false;
+                App.RePage = true;
+                Navigation.InsertPageBefore(new MainPage(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
                 {
                     App.timercheck = false;
-                    CountstartMain = false;
-                    DisplayAlert("", uiReturn.getDescription(), "Close");
+                    App.RePage = true;
+                    Navigation.InsertPageBefore(new MainPage(), this);
+                    Navigation.PopAsync();
+                }
+            }
+        }
+
+        public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
+        {
+            Utils.changeAppLanguageToThai();
+            LanguageThai.IsVisible = true;
+            LanguageThai.IsEnabled = true;
+
+            LanguageEng.IsVisible = false;
+            LanguageEng.IsEnabled = false;
+            App.Thai = true;
+
+            if (SessionModel.bookingQ == null)
+            {
+                App.timercheck = false;
+                App.RePage = true;
+                Navigation.InsertPageBefore(new MainPage(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                {
+                    App.timercheck = false;
+                    App.RePage = true;
+                    Navigation.InsertPageBefore(new MainPage(), this);
+                    Navigation.PopAsync();
                 }
             }
         }

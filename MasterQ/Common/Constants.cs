@@ -8,7 +8,7 @@ namespace MasterQ
         public static String APPLICATION_TYPE_USER = "USER";
         public static String APPLICATION_TYPE_BRANCH = "BRANCH";
         public static String APPLICATION_TYPE = APPLICATION_TYPE_MEMBER;
-       // public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
+        //public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
         //public static String APPLICATION_TYPE = APPLICATION_TYPE_BRANCH;
 
         public static String APPLICATION_LANGUAGE_THAI = "TH";
@@ -81,6 +81,5 @@ namespace MasterQ
         {
             return APPLICATION_LANGUAGE.Equals(APPLICATION_LANGUAGE_ENG);
         }
-
     }
 }

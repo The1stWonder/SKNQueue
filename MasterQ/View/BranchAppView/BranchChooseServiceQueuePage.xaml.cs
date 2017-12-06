@@ -46,10 +46,10 @@ namespace MasterQ
                             switch (Device.RuntimePlatform)
                             {
                                 case Device.iOS:
-                                    DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", App.IPAdress, 11111);
+                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ.Text + "<EOF>", App.IPAdress, 11111);
                                     break;
                                 default:
-                                    DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "<EOF>", App.IPAdress, 11111);
+                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ.Text + "<EOF>", App.IPAdress, 11111);
                                     break;
                             }
                         }

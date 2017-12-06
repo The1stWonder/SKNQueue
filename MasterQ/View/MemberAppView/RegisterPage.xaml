@@ -13,6 +13,7 @@
             <RowDefinition Height="23*" />
             <RowDefinition Height="77*" />
         </Grid.RowDefinitions>
+        <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Source="bg4.png" Grid.Row="0"/>
         <Image Grid.Row="0" Source="h_signup.png" />
         <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>

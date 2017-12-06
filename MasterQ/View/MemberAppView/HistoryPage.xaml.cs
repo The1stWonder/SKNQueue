@@ -31,6 +31,7 @@ namespace MasterQ
             if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
                 Navigation.PushAsync(new SearchPage());
+                App.TextSearch = "";
             }
 
         }
@@ -47,6 +48,7 @@ namespace MasterQ
                 BranchID = (Branch)uiR.returnObject;
 
                 Navigation.PushAsync(new ServicePage(BranchID));
+                App.TextSearch = "";
             }
         }
 	}

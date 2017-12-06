@@ -13,6 +13,9 @@ namespace MasterQ
         public static bool Massage5 = true;
         public static bool Massage15 = true;
         public static string IPAdress;
+        public static string TextSearch = "";
+        public static bool Thai = true;
+        public static bool RePage = false;
         static MasterQDatabaseDAO database;
 
 		public App()

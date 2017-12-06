@@ -24,26 +24,31 @@ namespace MasterQ
             ServiceListview.ItemsSource = Service;
 		}
 
-		public void itemTapped(object sender, System.EventArgs args)
+        async void itemTapped(object sender, System.EventArgs args)
 		{
 			Service serviceID = (Service)ServiceListview.SelectedItem;
 			Service s = new Service();
 			s.serviceID = serviceID.serviceID;
 			s.branchID = serviceID.branchID;
-			UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
-			if (!ChkQ.isSuccess)
-			{
-				DisplayAlert("", ChkQ.getDescription(), "Close");
-                SessionModel.bookingQ = null;
-            }
-            else
-            {
-                App.timerStart();
-                Navigation.PushAsync(new MainPage());
-            }
 
-            //Service serviceID = (Service)ServiceListview.SelectedItem;
-            //Navigation.PushAsync(new SummaryPage(serviceID,searchBranch));
+            var answer = await DisplayAlert("จองคิว", "ยืนยันที่จะจองคิวบริการ " + serviceID.serviceName​, "Yes", "No");
+            if (answer == true)
+            {
+                UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
+                if (!ChkQ.isSuccess)
+                {
+                    App.TextSearch = "";
+                    await DisplayAlert("Click", ChkQ.getDescription(), "Close");
+                    SessionModel.bookingQ = null;
+                }
+                else
+                {
+                    App.RePage = false;
+                    App.TextSearch = "";
+                    //App.timerStart();
+                    await Navigation.PushAsync(new MainPage());
+                }
+            }
 		}
 
 		public void OnImageBack(object sender, System.EventArgs args)

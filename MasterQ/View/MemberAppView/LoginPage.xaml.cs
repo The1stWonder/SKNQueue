@@ -25,6 +25,8 @@ namespace MasterQ
             //	DisplayAlert("Click", uiReturn.getDescription(), "Close");
             //}
 
+            //string A = Utils.getLabel(Constants.PAGE_USERNAME);
+
             if(SessionModel.loginMember!=null)
             {
                 App.fristtime = true;
