@@ -146,6 +146,14 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_58pt_%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_87pt_%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_80pt_%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_120pt_%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_40pt_%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_60pt_%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iPhone_180pt_%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunes_1024pt_%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -415,6 +423,27 @@
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\btn_cancel2.png">
       <Link>Resources\btn_cancel2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\logo.png">
+      <Link>Resources\logo.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_signin2.png">
+      <Link>Resources\btn_signin2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_submit2.png">
+      <Link>Resources\btn_submit2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\picup.png">
+      <Link>Resources\picup.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_picup">
+      <Link>Resources\btn_picup</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_picup2.png">
+      <Link>Resources\btn_picup2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_picup3.png">
+      <Link>Resources\btn_picup3.png</Link>
     </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
