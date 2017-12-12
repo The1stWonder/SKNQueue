@@ -11,8 +11,8 @@ using Android.OS;
 namespace MasterQ.Droid
 {
 	[Activity(Label = "MasterQ.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, 
-              //ScreenOrientation = ScreenOrientation.Portrait)]
-              ScreenOrientation = ScreenOrientation.Landscape)]
+              ScreenOrientation = ScreenOrientation.Portrait)]
+              //ScreenOrientation = ScreenOrientation.Landscape)]
 
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
