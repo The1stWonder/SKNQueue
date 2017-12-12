@@ -439,6 +439,27 @@
     <AndroidResource Include="..\MasterQ\Image\btn_cancel2.png">
       <Link>Resources\drawable-xxhdpi\btn_cancel2.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\logo.png">
+      <Link>Resources\drawable-xxhdpi\logo.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_signin2.png">
+      <Link>Resources\drawable-xxhdpi\btn_signin2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_submit2.png">
+      <Link>Resources\drawable-xxhdpi\btn_submit2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\picup.png">
+      <Link>Resources\drawable-xxhdpi\picup.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_picup2.png">
+      <Link>Resources\drawable-xxhdpi\btn_picup2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_picup">
+      <Link>Resources\drawable-xxhdpi\btn_picup</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_picup3.png">
+      <Link>Resources\drawable-xxhdpi\btn_picup3.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
