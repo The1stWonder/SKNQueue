@@ -12,6 +12,35 @@ namespace MasterQ
         public BranchLoginPage()
         {
             InitializeComponent();
+
+            if (App.Thai == true)
+            {
+                Utils.changeAppLanguageToThai();
+                LanguageThai.IsVisible = false;
+                LanguageThai.IsEnabled = false;
+
+                LanguageEng.IsVisible = true;
+                LanguageEng.IsEnabled = true;
+
+                Signin1.IsVisible = false;
+                Signin2.IsVisible = true;
+            }
+            else
+            {
+                Utils.changeAppLanguageToEng();
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
+
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
+
+                Signin1.IsVisible = true;
+                Signin2.IsVisible = false;
+            }
+
+            mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_USERNAME);
+            mPasswordEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_PASSWORD);
+            setIP.Text = Utils.getLabel(LabelConstants.BRANCHLOGIN_PAGE_SETIP);
         }
 
 		public void OnImageSignin(object sender, System.EventArgs args)
@@ -23,7 +52,7 @@ namespace MasterQ
 
 			if (uiReturn.isSuccess)
 			{
-                Navigation.PushAsync(new BranchChooseServiceQueuePage());
+                Navigation.PushAsync(new BranchPickupCard());
 			}
 			else
 			{
@@ -36,6 +65,26 @@ namespace MasterQ
             Navigation.PushAsync(new BranchSetIPAddress());
             mUsernameEntry.Text = "";
             mPasswordEntry.Text = "";
+        }
+
+        public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
+        {
+            Utils.changeAppLanguageToThai();
+            App.Thai = true;
+
+            Navigation.InsertPageBefore(new BranchLoginPage(), this);
+            Navigation.PopAsync();
+
+        }
+
+        public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
+        {
+            Utils.changeAppLanguageToEng();
+            App.Thai = false;
+
+            Navigation.InsertPageBefore(new BranchLoginPage(), this);
+            Navigation.PopAsync();
+
         }
     }
 }

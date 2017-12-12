@@ -23,5 +23,17 @@ namespace MasterQ
         public static int MAPVIEW_PAGE_TEL = 84;
         public static int MAPVIEW_PAGE_EMAIL = 85;
         public static int PROFILE_PAGE_PROFILE = 86;
+        public static int LOGIN_PAGE_USERNAME = 89;
+        public static int LOGIN_PAGE_PASSWORD = 90;
+        public static int LOGIN_PAGE_FORGETPASSWORD = 91;
+        public static int LOGIN_PAGE_DONACCOUNT = 92;
+        public static int LOGIN_PAGE_SIGNUP = 93;
+        public static int LOGIN_PAGE_FORGET = 94;
+        public static int REGISTER_PAGE_NAME = 95;
+        public static int REGISTER_PAGE_LASTNAME = 96;
+        public static int REGISTER_PAGE_TEL = 97;
+        public static int REGISTER_PAGE_CONFIRMPASS = 98;
+        public static int BRANCHLOGIN_PAGE_SETIP = 99;
+        public static int BRANCHSERVICE_PAGE_SERVICE = 100;
     }
 }

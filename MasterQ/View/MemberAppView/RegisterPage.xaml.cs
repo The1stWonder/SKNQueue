@@ -10,6 +10,25 @@ namespace MasterQ
 		public RegisterPage()
 		{
 			InitializeComponent();
+
+            SignUpQ.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_SIGNUP);
+            mNameEntry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_NAME);
+            mLastNameEntry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_LASTNAME);
+            mEmailEntry.Placeholder = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_EMAIL);
+            mPhone.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_TEL);
+            mPasswordEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_PASSWORD);
+            mPassword2Entry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_CONFIRMPASS);
+
+            if (App.Thai == true)
+            {
+                submit1.IsVisible = false;
+                submit2.IsVisible = true;
+            }
+            else
+            {
+                submit1.IsVisible = true;
+                submit2.IsVisible = false;
+            }
 		}
 
 		public void OnImageJoin(object sender, System.EventArgs args)

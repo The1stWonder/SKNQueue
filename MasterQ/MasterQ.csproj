@@ -53,6 +53,9 @@
     <EmbeddedResource Include="View\MemberAppView\QRcodePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MemberAppView\ServicePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MemberAppView\QueuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -60,9 +63,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MemberAppView\SearchPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MemberAppView\ServicePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MemberAppView\SummaryPage.xaml">
@@ -94,6 +94,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BranchAppView\BranchSetIPAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\BranchPickupCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -289,6 +293,9 @@
       <DependentUpon>BranchSetIPAddress.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\LabelConstants.cs" />
+    <Compile Include="View\BranchAppView\BranchPickupCard.xaml.cs">
+      <DependentUpon>BranchPickupCard.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -376,6 +383,13 @@
     <None Include="Image\unitedkingdom.png" />
     <None Include="Image\ticket4.png" />
     <None Include="Image\btn_cancel2.png" />
+    <None Include="Image\logo.png" />
+    <None Include="Image\btn_signin2.png" />
+    <None Include="Image\btn_submit2.png" />
+    <None Include="Image\picup.png" />
+    <None Include="Image\btn_picup" />
+    <None Include="Image\btn_picup2.png" />
+    <None Include="Image\btn_picup3.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -454,5 +468,5 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
-  <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.4.0\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.4.0\build\Xamarin.Google.iOS.Maps.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.5.0\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.5.0\build\Xamarin.Google.iOS.Maps.targets')" />
 </Project>

@@ -10,6 +10,19 @@ namespace MasterQ
 		public ForgetPasswordPage()
 		{
 			InitializeComponent();
+            Forget.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_FORGET);
+            mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_EMAIL);
+
+            if (App.Thai == true)
+            {
+                submit1.IsVisible = false;
+                submit2.IsVisible = true;
+            }
+            else
+            {
+                submit1.IsVisible = true;
+                submit2.IsVisible = false;
+            }
 		}
 
         public void OnImageJoin(object sender, System.EventArgs args)

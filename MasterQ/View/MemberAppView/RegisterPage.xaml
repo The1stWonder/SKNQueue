@@ -10,8 +10,8 @@
 
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*" />
-            <RowDefinition Height="77*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="80*" />
         </Grid.RowDefinitions>
         <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Source="bg4.png" Grid.Row="0"/>
         <Image Grid.Row="0" Source="h_signup.png" />
@@ -29,7 +29,7 @@
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Label Grid.Row="1" Grid.Column="0"  Text="Sign Up" FontSize="30" TextColor="White" HorizontalTextAlignment="End" />
+            <Label Margin="40,0,0,0" x:Name="SignUpQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
         </Grid>
         
         <Grid Margin="10,0,10,0" Grid.Row="1" Grid.Column="0">
@@ -81,14 +81,6 @@
             <ColumnDefinition
             Width="45*" />
         </Grid.ColumnDefinitions>
-<!--        <Label 
-            Margin="5,15,5,0" 
-        FontSize="40" 
-        Text="Sign Up" 
-        TextColor="Fuchsia" 
-        Grid.Row="0" 
-        Grid.Column="0" 
-        Grid.ColumnSpan="3" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="1"
@@ -98,7 +90,7 @@
         <Entry
             x:Name="mNameEntry"
             WidthRequest="20"
-            Placeholder="Name"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="1"
@@ -106,7 +98,7 @@
         <Entry
             x:Name="mLastNameEntry"
             WidthRequest="20"
-            Placeholder="LastName"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="1"
@@ -127,7 +119,7 @@
             x:Name="mEmailEntry"
             WidthRequest="20"
             Keyboard="Email"
-            Placeholder="Email"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="3"
@@ -147,7 +139,7 @@
         HeightRequest="10" />
         <Entry
             x:Name="mPhone"
-            Placeholder="Tel"
+            Placeholder=""
             TextColor="Black"
             Keyboard="Numeric"
             BackgroundColor="White"
@@ -200,7 +192,7 @@
         <Entry
             x:Name="mPasswordEntry"
             IsPassword="true"
-            Placeholder="Password"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="9"
@@ -221,7 +213,7 @@
         <Entry
             x:Name="mPassword2Entry"
             IsPassword="true"
-            Placeholder="Confirm Password"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="11"
@@ -233,12 +225,27 @@
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="divider.png" />-->
-        <Image 
+        <Image
+            x:Name="submit1"
             Margin="5,0,5,0"
             Grid.Row="14"
             Grid.Column="0"
             Grid.ColumnSpan="3"
         Source="btn_submit.png" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageJoin"
+                         />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image 
+            x:Name="submit2"
+            Margin="5,0,5,0"
+            Grid.Row="14"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+        Source="btn_submit2.png" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageJoin"

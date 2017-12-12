@@ -11,6 +11,38 @@ namespace MasterQ
 		{
 			InitializeComponent();
 
+            if (App.Thai == true)
+            {
+                Utils.changeAppLanguageToThai();
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
+
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
+
+                Signin1.IsVisible = false;
+                Signin2.IsVisible = true;
+            }
+            else
+            {
+                Utils.changeAppLanguageToEng();
+                LanguageThai.IsVisible = false;
+                LanguageThai.IsEnabled = false;
+
+                LanguageEng.IsVisible = true;
+                LanguageEng.IsEnabled = true;
+
+                Signin1.IsVisible = true;
+                Signin2.IsVisible = false;
+            }
+
+            mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_USERNAME);
+            mPasswordEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_PASSWORD);
+            forgetpassword.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_FORGETPASSWORD);
+            DonAccount.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_DONACCOUNT);
+            SignUP.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_SIGNUP);
+
+
             //         var username = "t@t.co";
             //var password = "1";
             //Login MasQLogin = new Login(username, password);
@@ -63,5 +95,35 @@ namespace MasterQ
 		{
 			Navigation.PushAsync(new ForgetPasswordPage());
 		}
+
+        public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
+        {
+            Utils.changeAppLanguageToEng();
+            LanguageThai.IsVisible = false;
+            LanguageThai.IsEnabled = false;
+
+            LanguageEng.IsVisible = true;
+            LanguageEng.IsEnabled = true;
+            App.Thai = false;
+
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            Navigation.PopAsync();
+
+        }
+
+        public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
+        {
+            Utils.changeAppLanguageToThai();
+            LanguageThai.IsVisible = true;
+            LanguageThai.IsEnabled = true;
+
+            LanguageEng.IsVisible = false;
+            LanguageEng.IsEnabled = false;
+            App.Thai = true;
+
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            Navigation.PopAsync();
+
+        }
 	}
 }

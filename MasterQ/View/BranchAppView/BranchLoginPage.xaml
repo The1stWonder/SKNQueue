@@ -8,7 +8,9 @@
     
 	<Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="30*" />
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -16,24 +18,41 @@
             <ColumnDefinition  Width="40*" />
             <ColumnDefinition  Width="30*" />
         </Grid.ColumnDefinitions>
-        <StackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        
+        <Image x:Name="LanguageThai"  Grid.Row="1" Grid.Column="2" Source="thailand.png" HorizontalOptions="Center" HeightRequest="80" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageMainchangeAppLanguageThai"
+                         />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Image x:Name="LanguageEng"  Grid.Row="1" Grid.Column="2" Source="unitedkingdom.png" HorizontalOptions="Center" HeightRequest="80" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageMainchangeAppLanguageEng"
+                         />
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="manWithBubble_Q.png" VerticalOptions="Center" HeightRequest="180" />
+                    <Image Source="logo.png" VerticalOptions="Center" HeightRequest="170" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
-        <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+        <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical">
             <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="10*" />
                     <RowDefinition Height="15*" />
                     <RowDefinition Height="5*" />
                     <RowDefinition Height="15*" />
                     <RowDefinition Height="5*" />
                     <RowDefinition Height="10*" />
                     <RowDefinition Height="20*" />
-                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="5*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*" />
@@ -45,14 +64,19 @@
                 <Image Margin="0,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
                 <Entry x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" />
                 <Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
-                <Label x:Name="setIP" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black">
-                        Setting IP Address
+                <Label x:Name="setIP" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="" TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
                                 Tapped="OnLabelSetIP" />
                 </Label.GestureRecognizers>
                     </Label>
-                <Image Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
+                <Image x:Name="Signin1" Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageSignin" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image x:Name="Signin2" Margin="0,5,0,5" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin2.png">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnImageSignin" />
                     </Image.GestureRecognizers>

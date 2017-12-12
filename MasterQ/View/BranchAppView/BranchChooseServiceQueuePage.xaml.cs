@@ -14,6 +14,7 @@ namespace MasterQ
         public BranchChooseServiceQueuePage()
         {
             InitializeComponent();
+            HeaderService.Text = Utils.getLabel(LabelConstants.BRANCHSERVICE_PAGE_SERVICE);
             getService();
         }
 		public void getService()
@@ -26,38 +27,45 @@ namespace MasterQ
 		{
             //Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             //{
-                //ChkTime = ChkTime + 1;
+            //ChkTime = ChkTime + 1;
 
-                //if (ChkTime == 2)
-                //{
-                    //ChkTime = 0;
-                    Service service = (Service)ServiceListview.SelectedItem;
-                    string servicename = service.serviceName;
-                    UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
-                    if (uiReturn.isSuccess)
+            //if (ChkTime == 2)
+            //{
+            //ChkTime = 0;
+            if (App.IPAdress != null)
+            {
+                Service service = (Service)ServiceListview.SelectedItem;
+                string servicename = service.serviceName;
+                UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
+                if (uiReturn.isSuccess)
+                {
+                    BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
+                    if (BranchSessionModel.bookingQ != null)
                     {
-                        BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
-                        if (BranchSessionModel.bookingQ != null)
-                        {
-                            NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
-                            TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
-                            TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+                        //NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
+                        TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
+                        string TimesQ = time.ToString(@"hh\:mm\:ss");
 
-                            switch (Device.RuntimePlatform)
-                            {
-                                case Device.iOS:
-                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ.Text + "<EOF>", App.IPAdress, 11111);
-                                    break;
-                                default:
-                            DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ.Text + "<EOF>", App.IPAdress, 11111);
-                                    break;
-                            }
+                        switch (Device.RuntimePlatform)
+                        {
+                            case Device.iOS:
+                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                                break;
+                            default:
+                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                                break;
                         }
                     }
-                    else
-                    {
-                        DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
-                    }
+                }
+                else
+                {
+                    DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
+                }
+            }
+            else
+            {
+                DisplayAlert("Error", "กรุณาตั้งค่า IP Address ก่อนเลือกบริการ", "Cancel");
+            }
 
             //        return false;
             //    }
