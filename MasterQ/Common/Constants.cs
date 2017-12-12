@@ -11,14 +11,21 @@ namespace MasterQ
         //public static String APPLICATION_TYPE = APPLICATION_TYPE_USER;
         //public static String APPLICATION_TYPE = APPLICATION_TYPE_BRANCH;
 
+        public static AppVersion oldVersion;
+        public static AppVersion newVersion;
+        public static String DB_DEFAULT_VERSION = "1000";
+        public static String APP_DEFAULT_VERSION = "1000";
+        public static String DB_DEFAULT_NEW_VERSION = "1001";
+        public static String APP_DEFAULT_NEW_VERSION = "1001";
+
         public static String APPLICATION_LANGUAGE_THAI = "TH";
         public static String APPLICATION_LANGUAGE_ENG = "EN";
         public static String APPLICATION_LANGUAGE_DEFAULT = APPLICATION_LANGUAGE_THAI;
         public static String APPLICATION_LANGUAGE = APPLICATION_LANGUAGE_DEFAULT;
 
         public static String QUEUE_TYPE_MEMBER = "O";
-		public static String QUEUE_TYPE_BRANCH = "K";
-		public static String QUEUE_TYPE_RECHECK = "R";
+        public static String QUEUE_TYPE_BRANCH = "K";
+        public static String QUEUE_TYPE_RECHECK = "R";
 
         // Validation
         public static int ERROR_DEFAULT_ID = 1;
@@ -37,29 +44,29 @@ namespace MasterQ
         public static int ERROR_EMPTY_COUNTER_NUMBER = 50;
 
 
-        public static UIReturn uiErrorDefault = new UIReturn(false, ERROR_DEFAULT_ID);
-        public static UIReturn uiSuccessDefault = new UIReturn(true, SUCCESS_DEFAULT_ID);
+        public static UIReturn uiErrorDefault;
+        public static UIReturn uiSuccessDefault;
 
-        public static UIReturn uiPassValidEmail = new UIReturn(true, SUCCESS_DEFAULT_ID);
-        public static UIReturn uiErrorInvalidEmail = new UIReturn(false, ERROR_INVALID_EMAIL_ID);
-        public static UIReturn uiErrorInvalidPhoneNumber = new UIReturn(false, ERROR_INVALID_PHONE_NUMBER);
-        public static UIReturn uiErrorInvalidDateFormat = new UIReturn(false, ERROR_INVALID_DATE_FORMAT);
-        public static UIReturn uiErrorPasswordNotMatch = new UIReturn(false, ERROR_PASSWORD_NOT_MATCH_ID);
-        public static UIReturn uiErrorEmptyUserName = new UIReturn(false, ERROR_EMPTY_USERNAME_ID);
-        public static UIReturn uiErrorEmptyPassword = new UIReturn(false, ERROR_EMPTY_PASSWORD_ID);
-        public static UIReturn uiErrorEmptyEmail = new UIReturn(false, ERROR_EMPTY_EMAIL_ID);
-        public static UIReturn uiErrorEmptyFirstName = new UIReturn(false, ERROR_EMPTY_FIRSTNAME_ID);
-        public static UIReturn uiErrorEmptyLastName = new UIReturn(false, ERROR_EMPTY_LASTNAME_ID);
-        public static UIReturn uiErrorEmptyBirthdate = new UIReturn(false, ERROR_EMPTY_BIRTHDATE_ID);
-        public static UIReturn uiErrorEmptyConfirmPassword = new UIReturn(false, ERROR_EMPTY_CONFIRM_PASSWORD_ID);
-        public static UIReturn uiErrorEmptyCounterNumber = new UIReturn(false, ERROR_EMPTY_COUNTER_NUMBER);
+        public static UIReturn uiPassValidEmail;
+        public static UIReturn uiErrorInvalidEmail;
+        public static UIReturn uiErrorInvalidPhoneNumber;
+        public static UIReturn uiErrorInvalidDateFormat;
+        public static UIReturn uiErrorPasswordNotMatch;
+        public static UIReturn uiErrorEmptyUserName;
+        public static UIReturn uiErrorEmptyPassword;
+        public static UIReturn uiErrorEmptyEmail;
+        public static UIReturn uiErrorEmptyFirstName;
+        public static UIReturn uiErrorEmptyLastName;
+        public static UIReturn uiErrorEmptyBirthdate;
+        public static UIReturn uiErrorEmptyConfirmPassword;
+        public static UIReturn uiErrorEmptyCounterNumber;
 
         // Commom Error
         public static int ERROR_NO_BRANCH = 8;
         public static int ERROR_NO_SERVICE = 11;
 
-        public static UIReturn uiErrorNoBranch = new UIReturn(false, ERROR_NO_BRANCH);
-        public static UIReturn uiErrorNoService = new UIReturn(false, ERROR_NO_SERVICE);
+        public static UIReturn uiErrorNoBranch;
+        public static UIReturn uiErrorNoService;
 
         public static bool isAppForMember()
         {
@@ -81,5 +88,47 @@ namespace MasterQ
         {
             return APPLICATION_LANGUAGE.Equals(APPLICATION_LANGUAGE_ENG);
         }
+
+        public static bool isSameDBVersion()
+        {
+            return oldVersion.dbVersion.Equals(newVersion.dbVersion);
+        }
+
+        public static AppVersion getDefaultVersion()
+        {
+            AppVersion ret = new AppVersion();
+            ret.appVersion = APP_DEFAULT_VERSION;
+            ret.dbVersion = DB_DEFAULT_VERSION;
+            return ret;
+        }
+        public static AppVersion getDefaultNewVersion()
+        {
+            AppVersion ret = new AppVersion();
+            ret.appVersion = APP_DEFAULT_NEW_VERSION;
+            ret.dbVersion = DB_DEFAULT_NEW_VERSION;
+            return ret;
+        }
+
+        public static void setUIReturn()
+        {
+            uiErrorDefault = new UIReturn(false, ERROR_DEFAULT_ID);
+            uiSuccessDefault = new UIReturn(true, SUCCESS_DEFAULT_ID);
+            uiPassValidEmail = new UIReturn(true, SUCCESS_DEFAULT_ID);
+            uiErrorInvalidEmail = new UIReturn(false, ERROR_INVALID_EMAIL_ID);
+            uiErrorInvalidPhoneNumber = new UIReturn(false, ERROR_INVALID_PHONE_NUMBER);
+            uiErrorInvalidDateFormat = new UIReturn(false, ERROR_INVALID_DATE_FORMAT);
+            uiErrorPasswordNotMatch = new UIReturn(false, ERROR_PASSWORD_NOT_MATCH_ID);
+            uiErrorEmptyUserName = new UIReturn(false, ERROR_EMPTY_USERNAME_ID);
+            uiErrorEmptyPassword = new UIReturn(false, ERROR_EMPTY_PASSWORD_ID);
+            uiErrorEmptyEmail = new UIReturn(false, ERROR_EMPTY_EMAIL_ID);
+            uiErrorEmptyFirstName = new UIReturn(false, ERROR_EMPTY_FIRSTNAME_ID);
+            uiErrorEmptyLastName = new UIReturn(false, ERROR_EMPTY_LASTNAME_ID);
+            uiErrorEmptyBirthdate = new UIReturn(false, ERROR_EMPTY_BIRTHDATE_ID);
+            uiErrorEmptyConfirmPassword = new UIReturn(false, ERROR_EMPTY_CONFIRM_PASSWORD_ID);
+            uiErrorEmptyCounterNumber = new UIReturn(false, ERROR_EMPTY_COUNTER_NUMBER);
+            uiErrorNoBranch = new UIReturn(false, ERROR_NO_BRANCH);
+            uiErrorNoService = new UIReturn(false, ERROR_NO_SERVICE);
+        }
     }
+
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace MasterQ
@@ -8,31 +9,60 @@ namespace MasterQ
     {
         public static void init()
         {
-            List<CodeDescription> tempCodeDesc = MetaDataService.getInstance().CallGetCodeDescription().codeDescriptions;
-            TempDB.codeDescriptions = (tempCodeDesc == null) ? new List<CodeDescription>() : tempCodeDesc;
+            Constants.oldVersion = Constants.getDefaultVersion();
+            Constants.newVersion = Constants.getDefaultNewVersion();
 
+            SessionTable version = App.Database.GetItem(DBConstants.ID_APP_VERSION);
+            if (version != null)
+            {
+                Constants.oldVersion = JObject.Parse(version.JSON_DATA).ToObject<AppVersion>();
+            }
+
+            TempDB.setCodeDescriptions();
             init_Member();
+            init_User();
+            init_Branch();
+            Constants.APPLICATION_LANGUAGE = getLanguageFromDB();
+
+            if (TempDB.flagUpdateAppVersion)
+            {
+                App.Database.SaveItem(DBConstants.ID_APP_VERSION, JsonConvert.SerializeObject(Constants.newVersion));
+
+            }
+            Constants.setUIReturn();
+        }
+
+        public static void init_User()
+        {
+            if (Constants.isAppForUser())
+            {
+                UserSessionModel.loginUser = getUserFormDB();
+                App.IPAdress = getUserAppIP();
+            }
+        }
+        public static void init_Branch()
+        {
+            if (Constants.isAppForBranch())
+            {
+                BranchSessionModel.loginBranch = getBranchLoginFormDB();
+                App.IPAdress = getBranchAppIP();
+            }
         }
 
         public static void init_Member()
         {
             if (Constants.isAppForMember())
             {
-                List<Province> tempProvince = MetaDataService.getInstance().CallGetProvices().provinces;
-                TempDB.provinces = (tempProvince == null) ? new List<Province>() : tempProvince;
-                List<District> tempDistrict = MetaDataService.getInstance().CallGetDistricts().districts;
-                TempDB.districts = (tempDistrict == null) ? new List<District>() : tempDistrict;
-                List<Branch> tempBranch = MetaDataService.getInstance().CallGetBranches().branches;
-                TempDB.branches = (tempBranch == null) ? new List<Branch>() : tempBranch;
-                List<Service> tempService = MetaDataService.getInstance().CallGetBranchServices().services;
-                TempDB.services = (tempService == null) ? new List<Service>() : tempService;
+                TempDB.setProvinces();
+                TempDB.setDistrict();
+                TempDB.setBranches();
+                TempDB.setServices();
 
                 SessionModel.loginMember = getMemberFormDB();
                 if (SessionModel.loginMember != null)
                 {
                     UIReturn uiReturn = ReserveQController.getInstance().getMemberSession(SessionModel.loginMember);
                 }
-                Constants.APPLICATION_LANGUAGE = getLanguageFromDB();
             }
         }
 
@@ -41,9 +71,42 @@ namespace MasterQ
             SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_MEMBER);
             return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Member>();
         }
+        private static User getUserFormDB()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_USER);
+            return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<User>();
+        }
+        private static Branch getBranchLoginFormDB()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_LOGIN_BRANCH);
+            return (temp == null) ? null : JObject.Parse(temp.JSON_DATA).ToObject<Branch>();
+        }
+        private static String getUserAppIP()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_IP_USER);
+            return (temp == null) ? "" : temp.JSON_DATA;
+        }
+        private static String getBranchAppIP()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_IP_BRANCH);
+            return (temp == null) ? "" : temp.JSON_DATA;
+        }
         private static String getLanguageFromDB()
         {
-            SessionTable temp = App.Database.GetItem(DBConstants.ID_LANGUAGE_MEMBER);
+            String ID = "";
+            if (Constants.isAppForMember())
+            {
+                ID = DBConstants.ID_LANGUAGE_MEMBER;
+            }
+            else if (Constants.isAppForUser())
+            {
+                ID = DBConstants.ID_LANGUAGE_USER;
+            }
+            else if (Constants.isAppForBranch())
+            {
+                ID = DBConstants.ID_LANGUAGE_BRANCH;
+            }
+            SessionTable temp = App.Database.GetItem(ID);
             return (temp == null) ? Constants.APPLICATION_LANGUAGE_DEFAULT : temp.JSON_DATA;
         }
     }

@@ -46,10 +46,7 @@ namespace MasterQ
             SessionModel.loginMember = res.member;
 
             if(res.header.isSuccess){
-                SessionTable loginMember = new SessionTable();
-                loginMember.ID = DBConstants.ID_LOGIN_MEMBER;
-                loginMember.JSON_DATA = JsonConvert.SerializeObject(SessionModel.loginMember);
-                App.Database.SaveItem(loginMember);
+                App.Database.SaveItem(DBConstants.ID_LOGIN_MEMBER,JsonConvert.SerializeObject(SessionModel.loginMember));
             }
 
             UIReturn ret = new UIReturn(res.header);

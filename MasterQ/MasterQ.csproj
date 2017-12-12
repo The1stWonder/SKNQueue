@@ -296,6 +296,7 @@
     <Compile Include="View\BranchAppView\BranchPickupCard.xaml.cs">
       <DependentUpon>BranchPickupCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\AppVersion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

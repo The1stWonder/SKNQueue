@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -25,6 +25,12 @@ namespace MasterQ
             BranchLoginRs res = BranchLoginService.getInstance().CallLogin(req);
             BranchSessionModel.loginBranch = res.branch;
 
+            if (res.header.isSuccess)
+            {
+                App.Database.SaveItem(DBConstants.ID_LOGIN_BRANCH, JsonConvert.SerializeObject(BranchSessionModel.loginBranch));
+            }
+
+
 			UIReturn ret = new UIReturn(res.header);
 			return ret;
 		}
@@ -33,6 +39,11 @@ namespace MasterQ
             BranchLogoutRq req = BranchLoginService.getInstance().getBranchLogoutRq(BranchSessionModel.loginBranch);
             BranchLogoutRs res = BranchLoginService.getInstance().callLogout(req);
             BranchSessionModel.loginBranch = null;
+
+            if (res.header.isSuccess)
+            {
+                App.Database.DeleteItem(DBConstants.ID_LOGIN_BRANCH);
+            }
 
 			UIReturn ret = new UIReturn(res.header);
 			return ret;

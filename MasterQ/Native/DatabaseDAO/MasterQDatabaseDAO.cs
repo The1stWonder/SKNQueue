@@ -41,6 +41,14 @@ namespace MasterQ
         {
             return database.Delete<SessionTable>(ID);
         }
+
+        public int SaveItem(String ID,String JSON_DATA)
+        {
+            SessionTable tempSave = new SessionTable();
+            tempSave.ID = ID;
+            tempSave.JSON_DATA = JSON_DATA;
+            return SaveItem(tempSave);
+        }
     }
 }
 
