@@ -78,7 +78,17 @@ namespace MasterQ
 
             String resJSON = CallServices.callPost(serviceUrl, postData);
             return JObject.Parse(resJSON).ToObject<GetBranchServicesRs>();
+        }
 
+        public GetAppVersionRs CallGetAppVersion()
+        {
+            string serviceUrl = ServiceURL.ipServer + ServiceURL.getAppVersionUrl;
+
+            GetAppVersionRq postData = new GetAppVersionRq();
+
+            String resJSON = CallServices.callPost(serviceUrl, postData);
+            return JObject.Parse(resJSON).ToObject<GetAppVersionRs>();
         }
     }
+
 }

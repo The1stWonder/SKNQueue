@@ -13,10 +13,10 @@ namespace MasterQ
 
         public static AppVersion oldVersion;
         public static AppVersion newVersion;
-        public static String DB_DEFAULT_VERSION = "1000";
-        public static String APP_DEFAULT_VERSION = "1000";
-        public static String DB_DEFAULT_NEW_VERSION = "1001";
-        public static String APP_DEFAULT_NEW_VERSION = "1001";
+        public static String DB_DEFAULT_VERSION = "0";
+        public static String APP_DEFAULT_VERSION = "0";
+        public static String DB_DEFAULT_NEW_VERSION = "1";
+        public static String APP_DEFAULT_NEW_VERSION = "1";
 
         public static String APPLICATION_LANGUAGE_THAI = "TH";
         public static String APPLICATION_LANGUAGE_ENG = "EN";

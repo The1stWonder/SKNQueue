@@ -297,6 +297,8 @@
       <DependentUpon>BranchPickupCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AppVersion.cs" />
+    <Compile Include="Services\AppModel\GetAppVersionRq.cs" />
+    <Compile Include="Services\AppModel\GetAppVersionRs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

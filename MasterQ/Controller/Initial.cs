@@ -17,6 +17,10 @@ namespace MasterQ
             {
                 Constants.oldVersion = JObject.Parse(version.JSON_DATA).ToObject<AppVersion>();
             }
+            GetAppVersionRs res = MetaDataService.getInstance().CallGetAppVersion();
+            if(res != null){
+                Constants.newVersion = res.appVersion;
+            }
 
             TempDB.setCodeDescriptions();
             init_Member();
