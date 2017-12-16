@@ -21,6 +21,7 @@ namespace MasterQ.iOS
             //notification.AlertTitle = "Alert Title"; // required for Apple Watch notifications
             notification.AlertAction = act;
             notification.AlertBody = body;
+            notification.SoundName = UILocalNotification.DefaultSoundName;
             UIApplication.SharedApplication.ScheduleLocalNotification(notification);   
         }
     }
