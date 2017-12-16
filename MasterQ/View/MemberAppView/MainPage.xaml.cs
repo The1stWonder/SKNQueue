@@ -24,20 +24,20 @@ namespace MasterQ
             if (App.Thai == true)
             {
                 Utils.changeAppLanguageToThai();
-                LanguageThai.IsVisible = true;
-                LanguageThai.IsEnabled = true;
-
-                LanguageEng.IsVisible = false;
-                LanguageEng.IsEnabled = false;
-            }
-            else
-            {
-                Utils.changeAppLanguageToEng();
                 LanguageThai.IsVisible = false;
                 LanguageThai.IsEnabled = false;
 
                 LanguageEng.IsVisible = true;
                 LanguageEng.IsEnabled = true;
+            }
+            else
+            {
+                Utils.changeAppLanguageToEng();
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
+
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
             }
 
             Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
@@ -310,6 +310,7 @@ namespace MasterQ
 
                 var options = new MobileBarcodeScanningOptions
                 {
+                   
                     AutoRotate = false,
                     UseFrontCameraIfAvailable = true,
                     TryHarder = true,
@@ -322,6 +323,8 @@ namespace MasterQ
                 //add options and customize page
                 scanPage = new ZXingScannerPage(options)
                 {
+                    
+                    IsAnalyzing = true,
                     DefaultOverlayTopText = "Align the barcode within the frame",
                     DefaultOverlayBottomText = string.Empty,
                     DefaultOverlayShowFlashButton = true
@@ -406,13 +409,13 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToEng();
+            Utils.changeAppLanguageToThai();
             LanguageThai.IsVisible = false;
             LanguageThai.IsEnabled = false;
 
             LanguageEng.IsVisible = true;
             LanguageEng.IsEnabled = true;
-            App.Thai = false;
+            App.Thai = true;
 
             if (SessionModel.bookingQ == null)
             {
@@ -435,13 +438,13 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToThai();
+            Utils.changeAppLanguageToEng();
             LanguageThai.IsVisible = true;
             LanguageThai.IsEnabled = true;
 
             LanguageEng.IsVisible = false;
             LanguageEng.IsEnabled = false;
-            App.Thai = true;
+            App.Thai = false;
 
             if (SessionModel.bookingQ == null)
             {

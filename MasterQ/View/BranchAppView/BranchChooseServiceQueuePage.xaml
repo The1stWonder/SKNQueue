@@ -3,8 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.BranchChooseServiceQueuePage"
-    NavigationPage.HasNavigationBar="False" 
-    BackgroundColor="White">
+    NavigationPage.HasNavigationBar="False" >
 
     <Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
@@ -77,11 +76,11 @@
 
         <Label x:Name="HeaderService" Grid.Row="1" Grid.Column="1" FontSize="45" Text="" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
         
-        <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" BackgroundColor="#D3D3D3">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#D3D3D3">
-                <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand" BackgroundColor="#D3D3D3">
+        <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" BackgroundColor="#FAF0E6">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#FAF0E6">
+                <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand" BackgroundColor="#FAF0E6">
                 <ListView
-                    BackgroundColor="#D3D3D3"
+                    BackgroundColor="#FAF0E6"
                     ItemTapped="itemTapped"
                     RowHeight="75"
                     SeparatorVisibility="None"
@@ -94,7 +93,7 @@
                 <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding serviceName}" TextColor="Black" FontSize="25" />
-                    <Image HorizontalOptions="EndAndExpand" Source="NextQ2.png" HeightRequest="70"/>
+                    <Image HorizontalOptions="EndAndExpand" Source="NextQ2.png" HeightRequest="90"/>
                 </StackLayout>
                 </StackLayout>
                 </ViewCell>             

@@ -50,10 +50,17 @@ namespace MasterQ
 			Login MasQLogin = new Login(username, password);
 			UIReturn uiReturn = BranchLoginController.getInstance().LoginBranch(MasQLogin);
 
-			if (uiReturn.isSuccess)
-			{
-                Navigation.PushAsync(new BranchPickupCard());
-			}
+            if (uiReturn.isSuccess)
+            {
+                if (App.IPAdress != "")
+                {
+                    Navigation.PushAsync(new BranchPickupCard());
+                }
+                else
+                {
+                    DisplayAlert("Error", "กรุณาตั้งค่า IP Address ก่อนเข้าระบบ", "Cancel");
+                }
+            }
 			else
 			{
 				DisplayAlert("Click", uiReturn.getDescription(), "Close");

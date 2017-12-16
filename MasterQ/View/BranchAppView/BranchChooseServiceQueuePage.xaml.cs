@@ -8,8 +8,6 @@ namespace MasterQ
 {
     public partial class BranchChooseServiceQueuePage : ContentPage
     {
-        //string counterNumber;
-        //int ChkTime = 0;
 
         public BranchChooseServiceQueuePage()
         {
@@ -23,55 +21,43 @@ namespace MasterQ
 			ServiceListview.ItemsSource = Service;
 		}
 
-		public void itemTapped(object sender, System.EventArgs args)
-		{
-            //Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-            //{
-            //ChkTime = ChkTime + 1;
+        async void itemTapped(object sender, System.EventArgs args)
+        {
+            Service service = (Service)ServiceListview.SelectedItem;
+            string servicename = service.serviceName;
 
-            //if (ChkTime == 2)
-            //{
-            //ChkTime = 0;
-            if (App.IPAdress != null)
+            var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + servicename​, "Yes", "No");
+            if (answer == true)
             {
-                Service service = (Service)ServiceListview.SelectedItem;
-                string servicename = service.serviceName;
                 UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
                 if (uiReturn.isSuccess)
                 {
                     BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
                     if (BranchSessionModel.bookingQ != null)
                     {
-                        //NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
                         TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
                         string TimesQ = time.ToString(@"hh\:mm\:ss");
 
-                        switch (Device.RuntimePlatform)
-                        {
-                            case Device.iOS:
-                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                                break;
-                            default:
-                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                                break;
-                        }
+                        Navigation.InsertPageBefore(new BranchSummaryQueuePage(), this);
+                        await Navigation.PopAsync();
+
+                        //switch (Device.RuntimePlatform)
+                        //{
+                        //    case Device.iOS:
+                        //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                        //        break;
+                        //    default:
+                        //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                        //        break;
+                        //}
                     }
                 }
                 else
                 {
-                    DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
+                    await DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
                 }
             }
-            else
-            {
-                DisplayAlert("Error", "กรุณาตั้งค่า IP Address ก่อนเลือกบริการ", "Cancel");
-            }
-
-            //        return false;
-            //    }
-            //    return true;
-            //});
-		}
+        }
 
         public void OnImageMainExit(object sender, System.EventArgs args)
         {

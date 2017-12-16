@@ -10,21 +10,38 @@ namespace MasterQ
         public BranchSummaryQueuePage()
         {
             InitializeComponent();
-            if (BranchSessionModel.bookingQ != null)
-			{
-				NumberQ.Text = BranchSessionModel.bookingQ.queueNumber.ToString();
-                TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime*60);
-                estimateTime.Text = time.ToString(@"hh\:mm\:ss");
-			}
-        }
-		public void OnImageHomePage(object sender, System.EventArgs args)
-		{
-            Navigation.PushAsync(new BranchChooseServiceQueuePage());
-		}
 
-		public void OnImageDelete(object sender, System.EventArgs args)
-		{
-			
-		}
+            YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
+            AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
+            WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+
+            App.timercheck = true;
+            App.timerStart();
+
+            ShowQ();
+        }
+
+        public void ShowQ()
+        {
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            {
+                App.Recount = App.Recount + 1;
+                
+            NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
+            NumberQ2.Text = BranchSessionModel.bookingQ.queueBefore.ToString();
+
+            TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
+            TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+
+                if (App.Recount == 5)
+                {
+                    //App.timercheck = false;
+                    Navigation.InsertPageBefore(new BranchPickupCard(), this);
+                    Navigation.PopAsync();
+                }
+                return App.timercheck;
+            });
+        }
+		
     }
 }

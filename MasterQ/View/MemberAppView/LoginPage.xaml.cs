@@ -14,11 +14,11 @@ namespace MasterQ
             if (App.Thai == true)
             {
                 Utils.changeAppLanguageToThai();
-                LanguageThai.IsVisible = true;
-                LanguageThai.IsEnabled = true;
+                LanguageThai.IsVisible = false;
+                LanguageThai.IsEnabled = false;
 
-                LanguageEng.IsVisible = false;
-                LanguageEng.IsEnabled = false;
+                LanguageEng.IsVisible = true;
+                LanguageEng.IsEnabled = true;
 
                 Signin1.IsVisible = false;
                 Signin2.IsVisible = true;
@@ -26,11 +26,11 @@ namespace MasterQ
             else
             {
                 Utils.changeAppLanguageToEng();
-                LanguageThai.IsVisible = false;
-                LanguageThai.IsEnabled = false;
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
 
-                LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = true;
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
 
                 Signin1.IsVisible = true;
                 Signin2.IsVisible = false;
@@ -98,13 +98,8 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToEng();
-            LanguageThai.IsVisible = false;
-            LanguageThai.IsEnabled = false;
-
-            LanguageEng.IsVisible = true;
-            LanguageEng.IsEnabled = true;
-            App.Thai = false;
+            Utils.changeAppLanguageToThai();
+            App.Thai = true;
 
             Navigation.InsertPageBefore(new LoginPage(), this);
             Navigation.PopAsync();
@@ -113,13 +108,8 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToThai();
-            LanguageThai.IsVisible = true;
-            LanguageThai.IsEnabled = true;
-
-            LanguageEng.IsVisible = false;
-            LanguageEng.IsEnabled = false;
-            App.Thai = true;
+            Utils.changeAppLanguageToEng();
+            App.Thai = false;
 
             Navigation.InsertPageBefore(new LoginPage(), this);
             Navigation.PopAsync();

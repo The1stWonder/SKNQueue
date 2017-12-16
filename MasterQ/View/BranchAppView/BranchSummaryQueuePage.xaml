@@ -1,45 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.BranchSummaryQueuePage" BackgroundImage="bg.png" NavigationPage.HasNavigationBar="False">
-    <Grid Margin="25,0,25,0">
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.BranchSummaryQueuePage" 
+    BackgroundImage="bg5.png" 
+    NavigationPage.HasNavigationBar="False">
+    
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="5*" />
+            <RowDefinition Height="80*" />
             <RowDefinition Height="10*" />
-            <RowDefinition Height="10*" />
-            <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="50*" />
+            <ColumnDefinition  Width="30*" />
+            <ColumnDefinition  Width="40*" />
+            <ColumnDefinition  Width="30*" /> 
         </Grid.ColumnDefinitions>
-        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source="circleQiPad.png" VerticalOptions="Center" HeightRequest="320" />
-        <Label x:Name="NumberQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="-" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
-        <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,10,0,0" VerticalOptions="FillAndExpand">
-                    <Label FontSize="18" Text="Wait Time" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
-        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,0,0,10" VerticalOptions="FillAndExpand">
-                    <Label x:Name="estimateTime" FontSize="50" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
-        <Image Grid.Row="4" Grid.Column="0" Source="btn_back.png" VerticalOptions="Center" HeightRequest="60">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnImageHomePage" />
-            </Image.GestureRecognizers>
+
+        <Image 
+        Grid.Row="1" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="3" 
+        Source="ticket4.png" 
+        VerticalOptions="Center" 
+        HeightRequest="450">
         </Image>
-        <Image Grid.Row="4" Grid.Column="1" Source="btn_history_click.png" VerticalOptions="Center" HeightRequest="60">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnImageDelete" />
-            </Image.GestureRecognizers>
-        </Image>
-        <Label Grid.Row="5" Grid.Column="0" Text="Back" FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-        <Label Grid.Row="5" Grid.Column="1" Text="Cancel" FontSize="12" TextColor="Aqua" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+
+            <StackLayout Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="47*" />
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="30*" />
+                            <RowDefinition Height="5*" /> 
+                            <RowDefinition Height="12*" />  
+                            <RowDefinition Height="22*" />  
+                            <RowDefinition Height="10*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="20*" />    
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="50*" />
+                            <ColumnDefinition  Width="50*" />
+                        </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" ></Label>
+                <Label x:Name="YourQ" Grid.Row="1" Grid.Column="0" FontSize="10" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                <Label x:Name="AllQ" Grid.Row="1" Grid.Column="1" FontSize="10" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                <Label x:Name="NumberQ" Margin="40,0,0,0" Grid.Row="2" Grid.Column="0" FontSize="50" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                <Label x:Name="NumberQ2" Grid.Row="2" Grid.Column="1" FontSize="50" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                <Label x:Name="WaitTime" Margin="0,0,0,0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="15" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                <Label x:Name="TimesQ" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="37" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+           </Grid>
+            </StackLayout>
     </Grid>
 </ContentPage>
