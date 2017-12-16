@@ -1,27 +1,132 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
-	<dependencies>
-		<deployment identifier="iOS" />
-		<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530" />
-	</dependencies>
-	<scenes>
-		<!--View Controller-->
-		<scene sceneID="EHf-IW-A2E">
-			<objects>
-				<viewController id="01J-lp-oVM" sceneMemberID="viewController">
-					<layoutGuides>
-						<viewControllerLayoutGuide type="top" id="Llm-lL-Icb" />
-						<viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok" />
-					</layoutGuides>
-					<view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-						<rect key="frame" x="0.0" y="0.0" width="600" height="600" />
-						<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" />
-						<color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite" />
-					</view>
-				</viewController>
-				<placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder" />
-			</objects>
-			<point key="canvasLocation" x="53" y="375" />
-		</scene>
-	</scenes>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" customColorSpace="sRGB" colorSpace="calibratedRGB" red="0.066666666666666666" green="0.19607843137254902" blue="0.29411764705882354" alpha="1"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="logo.png" semanticContentAttribute="forceRightToLeft">
+                                <rect key="frame" x="65" y="203" width="265" height="264"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" staticText="YES"/>
+                        </accessibility>
+                    </view>
+                    <connections/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg.png" width="750" height="1334"/>
+        <image name="header_main.png" width="568" height="185"/>
+        <image name="password_icon.png" width="67" height="72"/>
+        <image name="username_icon.png" width="67" height="72"/>
+        <image name="buttons1.png" width="360" height="180"/>
+        <image name="buttons2.png" width="360" height="180"/>
+        <image name="buttons3.png" width="360" height="180"/>
+        <image name="Circle1.png" width="256" height="256"/>
+        <image name="forget2.png" width="360" height="110"/>
+        <image name="MainP1.png" width="512" height="512"/>
+        <image name="MainP2.png" width="512" height="512"/>
+        <image name="MainP3.png" width="512" height="512"/>
+        <image name="user.png" width="1600" height="1600"/>
+        <image name="btn_join_click.png" width="650" height="110"/>
+        <image name="btn_join.png" width="650" height="110"/>
+        <image name="btn_signin_click.png" width="650" height="110"/>
+        <image name="btn_signin.png" width="650" height="110"/>
+        <image name="btn_submit_click.png" width="650" height="110"/>
+        <image name="btn_submit.png" width="630" height="110"/>
+        <image name="bubble_sample.png" width="264" height="264"/>
+        <image name="bubble.png" width="264" height="264"/>
+        <image name="divider.png" width="640" height="2"/>
+        <image name="icn_birthday.png" width="50" height="50"/>
+        <image name="icn_confirm_password.png" width="50" height="50"/>
+        <image name="icn_email.png" width="50" height="50"/>
+        <image name="icn_password.png" width="50" height="50"/>
+        <image name="icn_phone.png" width="50" height="50"/>
+        <image name="icn_usename.png" width="50" height="50"/>
+        <image name="man.png" width="585" height="371"/>
+        <image name="manWithBubble_Q.png" width="2000" height="2000"/>
+        <image name="btn_back_click.png" width="110" height="110"/>
+        <image name="btn_back.png" width="110" height="110"/>
+        <image name="btn_booking_click.png" width="110" height="110"/>
+        <image name="btn_booking.png" width="110" height="110"/>
+        <image name="btn_history_click.png" width="110" height="110"/>
+        <image name="btn_history.png" width="110" height="110"/>
+        <image name="btn_profile_click.png" width="110" height="110"/>
+        <image name="btn_profile.png" width="110" height="110"/>
+        <image name="btn_qr_click.png" width="110" height="110"/>
+        <image name="btn_qr.png" width="110" height="110"/>
+        <image name="Qcircle.png" width="660" height="660"/>
+        <image name="bg4.png" width="750" height="1334"/>
+        <image name="NextQ1.png" width="458" height="116"/>
+        <image name="NextQ2.png" width="463" height="120"/>
+        <image name="btn_search_click.png" width="110" height="110"/>
+        <image name="btn_search.png" width="110" height="110"/>
+        <image name="h_history.jpg" width="750" height="289"/>
+        <image name="btn_save_click.png" width="650" height="110"/>
+        <image name="btn_save.png" width="650" height="110"/>
+        <image name="dropdown_arrow.png" width="22" height="19"/>
+        <image name="btn_gpsSig_click.png" width="110" height="110"/>
+        <image name="btn_gpsSig.png" width="110" height="110"/>
+        <image name="btn_location_click.png" width="110" height="110"/>
+        <image name="btn_location.png" width="110" height="110"/>
+        <image name="h_search.png" width="750" height="290"/>
+        <image name="h_history.png" width="750" height="290"/>
+        <image name="h_service.png" width="750" height="290"/>
+        <image name="btn_delete.png" width="110" height="110"/>
+        <image name="h_signup.png" width="750" height="290"/>
+        <image name="h_password.png" width="750" height="290"/>
+        <image name="h_map.png" width="750" height="290"/>
+        <image name="h_history2.png" width="750" height="290"/>
+        <image name="btn_exit2.png" width="110" height="110"/>
+        <image name="btn_booking1.png" width="650" height="110"/>
+        <image name="btn_booking2.png" width="650" height="110"/>
+        <image name="Qcircle2.png" width="660" height="660"/>
+        <image name="QcircleAccept.png" width="660" height="660"/>
+        <image name="QcircleCall.png" width="660" height="660"/>
+        <image name="QcircleFinish.png" width="660" height="660"/>
+        <image name="QcircleSkip.png" width="660" height="660"/>
+        <image name="h_profile.png" width="750" height="290"/>
+        <image name="bg5.png" width="750" height="1334"/>
+        <image name="btn_cancel.png" width="555" height="94"/>
+        <image name="ticket.png" width="630" height="810"/>
+        <image name="ticket2.png" width="630" height="810"/>
+        <image name="bullet.png" width="24" height="24"/>
+        <image name="btn_EditPassword.png" width="650" height="110"/>
+        <image name="btn_EditProfile.png" width="650" height="110"/>
+        <image name="thailand.png" width="256" height="256"/>
+        <image name="unitedkingdom.png" width="256" height="256"/>
+        <image name="ticket4.png" width="630" height="810"/>
+        <image name="btn_cancel2.png" width="555" height="94"/>
+        <image name="logo.png" width="2000" height="2000"/>
+        <image name="btn_signin2.png" width="650" height="110"/>
+        <image name="btn_submit2.png" width="650" height="110"/>
+        <image name="picup.png" width="500" height="500"/>
+        <image name="btn_picup" width="1852" height="1920"/>
+        <image name="btn_picup2.png" width="1852" height="1920"/>
+        <image name="btn_picup3.png" width="1852" height="1920"/>
+    </resources>
+    <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.61960784313725492" blue="0.9882352941176471" alpha="1"/>
 </document>

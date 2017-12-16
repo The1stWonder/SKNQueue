@@ -28,8 +28,6 @@
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
@@ -54,11 +52,11 @@
 	<array>
 		<string>MKDirectionsModeCar</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to the camera</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>This app needs access to the camera</string>
 </dict>
 </plist>
