@@ -34,6 +34,7 @@ namespace MasterQ
             {
                 Navigation.PushAsync(new SearchPage());
                 App.TextSearch = "";
+                App.SearchID = 0;
             }
 
         }
@@ -51,6 +52,7 @@ namespace MasterQ
 
                 Navigation.PushAsync(new ServicePage(BranchID));
                 App.TextSearch = "";
+                App.SearchID = 1;
             }
         }
 	}

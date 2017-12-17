@@ -282,11 +282,14 @@ namespace MasterQ
         public void OnImageQRcodePage(object sender, System.EventArgs args)
         {
             App.TextSearch = "";
+            bool CheckQR = false;
             if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
             {
                 Branch b = new Branch();
                 Branch BranchID = new Branch();
+                double BranchNumber;
                 var scanPage = new ZXingScannerPage();
+                scanPage.Title = "Scan QR Code";
                 // Navigate to our scanner page
                 Navigation.PushAsync(scanPage);
 
@@ -300,11 +303,35 @@ namespace MasterQ
                     {
                         await Navigation.PopAsync();
                         //await DisplayAlert("Scanned Barcode", result.Text, "OK");
-                        b.branchID = result.Text;
-                        UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
-                        BranchID = (Branch)uiR.returnObject;
-                        await Navigation.PushAsync(new ServicePage(BranchID));
+                        try
+                        {
+                            BranchNumber = Convert.ToDouble(result.Text.Substring(1));
+                            CheckQR = true;
+                        }
+                        catch
+                        {
+                            await DisplayAlert("Click", "ไม่พบข้อมูล หรือ ข้อมูลไม่ตรงกับระบบ", "Close");
+                            CheckQR = false;
+                        }
 
+                        if (CheckQR == true)
+                        {
+                            b.branchID = result.Text;
+                            if (b.branchID != null || b.branchID != "")
+                            {
+                                UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
+                                if (!uiR.isSuccess)
+                                {
+                                    await DisplayAlert("Click", uiR.getDescription(), "Close");
+                                }
+                                else
+                                {
+                                    BranchID = (Branch)uiR.returnObject;
+                                    await Navigation.PushAsync(new ServicePage(BranchID));
+                                    App.SearchID = 2;
+                                }
+                            }
+                        }
                     });
                 };
 
@@ -359,6 +386,7 @@ namespace MasterQ
                     CountstartMain = false;
                     Navigation.InsertPageBefore(new SearchPage(), this);
                     Navigation.PopAsync();
+                    App.SearchID = 0;
                 }
             }
             else
@@ -367,6 +395,7 @@ namespace MasterQ
                 CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
+                App.SearchID = 0;
             }
         }
 
