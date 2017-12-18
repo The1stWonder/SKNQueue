@@ -21,8 +21,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" customColorSpace="sRGB" colorSpace="calibratedRGB" red="0.066666666666666666" green="0.19607843137254902" blue="0.29411764705882354" alpha="1"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="logo.png" semanticContentAttribute="forceRightToLeft">
-                                <rect key="frame" x="65" y="203" width="265" height="264"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="manWithBubble_Q.png" semanticContentAttribute="forceRightToLeft">
+                                <rect key="frame" x="98" y="237" width="207" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -81,7 +81,7 @@
         <image name="Qcircle.png" width="660" height="660"/>
         <image name="bg4.png" width="750" height="1334"/>
         <image name="NextQ1.png" width="458" height="116"/>
-        <image name="NextQ2.png" width="463" height="120"/>
+        <image name="NextQ2.png" width="400" height="110"/>
         <image name="btn_search_click.png" width="110" height="110"/>
         <image name="btn_search.png" width="110" height="110"/>
         <image name="h_history.jpg" width="750" height="289"/>
@@ -126,7 +126,7 @@
         <image name="picup.png" width="500" height="500"/>
         <image name="btn_picup" width="1852" height="1920"/>
         <image name="btn_picup2.png" width="1852" height="1920"/>
-        <image name="btn_picup3.png" width="1852" height="1920"/>
+        <image name="btn_picup3.png" width="954" height="954"/>
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.61960784313725492" blue="0.9882352941176471" alpha="1"/>
 </document>
