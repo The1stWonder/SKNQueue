@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using Plugin.Connectivity;
 
 namespace MasterQ
 {
@@ -22,18 +23,27 @@ namespace MasterQ
 		public App()
 		{
 			InitializeComponent();
-            Initial.init();
-            //MainPage = new NavigationPage(new TestPage());
-            if (Constants.isAppForMember())
+
+            if (CrossConnectivity.Current.IsConnected)
             {
-                MainPage = new NavigationPage(new LoginPage());
-            }else if(Constants.isAppForUser()){
-				MainPage = new NavigationPage(new UserLoginPage());
-			}
-            else if (Constants.isAppForBranch())
-			{
-				MainPage = new NavigationPage(new BranchLoginPage());
-			}
+                Initial.init();
+                if (Constants.isAppForMember())
+                {
+                    MainPage = new NavigationPage(new LoginPage());
+                }
+                else if (Constants.isAppForUser())
+                {
+                    MainPage = new NavigationPage(new UserLoginPage());
+                }
+                else if (Constants.isAppForBranch())
+                {
+                    MainPage = new NavigationPage(new BranchLoginPage());
+                }
+            }
+            else
+            {
+                //DisplayAlert("", "No Network Connect", "Close");
+            }
 		}
 
 
