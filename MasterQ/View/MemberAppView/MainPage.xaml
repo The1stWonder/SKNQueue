@@ -32,7 +32,7 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Image x:Name="LanguageThai" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="thailand.png" VerticalOptions="Center" HeightRequest="50" >
+        <Image x:Name="LanguageThai" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="thailand.png" VerticalOptions="Center" HeightRequest="35" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainchangeAppLanguageThai"
@@ -40,7 +40,7 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Image x:Name="LanguageEng" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="unitedkingdom.png" VerticalOptions="Center" HeightRequest="50" >
+        <Image x:Name="LanguageEng" Margin="10,20,10,0" Grid.Row="1" Grid.Column="1"  Source="unitedkingdom.png" VerticalOptions="Center" HeightRequest="35" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainchangeAppLanguageEng"

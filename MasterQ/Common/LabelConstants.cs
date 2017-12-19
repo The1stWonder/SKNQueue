@@ -35,5 +35,8 @@ namespace MasterQ
         public static int REGISTER_PAGE_CONFIRMPASS = 98;
         public static int BRANCHLOGIN_PAGE_SETIP = 99;
         public static int BRANCHSERVICE_PAGE_SERVICE = 100;
+        public static int LOGIN_PAGE_NOINTERNET = 101;
+        public static int MAIN_PAGE_NOINFORMATION = 102;
+        public static int MAIN_PAGE_QBLOCK = 103;
     }
 }

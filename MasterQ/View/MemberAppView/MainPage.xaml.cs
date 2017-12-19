@@ -137,7 +137,7 @@ namespace MasterQ
 
                         if (!ChkQueue.isSuccess)
                         {
-                            DisplayAlert("Click", ChkQueue.getDescription(), "Close");
+                            DisplayAlert("", ChkQueue.getDescription(), "Close");
                             TimesQ.Text = "00:00:00";
                             App.timercheck = false;
                         }
@@ -254,7 +254,7 @@ namespace MasterQ
                 {
                     App.timercheck = false;
                     CountstartMain = false;
-                    //SessionModel.bookingQ = null;
+                    SessionModel.bookingQ = null;
                     Navigation.InsertPageBefore(new LoginPage(), this);
                     await Navigation.PopAsync();
                 }
@@ -276,6 +276,10 @@ namespace MasterQ
                 CountstartMain = false;
                 Navigation.InsertPageBefore(new SearchPage(), this);
                 Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
             }
         }
 
@@ -310,7 +314,7 @@ namespace MasterQ
                         }
                         catch
                         {
-                            await DisplayAlert("Click", "ไม่พบข้อมูล หรือ ข้อมูลไม่ตรงกับระบบ", "Close");
+                            await DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_NOINFORMATION), "Close");
                             CheckQR = false;
                         }
 
@@ -322,7 +326,7 @@ namespace MasterQ
                                 UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
                                 if (!uiR.isSuccess)
                                 {
-                                    await DisplayAlert("Click", uiR.getDescription(), "Close");
+                                    await DisplayAlert("", uiR.getDescription(), "Close");
                                 }
                                 else
                                 {
@@ -357,6 +361,10 @@ namespace MasterQ
                     DefaultOverlayShowFlashButton = true
                 };
             }
+            else
+            {
+                DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+            }
         }
 
 		public void OnImageSummaryPage(object sender, System.EventArgs args)
@@ -375,9 +383,7 @@ namespace MasterQ
             {
                 if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                 {
-                    //CountstartMain = false;
-                    //Navigation.InsertPageBefore(new QueuePage(), this);
-                    //Navigation.PopAsync();
+                    //DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
                 }
                 else
                 {
@@ -430,7 +436,7 @@ namespace MasterQ
                     {
                         App.timercheck = false;
                         CountstartMain = false;
-                        await DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                        await DisplayAlert("", uiReturn.getDescription(), "Close");
                     }
                 }
             }

@@ -36,7 +36,7 @@ namespace MasterQ
                 Signin2.IsVisible = false;
             }
 
-            mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_USERNAME);
+            mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_EMAIL);
             mPasswordEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_PASSWORD);
             forgetpassword.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_FORGETPASSWORD);
             DonAccount.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_DONACCOUNT);
@@ -87,7 +87,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", uiReturn.descriptionEN, "Close");
+				DisplayAlert("", uiReturn.descriptionEN, "Close");
 			}
 		}
 

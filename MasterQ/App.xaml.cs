@@ -20,31 +20,28 @@ namespace MasterQ
         public static bool RePage = false;
         static MasterQDatabaseDAO database;
 
-		public App()
-		{
-			InitializeComponent();
+        public App()
+        {
+            InitializeComponent();
 
             if (CrossConnectivity.Current.IsConnected)
             {
                 Initial.init();
-                if (Constants.isAppForMember())
-                {
-                    MainPage = new NavigationPage(new LoginPage());
-                }
-                else if (Constants.isAppForUser())
-                {
-                    MainPage = new NavigationPage(new UserLoginPage());
-                }
-                else if (Constants.isAppForBranch())
-                {
-                    MainPage = new NavigationPage(new BranchLoginPage());
-                }
             }
-            else
+
+            if (Constants.isAppForMember())
             {
-                //DisplayAlert("", "No Network Connect", "Close");
+                MainPage = new NavigationPage(new LoginPage());
             }
-		}
+            else if (Constants.isAppForUser())
+            {
+                MainPage = new NavigationPage(new UserLoginPage());
+            }
+            else if (Constants.isAppForBranch())
+            {
+                MainPage = new NavigationPage(new BranchLoginPage());
+            }
+        }
 
 
         public static MasterQDatabaseDAO Database
