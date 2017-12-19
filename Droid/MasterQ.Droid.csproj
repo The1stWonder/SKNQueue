@@ -470,6 +470,9 @@
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="..\MasterQ\Image\LogoStart.png">
+      <Link>Resources\drawable-xxhdpi\LogoStart.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

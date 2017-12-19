@@ -466,6 +466,9 @@
     <BundleResource Include="..\MasterQ\Image\btn_picup3.png">
       <Link>Resources\btn_picup3.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\LogoStart.png">
+      <Link>Resources\LogoStart.png</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />

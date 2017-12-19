@@ -393,6 +393,7 @@
     <None Include="Image\btn_picup" />
     <None Include="Image\btn_picup2.png" />
     <None Include="Image\btn_picup3.png" />
+    <None Include="Image\LogoStart.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
