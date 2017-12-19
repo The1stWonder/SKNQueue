@@ -62,8 +62,11 @@ namespace MasterQ
         }
         public UIReturn getBranches(String textSearch)
         {
-            //GetBranchesRs res = MetaDataService.getInstance().CallGetBranches();
-            List<Branch> branches = TempDB.branches.FindAll(s => s.branchName.Contains(textSearch));
+            List<Branch> branches = TempDB.branches.FindAll(s => s.branchName.Contains(textSearch)
+                                                            || TempDB.provinces.Find(p => p.provinceID.Equals(s.provinceID)).provinceNameTh.Contains(textSearch)
+                                                            || TempDB.provinces.Find(p => p.provinceID.Equals(s.provinceID)).provinceNameEn.Contains(textSearch)
+                                                            || TempDB.districts.Find(d => d.districtID.Equals(s.districtID)).districtNameTh.Contains(textSearch)
+                                                            || TempDB.districts.Find(d => d.districtID.Equals(s.districtID)).districtNameEn.Contains(textSearch));
 
             return getUIReturnBranchs(branches);
         }
@@ -87,7 +90,7 @@ namespace MasterQ
 
         public UIReturn getUIReturnBranchs(List<Branch> branchs)
         {
-            if (branchs.ToArray().Length <= 0)
+            if (branchs==null || branchs.ToArray().Length <= 0)
             {
                 return Constants.uiErrorNoBranch;
             }
@@ -101,7 +104,7 @@ namespace MasterQ
         }
         public UIReturn getUIReturnServices(List<Service> services)
         {
-            if (services.ToArray().Length <= 0)
+            if (services==null || services.ToArray().Length <= 0)
             {
                 return Constants.uiErrorNoService;
             }

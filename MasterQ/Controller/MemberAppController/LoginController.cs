@@ -43,9 +43,9 @@ namespace MasterQ
 
             LoginRq req = LoginService.getInstance().getLoginRq(input);
             LoginRs res = LoginService.getInstance().CallLogin(req);
-            SessionModel.loginMember = res.member;
 
             if(res.header.isSuccess){
+                SessionModel.loginMember = res.member;
                 App.Database.SaveItem(DBConstants.ID_LOGIN_MEMBER,JsonConvert.SerializeObject(SessionModel.loginMember));
             }
 
@@ -56,10 +56,10 @@ namespace MasterQ
 		{
             LogoutRq req = LoginService.getInstance().getLogoutRq(SessionModel.loginMember);
             LogoutRs res = LoginService.getInstance().callLogout(req);
-            SessionModel.loginMember = null;
 
             if (res.header.isSuccess)
             {
+                SessionModel.loginMember = null;
                 App.Database.DeleteItem(DBConstants.ID_LOGIN_MEMBER);
             }
 

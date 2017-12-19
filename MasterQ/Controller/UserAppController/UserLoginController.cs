@@ -24,9 +24,9 @@ namespace MasterQ
 
 			UserLoginRq req = UserLoginService.getInstance().getUserLoginRq(input);
 			UserLoginRs res = UserLoginService.getInstance().CallLogin(req);
-			UserSessionModel.loginUser = res.user;
 
             if(res.header.isSuccess){
+                UserSessionModel.loginUser = res.user;
                 App.Database.SaveItem(DBConstants.ID_LOGIN_USER, JsonConvert.SerializeObject(UserSessionModel.loginUser));
             }
 
@@ -37,10 +37,10 @@ namespace MasterQ
 		{
             UserLogoutRq req = UserLoginService.getInstance().getUserLogoutRq(UserSessionModel.loginUser);
             UserLogoutRs res = UserLoginService.getInstance().callLogout(req);
-            UserSessionModel.loginUser = null;
 
             if (res.header.isSuccess)
             {
+                UserSessionModel.loginUser = null;
                 App.Database.DeleteItem(DBConstants.ID_LOGIN_USER);
             }
 

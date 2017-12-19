@@ -23,10 +23,10 @@ namespace MasterQ
 
             BranchLoginRq req = BranchLoginService.getInstance().getBranchLoginRq(input);
             BranchLoginRs res = BranchLoginService.getInstance().CallLogin(req);
-            BranchSessionModel.loginBranch = res.branch;
 
             if (res.header.isSuccess)
             {
+                BranchSessionModel.loginBranch = res.branch;
                 App.Database.SaveItem(DBConstants.ID_LOGIN_BRANCH, JsonConvert.SerializeObject(BranchSessionModel.loginBranch));
             }
 
@@ -38,10 +38,10 @@ namespace MasterQ
 		{
             BranchLogoutRq req = BranchLoginService.getInstance().getBranchLogoutRq(BranchSessionModel.loginBranch);
             BranchLogoutRs res = BranchLoginService.getInstance().callLogout(req);
-            BranchSessionModel.loginBranch = null;
 
             if (res.header.isSuccess)
             {
+                BranchSessionModel.loginBranch = null;
                 App.Database.DeleteItem(DBConstants.ID_LOGIN_BRANCH);
             }
 
