@@ -10,7 +10,10 @@ using Android.OS;
 
 namespace MasterQ.Droid
 {
-    [Activity(Label = "MasterQ", Theme = "@style/MyTheme")]
+    [Activity(Label = "MasterQ", Theme = "@style/MyTheme", 
+              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+              ScreenOrientation = ScreenOrientation.Portrait)]
+            //ScreenOrientation = ScreenOrientation.Landscape)])]
 
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
