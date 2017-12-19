@@ -19,23 +19,16 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" customColorSpace="sRGB" colorSpace="calibratedRGB" red="0.066666666666666666" green="0.19607843137254902" blue="0.29411764705882354" alpha="1"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="logo.png" semanticContentAttribute="forceRightToLeft">
-                                <rect key="frame" x="84" y="207" width="207" height="203"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="manWithBubble_Q.png" semanticContentAttribute="forceRightToLeft">
+                                <rect key="frame" x="0.0" y="174" width="375" height="288"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinX="YES" flexibleMaxY="YES" flexibleMinY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="bottom" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="D-Sci Comparation Co.,Ltd." minimumFontSize="17" id="1181" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" textAlignment="center">
-                                <rect key="frame" x="0.0" y="619" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <color key="textColor" colorSpace="calibratedRGB" red="0.090196078431372548" green="0.611764705882353" blue="0.71764705882352942" alpha="1"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14" weight="medium"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" staticText="YES"/>
                         </accessibility>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                     </view>
                     <connections/>
                 </viewController>
@@ -74,7 +67,7 @@
         <image name="icn_phone.png" width="50" height="50"/>
         <image name="icn_usename.png" width="50" height="50"/>
         <image name="man.png" width="585" height="371"/>
-        <image name="manWithBubble_Q.png" width="2000" height="2000"/>
+        <image name="manWithBubble_Q.png" width="1753" height="1240"/>
         <image name="btn_back_click.png" width="110" height="110"/>
         <image name="btn_back.png" width="110" height="110"/>
         <image name="btn_booking_click.png" width="110" height="110"/>
