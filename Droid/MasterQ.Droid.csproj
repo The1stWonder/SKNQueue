@@ -186,6 +186,7 @@
     <Compile Include="FileHelper.cs" />
     <Compile Include="Resources\SocketClient.cs" />
     <Compile Include="Resources\Noti.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -466,6 +467,9 @@
     <AndroidResource Include="..\MasterQ\Image\btn_picup3.png">
       <Link>Resources\drawable-xxhdpi\btn_picup3.png</Link>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\splash_logo.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

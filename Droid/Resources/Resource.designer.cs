@@ -1266,44 +1266,44 @@ namespace MasterQ.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f080052
-			public const int abc_background_cache_hint_selector_material_dark = 2131230802;
-			
-			// aapt resource value: 0x7f080053
-			public const int abc_background_cache_hint_selector_material_light = 2131230803;
-			
-			// aapt resource value: 0x7f080054
-			public const int abc_btn_colored_borderless_text_material = 2131230804;
-			
-			// aapt resource value: 0x7f080055
-			public const int abc_btn_colored_text_material = 2131230805;
-			
 			// aapt resource value: 0x7f080056
-			public const int abc_color_highlight_material = 2131230806;
+			public const int abc_background_cache_hint_selector_material_dark = 2131230806;
 			
 			// aapt resource value: 0x7f080057
-			public const int abc_hint_foreground_material_dark = 2131230807;
+			public const int abc_background_cache_hint_selector_material_light = 2131230807;
 			
 			// aapt resource value: 0x7f080058
-			public const int abc_hint_foreground_material_light = 2131230808;
+			public const int abc_btn_colored_borderless_text_material = 2131230808;
+			
+			// aapt resource value: 0x7f080059
+			public const int abc_btn_colored_text_material = 2131230809;
+			
+			// aapt resource value: 0x7f08005a
+			public const int abc_color_highlight_material = 2131230810;
+			
+			// aapt resource value: 0x7f08005b
+			public const int abc_hint_foreground_material_dark = 2131230811;
+			
+			// aapt resource value: 0x7f08005c
+			public const int abc_hint_foreground_material_light = 2131230812;
 			
 			// aapt resource value: 0x7f08000d
 			public const int abc_input_method_navigation_guard = 2131230733;
 			
-			// aapt resource value: 0x7f080059
-			public const int abc_primary_text_disable_only_material_dark = 2131230809;
-			
-			// aapt resource value: 0x7f08005a
-			public const int abc_primary_text_disable_only_material_light = 2131230810;
-			
-			// aapt resource value: 0x7f08005b
-			public const int abc_primary_text_material_dark = 2131230811;
-			
-			// aapt resource value: 0x7f08005c
-			public const int abc_primary_text_material_light = 2131230812;
-			
 			// aapt resource value: 0x7f08005d
-			public const int abc_search_url_text = 2131230813;
+			public const int abc_primary_text_disable_only_material_dark = 2131230813;
+			
+			// aapt resource value: 0x7f08005e
+			public const int abc_primary_text_disable_only_material_light = 2131230814;
+			
+			// aapt resource value: 0x7f08005f
+			public const int abc_primary_text_material_dark = 2131230815;
+			
+			// aapt resource value: 0x7f080060
+			public const int abc_primary_text_material_light = 2131230816;
+			
+			// aapt resource value: 0x7f080061
+			public const int abc_search_url_text = 2131230817;
 			
 			// aapt resource value: 0x7f08000e
 			public const int abc_search_url_text_normal = 2131230734;
@@ -1314,32 +1314,35 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f080010
 			public const int abc_search_url_text_selected = 2131230736;
 			
-			// aapt resource value: 0x7f08005e
-			public const int abc_secondary_text_material_dark = 2131230814;
-			
-			// aapt resource value: 0x7f08005f
-			public const int abc_secondary_text_material_light = 2131230815;
-			
-			// aapt resource value: 0x7f080060
-			public const int abc_tint_btn_checkable = 2131230816;
-			
-			// aapt resource value: 0x7f080061
-			public const int abc_tint_default = 2131230817;
-			
 			// aapt resource value: 0x7f080062
-			public const int abc_tint_edittext = 2131230818;
+			public const int abc_secondary_text_material_dark = 2131230818;
 			
 			// aapt resource value: 0x7f080063
-			public const int abc_tint_seek_thumb = 2131230819;
+			public const int abc_secondary_text_material_light = 2131230819;
 			
 			// aapt resource value: 0x7f080064
-			public const int abc_tint_spinner = 2131230820;
+			public const int abc_tint_btn_checkable = 2131230820;
 			
 			// aapt resource value: 0x7f080065
-			public const int abc_tint_switch_thumb = 2131230821;
+			public const int abc_tint_default = 2131230821;
 			
 			// aapt resource value: 0x7f080066
-			public const int abc_tint_switch_track = 2131230822;
+			public const int abc_tint_edittext = 2131230822;
+			
+			// aapt resource value: 0x7f080067
+			public const int abc_tint_seek_thumb = 2131230823;
+			
+			// aapt resource value: 0x7f080068
+			public const int abc_tint_spinner = 2131230824;
+			
+			// aapt resource value: 0x7f080069
+			public const int abc_tint_switch_thumb = 2131230825;
+			
+			// aapt resource value: 0x7f08006a
+			public const int abc_tint_switch_track = 2131230826;
+			
+			// aapt resource value: 0x7f080054
+			public const int accent = 2131230804;
 			
 			// aapt resource value: 0x7f080011
 			public const int accent_material_dark = 2131230737;
@@ -1395,8 +1398,8 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f08000b
 			public const int cardview_shadow_start_color = 2131230731;
 			
-			// aapt resource value: 0x7f080067
-			public const int common_google_signin_btn_text_dark = 2131230823;
+			// aapt resource value: 0x7f08006b
+			public const int common_google_signin_btn_text_dark = 2131230827;
 			
 			// aapt resource value: 0x7f080000
 			public const int common_google_signin_btn_text_dark_default = 2131230720;
@@ -1410,8 +1413,8 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f080003
 			public const int common_google_signin_btn_text_dark_pressed = 2131230723;
 			
-			// aapt resource value: 0x7f080068
-			public const int common_google_signin_btn_text_light = 2131230824;
+			// aapt resource value: 0x7f08006c
+			public const int common_google_signin_btn_text_light = 2131230828;
 			
 			// aapt resource value: 0x7f080004
 			public const int common_google_signin_btn_text_light_default = 2131230724;
@@ -1425,14 +1428,14 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f080007
 			public const int common_google_signin_btn_text_light_pressed = 2131230727;
 			
-			// aapt resource value: 0x7f080069
-			public const int common_google_signin_btn_tint = 2131230825;
+			// aapt resource value: 0x7f08006d
+			public const int common_google_signin_btn_tint = 2131230829;
 			
 			// aapt resource value: 0x7f080047
 			public const int design_bottom_navigation_shadow_color = 2131230791;
 			
-			// aapt resource value: 0x7f08006a
-			public const int design_error = 2131230826;
+			// aapt resource value: 0x7f08006e
+			public const int design_error = 2131230830;
 			
 			// aapt resource value: 0x7f080048
 			public const int design_fab_shadow_end_color = 2131230792;
@@ -1464,8 +1467,8 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f080051
 			public const int design_textinput_error_color_light = 2131230801;
 			
-			// aapt resource value: 0x7f08006b
-			public const int design_tint_password_toggle = 2131230827;
+			// aapt resource value: 0x7f08006f
+			public const int design_tint_password_toggle = 2131230831;
 			
 			// aapt resource value: 0x7f08001f
 			public const int dim_foreground_disabled_material_dark = 2131230751;
@@ -1536,6 +1539,12 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f080034
 			public const int notification_material_background_media_default_color = 2131230772;
 			
+			// aapt resource value: 0x7f080052
+			public const int primary = 2131230802;
+			
+			// aapt resource value: 0x7f080053
+			public const int primaryDark = 2131230803;
+			
 			// aapt resource value: 0x7f080035
 			public const int primary_dark_material_dark = 2131230773;
 			
@@ -1578,17 +1587,20 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f080042
 			public const int secondary_text_disabled_material_light = 2131230786;
 			
+			// aapt resource value: 0x7f080055
+			public const int splash_background = 2131230805;
+			
 			// aapt resource value: 0x7f080043
 			public const int switch_thumb_disabled_material_dark = 2131230787;
 			
 			// aapt resource value: 0x7f080044
 			public const int switch_thumb_disabled_material_light = 2131230788;
 			
-			// aapt resource value: 0x7f08006c
-			public const int switch_thumb_material_dark = 2131230828;
+			// aapt resource value: 0x7f080070
+			public const int switch_thumb_material_dark = 2131230832;
 			
-			// aapt resource value: 0x7f08006d
-			public const int switch_thumb_material_light = 2131230829;
+			// aapt resource value: 0x7f080071
+			public const int switch_thumb_material_light = 2131230833;
 			
 			// aapt resource value: 0x7f080045
 			public const int switch_thumb_normal_material_dark = 2131230789;
@@ -2318,26 +2330,26 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02017b
-			public const int avd_hide_password_1 = 2130837883;
-			
-			// aapt resource value: 0x7f02017c
-			public const int avd_hide_password_2 = 2130837884;
-			
 			// aapt resource value: 0x7f02017d
-			public const int avd_hide_password_3 = 2130837885;
+			public const int avd_hide_password_1 = 2130837885;
+			
+			// aapt resource value: 0x7f02017e
+			public const int avd_hide_password_2 = 2130837886;
+			
+			// aapt resource value: 0x7f02017f
+			public const int avd_hide_password_3 = 2130837887;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02017e
-			public const int avd_show_password_1 = 2130837886;
-			
-			// aapt resource value: 0x7f02017f
-			public const int avd_show_password_2 = 2130837887;
-			
 			// aapt resource value: 0x7f020180
-			public const int avd_show_password_3 = 2130837888;
+			public const int avd_show_password_1 = 2130837888;
+			
+			// aapt resource value: 0x7f020181
+			public const int avd_show_password_2 = 2130837889;
+			
+			// aapt resource value: 0x7f020182
+			public const int avd_show_password_3 = 2130837890;
 			
 			// aapt resource value: 0x7f020055
 			public const int bg = 2130837589;
@@ -3164,11 +3176,11 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f020167
 			public const int notification_icon_background = 2130837863;
 			
-			// aapt resource value: 0x7f020179
-			public const int notification_template_icon_bg = 2130837881;
+			// aapt resource value: 0x7f02017b
+			public const int notification_template_icon_bg = 2130837883;
 			
-			// aapt resource value: 0x7f02017a
-			public const int notification_template_icon_low_bg = 2130837882;
+			// aapt resource value: 0x7f02017c
+			public const int notification_template_icon_low_bg = 2130837884;
 			
 			// aapt resource value: 0x7f020168
 			public const int notification_tile_bg = 2130837864;
@@ -3201,25 +3213,31 @@ namespace MasterQ.Droid
 			public const int QcircleSkip = 2130837873;
 			
 			// aapt resource value: 0x7f020172
-			public const int thailand = 2130837874;
+			public const int splash_logo = 2130837874;
 			
 			// aapt resource value: 0x7f020173
-			public const int ticket = 2130837875;
+			public const int splash_screen = 2130837875;
 			
 			// aapt resource value: 0x7f020174
-			public const int ticket2 = 2130837876;
+			public const int thailand = 2130837876;
 			
 			// aapt resource value: 0x7f020175
-			public const int ticket4 = 2130837877;
+			public const int ticket = 2130837877;
 			
 			// aapt resource value: 0x7f020176
-			public const int unitedkingdom = 2130837878;
+			public const int ticket2 = 2130837878;
 			
 			// aapt resource value: 0x7f020177
-			public const int user = 2130837879;
+			public const int ticket4 = 2130837879;
 			
 			// aapt resource value: 0x7f020178
-			public const int username_icon = 2130837880;
+			public const int unitedkingdom = 2130837880;
+			
+			// aapt resource value: 0x7f020179
+			public const int user = 2130837881;
+			
+			// aapt resource value: 0x7f02017a
+			public const int username_icon = 2130837882;
 			
 			static Drawable()
 			{
@@ -4886,6 +4904,9 @@ namespace MasterQ.Droid
 			
 			// aapt resource value: 0x7f0d018a
 			public const int MyTheme_Base = 2131558794;
+			
+			// aapt resource value: 0x7f0d018c
+			public const int MyTheme_Splash = 2131558796;
 			
 			// aapt resource value: 0x7f0d002d
 			public const int Platform_AppCompat = 2131558445;

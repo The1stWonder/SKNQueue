@@ -10,9 +10,7 @@ using Android.OS;
 
 namespace MasterQ.Droid
 {
-	[Activity(Label = "MasterQ.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, 
-              ScreenOrientation = ScreenOrientation.Portrait)]
-              //ScreenOrientation = ScreenOrientation.Landscape)]
+    [Activity(Label = "MasterQ", Theme = "@style/MyTheme")]
 
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
@@ -21,10 +19,7 @@ namespace MasterQ.Droid
 
 		protected override void OnCreate(Bundle bundle)
 		{
-			TabLayoutResource = Resource.Layout.Tabbar;
-			ToolbarResource = Resource.Layout.Toolbar;
-
-			base.OnCreate(bundle);
+        			base.OnCreate(bundle);
 
             notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
