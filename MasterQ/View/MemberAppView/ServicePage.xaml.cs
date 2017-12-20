@@ -38,7 +38,7 @@ namespace MasterQ
                 if (!ChkQ.isSuccess)
                 {
                     App.TextSearch = "";
-                    await DisplayAlert("Click", ChkQ.getDescription(), "Close");
+                    await DisplayAlert("", ChkQ.getDescription(), "Close");
                     SessionModel.bookingQ = null;
                 }
                 else

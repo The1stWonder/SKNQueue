@@ -59,7 +59,7 @@ namespace MasterQ
                 BranchView.ItemsSource = Branch;
                 if (!uiR.isSuccess)
                 {
-                    DisplayAlert("Click", uiR.descriptionEN, "Cancel");
+                    DisplayAlert("", uiR.descriptionEN, "Cancel");
                 }
             }
 		}
@@ -99,7 +99,7 @@ namespace MasterQ
                 BranchView.ItemsSource = Branch;
                 if (!uiR.isSuccess)
                 {
-                    DisplayAlert("Click", uiR.descriptionEN, "Cancel");
+                    DisplayAlert("", uiR.descriptionEN, "Cancel");
                 }
             }
 		}

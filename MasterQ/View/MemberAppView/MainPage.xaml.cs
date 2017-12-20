@@ -21,23 +21,40 @@ namespace MasterQ
             btn_cancel.IsVisible = false;
             btn_cancel2.IsVisible = false;
 
+            //if (App.Thai == true)
+            //{
+            //    Utils.changeAppLanguageToThai();
+            //    LanguageThai.IsVisible = false;
+            //    LanguageThai.IsEnabled = false;
+
+            //    LanguageEng.IsVisible = true;
+            //    LanguageEng.IsEnabled = true;
+            //}
+            //else
+            //{
+            //    Utils.changeAppLanguageToEng();
+            //    LanguageThai.IsVisible = true;
+            //    LanguageThai.IsEnabled = true;
+
+            //    LanguageEng.IsVisible = false;
+            //    LanguageEng.IsEnabled = false;
+            //}
+
             if (App.Thai == true)
             {
-                Utils.changeAppLanguageToThai();
-                LanguageThai.IsVisible = false;
-                LanguageThai.IsEnabled = false;
-
-                LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = true;
-            }
-            else
-            {
-                Utils.changeAppLanguageToEng();
                 LanguageThai.IsVisible = true;
                 LanguageThai.IsEnabled = true;
 
                 LanguageEng.IsVisible = false;
                 LanguageEng.IsEnabled = false;
+            }
+            else
+            {
+                LanguageThai.IsVisible = false;
+                LanguageThai.IsEnabled = false;
+
+                LanguageEng.IsVisible = true;
+                LanguageEng.IsEnabled = true;
             }
 
             Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
@@ -444,13 +461,21 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToThai();
+            //Utils.changeAppLanguageToThai();
+            //LanguageThai.IsVisible = false;
+            //LanguageThai.IsEnabled = false;
+
+            //LanguageEng.IsVisible = true;
+            //LanguageEng.IsEnabled = true;
+            //App.Thai = true;
+
+            Utils.changeAppLanguageToEng();
             LanguageThai.IsVisible = false;
             LanguageThai.IsEnabled = false;
 
             LanguageEng.IsVisible = true;
             LanguageEng.IsEnabled = true;
-            App.Thai = true;
+            App.Thai = false;
 
             if (SessionModel.bookingQ == null)
             {
@@ -473,18 +498,30 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToEng();
+            //Utils.changeAppLanguageToEng();
+            //LanguageThai.IsVisible = true;
+            //LanguageThai.IsEnabled = true;
+
+            //LanguageEng.IsVisible = false;
+            //LanguageEng.IsEnabled = false;
+            //App.Thai = false;
+
+            Utils.changeAppLanguageToThai();
             LanguageThai.IsVisible = true;
             LanguageThai.IsEnabled = true;
 
             LanguageEng.IsVisible = false;
             LanguageEng.IsEnabled = false;
-            App.Thai = false;
+            App.Thai = true;
 
             if (SessionModel.bookingQ == null)
             {
                 App.timercheck = false;
                 App.RePage = true;
+
+                App.timercheck = false;
+                App.RePage = true;
+
                 Navigation.InsertPageBefore(new MainPage(), this);
                 Navigation.PopAsync();
             }
@@ -494,6 +531,7 @@ namespace MasterQ
                 {
                     App.timercheck = false;
                     App.RePage = true;
+
                     Navigation.InsertPageBefore(new MainPage(), this);
                     Navigation.PopAsync();
                 }

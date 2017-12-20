@@ -37,6 +37,8 @@ namespace MasterQ
                 Initiallogin = true;
             }
 
+            Utils.changeAppLanguageToThai();
+
             if (Constants.isAppForMember())
             {
                 MainPage = new NavigationPage(new LoginPage());

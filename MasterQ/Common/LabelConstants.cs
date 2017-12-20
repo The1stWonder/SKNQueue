@@ -38,5 +38,7 @@ namespace MasterQ
         public static int LOGIN_PAGE_NOINTERNET = 101;
         public static int MAIN_PAGE_NOINFORMATION = 102;
         public static int MAIN_PAGE_QBLOCK = 103;
+        public static int PROFILE_PAGE_EDITPROFILE = 106;
+        public static int PROFILE_PAGE_EDITPASSWORD = 107;
     }
 }

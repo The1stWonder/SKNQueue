@@ -20,26 +20,47 @@ namespace MasterQ
                     App.Initiallogin = false;
                 }
 
+                //if (App.Thai == true)
+                //{
+                //    LanguageThai.IsVisible = false;
+                //    LanguageThai.IsEnabled = false;
+
+                //    LanguageEng.IsVisible = true;
+                //    LanguageEng.IsEnabled = true;
+
+                //    Signin1.IsVisible = false;
+                //    Signin2.IsVisible = true;
+                //}
+                //else
+                //{
+                //    LanguageThai.IsVisible = true;
+                //    LanguageThai.IsEnabled = true;
+
+                //    LanguageEng.IsVisible = false;
+                //    LanguageEng.IsEnabled = false;
+
+                //    Signin1.IsVisible = true;
+                //    Signin2.IsVisible = false;
+                //}
+
                 if (App.Thai == true)
                 {
-                    Utils.changeAppLanguageToThai();
-                    LanguageThai.IsVisible = false;
-                    LanguageThai.IsEnabled = false;
+                    LanguageThai.IsVisible = true;
+                    LanguageThai.IsEnabled = true;
 
-                    LanguageEng.IsVisible = true;
-                    LanguageEng.IsEnabled = true;
+                    LanguageEng.IsVisible = false;
+                    LanguageEng.IsEnabled = false;
 
                     Signin1.IsVisible = false;
                     Signin2.IsVisible = true;
                 }
                 else
                 {
-                    Utils.changeAppLanguageToEng();
-                    LanguageThai.IsVisible = true;
-                    LanguageThai.IsEnabled = true;
+                    LanguageThai.IsVisible = false;
+                    LanguageThai.IsEnabled = false;
 
-                    LanguageEng.IsVisible = false;
-                    LanguageEng.IsEnabled = false;
+                    LanguageEng.IsVisible = true;
+                    LanguageEng.IsEnabled = true;
 
                     Signin1.IsVisible = true;
                     Signin2.IsVisible = false;
@@ -189,9 +210,13 @@ namespace MasterQ
                 }
                 else
                 {
+                    //App.RePagelogin = false;
+                    //Utils.changeAppLanguageToThai();
+                    //App.Thai = true;
+
                     App.RePagelogin = false;
-                    Utils.changeAppLanguageToThai();
-                    App.Thai = true;
+                    Utils.changeAppLanguageToEng();
+                    App.Thai = false;
 
                     Navigation.InsertPageBefore(new LoginPage(), this);
                     Navigation.PopAsync();
@@ -215,9 +240,13 @@ namespace MasterQ
                 }
                 else
                 {
+                    //App.RePagelogin = false;
+                    //Utils.changeAppLanguageToEng();
+                    //App.Thai = false;
+
                     App.RePagelogin = false;
-                    Utils.changeAppLanguageToEng();
-                    App.Thai = false;
+                    Utils.changeAppLanguageToThai();
+                    App.Thai = true;
 
                     Navigation.InsertPageBefore(new LoginPage(), this);
                     Navigation.PopAsync();

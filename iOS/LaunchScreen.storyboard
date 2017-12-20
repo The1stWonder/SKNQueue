@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="LogoStart.png" semanticContentAttribute="forceRightToLeft">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="manWithBubble_Q.png" semanticContentAttribute="forceRightToLeft" highlightedImage="LogoStart.png" highlighted="YES">
                                 <rect key="frame" x="0.0" y="198" width="414" height="288"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinX="YES" flexibleMaxY="YES" flexibleMinY="YES"/>
                             </imageView>

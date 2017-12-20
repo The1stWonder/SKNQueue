@@ -90,7 +90,7 @@
         <Entry
             x:Name="mNameEntry"
             WidthRequest="20"
-            Placeholder="Name"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="1"
@@ -98,17 +98,11 @@
         <Entry
             x:Name="mLastNameEntry"
             WidthRequest="20"
-            Placeholder="LastName"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="1"
         Grid.Column="2"/>
-        <!--<Image 
-            Margin="5,0,5,0"
-            Grid.Row="2"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="3"
@@ -119,18 +113,12 @@
             x:Name="mEmailEntry"
             WidthRequest="20"
             Keyboard="Email"
-            Placeholder="Email"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="3"
         Grid.Column="1"
         Grid.ColumnSpan="2"/>
-        <!--<Image 
-           Margin="5,0,5,0"
-            Grid.Row="4"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="5"
@@ -139,19 +127,13 @@
         HeightRequest="10" />
         <Entry
             x:Name="mPhone"
-            Placeholder="Tel"
+            Placeholder=""
             TextColor="Black"
             Keyboard="Numeric"
             BackgroundColor="White"
             Grid.Row="5"
             Grid.ColumnSpan="2"
         Grid.Column="1"/>
-        <!--<Image 
-            Margin="5,0,5,0"
-            Grid.Row="6"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-        Source="divider.png" />-->
         <Image
             Margin="5,0,5,0"
             Grid.Row="7"
@@ -193,7 +175,7 @@
         <Entry
             x:Name="mPasswordEntry"
             IsPassword="true"
-            Placeholder="Password"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="11"
@@ -208,7 +190,7 @@
         <Entry
             x:Name="mPassword2Entry"
             IsPassword="true"
-            Placeholder="Confirm Password"
+            Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="12"
