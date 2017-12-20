@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ZXing.Net.Mobile.Forms;
 using System.Threading.Tasks;
 using MasterQ.Helpers;
+using Plugin.Connectivity;
 
 using Xamarin.Forms;
 using ZXing.Mobile;
@@ -40,62 +41,65 @@ namespace MasterQ
             //    LanguageEng.IsEnabled = false;
             //}
 
-            if (App.Thai == true)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                LanguageThai.IsVisible = true;
-                LanguageThai.IsEnabled = true;
-
-                LanguageEng.IsVisible = false;
-                LanguageEng.IsEnabled = false;
-            }
-            else
-            {
-                LanguageThai.IsVisible = false;
-                LanguageThai.IsEnabled = false;
-
-                LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = true;
-            }
-
-            Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
-            Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
-            Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
-            YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
-            AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
-            WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
-
-
-            if (SessionModel.loginMember != null)
-            {
-                UserNames.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HELLO) + " " + SessionModel.loginMember.firstName + "  " + SessionModel.loginMember.lastName;
-            }
-
-            if (SessionModel.bookingQ != null)
-            {
-                if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                if (App.Thai == true)
                 {
-                    if (App.fristtime)
-                    {
-                        NumberQ.Text = SessionModel.bookingQ.queueNumber;
-                        NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
-                        App.timercheck = true;
-                        App.timerStart();
-                        App.RePage = false;
-                    }
+                    LanguageThai.IsVisible = true;
+                    LanguageThai.IsEnabled = true;
 
-                    if (SessionModel.bookingQ.queueNumber != "0" || SessionModel.bookingQ.queueNumber != "" || SessionModel.bookingQ.queueNumber != null)
+                    LanguageEng.IsVisible = false;
+                    LanguageEng.IsEnabled = false;
+                }
+                else
+                {
+                    LanguageThai.IsVisible = false;
+                    LanguageThai.IsEnabled = false;
+
+                    LanguageEng.IsVisible = true;
+                    LanguageEng.IsEnabled = true;
+                }
+
+                Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
+                Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
+                Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
+                YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
+                AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
+                WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+
+
+                if (SessionModel.loginMember != null)
+                {
+                    UserNames.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HELLO) + " " + SessionModel.loginMember.firstName + "  " + SessionModel.loginMember.lastName;
+                }
+
+                if (SessionModel.bookingQ != null)
+                {
+                    if (!String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                     {
-                        if (App.Thai == true)
+                        if (App.fristtime)
                         {
-                            btn_cancel2.IsVisible = true;
-                        }
-                        else
-                        {
-                            btn_cancel.IsVisible = true;
+                            NumberQ.Text = SessionModel.bookingQ.queueNumber;
+                            NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                            App.timercheck = true;
+                            App.timerStart();
+                            App.RePage = false;
                         }
 
-                        Process(); 
-                        App.RePage = false;
+                        if (SessionModel.bookingQ.queueNumber != "0" || SessionModel.bookingQ.queueNumber != "" || SessionModel.bookingQ.queueNumber != null)
+                        {
+                            if (App.Thai == true)
+                            {
+                                btn_cancel2.IsVisible = true;
+                            }
+                            else
+                            {
+                                btn_cancel.IsVisible = true;
+                            }
+
+                            Process();
+                            App.RePage = false;
+                        }
                     }
                 }
             }
@@ -126,118 +130,121 @@ namespace MasterQ
                 {
                     if (SessionModel.bookingQ != null)
                     {
-                        if (CountstartMain == true)
+                        if (CrossConnectivity.Current.IsConnected)
                         {
-                            App.Recount = App.Recount + 1;
-                        }
-                        TimeSpan time = TimeSpan.FromSeconds(App.timercount);
-
-                        TimesQ.Text = time.ToString(@"hh\:mm\:ss");
-
-                        if (App.timercount <= 900 && App.Massage15 == true)
-                        {
-                            DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, Utils.getLabel(LabelConstants.MAIN_PAGE_NOTIFICATION1));
-                            App.Massage15 = false;
-                        }
-
-                        if (App.timercount <= 300 && App.Massage5 == true)
-                        {
-                            DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, Utils.getLabel(LabelConstants.MAIN_PAGE_NOTIFICATION2));
-                            App.Massage5 = false;
-                        }
-
-                        if (App.timercount == 0 && App.Massage0 == true)
-                        {
-                            DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
-                            App.Massage0 = false;
-                        }
-
-                        if (!ChkQueue.isSuccess)
-                        {
-                            DisplayAlert("", ChkQueue.getDescription(), "Close");
-                            TimesQ.Text = "00:00:00";
-                            App.timercheck = false;
-                        }
-                        else
-                        {
-                            DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
-                            NumberQ.Text = SessionModel.bookingQ.queueNumber;
-                            NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
-                            if (SessionModel.loginMember != null)
+                            if (CountstartMain == true)
                             {
-                                UserNames.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HELLO) + " " + SessionModel.loginMember.firstName + "  " + SessionModel.loginMember.lastName;
+                                App.Recount = App.Recount + 1;
+                            }
+                            TimeSpan time = TimeSpan.FromSeconds(App.timercount);
+
+                            TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+
+                            if (App.timercount <= 900 && App.Massage15 == true)
+                            {
+                                DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, Utils.getLabel(LabelConstants.MAIN_PAGE_NOTIFICATION1));
+                                App.Massage15 = false;
                             }
 
-                            Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
-                            Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
-                            Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
-                            YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
-                            AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
-                            WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
-
-                            if (App.Thai == true)
+                            if (App.timercount <= 300 && App.Massage5 == true)
                             {
-                                btn_cancel.IsVisible = false;
-                                btn_cancel2.IsVisible = true;
-                            }
-                            else
-                            {
-                                btn_cancel.IsVisible = true;
-                                btn_cancel2.IsVisible = false;
+                                DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, Utils.getLabel(LabelConstants.MAIN_PAGE_NOTIFICATION2));
+                                App.Massage5 = false;
                             }
 
-                            if (App.timercount == 0)
+                            if (App.timercount == 0 && App.Massage0 == true)
                             {
-                                TimesQ.Text = "00:00:00";
-                            }
-                        }
-
-                        if (App.Recount == 10)
-                        {
-                            App.Recount = 0;
-
-                            Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
-                            ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
-                            if (ChkTime2 < App.timercount)
-                            {
-                                ChkTime = SessionModel.bookingQ.estimateTime * 60;
-                                App.timercount = SessionModel.bookingQ.estimateTime * 60;
-                                NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                                DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore));
+                                App.Massage0 = false;
                             }
 
-                            ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
                             if (!ChkQueue.isSuccess)
                             {
-                                App.timercheck = false;
                                 DisplayAlert("", ChkQueue.getDescription(), "Close");
                                 TimesQ.Text = "00:00:00";
+                                App.timercheck = false;
                             }
                             else
                             {
-                                if (ChkQueue.id == 58)
+                                DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                                NumberQ.Text = SessionModel.bookingQ.queueNumber;
+                                NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                                if (SessionModel.loginMember != null)
                                 {
-                                    DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
-                                    DetailQ.Text = ChkQueue.getDescription();
-                                    App.timercheck = false;
-                                    CountstartMain = false;
-                                    Navigation.PushAsync(new RatingPage());
+                                    UserNames.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HELLO) + " " + SessionModel.loginMember.firstName + "  " + SessionModel.loginMember.lastName;
+                                }
+
+                                Main_History.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
+                                Main_Booking.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING);
+                                Main_QR.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_QR);
+                                YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
+                                AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
+                                WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+
+                                if (App.Thai == true)
+                                {
+                                    btn_cancel.IsVisible = false;
+                                    btn_cancel2.IsVisible = true;
+                                }
+                                else
+                                {
+                                    btn_cancel.IsVisible = true;
+                                    btn_cancel2.IsVisible = false;
+                                }
+
+                                if (App.timercount == 0)
+                                {
                                     TimesQ.Text = "00:00:00";
                                 }
-                                else if (ChkQueue.id == 63)
+                            }
+
+                            if (App.Recount == 10)
+                            {
+                                App.Recount = 0;
+
+                                Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
+                                ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
+                                if (ChkTime2 < App.timercount)
                                 {
-                                    DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
-                                    SessionModel.clearQueue();
-                                    DetailQ.Text = ChkQueue.getDescription();
-                                    NumberQ.Text = "-";
+                                    ChkTime = SessionModel.bookingQ.estimateTime * 60;
+                                    App.timercount = SessionModel.bookingQ.estimateTime * 60;
+                                    NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                                }
+
+                                ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
+                                if (!ChkQueue.isSuccess)
+                                {
                                     App.timercheck = false;
-                                    CountstartMain = false;
+                                    DisplayAlert("", ChkQueue.getDescription(), "Close");
                                     TimesQ.Text = "00:00:00";
                                 }
                                 else
                                 {
-                                    if (SessionModel.bookingQ != null)
+                                    if (ChkQueue.id == 58)
                                     {
-                                        DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                                        DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
+                                        DetailQ.Text = ChkQueue.getDescription();
+                                        App.timercheck = false;
+                                        CountstartMain = false;
+                                        Navigation.PushAsync(new RatingPage());
+                                        TimesQ.Text = "00:00:00";
+                                    }
+                                    else if (ChkQueue.id == 63)
+                                    {
+                                        DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, ChkQueue.getDescription());
+                                        SessionModel.clearQueue();
+                                        DetailQ.Text = ChkQueue.getDescription();
+                                        NumberQ.Text = "-";
+                                        App.timercheck = false;
+                                        CountstartMain = false;
+                                        TimesQ.Text = "00:00:00";
+                                    }
+                                    else
+                                    {
+                                        if (SessionModel.bookingQ != null)
+                                        {
+                                            DetailQ.Text = String.Format(ChkQueue.getDescription(), SessionModel.bookingQ.queueBefore);
+                                        }
                                     }
                                 }
                             }
@@ -257,23 +264,26 @@ namespace MasterQ
 
         async void OnImageMainExit(object sender, System.EventArgs args)
         {
-            var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
-            if (answer == true)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                UIReturn Chklogout = LoginController.getInstance().LogutMember();
-                if (!Chklogout.isSuccess)
+                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
+                if (answer == true)
                 {
-                    App.timercheck = false;
-                    CountstartMain = false;
-                    await DisplayAlert("", Chklogout.getDescription(), "Close");
-                }
-                else
-                {
-                    App.timercheck = false;
-                    CountstartMain = false;
-                    SessionModel.bookingQ = null;
-                    Navigation.InsertPageBefore(new LoginPage(), this);
-                    await Navigation.PopAsync();
+                    UIReturn Chklogout = LoginController.getInstance().LogutMember();
+                    if (!Chklogout.isSuccess)
+                    {
+                        App.timercheck = false;
+                        CountstartMain = false;
+                        await DisplayAlert("", Chklogout.getDescription(), "Close");
+                    }
+                    else
+                    {
+                        App.timercheck = false;
+                        CountstartMain = false;
+                        SessionModel.bookingQ = null;
+                        Navigation.InsertPageBefore(new LoginPage(), this);
+                        await Navigation.PopAsync();
+                    }
                 }
             }
         }
@@ -287,100 +297,106 @@ namespace MasterQ
 
         public void OnImageQueuePage(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+            if (CrossConnectivity.Current.IsConnected)
             {
-                App.TextSearch = "";
-                CountstartMain = false;
-                Navigation.InsertPageBefore(new SearchPage(), this);
-                Navigation.PopAsync();
-            }
-            else
-            {
-                DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                {
+                    App.TextSearch = "";
+                    CountstartMain = false;
+                    Navigation.InsertPageBefore(new SearchPage(), this);
+                    Navigation.PopAsync();
+                }
+                else
+                {
+                    DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                }
             }
         }
 
         public void OnImageQRcodePage(object sender, System.EventArgs args)
         {
-            App.TextSearch = "";
-            bool CheckQR = false;
-            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+            if (CrossConnectivity.Current.IsConnected)
             {
-                Branch b = new Branch();
-                Branch BranchID = new Branch();
-                double BranchNumber;
-                var scanPage = new ZXingScannerPage();
-                scanPage.Title = "Scan QR Code";
-                // Navigate to our scanner page
-                Navigation.PushAsync(scanPage);
-
-                scanPage.OnScanResult += (result) =>
+                App.TextSearch = "";
+                bool CheckQR = false;
+                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                 {
-                // Stop scanning
-                scanPage.IsScanning = false;
+                    Branch b = new Branch();
+                    Branch BranchID = new Branch();
+                    double BranchNumber;
+                    var scanPage = new ZXingScannerPage();
+                    scanPage.Title = "Scan QR Code";
+                    // Navigate to our scanner page
+                    Navigation.PushAsync(scanPage);
 
-                // Pop the page and show the result
-                Device.BeginInvokeOnMainThread(async () =>
+                    scanPage.OnScanResult += (result) =>
                     {
-                        await Navigation.PopAsync();
+                    // Stop scanning
+                    scanPage.IsScanning = false;
+
+                    // Pop the page and show the result
+                    Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            await Navigation.PopAsync();
                         //await DisplayAlert("Scanned Barcode", result.Text, "OK");
                         try
-                        {
-                            BranchNumber = Convert.ToDouble(result.Text.Substring(1));
-                            CheckQR = true;
-                        }
-                        catch
-                        {
-                            await DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_NOINFORMATION), "Close");
-                            CheckQR = false;
-                        }
-
-                        if (CheckQR == true)
-                        {
-                            b.branchID = result.Text;
-                            if (b.branchID != null || b.branchID != "")
                             {
-                                UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
-                                if (!uiR.isSuccess)
+                                BranchNumber = Convert.ToDouble(result.Text.Substring(1));
+                                CheckQR = true;
+                            }
+                            catch
+                            {
+                                await DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_NOINFORMATION), "Close");
+                                CheckQR = false;
+                            }
+
+                            if (CheckQR == true)
+                            {
+                                b.branchID = result.Text;
+                                if (b.branchID != null || b.branchID != "")
                                 {
-                                    await DisplayAlert("", uiR.getDescription(), "Close");
-                                }
-                                else
-                                {
-                                    BranchID = (Branch)uiR.returnObject;
-                                    await Navigation.PushAsync(new ServicePage(BranchID));
-                                    App.SearchID = 2;
+                                    UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
+                                    if (!uiR.isSuccess)
+                                    {
+                                        await DisplayAlert("", uiR.getDescription(), "Close");
+                                    }
+                                    else
+                                    {
+                                        BranchID = (Branch)uiR.returnObject;
+                                        await Navigation.PushAsync(new ServicePage(BranchID));
+                                        App.SearchID = 2;
+                                    }
                                 }
                             }
-                        }
-                    });
-                };
+                        });
+                    };
 
-                var options = new MobileBarcodeScanningOptions
-                {
-                   
-                    AutoRotate = false,
-                    UseFrontCameraIfAvailable = true,
-                    TryHarder = true,
-                    PossibleFormats = new List<ZXing.BarcodeFormat>
+                    var options = new MobileBarcodeScanningOptions
+                    {
+
+                        AutoRotate = false,
+                        UseFrontCameraIfAvailable = true,
+                        TryHarder = true,
+                        PossibleFormats = new List<ZXing.BarcodeFormat>
         {
            ZXing.BarcodeFormat.EAN_8, ZXing.BarcodeFormat.EAN_13
         }
-                };
+                    };
 
-                //add options and customize page
-                scanPage = new ZXingScannerPage(options)
+                    //add options and customize page
+                    scanPage = new ZXingScannerPage(options)
+                    {
+
+                        IsAnalyzing = true,
+                        DefaultOverlayTopText = "Align the barcode within the frame",
+                        DefaultOverlayBottomText = string.Empty,
+                        DefaultOverlayShowFlashButton = true
+                    };
+                }
+                else
                 {
-                    
-                    IsAnalyzing = true,
-                    DefaultOverlayTopText = "Align the barcode within the frame",
-                    DefaultOverlayBottomText = string.Empty,
-                    DefaultOverlayShowFlashButton = true
-                };
-            }
-            else
-            {
-                DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                    DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                }
             }
         }
 
@@ -424,36 +440,39 @@ namespace MasterQ
 
         async void OnImageDelete(object sender, System.EventArgs args)
         {
-            App.TextSearch = "";
-            if (SessionModel.bookingQ != null)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_CANCEL), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMCANCEL) + " " + SessionModel.bookingQ.queueNumber, "Yes", "No");
-                if (answer == true)
+                App.TextSearch = "";
+                if (SessionModel.bookingQ != null)
                 {
-                    DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, " " + Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKINGCANCEL));
+                    var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_CANCEL), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMCANCEL) + " " + SessionModel.bookingQ.queueNumber, "Yes", "No");
+                    if (answer == true)
+                    {
+                        DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, " " + Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKINGCANCEL));
 
-                    UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
-                    if (uiReturn.isSuccess)
-                    {
-                        App.fristtime = true;
-                        App.timercheck = false;
-                        CountstartMain = false;
-                        //Navigation.PushAsync(new MainPage());
-                        App.Massage0 = true;
-                        App.Massage5 = true;
-                        App.Massage15 = true;
-                        TimesQ.Text = "00:00:00";
-                        NumberQ.Text = "-";
-                        NumberQ2.Text = "-";
-                        DetailQ.Text = "";
-                        btn_cancel.IsVisible = false;
-                        btn_cancel2.IsVisible = false;
-                    }
-                    else
-                    {
-                        App.timercheck = false;
-                        CountstartMain = false;
-                        await DisplayAlert("", uiReturn.getDescription(), "Close");
+                        UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
+                        if (uiReturn.isSuccess)
+                        {
+                            App.fristtime = true;
+                            App.timercheck = false;
+                            CountstartMain = false;
+                            //Navigation.PushAsync(new MainPage());
+                            App.Massage0 = true;
+                            App.Massage5 = true;
+                            App.Massage15 = true;
+                            TimesQ.Text = "00:00:00";
+                            NumberQ.Text = "-";
+                            NumberQ2.Text = "-";
+                            DetailQ.Text = "";
+                            btn_cancel.IsVisible = false;
+                            btn_cancel2.IsVisible = false;
+                        }
+                        else
+                        {
+                            App.timercheck = false;
+                            CountstartMain = false;
+                            await DisplayAlert("", uiReturn.getDescription(), "Close");
+                        }
                     }
                 }
             }
@@ -461,79 +480,85 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            //Utils.changeAppLanguageToThai();
-            //LanguageThai.IsVisible = false;
-            //LanguageThai.IsEnabled = false;
-
-            //LanguageEng.IsVisible = true;
-            //LanguageEng.IsEnabled = true;
-            //App.Thai = true;
-
-            Utils.changeAppLanguageToEng();
-            LanguageThai.IsVisible = false;
-            LanguageThai.IsEnabled = false;
-
-            LanguageEng.IsVisible = true;
-            LanguageEng.IsEnabled = true;
-            App.Thai = false;
-
-            if (SessionModel.bookingQ == null)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                App.timercheck = false;
-                App.RePage = true;
-                Navigation.InsertPageBefore(new MainPage(), this);
-                Navigation.PopAsync();
-            }
-            else
-            {
-                if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                //Utils.changeAppLanguageToThai();
+                //LanguageThai.IsVisible = false;
+                //LanguageThai.IsEnabled = false;
+
+                //LanguageEng.IsVisible = true;
+                //LanguageEng.IsEnabled = true;
+                //App.Thai = true;
+
+                Utils.changeAppLanguageToEng();
+                LanguageThai.IsVisible = false;
+                LanguageThai.IsEnabled = false;
+
+                LanguageEng.IsVisible = true;
+                LanguageEng.IsEnabled = true;
+                App.Thai = false;
+
+                if (SessionModel.bookingQ == null)
                 {
                     App.timercheck = false;
                     App.RePage = true;
                     Navigation.InsertPageBefore(new MainPage(), this);
                     Navigation.PopAsync();
                 }
+                else
+                {
+                    if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                    {
+                        App.timercheck = false;
+                        App.RePage = true;
+                        Navigation.InsertPageBefore(new MainPage(), this);
+                        Navigation.PopAsync();
+                    }
+                }
             }
         }
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            //Utils.changeAppLanguageToEng();
-            //LanguageThai.IsVisible = true;
-            //LanguageThai.IsEnabled = true;
-
-            //LanguageEng.IsVisible = false;
-            //LanguageEng.IsEnabled = false;
-            //App.Thai = false;
-
-            Utils.changeAppLanguageToThai();
-            LanguageThai.IsVisible = true;
-            LanguageThai.IsEnabled = true;
-
-            LanguageEng.IsVisible = false;
-            LanguageEng.IsEnabled = false;
-            App.Thai = true;
-
-            if (SessionModel.bookingQ == null)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                App.timercheck = false;
-                App.RePage = true;
+                //Utils.changeAppLanguageToEng();
+                //LanguageThai.IsVisible = true;
+                //LanguageThai.IsEnabled = true;
 
-                App.timercheck = false;
-                App.RePage = true;
+                //LanguageEng.IsVisible = false;
+                //LanguageEng.IsEnabled = false;
+                //App.Thai = false;
 
-                Navigation.InsertPageBefore(new MainPage(), this);
-                Navigation.PopAsync();
-            }
-            else
-            {
-                if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                Utils.changeAppLanguageToThai();
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
+
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
+                App.Thai = true;
+
+                if (SessionModel.bookingQ == null)
                 {
+                    App.timercheck = false;
+                    App.RePage = true;
+
                     App.timercheck = false;
                     App.RePage = true;
 
                     Navigation.InsertPageBefore(new MainPage(), this);
                     Navigation.PopAsync();
+                }
+                else
+                {
+                    if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                    {
+                        App.timercheck = false;
+                        App.RePage = true;
+
+                        Navigation.InsertPageBefore(new MainPage(), this);
+                        Navigation.PopAsync();
+                    }
                 }
             }
         }

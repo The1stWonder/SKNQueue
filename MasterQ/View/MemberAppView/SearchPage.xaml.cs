@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Plugin.Connectivity;
 
 using Xamarin.Forms;
 
@@ -13,9 +14,12 @@ namespace MasterQ
 		public SearchPage()
 		{
 			InitializeComponent();
-            gennaratepicker();
 
-            mSearchEntry.Placeholder = Utils.getLabel(LabelConstants.SEARCH_PAGE_SEARCH);
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                gennaratepicker();
+                mSearchEntry.Placeholder = Utils.getLabel(LabelConstants.SEARCH_PAGE_SEARCH);
+            }
 		}
 
 		public void gennaratepicker()
@@ -89,25 +93,30 @@ namespace MasterQ
             //}
             //}
 
-
-            if (mSearchEntry.Text != null)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                var searchtxt = mSearchEntry.Text;
-                App.TextSearch = searchtxt;
-                UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
-                List<Branch> Branch = (List<Branch>)uiR.returnObject;
-                BranchView.ItemsSource = Branch;
-                if (!uiR.isSuccess)
+                if (mSearchEntry.Text != null)
                 {
-                    DisplayAlert("", uiR.descriptionEN, "Cancel");
+                    var searchtxt = mSearchEntry.Text;
+                    App.TextSearch = searchtxt;
+                    UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
+                    List<Branch> Branch = (List<Branch>)uiR.returnObject;
+                    BranchView.ItemsSource = Branch;
+                    if (!uiR.isSuccess)
+                    {
+                        DisplayAlert("", uiR.descriptionEN, "Cancel");
+                    }
                 }
             }
 		}
 
         public void itemTapped(object sender, System.EventArgs args)
         {
-            Branch BranchID = (Branch)BranchView.SelectedItem;
-            Navigation.PushAsync(new ServicePage(BranchID));
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Branch BranchID = (Branch)BranchView.SelectedItem;
+                Navigation.PushAsync(new ServicePage(BranchID));
+            }
         }
 
 		public void OnImageBack(object sender, System.EventArgs args)

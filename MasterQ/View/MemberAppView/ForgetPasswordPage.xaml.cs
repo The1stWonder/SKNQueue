@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -10,8 +10,12 @@ namespace MasterQ
 		public ForgetPasswordPage()
 		{
 			InitializeComponent();
-            Forget.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_FORGET);
-            mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_EMAIL);
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Forget.Text = Utils.getLabel(LabelConstants.LOGIN_PAGE_FORGET);
+                mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_EMAIL);
+            }
 
             if (App.Thai == true)
             {
@@ -27,17 +31,20 @@ namespace MasterQ
 
         public void OnImageJoin(object sender, System.EventArgs args)
         {
-            var username = mUsernameEntry.Text;
-            Login m = new Login();
-            m.username = username;
-            UIReturn uiReturn = ForgetPasswordController.getInstance().getPassword(m);
-            if (uiReturn.isSuccess)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                DisplayAlert("", uiReturn.getDescription(), "Close");
-            }
-            else
-            {
-                DisplayAlert("", uiReturn.getDescription(), "Close");
+                var username = mUsernameEntry.Text;
+                Login m = new Login();
+                m.username = username;
+                UIReturn uiReturn = ForgetPasswordController.getInstance().getPassword(m);
+                if (uiReturn.isSuccess)
+                {
+                    DisplayAlert("", uiReturn.getDescription(), "Close");
+                }
+                else
+                {
+                    DisplayAlert("", uiReturn.getDescription(), "Close");
+                }
             }
         }
 

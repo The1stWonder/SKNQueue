@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Plugin.Connectivity;
 
 using Xamarin.Forms;
 
@@ -8,15 +9,18 @@ namespace MasterQ
 	public partial class ServicePage : ContentPage
 	{
         public Branch searchBranch = new Branch();
-		
-		public ServicePage(Branch selectedBranch)
-		{
-			InitializeComponent();
-            getService(selectedBranch);
-            branchName.Text = selectedBranch.branchName;
 
-            searchBranch = (Branch)SearchController.getInstance().getBranchDetail(selectedBranch).returnObject;
-		}
+        public ServicePage(Branch selectedBranch)
+        {
+            InitializeComponent();
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                getService(selectedBranch);
+                branchName.Text = selectedBranch.branchName;
+                searchBranch = (Branch)SearchController.getInstance().getBranchDetail(selectedBranch).returnObject;
+            }
+        }
 
 		public void getService(Branch selectedBranch)
 		{
@@ -26,27 +30,30 @@ namespace MasterQ
 
         async void itemTapped(object sender, System.EventArgs args)
 		{
-			Service serviceID = (Service)ServiceListview.SelectedItem;
-			Service s = new Service();
-			s.serviceID = serviceID.serviceID;
-			s.branchID = serviceID.branchID;
-
-            var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + serviceID.serviceName​, "Yes", "No");
-            if (answer == true)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
-                if (!ChkQ.isSuccess)
+                Service serviceID = (Service)ServiceListview.SelectedItem;
+                Service s = new Service();
+                s.serviceID = serviceID.serviceID;
+                s.branchID = serviceID.branchID;
+
+                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + serviceID.serviceName​, "Yes", "No");
+                if (answer == true)
                 {
-                    App.TextSearch = "";
-                    await DisplayAlert("", ChkQ.getDescription(), "Close");
-                    SessionModel.bookingQ = null;
-                }
-                else
-                {
-                    App.RePage = false;
-                    App.TextSearch = "";
-                    //App.timerStart();
-                    await Navigation.PushAsync(new MainPage());
+                    UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
+                    if (!ChkQ.isSuccess)
+                    {
+                        App.TextSearch = "";
+                        await DisplayAlert("", ChkQ.getDescription(), "Close");
+                        SessionModel.bookingQ = null;
+                    }
+                    else
+                    {
+                        App.RePage = false;
+                        App.TextSearch = "";
+                        //App.timerStart();
+                        await Navigation.PushAsync(new MainPage());
+                    }
                 }
             }
 		}

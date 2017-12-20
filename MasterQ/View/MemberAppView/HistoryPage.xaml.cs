@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
+using Plugin.Connectivity;
 
 namespace MasterQ
 {
@@ -10,9 +10,12 @@ namespace MasterQ
 		public HistoryPage()
 		{
 			InitializeComponent();
-			getHistory();
 
-            HistoryQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                getHistory();
+                HistoryQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
+            }
 		}
 
 
@@ -41,18 +44,21 @@ namespace MasterQ
 
         public void itemTapped(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+            if (CrossConnectivity.Current.IsConnected)
             {
-                Branch b = new Branch();
-                Branch BranchID = new Branch();
-                History BranchHis = (History)mListview.SelectedItem;
-                b.branchID = BranchHis.branchID;
-                UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
-                BranchID = (Branch)uiR.returnObject;
+                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                {
+                    Branch b = new Branch();
+                    Branch BranchID = new Branch();
+                    History BranchHis = (History)mListview.SelectedItem;
+                    b.branchID = BranchHis.branchID;
+                    UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
+                    BranchID = (Branch)uiR.returnObject;
 
-                Navigation.PushAsync(new ServicePage(BranchID));
-                App.TextSearch = "";
-                App.SearchID = 1;
+                    Navigation.PushAsync(new ServicePage(BranchID));
+                    App.TextSearch = "";
+                    App.SearchID = 1;
+                }
             }
         }
 	}

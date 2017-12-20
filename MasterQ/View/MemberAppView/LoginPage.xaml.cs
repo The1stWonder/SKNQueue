@@ -101,11 +101,11 @@ namespace MasterQ
 
                 DisplayAlert("", App.NoInternet, "Close");
 
-                LanguageThai.IsVisible = false;
-                LanguageThai.IsEnabled = false;
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
 
-                LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = true;
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
 
                 Signin1.IsVisible = false;
                 Signin2.IsVisible = true;
