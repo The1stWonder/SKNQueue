@@ -18,6 +18,9 @@ namespace MasterQ
         public static string TextSearch = "";
         public static bool Thai = true;
         public static bool RePage = false;
+        public static bool RePagelogin = false;
+        public static bool Initiallogin = false;
+        public static string NoInternet = "กรุณาเชื่อมต่ออินเตอร์เน็ต";
         static MasterQDatabaseDAO database;
 
         public App()
@@ -27,6 +30,11 @@ namespace MasterQ
             if (CrossConnectivity.Current.IsConnected)
             {
                 Initial.init();
+            }
+            else
+            {
+                RePagelogin = true;
+                Initiallogin = true;
             }
 
             if (Constants.isAppForMember())
@@ -43,6 +51,12 @@ namespace MasterQ
             }
         }
 
+        //public void DisplayAlert(string message, string title, string button)
+        //{
+        //    Device.BeginInvokeOnMainThread(() => {
+        //        DisplayAlert(message, title, button);
+        //    });
+        //}
 
         public static MasterQDatabaseDAO Database
         {

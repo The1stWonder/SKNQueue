@@ -14,6 +14,12 @@ namespace MasterQ
 
             if (CrossConnectivity.Current.IsConnected)
             {
+                if (App.Initiallogin == true)
+                {
+                    Initial.init();
+                    App.Initiallogin = false;
+                }
+
                 if (App.Thai == true)
                 {
                     Utils.changeAppLanguageToThai();
@@ -70,13 +76,15 @@ namespace MasterQ
             }
             else
             {
-                DisplayAlert("", Utils.getLabel(LabelConstants.LOGIN_PAGE_NOINTERNET), "Close");
+                App.RePagelogin = true;
+
+                DisplayAlert("", App.NoInternet, "Close");
 
                 LanguageThai.IsVisible = false;
                 LanguageThai.IsEnabled = false;
 
                 LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = false;
+                LanguageEng.IsEnabled = true;
 
                 Signin1.IsVisible = false;
                 Signin2.IsVisible = true;
@@ -93,13 +101,23 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                Navigation.PushAsync(new RegisterPage());
-                mUsernameEntry.Text = "";
-                mPasswordEntry.Text = "";
+                if (App.RePagelogin == true)
+                {
+                    App.RePagelogin = false;
+                    Navigation.PushAsync(new LoginPage());
+                }
+                else
+                {
+                    App.RePagelogin = false;
+                    Navigation.PushAsync(new RegisterPage());
+                    mUsernameEntry.Text = "";
+                    mPasswordEntry.Text = "";
+                }
             }
             else
             {
-                DisplayAlert("", Utils.getLabel(LabelConstants.LOGIN_PAGE_NOINTERNET), "Close");
+                App.RePagelogin = true;
+                DisplayAlert("", App.NoInternet, "Close");
             }
         }
 
@@ -107,24 +125,34 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                var username = mUsernameEntry.Text;
-                var password = mPasswordEntry.Text;
-                Login MasQLogin = new Login(username, password);
-                UIReturn uiReturn = LoginController.getInstance().LoginMember(MasQLogin);
-
-                if (uiReturn.isSuccess)
+                if (App.RePagelogin == true)
                 {
-                    App.fristtime = true;
-                    Navigation.PushAsync(new MainPage());
+                    App.RePagelogin = false;
+                    Navigation.PushAsync(new LoginPage());
                 }
                 else
                 {
-                    DisplayAlert("", uiReturn.descriptionEN, "Close");
+                    App.RePagelogin = false;
+                    var username = mUsernameEntry.Text;
+                    var password = mPasswordEntry.Text;
+                    Login MasQLogin = new Login(username, password);
+                    UIReturn uiReturn = LoginController.getInstance().LoginMember(MasQLogin);
+
+                    if (uiReturn.isSuccess)
+                    {
+                        App.fristtime = true;
+                        Navigation.PushAsync(new MainPage());
+                    }
+                    else
+                    {
+                        DisplayAlert("", uiReturn.descriptionEN, "Close");
+                    }
                 }
             }
             else
             {
-                DisplayAlert("", Utils.getLabel(LabelConstants.LOGIN_PAGE_NOINTERNET), "Close");
+                App.RePagelogin = true;
+                DisplayAlert("", App.NoInternet, "Close");
             }
         }
 
@@ -132,11 +160,21 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                Navigation.PushAsync(new ForgetPasswordPage());
+                if (App.RePagelogin == true)
+                {
+                    App.RePagelogin = false;
+                    Navigation.PushAsync(new LoginPage());
+                }
+                else
+                {
+                    App.RePagelogin = false;
+                    Navigation.PushAsync(new ForgetPasswordPage());
+                }
             }
             else
             {
-                DisplayAlert("", Utils.getLabel(LabelConstants.LOGIN_PAGE_NOINTERNET), "Close");
+                App.RePagelogin = true;
+                DisplayAlert("", App.NoInternet, "Close");
             }
         }
 
@@ -144,15 +182,25 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                Utils.changeAppLanguageToThai();
-                App.Thai = true;
+                if (App.RePagelogin == true)
+                {
+                    App.RePagelogin = false;
+                    Navigation.PushAsync(new LoginPage());
+                }
+                else
+                {
+                    App.RePagelogin = false;
+                    Utils.changeAppLanguageToThai();
+                    App.Thai = true;
 
-                Navigation.InsertPageBefore(new LoginPage(), this);
-                Navigation.PopAsync();
+                    Navigation.InsertPageBefore(new LoginPage(), this);
+                    Navigation.PopAsync();
+                }
             }
             else
             {
-                DisplayAlert("", Utils.getLabel(LabelConstants.LOGIN_PAGE_NOINTERNET), "Close");
+                App.RePagelogin = true;
+                DisplayAlert("", App.NoInternet, "Close");
             }
         }
 
@@ -160,15 +208,25 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                Utils.changeAppLanguageToEng();
-                App.Thai = false;
+                if (App.RePagelogin == true)
+                {
+                    App.RePagelogin = false;
+                    Navigation.PushAsync(new LoginPage());
+                }
+                else
+                {
+                    App.RePagelogin = false;
+                    Utils.changeAppLanguageToEng();
+                    App.Thai = false;
 
-                Navigation.InsertPageBefore(new LoginPage(), this);
-                Navigation.PopAsync();
+                    Navigation.InsertPageBefore(new LoginPage(), this);
+                    Navigation.PopAsync();
+                }
             }
             else
             {
-                DisplayAlert("", Utils.getLabel(LabelConstants.LOGIN_PAGE_NOINTERNET), "Close");
+                App.RePagelogin = true;
+                DisplayAlert("", App.NoInternet, "Close");
             }
 
         }
