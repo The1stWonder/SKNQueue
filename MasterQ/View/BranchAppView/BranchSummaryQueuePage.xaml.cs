@@ -13,7 +13,7 @@ namespace MasterQ
 
             YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
             AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
-            WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+            //WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
 
             App.timercheck = true;
             App.timerStart();
@@ -30,12 +30,13 @@ namespace MasterQ
             NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
             NumberQ2.Text = BranchSessionModel.bookingQ.queueBefore.ToString();
 
-            TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
-            TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+            //TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
+            //TimesQ.Text = time.ToString(@"hh\:mm\:ss");
 
                 if (App.Recount == 5)
                 {
-                    //App.timercheck = false;
+                    App.Recount = 0;
+                    App.timercheck = false;
                     Navigation.InsertPageBefore(new BranchPickupCard(), this);
                     Navigation.PopAsync();
                 }

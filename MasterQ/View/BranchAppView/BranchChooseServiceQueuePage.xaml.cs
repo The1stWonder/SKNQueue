@@ -19,6 +19,15 @@ namespace MasterQ
 		{
             List<Service> Service = (List<Service>)BranchActionsController.getInstance().getBranchServices().returnObject;
 			ServiceListview.ItemsSource = Service;
+
+            //if (App.Thai == true)
+            //{
+            //    ChooseIMG.Source = "NextQ2.png";
+            //}
+            //else
+            //{
+            //    ChooseIMG.Source = "NextQ1.png";
+            //}
 		}
 
         async void itemTapped(object sender, System.EventArgs args)
@@ -41,15 +50,15 @@ namespace MasterQ
                         Navigation.InsertPageBefore(new BranchSummaryQueuePage(), this);
                         await Navigation.PopAsync();
 
-                        //switch (Device.RuntimePlatform)
-                        //{
-                        //    case Device.iOS:
-                        //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                        //        break;
-                        //    default:
-                        //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                        //        break;
-                        //}
+                        switch (Device.RuntimePlatform)
+                        {
+                            case Device.iOS:
+                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                                break;
+                            default:
+                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                                break;
+                        }
                     }
                 }
                 else

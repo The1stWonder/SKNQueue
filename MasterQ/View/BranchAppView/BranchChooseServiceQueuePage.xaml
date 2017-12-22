@@ -76,32 +76,46 @@
 
         <Label x:Name="HeaderService" Grid.Row="1" Grid.Column="1" FontSize="45" Text="" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
         
-        <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" BackgroundColor="#FAF0E6">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#FAF0E6">
-                <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand" BackgroundColor="#FAF0E6">
-                <ListView
-                    BackgroundColor="#FAF0E6"
+        <ListView
+                    Grid.Row="2" 
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
                     ItemTapped="itemTapped"
                     RowHeight="75"
                     SeparatorVisibility="None"
                     x:Name="ServiceListview"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="Fill">
+                    >
                 <ListView.ItemTemplate>
                 <DataTemplate>
                 <ViewCell>
-                <StackLayout Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding serviceName}" TextColor="Black" FontSize="25" />
-                    <Image HorizontalOptions="EndAndExpand" Source="NextQ2.png" HeightRequest="90"/>
-                </StackLayout>
+                <StackLayout Padding="0,10,0,20">
+        <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition
+            Height="100*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+            Width="10*" />
+            <ColumnDefinition
+            Width="70*" />
+            <ColumnDefinition
+            Width="20*" />
+        </Grid.ColumnDefinitions>
+           <Image
+            Margin="10,0,10,0"
+            Grid.Row="0"
+            Grid.Column="0"
+            Source="bullet.png"
+            HeightRequest="4" />
+                                            
+                    <Label Margin="10,0,0,0" Text="{Binding serviceName}" Grid.Row="0" Grid.Column="1" TextColor="Black" FontSize="25" />
+                    <Image x:Name="ChooseIMG" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="2" Source="NextQ2.png" HeightRequest="40"/>
+                    </Grid>
                 </StackLayout>
                 </ViewCell>             
                 </DataTemplate>
                 </ListView.ItemTemplate>
                 </ListView>
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
     </Grid>
 </ContentPage>

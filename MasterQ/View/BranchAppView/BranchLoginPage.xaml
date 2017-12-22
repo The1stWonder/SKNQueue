@@ -19,7 +19,7 @@
             <ColumnDefinition  Width="30*" />
         </Grid.ColumnDefinitions>
         
-        <Image x:Name="LanguageThai"  Grid.Row="1" Grid.Column="2" Source="thailand.png" HorizontalOptions="Center" HeightRequest="80" >
+        <Image x:Name="LanguageThai"  Grid.Row="1" Grid.Column="2" Source="thailand.png" HorizontalOptions="Center" HeightRequest="30" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainchangeAppLanguageThai"
@@ -27,7 +27,7 @@
             </Image.GestureRecognizers>
         </Image>
 
-        <Image x:Name="LanguageEng"  Grid.Row="1" Grid.Column="2" Source="unitedkingdom.png" HorizontalOptions="Center" HeightRequest="80" >
+        <Image x:Name="LanguageEng"  Grid.Row="1" Grid.Column="2" Source="unitedkingdom.png" HorizontalOptions="Center" HeightRequest="30" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageMainchangeAppLanguageEng"
@@ -38,7 +38,7 @@
         <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="logo.png" VerticalOptions="Center" HeightRequest="170" />
+                    <Image Source="logo.png" VerticalOptions="Center" HeightRequest="200" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
@@ -60,10 +60,10 @@
                 </Grid.ColumnDefinitions>
                 <Image Margin="0,5,0,5" Grid.Row="1" Grid.Column="0" Source="icn_usename.png" HeightRequest="10" />
                 <Entry x:Name="mUsernameEntry" Keyboard="Email" Placeholder="Username" TextColor="Black" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="1" />
-                <Image Margin="0,5,0,5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
+                <!--<Image Margin="0,5,0,5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />-->
                 <Image Margin="0,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
                 <Entry x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" />
-                <Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />
+                <!--<Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />-->
                 <Label x:Name="setIP" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="" TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer

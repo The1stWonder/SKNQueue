@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -13,34 +13,39 @@ namespace MasterQ
         {
             InitializeComponent();
 
-            if (App.Thai == true)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                Utils.changeAppLanguageToThai();
-                LanguageThai.IsVisible = false;
-                LanguageThai.IsEnabled = false;
+                if (App.Thai == true)
+                {
+                    LanguageThai.IsVisible = true;
+                    LanguageThai.IsEnabled = true;
 
-                LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = true;
+                    LanguageEng.IsVisible = false;
+                    LanguageEng.IsEnabled = false;
 
-                Signin1.IsVisible = false;
-                Signin2.IsVisible = true;
+                    Signin1.IsVisible = false;
+                    Signin2.IsVisible = true;
+                }
+                else
+                {
+                    LanguageThai.IsVisible = false;
+                    LanguageThai.IsEnabled = false;
+
+                    LanguageEng.IsVisible = true;
+                    LanguageEng.IsEnabled = true;
+
+                    Signin1.IsVisible = true;
+                    Signin2.IsVisible = false;
+                }
+
+                mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_USERNAME);
+                mPasswordEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_PASSWORD);
+                setIP.Text = Utils.getLabel(LabelConstants.BRANCHLOGIN_PAGE_SETIP);
             }
             else
             {
-                Utils.changeAppLanguageToEng();
-                LanguageThai.IsVisible = true;
-                LanguageThai.IsEnabled = true;
-
-                LanguageEng.IsVisible = false;
-                LanguageEng.IsEnabled = false;
-
-                Signin1.IsVisible = true;
-                Signin2.IsVisible = false;
+                
             }
-
-            mUsernameEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_USERNAME);
-            mPasswordEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_PASSWORD);
-            setIP.Text = Utils.getLabel(LabelConstants.BRANCHLOGIN_PAGE_SETIP);
         }
 
 		public void OnImageSignin(object sender, System.EventArgs args)
@@ -76,8 +81,8 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToThai();
-            App.Thai = true;
+            Utils.changeAppLanguageToEng();
+            App.Thai = false;
 
             Navigation.InsertPageBefore(new BranchLoginPage(), this);
             Navigation.PopAsync();
@@ -86,8 +91,8 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToEng();
-            App.Thai = false;
+            Utils.changeAppLanguageToThai();
+            App.Thai = true;
 
             Navigation.InsertPageBefore(new BranchLoginPage(), this);
             Navigation.PopAsync();

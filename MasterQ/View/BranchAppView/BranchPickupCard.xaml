@@ -7,9 +7,9 @@
     
 	<Grid Margin="25,0,25,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
             <RowDefinition Height="10*" />
-            <RowDefinition Height="79*" />
+            <RowDefinition Height="75*" />
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -34,7 +34,7 @@
             </Image.GestureRecognizers>
         </Image>
         
-        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" HorizontalOptions="FillAndExpand" HeightRequest="50" >
+        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" HorizontalOptions="FillAndExpand" HeightRequest="30" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer
                         Tapped="OnImageMainExit" />

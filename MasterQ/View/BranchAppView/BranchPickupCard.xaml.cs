@@ -13,24 +13,22 @@ namespace MasterQ
 
             if (App.Thai == true)
             {
-                Utils.changeAppLanguageToThai();
-                LanguageThai.IsVisible = false;
-                LanguageThai.IsEnabled = false;
+                LanguageThai.IsVisible = true;
+                LanguageThai.IsEnabled = true;
 
-                LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = true;
+                LanguageEng.IsVisible = false;
+                LanguageEng.IsEnabled = false;
 
                 picup1.IsVisible = false;
                 picup2.IsVisible = true;
             }
             else
             {
-                Utils.changeAppLanguageToEng();
-                LanguageThai.IsVisible = true;
-                LanguageThai.IsEnabled = true;
+                LanguageThai.IsVisible = false;
+                LanguageThai.IsEnabled = false;
 
-                LanguageEng.IsVisible = false;
-                LanguageEng.IsEnabled = false;
+                LanguageEng.IsVisible = true;
+                LanguageEng.IsEnabled = true;
 
                 picup1.IsVisible = true;
                 picup2.IsVisible = false;
@@ -63,8 +61,8 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToThai();
-            App.Thai = true;
+            Utils.changeAppLanguageToEng();
+            App.Thai = false;
 
             Navigation.InsertPageBefore(new BranchPickupCard(), this);
             Navigation.PopAsync();
@@ -73,8 +71,8 @@ namespace MasterQ
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToEng();
-            App.Thai = false;
+            Utils.changeAppLanguageToThai();
+            App.Thai = true;
 
             Navigation.InsertPageBefore(new BranchPickupCard(), this);
             Navigation.PopAsync();

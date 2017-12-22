@@ -377,7 +377,6 @@
     <None Include="Image\bg5.png" />
     <None Include="Image\btn_cancel.png" />
     <None Include="Image\ticket.png" />
-    <None Include="Image\ticket2.psd" />
     <None Include="Image\ticket2.png" />
     <None Include="Image\bullet.png" />
     <None Include="Image\btn_EditPassword.png" />
@@ -395,6 +394,7 @@
     <None Include="Image\btn_picup3.png" />
     <None Include="Image\LogoStart.png" />
     <None Include="Image\LogoStart2.png" />
+    <None Include="Image\ThailandPostLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
