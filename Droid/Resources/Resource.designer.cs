@@ -2330,26 +2330,26 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02017e
-			public const int avd_hide_password_1 = 2130837886;
-			
 			// aapt resource value: 0x7f02017f
-			public const int avd_hide_password_2 = 2130837887;
+			public const int avd_hide_password_1 = 2130837887;
 			
 			// aapt resource value: 0x7f020180
-			public const int avd_hide_password_3 = 2130837888;
+			public const int avd_hide_password_2 = 2130837888;
+			
+			// aapt resource value: 0x7f020181
+			public const int avd_hide_password_3 = 2130837889;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020181
-			public const int avd_show_password_1 = 2130837889;
-			
 			// aapt resource value: 0x7f020182
-			public const int avd_show_password_2 = 2130837890;
+			public const int avd_show_password_1 = 2130837890;
 			
 			// aapt resource value: 0x7f020183
-			public const int avd_show_password_3 = 2130837891;
+			public const int avd_show_password_2 = 2130837891;
+			
+			// aapt resource value: 0x7f020184
+			public const int avd_show_password_3 = 2130837892;
 			
 			// aapt resource value: 0x7f020055
 			public const int bg = 2130837589;
@@ -3179,11 +3179,11 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f020168
 			public const int notification_icon_background = 2130837864;
 			
-			// aapt resource value: 0x7f02017c
-			public const int notification_template_icon_bg = 2130837884;
-			
 			// aapt resource value: 0x7f02017d
-			public const int notification_template_icon_low_bg = 2130837885;
+			public const int notification_template_icon_bg = 2130837885;
+			
+			// aapt resource value: 0x7f02017e
+			public const int notification_template_icon_low_bg = 2130837886;
 			
 			// aapt resource value: 0x7f020169
 			public const int notification_tile_bg = 2130837865;
@@ -3225,22 +3225,25 @@ namespace MasterQ.Droid
 			public const int thailand = 2130837877;
 			
 			// aapt resource value: 0x7f020176
-			public const int ticket = 2130837878;
+			public const int ThailandPostLogo = 2130837878;
 			
 			// aapt resource value: 0x7f020177
-			public const int ticket2 = 2130837879;
+			public const int ticket = 2130837879;
 			
 			// aapt resource value: 0x7f020178
-			public const int ticket4 = 2130837880;
+			public const int ticket2 = 2130837880;
 			
 			// aapt resource value: 0x7f020179
-			public const int unitedkingdom = 2130837881;
+			public const int ticket4 = 2130837881;
 			
 			// aapt resource value: 0x7f02017a
-			public const int user = 2130837882;
+			public const int unitedkingdom = 2130837882;
 			
 			// aapt resource value: 0x7f02017b
-			public const int username_icon = 2130837883;
+			public const int user = 2130837883;
+			
+			// aapt resource value: 0x7f02017c
+			public const int username_icon = 2130837884;
 			
 			static Drawable()
 			{

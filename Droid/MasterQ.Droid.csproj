@@ -473,6 +473,9 @@
     <AndroidResource Include="..\MasterQ\Image\LogoStart.png">
       <Link>Resources\drawable-xxhdpi\LogoStart.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\ThailandPostLogo.png">
+      <Link>Resources\drawable-xxhdpi\ThailandPostLogo.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
