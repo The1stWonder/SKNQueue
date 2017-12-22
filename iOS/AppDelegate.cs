@@ -24,6 +24,8 @@ namespace MasterQ.iOS
             //, null);
             //UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
 
+            var thai = new System.Globalization.ThaiBuddhistCalendar();
+
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
                 var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(

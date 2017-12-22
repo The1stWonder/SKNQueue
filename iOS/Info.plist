@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>MasterQ</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.dsci.masterqdev.TestMasterQ</string>
+	<string>com.dsci.masterqdsci.MasterQ</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -64,5 +64,7 @@
 		<string>remote-notification</string>
 		<string>network-authentication</string>
 	</array>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImage.launchimage</string>
 </dict>
 </plist>
