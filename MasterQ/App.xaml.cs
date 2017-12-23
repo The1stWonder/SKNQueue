@@ -19,6 +19,7 @@ namespace MasterQ
         public static bool Thai = true;
         public static bool RePage = false;
         public static bool RePagelogin = false;
+        public static bool RePagemain = false;
         public static bool Initiallogin = false;
         public static string NoInternet = "กรุณาเชื่อมต่ออินเตอร์เน็ต";
         static MasterQDatabaseDAO database;

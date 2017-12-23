@@ -114,6 +114,7 @@ namespace MasterQ
             }
             else
             {
+                App.RePagelogin = true;
                 DisplayAlert("", App.NoInternet, "Close");
             }
 		}
@@ -271,12 +272,21 @@ namespace MasterQ
 		{
             if (CrossConnectivity.Current.IsConnected)
             {
-                CountstartMain = false;
-                Navigation.InsertPageBefore(new EditProfilePage(), this);
-                Navigation.PopAsync();
+                if (App.RePagemain == true)
+                {
+                    App.RePagemain= false;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    CountstartMain = false;
+                    Navigation.InsertPageBefore(new EditProfilePage(), this);
+                    Navigation.PopAsync();
+                }
             }
             else
             {
+                App.RePagemain = true;
                 DisplayAlert("", App.NoInternet, "Close");
             }
 		}
@@ -285,28 +295,37 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
-                if (answer == true)
+                if (App.RePagemain == true)
                 {
-                    UIReturn Chklogout = LoginController.getInstance().LogutMember();
-                    if (!Chklogout.isSuccess)
+                    App.RePagemain = false;
+                    await Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
+                    if (answer == true)
                     {
-                        App.timercheck = false;
-                        CountstartMain = false;
-                        await DisplayAlert("", Chklogout.getDescription(), "Close");
-                    }
-                    else
-                    {
-                        App.timercheck = false;
-                        CountstartMain = false;
-                        //SessionModel.bookingQ = null;
-                        Navigation.InsertPageBefore(new LoginPage(), this);
-                        await Navigation.PopAsync();
+                        UIReturn Chklogout = LoginController.getInstance().LogutMember();
+                        if (!Chklogout.isSuccess)
+                        {
+                            App.timercheck = false;
+                            CountstartMain = false;
+                            await DisplayAlert("", Chklogout.getDescription(), "Close");
+                        }
+                        else
+                        {
+                            App.timercheck = false;
+                            CountstartMain = false;
+                            //SessionModel.bookingQ = null;
+                            Navigation.InsertPageBefore(new LoginPage(), this);
+                            await Navigation.PopAsync();
+                        }
                     }
                 }
             }
             else
             {
+                App.RePagemain = false;
                 await DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -315,12 +334,21 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                CountstartMain = false;
-                Navigation.InsertPageBefore(new HistoryPage(), this);
-                Navigation.PopAsync();
+                if (App.RePagemain == true)
+                {
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    CountstartMain = false;
+                    Navigation.InsertPageBefore(new HistoryPage(), this);
+                    Navigation.PopAsync();
+                }
             }
             else
             {
+                App.RePagemain = true;
                 DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -329,20 +357,29 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                if (App.RePagemain == true)
                 {
-                    App.TextSearch = "";
-                    CountstartMain = false;
-                    Navigation.InsertPageBefore(new SearchPage(), this);
-                    Navigation.PopAsync();
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
                 }
                 else
                 {
-                    DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                    if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                    {
+                        App.TextSearch = "";
+                        CountstartMain = false;
+                        Navigation.InsertPageBefore(new SearchPage(), this);
+                        Navigation.PopAsync();
+                    }
+                    else
+                    {
+                        DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                    }
                 }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -351,20 +388,29 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                if (App.RePagemain == true)
                 {
-                    App.TextSearch = "";
-                    CountstartMain = false;
-                    Navigation.InsertPageBefore(new SearchPage(), this);
-                    Navigation.PopAsync();
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
                 }
                 else
                 {
-                    DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                    if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                    {
+                        App.TextSearch = "";
+                        CountstartMain = false;
+                        Navigation.InsertPageBefore(new SearchPage(), this);
+                        Navigation.PopAsync();
+                    }
+                    else
+                    {
+                        DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                    }
                 }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -373,10 +419,19 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                QRCode();
+                if (App.RePagemain == true)
+                {
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    QRCode();
+                }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }  
         }
@@ -385,10 +440,19 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                QRCode();
+                if (App.RePagemain == true)
+                {
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    QRCode();
+                }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -488,10 +552,19 @@ namespace MasterQ
 		{
             if (CrossConnectivity.Current.IsConnected)
             {
-                SelectingPage();
+                if (App.RePagemain == true)
+                {
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    SelectingPage();
+                }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }
 		}
@@ -500,10 +573,19 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                SelectingPage();
+                if (App.RePagemain == true)
+                {
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    SelectingPage();
+                }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -540,47 +622,56 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                App.TextSearch = "";
-                if (SessionModel.bookingQ != null)
+                if (App.RePagemain == true)
                 {
-                    var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_CANCEL), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMCANCEL) + " " + SessionModel.bookingQ.queueNumber, "Yes", "No");
-                    if (answer == true)
+                    App.RePagemain = false;
+                    await Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    App.TextSearch = "";
+                    if (SessionModel.bookingQ != null)
                     {
-                        DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, " " + Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKINGCANCEL));
-
-                        UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
-                        if (uiReturn.isSuccess)
+                        var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_CANCEL), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMCANCEL) + " " + SessionModel.bookingQ.queueNumber, "Yes", "No");
+                        if (answer == true)
                         {
-                            App.fristtime = true;
-                            App.timercheck = false;
-                            CountstartMain = false;
-                            //Navigation.PushAsync(new MainPage());
-                            App.Massage0 = true;
-                            App.Massage5 = true;
-                            App.Massage15 = true;
-                            TimesQ.Text = "00:00:00";
-                            NumberQ.Text = "-";
-                            NumberQ2.Text = "-";
-                            DetailQ.Text = "";
-                            btn_cancel.IsVisible = false;
-                            btn_cancel2.IsVisible = false;
+                            DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, " " + Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKINGCANCEL));
 
-                            b_booking1.IsVisible = true;
-                            b_booking2.IsVisible = false;
-                            b_qr1.IsVisible = true;
-                            b_qr2.IsVisible = false;
-                        }
-                        else
-                        {
-                            App.timercheck = false;
-                            CountstartMain = false;
-                            await DisplayAlert("", uiReturn.getDescription(), "Close");
+                            UIReturn uiReturn = ReserveQController.getInstance().cancelQueue(SessionModel.bookingQ);
+                            if (uiReturn.isSuccess)
+                            {
+                                App.fristtime = true;
+                                App.timercheck = false;
+                                CountstartMain = false;
+                                //Navigation.PushAsync(new MainPage());
+                                App.Massage0 = true;
+                                App.Massage5 = true;
+                                App.Massage15 = true;
+                                TimesQ.Text = "00:00:00";
+                                NumberQ.Text = "-";
+                                NumberQ2.Text = "-";
+                                DetailQ.Text = "";
+                                btn_cancel.IsVisible = false;
+                                btn_cancel2.IsVisible = false;
+
+                                b_booking1.IsVisible = true;
+                                b_booking2.IsVisible = false;
+                                b_qr1.IsVisible = true;
+                                b_qr2.IsVisible = false;
+                            }
+                            else
+                            {
+                                App.timercheck = false;
+                                CountstartMain = false;
+                                await DisplayAlert("", uiReturn.getDescription(), "Close");
+                            }
                         }
                     }
                 }
             }
             else
             {
+                App.RePagemain = false;
                 await DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -589,42 +680,51 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                //Utils.changeAppLanguageToThai();
-                //LanguageThai.IsVisible = false;
-                //LanguageThai.IsEnabled = false;
-
-                //LanguageEng.IsVisible = true;
-                //LanguageEng.IsEnabled = true;
-                //App.Thai = true;
-
-                Utils.changeAppLanguageToEng();
-                LanguageThai.IsVisible = false;
-                LanguageThai.IsEnabled = false;
-
-                LanguageEng.IsVisible = true;
-                LanguageEng.IsEnabled = true;
-                App.Thai = false;
-
-                if (SessionModel.bookingQ == null)
+                if (App.RePagemain == true)
                 {
-                    App.timercheck = false;
-                    App.RePage = true;
-                    Navigation.InsertPageBefore(new MainPage(), this);
-                    Navigation.PopAsync();
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
                 }
                 else
                 {
-                    if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                    //Utils.changeAppLanguageToThai();
+                    //LanguageThai.IsVisible = false;
+                    //LanguageThai.IsEnabled = false;
+
+                    //LanguageEng.IsVisible = true;
+                    //LanguageEng.IsEnabled = true;
+                    //App.Thai = true;
+
+                    Utils.changeAppLanguageToEng();
+                    LanguageThai.IsVisible = false;
+                    LanguageThai.IsEnabled = false;
+
+                    LanguageEng.IsVisible = true;
+                    LanguageEng.IsEnabled = true;
+                    App.Thai = false;
+
+                    if (SessionModel.bookingQ == null)
                     {
                         App.timercheck = false;
                         App.RePage = true;
                         Navigation.InsertPageBefore(new MainPage(), this);
                         Navigation.PopAsync();
                     }
+                    else
+                    {
+                        if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                        {
+                            App.timercheck = false;
+                            App.RePage = true;
+                            Navigation.InsertPageBefore(new MainPage(), this);
+                            Navigation.PopAsync();
+                        }
+                    }
                 }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }
         }
@@ -633,47 +733,56 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                //Utils.changeAppLanguageToEng();
-                //LanguageThai.IsVisible = true;
-                //LanguageThai.IsEnabled = true;
-
-                //LanguageEng.IsVisible = false;
-                //LanguageEng.IsEnabled = false;
-                //App.Thai = false;
-
-                Utils.changeAppLanguageToThai();
-                LanguageThai.IsVisible = true;
-                LanguageThai.IsEnabled = true;
-
-                LanguageEng.IsVisible = false;
-                LanguageEng.IsEnabled = false;
-                App.Thai = true;
-
-                if (SessionModel.bookingQ == null)
+                if (App.RePagemain == true)
                 {
-                    App.timercheck = false;
-                    App.RePage = true;
-
-                    App.timercheck = false;
-                    App.RePage = true;
-
-                    Navigation.InsertPageBefore(new MainPage(), this);
-                    Navigation.PopAsync();
+                    App.RePagemain = false;
+                    Navigation.PushAsync(new MainPage());
                 }
                 else
                 {
-                    if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                    //Utils.changeAppLanguageToEng();
+                    //LanguageThai.IsVisible = true;
+                    //LanguageThai.IsEnabled = true;
+
+                    //LanguageEng.IsVisible = false;
+                    //LanguageEng.IsEnabled = false;
+                    //App.Thai = false;
+
+                    Utils.changeAppLanguageToThai();
+                    LanguageThai.IsVisible = true;
+                    LanguageThai.IsEnabled = true;
+
+                    LanguageEng.IsVisible = false;
+                    LanguageEng.IsEnabled = false;
+                    App.Thai = true;
+
+                    if (SessionModel.bookingQ == null)
                     {
+                        App.timercheck = false;
+                        App.RePage = true;
+
                         App.timercheck = false;
                         App.RePage = true;
 
                         Navigation.InsertPageBefore(new MainPage(), this);
                         Navigation.PopAsync();
                     }
+                    else
+                    {
+                        if (SessionModel.bookingQ.queueNumber == null || SessionModel.bookingQ.queueNumber == "" || SessionModel.bookingQ.queueNumber == "0")
+                        {
+                            App.timercheck = false;
+                            App.RePage = true;
+
+                            Navigation.InsertPageBefore(new MainPage(), this);
+                            Navigation.PopAsync();
+                        }
+                    }
                 }
             }
             else
             {
+                App.RePagemain = false;
                 DisplayAlert("", App.NoInternet, "Close");
             }
         }
