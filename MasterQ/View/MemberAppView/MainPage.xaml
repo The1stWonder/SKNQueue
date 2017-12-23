@@ -201,18 +201,34 @@
                 </Image.GestureRecognizers>
         </Image>
         
-        <Image Grid.Row="6" Grid.Column="1"  Source="btn_booking.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image x:Name="b_booking1" Grid.Row="6" Grid.Column="1"  Source="btn_booking.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageQueuePage"
                          />
                 </Image.GestureRecognizers>
         </Image>
+
+        <Image x:Name="b_booking2" Grid.Row="6" Grid.Column="1"  Source="btn_booking3.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageQueuePage2"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
         
-        <Image Grid.Row="6" Grid.Column="2"  Source="btn_qr.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image x:Name="b_qr1" Grid.Row="6" Grid.Column="2"  Source="btn_qr.png" VerticalOptions="Center" HeightRequest="60" >
         <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageQRcodePage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+
+        <Image x:Name="b_qr2" Grid.Row="6" Grid.Column="2"  Source="btn_qr2.png" VerticalOptions="Center" HeightRequest="60" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageQRcodePage2"
                          />
                 </Image.GestureRecognizers>
         </Image>

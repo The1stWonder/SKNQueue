@@ -21,6 +21,10 @@ namespace MasterQ
 			InitializeComponent();
             btn_cancel.IsVisible = false;
             btn_cancel2.IsVisible = false;
+            b_booking1.IsVisible = true;
+            b_booking2.IsVisible = false;
+            b_qr1.IsVisible = true;
+            b_qr2.IsVisible = false;
 
             //if (App.Thai == true)
             //{
@@ -96,6 +100,11 @@ namespace MasterQ
                             {
                                 btn_cancel.IsVisible = true;
                             }
+
+                            b_booking1.IsVisible = false;
+                            b_booking2.IsVisible = true;
+                            b_qr1.IsVisible = false;
+                            b_qr2.IsVisible = true;
 
                             Process();
                             App.RePage = false;
@@ -338,7 +347,53 @@ namespace MasterQ
             }
         }
 
+        public void OnImageQueuePage2(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                {
+                    App.TextSearch = "";
+                    CountstartMain = false;
+                    Navigation.InsertPageBefore(new SearchPage(), this);
+                    Navigation.PopAsync();
+                }
+                else
+                {
+                    DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                }
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
+        }
+
         public void OnImageQRcodePage(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                QRCode();
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }  
+        }
+
+        public void OnImageQRcodePage2(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                QRCode();
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
+        }
+
+        public void QRCode()
         {
             if (CrossConnectivity.Current.IsConnected)
             {
@@ -356,15 +411,15 @@ namespace MasterQ
 
                     scanPage.OnScanResult += (result) =>
                     {
-                    // Stop scanning
-                    scanPage.IsScanning = false;
+                        // Stop scanning
+                        scanPage.IsScanning = false;
 
-                    // Pop the page and show the result
-                    Device.BeginInvokeOnMainThread(async () =>
+                        // Pop the page and show the result
+                        Device.BeginInvokeOnMainThread(async () =>
                         {
                             await Navigation.PopAsync();
-                        //await DisplayAlert("Scanned Barcode", result.Text, "OK");
-                        try
+                            //await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                            try
                             {
                                 BranchNumber = Convert.ToDouble(result.Text.Substring(1));
                                 CheckQR = true;
@@ -509,6 +564,11 @@ namespace MasterQ
                             DetailQ.Text = "";
                             btn_cancel.IsVisible = false;
                             btn_cancel2.IsVisible = false;
+
+                            b_booking1.IsVisible = true;
+                            b_booking2.IsVisible = false;
+                            b_qr1.IsVisible = true;
+                            b_qr2.IsVisible = false;
                         }
                         else
                         {

@@ -395,6 +395,8 @@
     <None Include="Image\LogoStart.png" />
     <None Include="Image\LogoStart2.png" />
     <None Include="Image\ThailandPostLogo.png" />
+    <None Include="Image\btn_booking3.png" />
+    <None Include="Image\btn_qr2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

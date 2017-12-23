@@ -476,6 +476,12 @@
     <AndroidResource Include="..\MasterQ\Image\ThailandPostLogo.png">
       <Link>Resources\drawable-xxhdpi\ThailandPostLogo.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_booking3.png">
+      <Link>Resources\drawable-xxhdpi\btn_booking3.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_qr2.png">
+      <Link>Resources\drawable-xxhdpi\btn_qr2.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

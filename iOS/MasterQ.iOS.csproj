@@ -479,6 +479,12 @@
     <BundleResource Include="..\MasterQ\Image\ThailandPostLogo.png">
       <Link>Resources\ThailandPostLogo.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_booking3.png">
+      <Link>Resources\btn_booking3.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_qr2.png">
+      <Link>Resources\btn_qr2.png</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />
