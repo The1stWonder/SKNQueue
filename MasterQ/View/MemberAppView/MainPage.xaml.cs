@@ -103,11 +103,14 @@ namespace MasterQ
                     }
                 }
             }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
 		}
 
         public void Process()
         {
-            
             CountstartMain = true;
             Service s = new Service();
             s.serviceID = SessionModel.bookingQ.serviceID;
@@ -257,9 +260,16 @@ namespace MasterQ
 
 		public void OnImageMainProfilePage(object sender, System.EventArgs args)
 		{
-            CountstartMain = false;
-            Navigation.InsertPageBefore(new EditProfilePage(), this);
-			Navigation.PopAsync();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                CountstartMain = false;
+                Navigation.InsertPageBefore(new EditProfilePage(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
 		}
 
         async void OnImageMainExit(object sender, System.EventArgs args)
@@ -280,19 +290,30 @@ namespace MasterQ
                     {
                         App.timercheck = false;
                         CountstartMain = false;
-                        SessionModel.bookingQ = null;
+                        //SessionModel.bookingQ = null;
                         Navigation.InsertPageBefore(new LoginPage(), this);
                         await Navigation.PopAsync();
                     }
                 }
             }
+            else
+            {
+                await DisplayAlert("", App.NoInternet, "Close");
+            }
         }
 
         public void OnImageHistoryPage(object sender, System.EventArgs args)
         {
-            CountstartMain = false;
-			Navigation.InsertPageBefore(new HistoryPage(), this);
-			Navigation.PopAsync();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                CountstartMain = false;
+                Navigation.InsertPageBefore(new HistoryPage(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
         }
 
         public void OnImageQueuePage(object sender, System.EventArgs args)
@@ -310,6 +331,10 @@ namespace MasterQ
                 {
                     DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
                 }
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
             }
         }
 
@@ -398,16 +423,34 @@ namespace MasterQ
                     DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
                 }
             }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
         }
 
 		public void OnImageSummaryPage(object sender, System.EventArgs args)
 		{
-            SelectingPage();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                SelectingPage();
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
 		}
 
         public void OnLabalMainProfilePage2(object sender, System.EventArgs args)
         {
-            SelectingPage();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                SelectingPage();
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
+            }
         }
 
         public void SelectingPage()
@@ -476,6 +519,10 @@ namespace MasterQ
                     }
                 }
             }
+            else
+            {
+                await DisplayAlert("", App.NoInternet, "Close");
+            }
         }
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
@@ -515,6 +562,10 @@ namespace MasterQ
                         Navigation.PopAsync();
                     }
                 }
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
             }
         }
 
@@ -560,6 +611,10 @@ namespace MasterQ
                         Navigation.PopAsync();
                     }
                 }
+            }
+            else
+            {
+                DisplayAlert("", App.NoInternet, "Close");
             }
         }
     }
