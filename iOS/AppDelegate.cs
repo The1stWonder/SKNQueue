@@ -51,6 +51,8 @@ namespace MasterQ.iOS
 
             UIApplication.SharedApplication.BeginBackgroundTask(() => {});
 
+            UIApplication.SharedApplication.IdleTimerDisabled = true;
+
 			return base.FinishedLaunching(app, options);
 		}
 
