@@ -152,6 +152,11 @@ namespace MasterQ
                             TimeSpan time = TimeSpan.FromSeconds(App.timercount);
 
                             TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+                            if (App.timercount == 0)
+                            {
+                                App.Massage15 = false;
+                                App.Massage5 = false;
+                            }
 
                             if (App.timercount <= 900 && App.Massage15 == true)
                             {

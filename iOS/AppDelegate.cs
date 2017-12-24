@@ -37,6 +37,8 @@ namespace MasterQ.iOS
             //    UIApplication.SharedApplication.RegisterUserNotificationSettings(notificationSettings);
             //}
 
+            //UIApplication.SharedApplication.ApplicationIconBadgeNumber = -1;
+
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
                 UIUserNotificationType userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
@@ -50,10 +52,7 @@ namespace MasterQ.iOS
                 UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
             }
 
-            //UNUserNotificationCenter.Current.Delegate = new MyNotificationDelegate();
-
 			LoadApplication(new App());
-
 
 			return base.FinishedLaunching(app, options);
 		}
