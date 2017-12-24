@@ -694,6 +694,8 @@ namespace MasterQ
                     //LanguageEng.IsVisible = true;
                     //LanguageEng.IsEnabled = true;
                     //App.Thai = true;
+                    //DependencyService.Get<IFNotification>().SendNotification("TestENG", "ทดสอบเปลี่ยนเป็นภาษาอังกฤษ");
+                     
 
                     Utils.changeAppLanguageToEng();
                     LanguageThai.IsVisible = false;
@@ -748,6 +750,8 @@ namespace MasterQ
                     //LanguageEng.IsEnabled = false;
                     //App.Thai = false;
 
+                    //DependencyService.Get<IFNotification>().SendNotification("TestTHAI", "ทดสอบเปลี่ยนเป็นภาษาไทย");
+                                        
                     Utils.changeAppLanguageToThai();
                     LanguageThai.IsVisible = true;
                     LanguageThai.IsEnabled = true;
@@ -758,9 +762,6 @@ namespace MasterQ
 
                     if (SessionModel.bookingQ == null)
                     {
-                        App.timercheck = false;
-                        App.RePage = true;
-
                         App.timercheck = false;
                         App.RePage = true;
 
