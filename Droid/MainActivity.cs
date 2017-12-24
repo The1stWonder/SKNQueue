@@ -7,6 +7,7 @@ using Android.Support.V7.App;
 using Android.Util;
 using Android.Widget;
 using Android.OS;
+using Android.Views;
 
 namespace MasterQ.Droid
 {
@@ -25,6 +26,8 @@ namespace MasterQ.Droid
         			base.OnCreate(bundle);
 
             notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+
+            this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 
             builder = new Notification.Builder(this)
                                  .SetContentTitle("")
