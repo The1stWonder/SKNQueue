@@ -246,6 +246,10 @@ namespace MasterQ
                                         CountstartMain = false;
                                         Navigation.PushAsync(new RatingPage());
                                         TimesQ.Text = "00:00:00";
+                                        b_booking1.IsVisible = true;
+                                        b_booking2.IsVisible = false;
+                                        b_qr1.IsVisible = true;
+                                        b_qr2.IsVisible = false;
                                     }
                                     else if (ChkQueue.id == 63)
                                     {
@@ -256,6 +260,10 @@ namespace MasterQ
                                         App.timercheck = false;
                                         CountstartMain = false;
                                         TimesQ.Text = "00:00:00";
+                                        b_booking1.IsVisible = true;
+                                        b_booking2.IsVisible = false;
+                                        b_qr1.IsVisible = true;
+                                        b_qr2.IsVisible = false;
                                     }
                                     else
                                     {
