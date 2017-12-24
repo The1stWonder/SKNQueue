@@ -16,11 +16,11 @@ namespace MasterQ.iOS
         public void SendNotification(string act, string body)
         {
             UILocalNotification notification = new UILocalNotification();
-            notification.ApplicationIconBadgeNumber = 1;
             NSDate.FromTimeIntervalSinceNow(15);
-            //notification.AlertTitle = "Alert Title"; // required for Apple Watch notifications
+            notification.AlertTitle = act; // required for Apple Watch notifications
             notification.AlertAction = act;
             notification.AlertBody = body;
+            notification.ApplicationIconBadgeNumber = 1;
             notification.SoundName = UILocalNotification.DefaultSoundName;
             UIApplication.SharedApplication.ScheduleLocalNotification(notification);   
         }

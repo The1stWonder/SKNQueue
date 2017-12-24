@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using UserNotifications;
 
 namespace MasterQ.iOS
 {
@@ -14,6 +15,7 @@ namespace MasterQ.iOS
         
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
+            UNUserNotificationCenter.Current.Delegate = new MyNotificationDelegate();
 			global::Xamarin.Forms.Forms.Init();
             global::ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
@@ -26,14 +28,29 @@ namespace MasterQ.iOS
 
             var thai = new System.Globalization.ThaiBuddhistCalendar();
 
+            //if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+            //{
+            //    var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(
+            //        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null
+            //    );
+
+            //    UIApplication.SharedApplication.RegisterUserNotificationSettings(notificationSettings);
+            //}
+
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
-                var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(
-                    UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null
-                );
-
+                UIUserNotificationType userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
+                UIUserNotificationSettings notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(userNotificationTypes, null);
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(notificationSettings);
+                UIApplication.SharedApplication.RegisterForRemoteNotifications();
             }
+            else
+            {
+                UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+                UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
+            }
+
+            //UNUserNotificationCenter.Current.Delegate = new MyNotificationDelegate();
 
 			LoadApplication(new App());
 
@@ -41,16 +58,13 @@ namespace MasterQ.iOS
 			return base.FinishedLaunching(app, options);
 		}
 
-        public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+        public class MyNotificationDelegate : UNUserNotificationCenterDelegate
         {
-            // show an alert
-            UIAlertController okayAlertController = UIAlertController.Create(notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
-            okayAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-
-            //Window.RootViewController.PresentViewController(okayAlertController, true, null);
-
-            // reset our badge
-            UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+            public override void WillPresentNotification(UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
+            {
+                completionHandler(UNNotificationPresentationOptions.Alert | UNNotificationPresentationOptions.Sound);
+                Console.WriteLine(notification);
+            }
         }
 
 	}
