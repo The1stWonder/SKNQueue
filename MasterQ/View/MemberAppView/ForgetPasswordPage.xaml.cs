@@ -39,11 +39,11 @@ namespace MasterQ
                 UIReturn uiReturn = ForgetPasswordController.getInstance().getPassword(m);
                 if (uiReturn.isSuccess)
                 {
-                    DisplayAlert("", uiReturn.getDescription(), "Close");
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
                 }
                 else
                 {
-                    DisplayAlert("", uiReturn.getDescription(), "Close");
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
                 }
             }
         }

@@ -25,7 +25,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
 			}
 		}
 
@@ -42,7 +42,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
 			}
 		}
 
@@ -59,7 +59,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
 			}
 		}
 
@@ -76,7 +76,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
 			}
 		}
 
@@ -93,7 +93,7 @@ namespace MasterQ
 			}
 			else
 			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
+                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
 			}
 		}
     }

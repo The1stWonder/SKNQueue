@@ -21,7 +21,9 @@ namespace MasterQ
         public static bool RePagelogin = false;
         public static bool RePagemain = false;
         public static bool Initiallogin = false;
-        public static string NoInternet = "กรุณาเชื่อมต่ออินเตอร์เน็ต";
+        public static string NoInternet = "ไม่มีการเชื่อมต่ออินเตอร์เน็ต";
+        public static string NoInternet2 = "No internet connect";
+        public static string AppicationName = "MasterQ";
         static MasterQDatabaseDAO database;
 
         public App()
@@ -97,10 +99,6 @@ namespace MasterQ
                 {
                     timercount--;
                 }
-				// do something every 60 seconds
-				
-				// ItemsPage i = new ItemsPage();
-
 				return timercheck; // runs again, or false to stop
 			});
 		}
@@ -108,9 +106,6 @@ namespace MasterQ
 
 		public static void timerStop()
 		{
-			//Console.WriteLine("disposing of timer...");
-			//s.tmr.Dispose();
-			//s.tmr = null;
 			timercheck = false;
 		}
 	}

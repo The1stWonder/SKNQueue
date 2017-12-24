@@ -104,12 +104,12 @@ namespace MasterQ
                         imgSave2.IsVisible = false;
                         imgSave2.IsEnabled = false;
 
-                        await DisplayAlert("", result.descriptionEN, "OK");
+                        await DisplayAlert(App.AppicationName, result.descriptionEN, "OK");
                         await Navigation.PushAsync(new MainPage());
                     }
                     else
                     {
-                        await DisplayAlert("", result.descriptionEN, "Close");
+                        await DisplayAlert(App.AppicationName, result.descriptionEN, "Close");
                     }
                 }
             }
@@ -227,12 +227,12 @@ namespace MasterQ
                         imgSave2.IsVisible = false;
                         imgSave2.IsEnabled = false;
 
-                        await DisplayAlert("", result.descriptionEN, "OK");
+                        await DisplayAlert(App.AppicationName, result.descriptionEN, "OK");
                         await Navigation.PushAsync(new MainPage());
                     }
                     else
                     {
-                        await DisplayAlert("", result.descriptionEN, "Close");
+                        await DisplayAlert(App.AppicationName, result.descriptionEN, "Close");
                     }
                 }
             }

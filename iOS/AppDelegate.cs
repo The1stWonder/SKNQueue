@@ -21,11 +21,6 @@ namespace MasterQ.iOS
 
             Xamarin.FormsMaps.Init();
 
-            //var settings = UIUserNotificationSettings.GetSettingsForTypes(
-            //UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
-            //, null);
-            //UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-
             var thai = new System.Globalization.ThaiBuddhistCalendar();
 
             //if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
@@ -37,7 +32,7 @@ namespace MasterQ.iOS
             //    UIApplication.SharedApplication.RegisterUserNotificationSettings(notificationSettings);
             //}
 
-            UIApplication.SharedApplication.ApplicationIconBadgeNumber = -1;
+            //UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
@@ -54,6 +49,8 @@ namespace MasterQ.iOS
 
 			LoadApplication(new App());
 
+            UIApplication.SharedApplication.BeginBackgroundTask(() => {});
+
 			return base.FinishedLaunching(app, options);
 		}
 
@@ -66,5 +63,10 @@ namespace MasterQ.iOS
             }
         }
 
+        public override void OnActivated(UIApplication uiApplication) 
+        { 
+            UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0; 
+            base.OnActivated(uiApplication);
+        }
 	}
 }

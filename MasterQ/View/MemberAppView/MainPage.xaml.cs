@@ -115,7 +115,7 @@ namespace MasterQ
             else
             {
                 App.RePagelogin = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
 		}
 
@@ -178,7 +178,7 @@ namespace MasterQ
 
                             if (!ChkQueue.isSuccess)
                             {
-                                DisplayAlert("", ChkQueue.getDescription(), "Close");
+                                DisplayAlert(App.AppicationName, ChkQueue.getDescription(), "Close");
                                 TimesQ.Text = "00:00:00";
                                 App.timercheck = false;
                             }
@@ -233,7 +233,7 @@ namespace MasterQ
                                 if (!ChkQueue.isSuccess)
                                 {
                                     App.timercheck = false;
-                                    DisplayAlert("", ChkQueue.getDescription(), "Close");
+                                    DisplayAlert(App.AppicationName, ChkQueue.getDescription(), "Close");
                                     TimesQ.Text = "00:00:00";
                                 }
                                 else
@@ -300,7 +300,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
 		}
 
@@ -323,7 +323,7 @@ namespace MasterQ
                         {
                             App.timercheck = false;
                             CountstartMain = false;
-                            await DisplayAlert("", Chklogout.getDescription(), "Close");
+                            await DisplayAlert(App.AppicationName, Chklogout.getDescription(), "Close");
                         }
                         else
                         {
@@ -339,7 +339,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                await DisplayAlert("", App.NoInternet, "Close");
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -362,7 +362,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -386,14 +386,14 @@ namespace MasterQ
                     }
                     else
                     {
-                        DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                        DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
                     }
                 }
             }
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -417,14 +417,14 @@ namespace MasterQ
                     }
                     else
                     {
-                        DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                        DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
                     }
                 }
             }
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -445,7 +445,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }  
         }
 
@@ -466,7 +466,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -503,7 +503,7 @@ namespace MasterQ
                             }
                             catch
                             {
-                                await DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_NOINFORMATION), "Close");
+                                await DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_NOINFORMATION), "Close");
                                 CheckQR = false;
                             }
 
@@ -515,7 +515,7 @@ namespace MasterQ
                                     UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
                                     if (!uiR.isSuccess)
                                     {
-                                        await DisplayAlert("", uiR.getDescription(), "Close");
+                                        await DisplayAlert(App.AppicationName, uiR.getDescription(), "Close");
                                     }
                                     else
                                     {
@@ -552,12 +552,12 @@ namespace MasterQ
                 }
                 else
                 {
-                    DisplayAlert("", Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                    DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
                 }
             }
             else
             {
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -578,7 +578,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
 		}
 
@@ -599,7 +599,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -676,7 +676,7 @@ namespace MasterQ
                             {
                                 App.timercheck = false;
                                 CountstartMain = false;
-                                await DisplayAlert("", uiReturn.getDescription(), "Close");
+                                await DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
                             }
                         }
                     }
@@ -685,7 +685,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                await DisplayAlert("", App.NoInternet, "Close");
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -740,7 +740,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -797,7 +797,7 @@ namespace MasterQ
             else
             {
                 App.RePagemain = false;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
     }

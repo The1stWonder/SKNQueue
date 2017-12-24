@@ -64,7 +64,7 @@ namespace MasterQ
                 }
                 else
                 {
-                    DisplayAlert("", "Register Fail : " + uiReturn.descriptionEN, "Close");
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
                 }
             }
 		}

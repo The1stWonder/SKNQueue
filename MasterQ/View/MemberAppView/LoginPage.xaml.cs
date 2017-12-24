@@ -99,7 +99,7 @@ namespace MasterQ
             {
                 App.RePagelogin = true;
 
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
 
                 LanguageThai.IsVisible = true;
                 LanguageThai.IsEnabled = true;
@@ -138,7 +138,7 @@ namespace MasterQ
             else
             {
                 App.RePagelogin = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -166,14 +166,14 @@ namespace MasterQ
                     }
                     else
                     {
-                        DisplayAlert("", uiReturn.descriptionEN, "Close");
+                        DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
                     }
                 }
             }
             else
             {
                 App.RePagelogin = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -195,7 +195,7 @@ namespace MasterQ
             else
             {
                 App.RePagelogin = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -225,7 +225,7 @@ namespace MasterQ
             else
             {
                 App.RePagelogin = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
@@ -255,7 +255,7 @@ namespace MasterQ
             else
             {
                 App.RePagelogin = true;
-                DisplayAlert("", App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
 
         }

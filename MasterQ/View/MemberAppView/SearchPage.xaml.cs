@@ -63,7 +63,7 @@ namespace MasterQ
                 BranchView.ItemsSource = Branch;
                 if (!uiR.isSuccess)
                 {
-                    DisplayAlert("", uiR.descriptionEN, "Cancel");
+                    DisplayAlert(App.AppicationName, uiR.getDescription(), "Cancel");
                 }
             }
 		}
@@ -104,7 +104,7 @@ namespace MasterQ
                     BranchView.ItemsSource = Branch;
                     if (!uiR.isSuccess)
                     {
-                        DisplayAlert("", uiR.descriptionEN, "Cancel");
+                        DisplayAlert(App.AppicationName, uiR.getDescription(), "Cancel");
                     }
                 }
             }
