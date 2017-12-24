@@ -37,7 +37,7 @@ namespace MasterQ.iOS
             //    UIApplication.SharedApplication.RegisterUserNotificationSettings(notificationSettings);
             //}
 
-            //UIApplication.SharedApplication.ApplicationIconBadgeNumber = -1;
+            UIApplication.SharedApplication.ApplicationIconBadgeNumber = -1;
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
