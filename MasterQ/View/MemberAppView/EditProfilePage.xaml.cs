@@ -49,13 +49,28 @@ namespace MasterQ
                 mPasswordEntry.Text = memberid.password.ToString();
                 PasswordEdit = mPasswordEntry.Text.ToString();
 
-                int Day = Convert.ToInt16(Convert.ToDateTime(memberid.birthDate).Day);
-                int Month = Convert.ToInt16(Convert.ToDateTime(memberid.birthDate).Month);
-                int Year = Convert.ToInt16(Convert.ToDateTime(memberid.birthDate).Year);
+                DateTime date = ConvertToDateTime(memberid.birthDate);
+
+                int Day = Convert.ToInt16(date.Day);
+                int Month = Convert.ToInt16(date.Month);
+                int Year = Convert.ToInt16(date.Year);
 
                 mBirthdateEntry.Date = new DateTime(Year, Month, Day);
             }
 		}
+
+        private DateTime ConvertToDateTime(string strDateTime)
+        {
+            DateTime dtFinaldate; string sDateTime;
+            try { dtFinaldate = Convert.ToDateTime(strDateTime); }
+            catch (Exception e)
+            {
+                string[] sDate = strDateTime.Split('/');
+                sDateTime = sDate[1] + '/' + sDate[0] + '/' + sDate[2];
+                dtFinaldate = Convert.ToDateTime(sDateTime);
+            }
+            return dtFinaldate;
+        }
 
         async void OnImageJoin(object sender, System.EventArgs args)
         {
@@ -104,12 +119,12 @@ namespace MasterQ
                         imgSave2.IsVisible = false;
                         imgSave2.IsEnabled = false;
 
-                        await DisplayAlert(App.AppicationName, result.descriptionEN, "OK");
+                        await DisplayAlert(App.AppicationName, result.getDescription(), "OK");
                         await Navigation.PushAsync(new MainPage());
                     }
                     else
                     {
-                        await DisplayAlert(App.AppicationName, result.descriptionEN, "Close");
+                        await DisplayAlert(App.AppicationName, result.getDescription(), "Close");
                     }
                 }
             }
@@ -227,12 +242,12 @@ namespace MasterQ
                         imgSave2.IsVisible = false;
                         imgSave2.IsEnabled = false;
 
-                        await DisplayAlert(App.AppicationName, result.descriptionEN, "OK");
+                        await DisplayAlert(App.AppicationName, result.getDescription(), "OK");
                         await Navigation.PushAsync(new MainPage());
                     }
                     else
                     {
-                        await DisplayAlert(App.AppicationName, result.descriptionEN, "Close");
+                        await DisplayAlert(App.AppicationName, result.getDescription(), "Close");
                     }
                 }
             }
