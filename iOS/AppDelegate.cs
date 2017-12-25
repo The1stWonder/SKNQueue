@@ -74,23 +74,6 @@ namespace MasterQ.iOS
             UIApplication.Notifications.ObserveBackgroundRefreshStatusDidChange((sender, args) => {
                 Console.WriteLine("Background refresh status changed");
             });
-
-        }
-
-        [Export("oneSignalApplicationDidBecomeActive:")]
-        public void OneSignalApplicationDidBecomeActive(UIApplication application)
-        {
-            Debug.WriteLine("OneSignalApplicationDidBecomeActive");
-
-            OnActivated(application);
-        }
-
-        [Export("oneSignalApplicationWillResignActive:")]
-        public void OneSignalApplicationWillResignActive(UIApplication application)
-        {
-            Debug.WriteLine("OneSignalApplicationWillResignActive");
-
-            OnResignActivation(application);
         }
 	}
 }

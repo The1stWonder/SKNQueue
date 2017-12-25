@@ -27,7 +27,7 @@ namespace MasterQ.Droid
 
             notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
-            //this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+            this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 
             builder = new Notification.Builder(this)
                                  .SetContentTitle("")
