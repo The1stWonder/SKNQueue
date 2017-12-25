@@ -39,6 +39,10 @@ namespace MasterQ.Droid
 			global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Xamarin.FormsMaps.Init(this, bundle);
 
+            PowerManager pm = (PowerManager)GetSystemService(Context.PowerService);
+            PowerManager.WakeLock wl = pm.NewWakeLock(WakeLockFlags.ScreenDim, "My Tag");
+            wl.Acquire();
+
 			LoadApplication(new App());
 		}
 
