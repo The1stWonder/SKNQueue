@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 using Foundation;
@@ -69,6 +70,27 @@ namespace MasterQ.iOS
         { 
             UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0; 
             base.OnActivated(uiApplication);
+
+            UIApplication.Notifications.ObserveBackgroundRefreshStatusDidChange((sender, args) => {
+                Console.WriteLine("Background refresh status changed");
+            });
+
+        }
+
+        [Export("oneSignalApplicationDidBecomeActive:")]
+        public void OneSignalApplicationDidBecomeActive(UIApplication application)
+        {
+            Debug.WriteLine("OneSignalApplicationDidBecomeActive");
+
+            OnActivated(application);
+        }
+
+        [Export("oneSignalApplicationWillResignActive:")]
+        public void OneSignalApplicationWillResignActive(UIApplication application)
+        {
+            Debug.WriteLine("OneSignalApplicationWillResignActive");
+
+            OnResignActivation(application);
         }
 	}
 }
