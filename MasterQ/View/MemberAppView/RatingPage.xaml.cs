@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Plugin.Connectivity;
 
 using Xamarin.Forms;
 
@@ -10,91 +11,103 @@ namespace MasterQ
         public RatingPage()
         {
             InitializeComponent();
+            HeaderRating.Text = Utils.getLabel(LabelConstants.RATING_PAGE_THANKYOU);
         }
 
-		void Rating1_Clicked(object sender, System.EventArgs e)
-		{
-            SessionModel.bookingQ.rank = "1";
-            UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
-			if (uiReturn.isSuccess)
-			{
-                App.Massage0 = true;
-                App.Massage5 = true;
-                App.Massage15 = true;
-				Navigation.PushAsync(new MainPage());
-			}
-			else
-			{
-                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
-			}
-		}
+        public void OnImageRating1(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                SessionModel.bookingQ.rank = "2";
+                UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
+                if (uiReturn.isSuccess)
+                {
+                    App.Massage0 = true;
+                    App.Massage5 = true;
+                    App.Massage15 = true;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
+                }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
 
-		void Rating2_Clicked(object sender, System.EventArgs e)
-		{
-			SessionModel.bookingQ.rank = "2";
-			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
-			if (uiReturn.isSuccess)
-			{
-                App.Massage0 = true;
-                App.Massage5 = true;
-                App.Massage15 = true;
-				Navigation.PushAsync(new MainPage());
-			}
-			else
-			{
-                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
-			}
-		}
+        public void OnImageRating2(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                SessionModel.bookingQ.rank = "3";
+                UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
+                if (uiReturn.isSuccess)
+                {
+                    App.Massage0 = true;
+                    App.Massage5 = true;
+                    App.Massage15 = true;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
+                }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
 
-		void Rating3_Clicked(object sender, System.EventArgs e)
-		{
-			SessionModel.bookingQ.rank = "3";
-			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
-			if (uiReturn.isSuccess)
-			{
-                App.Massage0 = true;
-                App.Massage5 = true;
-                App.Massage15 = true;
-				Navigation.PushAsync(new MainPage());
-			}
-			else
-			{
-                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
-			}
-		}
+        public void OnImageRating3(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                SessionModel.bookingQ.rank = "4";
+                UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
+                if (uiReturn.isSuccess)
+                {
+                    App.Massage0 = true;
+                    App.Massage5 = true;
+                    App.Massage15 = true;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
+                }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
 
-		void Rating4_Clicked(object sender, System.EventArgs e)
-		{
-			SessionModel.bookingQ.rank = "4";
-			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
-			if (uiReturn.isSuccess)
-			{
-                App.Massage0 = true;
-                App.Massage5 = true;
-                App.Massage15 = true;
-				Navigation.PushAsync(new MainPage());
-			}
-			else
-			{
-                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
-			}
-		}
-
-		void Rating5_Clicked(object sender, System.EventArgs e)
-		{
-			SessionModel.bookingQ.rank = "5";
-			UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
-			if (uiReturn.isSuccess)
-			{
-                App.Massage0 = true;
-                App.Massage5 = true;
-                App.Massage15 = true;
-				Navigation.PushAsync(new MainPage());
-			}
-			else
-			{
-                DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
-			}
-		}
+        public void OnImageRating4(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                SessionModel.bookingQ.rank = "5";
+                UIReturn uiReturn = ReserveQController.getInstance().ratingStaff(SessionModel.bookingQ);
+                if (uiReturn.isSuccess)
+                {
+                    App.Massage0 = true;
+                    App.Massage5 = true;
+                    App.Massage15 = true;
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
+                }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
     }
 }

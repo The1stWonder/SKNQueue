@@ -46,11 +46,22 @@ namespace MasterQ
                     DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
                 }
             }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void OnImageBack(object sender, System.EventArgs args)
         {
-            Navigation.PushAsync(new LoginPage());
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new LoginPage());
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 	}
 }

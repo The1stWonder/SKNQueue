@@ -482,6 +482,18 @@
     <AndroidResource Include="..\MasterQ\Image\btn_qr2.png">
       <Link>Resources\drawable-xxhdpi\btn_qr2.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\emoticon04.png">
+      <Link>Resources\drawable-xxhdpi\emoticon04.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\emoticon03.png">
+      <Link>Resources\drawable-xxhdpi\emoticon03.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\emoticon02.png">
+      <Link>Resources\drawable-xxhdpi\emoticon02.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\emoticon01.png">
+      <Link>Resources\drawable-xxhdpi\emoticon01.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

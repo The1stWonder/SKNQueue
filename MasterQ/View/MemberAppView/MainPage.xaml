@@ -136,14 +136,14 @@
                                 <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
                             </Label.GestureRecognizers>
                         </Label>
-                        <Image x:Name="btn_cancel" Source="btn_cancel.png" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" >
+                        <Image x:Name="btn_cancel" Source="btn_cancel.png" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" VerticalOptions="Center" HorizontalOptions="Center" >
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Tapped="OnImageDelete"
                                 />
                             </Image.GestureRecognizers>
                         </Image>
-                        <Image x:Name="btn_cancel2" Source="btn_cancel2.png" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" >
+                        <Image x:Name="btn_cancel2" Source="btn_cancel2.png" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50" VerticalOptions="Center" HorizontalOptions="Center" >
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Tapped="OnImageDelete"

@@ -56,28 +56,45 @@ namespace MasterQ
                     }
                 }
             }
+            else
+            {
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
 		}
 
-		public void OnImageBack(object sender, System.EventArgs args)
-		{
-            if (App.SearchID == 0)
+        public void OnImageBack(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
             {
-                Navigation.PushAsync(new SearchPage());
+                if (App.SearchID == 0)
+                {
+                    Navigation.PushAsync(new SearchPage());
+                }
+                else if (App.SearchID == 1)
+                {
+                    Navigation.PushAsync(new HistoryPage());
+                }
+                else if (App.SearchID == 2)
+                {
+                    Navigation.PushAsync(new MainPage());
+                }
             }
-            else if (App.SearchID == 1)
+            else
             {
-                Navigation.PushAsync(new HistoryPage());
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
-            else if (App.SearchID == 2)
-            {
-                Navigation.PushAsync(new MainPage());
-            }
-			
-		}
+        }
 
-		public void OnImageMap(object sender, System.EventArgs args)
-		{
-            Navigation.PushAsync(new MapViewPage(searchBranch));
-		}
+        public void OnImageMap(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new MapViewPage(searchBranch));
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
 	}
 }

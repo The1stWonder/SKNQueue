@@ -28,18 +28,31 @@ namespace MasterQ
 
 		public void OnImageBack(object sender, System.EventArgs args)
 		{
-			Navigation.PushAsync(new MainPage());
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new MainPage());
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
 		}
 
         public void OnImageSearch(object sender, System.EventArgs args)
         {
-            if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+            if (CrossConnectivity.Current.IsConnected)
             {
-                Navigation.PushAsync(new SearchPage());
-                App.TextSearch = "";
-                App.SearchID = 0;
+                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                {
+                    Navigation.PushAsync(new SearchPage());
+                    App.TextSearch = "";
+                    App.SearchID = 0;
+                }
             }
-
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void itemTapped(object sender, System.EventArgs args)
@@ -59,6 +72,10 @@ namespace MasterQ
                     App.TextSearch = "";
                     App.SearchID = 1;
                 }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 	}

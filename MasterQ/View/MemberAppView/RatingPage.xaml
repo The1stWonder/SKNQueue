@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
-    BackgroundImage="bg4.png"
+    BackgroundImage="bg5.png"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.RatingPage"
@@ -10,24 +10,113 @@
             Margin="20,20,20,20"
             VerticalOptions="Fill"
             HorizontalOptions="Fill">
-            <Grid.RowDefinitions>
+
+    <!--<Grid.RowDefinitions>
                 <RowDefinition
-                    Height="Auto" />
+                    Height="10*" />
                 <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
+                    Height="20*" />
+            <RowDefinition
+                    Height="2.5*" />
+            <RowDefinition
+                    Height="20*" />
+            <RowDefinition
+                    Height="2.5*" />
+            <RowDefinition
+                    Height="20*" />
+            <RowDefinition
+                    Height="2.5*" />
+            <RowDefinition
+                    Height="20*" />
+            <RowDefinition
+                    Height="2.5*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition
-                    Width="*" />
+                    Width="20*" />
+            <ColumnDefinition
+                    Width="60*" />
+            <ColumnDefinition
+                    Width="20*" />
+            </Grid.ColumnDefinitions>-->
+
+    
+        <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="5*" />
+                <RowDefinition
+                    Height="20*" />
+                <RowDefinition
+                    Height="5*" />
+                <RowDefinition
+                    Height="10*" />
+                <RowDefinition
+                    Height="40*" />
+            <RowDefinition
+                    Height="20*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="10*" />
+            <ColumnDefinition
+                    Width="20*" />
+            <ColumnDefinition
+                    Width="20*" />
+            <ColumnDefinition
+                    Width="20*" />
+            <ColumnDefinition
+                    Width="20*" />
+            <ColumnDefinition
+                    Width="10*" />
             </Grid.ColumnDefinitions>
 
-            <Button
+        <Image 
+        Grid.Row="1" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="6" 
+        Source="ThailandPostLogo.png" 
+        VerticalOptions="Center" 
+        HeightRequest="250">
+        </Image>
+
+        <Label x:Name="HeaderRating" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" FontSize="25" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image Grid.Row="4" Grid.Column="1"  Source="emoticon04.png" VerticalOptions="Center" HeightRequest="140" >
+        <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageRating1"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+
+            <Image Grid.Row="4" Grid.Column="2"  Source="emoticon03.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="140" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageRating2"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+
+                <Image Grid.Row="4" Grid.Column="3"  Source="emoticon02.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="140" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageRating3"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+
+                    <Image Grid.Row="4" Grid.Column="4"  Source="emoticon01.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="140" >
+                    <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageRating4"
+                         />
+                </Image.GestureRecognizers>
+        </Image>
+        
+
+       
+        
+            <!--<Button
                 Clicked="Rating1_Clicked"
                 Margin="0,20,0,0"
                 FontAttributes="Bold"
@@ -75,6 +164,6 @@
                 Grid.Row="4"
                 Grid.Column="0"
                 BackgroundColor="#006699"
-                TextColor="White" />
+                TextColor="White" />-->
         </Grid>
 </ContentPage>

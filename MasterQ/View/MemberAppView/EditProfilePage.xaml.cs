@@ -57,6 +57,10 @@ namespace MasterQ
 
                 mBirthdateEntry.Date = new DateTime(Year, Month, Day);
             }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
 		}
 
         private DateTime ConvertToDateTime(string strDateTime)
@@ -128,71 +132,97 @@ namespace MasterQ
                     }
                 }
             }
+            else
+            {
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
-		public void OnImageBack(object sender, System.EventArgs args)
-		{
-            mNameEntry.IsEnabled = false;
-            mLastNameEntry.IsEnabled = false;
-            mEmailEntry.IsEnabled = false;
-            mPhone.IsEnabled = false;
-            mBirthdateEntry.IsEnabled = false;
-            mPasswordEntry.IsEnabled = false;
-            mPassword2Entry.IsEnabled = false;
+        public void OnImageBack(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                mNameEntry.IsEnabled = false;
+                mLastNameEntry.IsEnabled = false;
+                mEmailEntry.IsEnabled = false;
+                mPhone.IsEnabled = false;
+                mBirthdateEntry.IsEnabled = false;
+                mPasswordEntry.IsEnabled = false;
+                mPassword2Entry.IsEnabled = false;
 
-            imgEditProfile.IsVisible = true;
-            imgEditProfile.IsEnabled = true;
-            imgSave1.IsVisible = false;
-            imgSave1.IsEnabled = false;
-            imgEditPassword.IsVisible = true;
-            imgEditPassword.IsEnabled = true;
-            imgSave2.IsVisible = false;
-            imgSave2.IsEnabled = false;
+                imgEditProfile.IsVisible = true;
+                imgEditProfile.IsEnabled = true;
+                imgSave1.IsVisible = false;
+                imgSave1.IsEnabled = false;
+                imgEditPassword.IsVisible = true;
+                imgEditPassword.IsEnabled = true;
+                imgSave2.IsVisible = false;
+                imgSave2.IsEnabled = false;
 
-            Navigation.PushAsync(new MainPage());
-		}
+                Navigation.PushAsync(new MainPage());
+
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
 
         public void OnImageEditProfile(object sender, System.EventArgs args)
         {
-            mNameEntry.IsEnabled = true;
-            mLastNameEntry.IsEnabled = true;
-            mEmailEntry.IsEnabled = true;
-            mPhone.IsEnabled = true;
-            mBirthdateEntry.IsEnabled = true;
-            mPasswordEntry.IsEnabled = false;
-            mPassword2Entry.IsEnabled = false;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                mNameEntry.IsEnabled = true;
+                mLastNameEntry.IsEnabled = true;
+                mEmailEntry.IsEnabled = true;
+                mPhone.IsEnabled = true;
+                mBirthdateEntry.IsEnabled = true;
+                mPasswordEntry.IsEnabled = false;
+                mPassword2Entry.IsEnabled = false;
 
-            imgEditProfile.IsVisible = false;
-            imgEditProfile.IsEnabled = false;
-            imgSave1.IsVisible = true;
-            imgSave1.IsEnabled = true;
-            imgEditPassword.IsVisible = true;
-            imgEditPassword.IsEnabled = false;
-            imgSave2.IsVisible = false;
-            imgSave2.IsEnabled = false;
+                imgEditProfile.IsVisible = false;
+                imgEditProfile.IsEnabled = false;
+                imgSave1.IsVisible = true;
+                imgSave1.IsEnabled = true;
+                imgEditPassword.IsVisible = true;
+                imgEditPassword.IsEnabled = false;
+                imgSave2.IsVisible = false;
+                imgSave2.IsEnabled = false;
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void OnImageEditPassword(object sender, System.EventArgs args)
         {
-            mNameEntry.IsEnabled = false;
-            mLastNameEntry.IsEnabled = false;
-            mEmailEntry.IsEnabled = false;
-            mPhone.IsEnabled = false;
-            mBirthdateEntry.IsEnabled = false;
-            mPasswordEntry.IsEnabled = true;
-            mPassword2Entry.IsEnabled = true;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                mNameEntry.IsEnabled = false;
+                mLastNameEntry.IsEnabled = false;
+                mEmailEntry.IsEnabled = false;
+                mPhone.IsEnabled = false;
+                mBirthdateEntry.IsEnabled = false;
+                mPasswordEntry.IsEnabled = true;
+                mPassword2Entry.IsEnabled = true;
 
-            imgEditProfile.IsVisible = true;
-            imgEditProfile.IsEnabled = false;
-            imgSave1.IsVisible = false;
-            imgSave1.IsEnabled = false;
-            imgEditPassword.IsVisible = false;
-            imgEditPassword.IsEnabled = false;
-            imgSave2.IsVisible = true;
-            imgSave2.IsEnabled = true;
+                imgEditProfile.IsVisible = true;
+                imgEditProfile.IsEnabled = false;
+                imgSave1.IsVisible = false;
+                imgSave1.IsEnabled = false;
+                imgEditPassword.IsVisible = false;
+                imgEditPassword.IsEnabled = false;
+                imgSave2.IsVisible = true;
+                imgSave2.IsEnabled = true;
 
-            mPasswordEntry.Text = "";
-            mPassword2Entry.Text = "";
+                mPasswordEntry.Text = "";
+                mPassword2Entry.Text = "";
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         async void OnImageJoin2(object sender, System.EventArgs args)
@@ -250,6 +280,10 @@ namespace MasterQ
                         await DisplayAlert(App.AppicationName, result.getDescription(), "Close");
                     }
                 }
+            }
+            else
+            {
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 	}

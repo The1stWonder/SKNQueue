@@ -108,6 +108,10 @@ namespace MasterQ
                     }
                 }
             }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
 		}
 
         public void itemTapped(object sender, System.EventArgs args)
@@ -117,14 +121,23 @@ namespace MasterQ
                 Branch BranchID = (Branch)BranchView.SelectedItem;
                 Navigation.PushAsync(new ServicePage(BranchID));
             }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
-		public void OnImageBack(object sender, System.EventArgs args)
-		{
-            Navigation.PushAsync(new MainPage());
-            App.TextSearch = "";
-		}
-
-
+        public void OnImageBack(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new MainPage());
+                App.TextSearch = "";
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
 	}
 }

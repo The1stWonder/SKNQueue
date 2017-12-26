@@ -55,7 +55,14 @@ namespace MasterQ
 
 		public void OnImageBack(object sender, System.EventArgs args)
 		{
-            Navigation.PushAsync(new ServicePage(searchBranch));
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new ServicePage(searchBranch));
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
 		}
     }
 }

@@ -42,13 +42,15 @@
             </StackLayout>
         </StackLayout>-->
         
-        <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+<!--        <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView VerticalOptions="FillAndExpand">
                    <Image Source="logo.png" VerticalOptions="Center" HeightRequest="225" />
                 </ContentView>
             </StackLayout>
-        </StackLayout>
+        </StackLayout>-->
+
+        <Image Grid.Row="2" Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="300" />
         
         <StackLayout Grid.Row="4" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
