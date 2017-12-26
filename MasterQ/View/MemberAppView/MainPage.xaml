@@ -111,12 +111,12 @@
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
         </Label>
-                        <Label x:Name="NumberQ" Margin="40,0,0,0" Grid.Row="2" Grid.Column="0" FontSize="50" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
+                        <Label x:Name="NumberQ" Margin="40,0,0,0" Grid.Row="2" Grid.Column="0" FontSize="45" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
                     <Label.GestureRecognizers>
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
         </Label>
-                        <Label x:Name="NumberQ2" Grid.Row="2" Grid.Column="1" FontSize="50" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
+                        <Label x:Name="NumberQ2" Grid.Row="2" Grid.Column="1" FontSize="45" Text="-" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" >
                 <Label.GestureRecognizers>
          <TapGestureRecognizer Tapped="OnImageSummaryPage"/>
         </Label.GestureRecognizers>
