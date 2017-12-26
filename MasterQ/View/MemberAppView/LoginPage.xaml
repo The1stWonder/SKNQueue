@@ -89,6 +89,8 @@
              </Grid>
             </StackLayout>
         </StackLayout>
+
+        <ScrollView HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="0">
         <StackLayout Grid.Row="3" Orientation="Vertical">
             <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
                 <Grid.RowDefinitions>
@@ -127,8 +129,8 @@
                         <TapGestureRecognizer Tapped="OnImageSignin" />
                     </Image.GestureRecognizers>
                 </Image>
-               
                </Grid>
             </StackLayout>
+            </ScrollView>
     </Grid>
 </ContentPage>

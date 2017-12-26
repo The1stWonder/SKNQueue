@@ -31,7 +31,8 @@
                 </Image>
             <Label Margin="40,0,0,0" x:Name="SignUpQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
         </Grid>
-        
+
+        <ScrollView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
         <Grid Margin="10,0,10,0" Grid.Row="1" Grid.Column="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -255,6 +256,7 @@
     </Grid>
             </StackLayout>
             </Grid>
+            </ScrollView>
         </Grid>
 
 </ContentPage>
