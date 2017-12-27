@@ -490,6 +490,15 @@
     <BundleResource Include="..\MasterQ\Image\emoticon01.png">
       <Link>Resources\emoticon01.png</Link>
     </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_EditPassword2.png">
+      <Link>Resources\btn_EditPassword2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_EditProfile2.png">
+      <Link>Resources\btn_EditProfile2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\MasterQ\Image\btn_save2.png">
+      <Link>Resources\btn_save2.png</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />

@@ -12,10 +12,22 @@ namespace MasterQ
 		public EditProfilePage()
 		{
 			InitializeComponent();
+            imgEditProfile.IsVisible = true;
+            imgEditProfile.IsEnabled = true;
+
+            imgSave1.IsVisible = false;
+            imgSave1.IsEnabled = false;
+
+            imgEditPassword.IsVisible = true;
+            imgEditPassword.IsEnabled = true;
+
+            imgSave2.IsVisible = false;
+            imgSave2.IsEnabled = false;
 
             if (CrossConnectivity.Current.IsConnected)
             {
                 ProfileQ.Text = Utils.getLabel(LabelConstants.PROFILE_PAGE_PROFILE);
+
                 mNameEntry.IsEnabled = false;
                 mLastNameEntry.IsEnabled = false;
                 mEmailEntry.IsEnabled = false;
@@ -24,14 +36,50 @@ namespace MasterQ
                 mPasswordEntry.IsEnabled = false;
                 mPassword2Entry.IsEnabled = false;
 
-                imgEditProfile.IsVisible = true;
-                imgEditProfile.IsEnabled = true;
-                imgSave1.IsVisible = false;
-                imgSave1.IsEnabled = false;
-                imgEditPassword.IsVisible = true;
-                imgEditPassword.IsEnabled = true;
-                imgSave2.IsVisible = false;
-                imgSave2.IsEnabled = false;
+                if (App.Thai == true)
+                {
+                    imgEditProfile.IsVisible = false;
+                    imgEditProfile.IsEnabled = false;
+                    imgEditProfile2.IsVisible = true;
+                    imgEditProfile2.IsEnabled = true;
+
+                    imgSave1.IsVisible = false;
+                    imgSave1.IsEnabled = false;
+                    imgSave3.IsVisible = false;
+                    imgSave3.IsEnabled = false;
+
+                    imgEditPassword.IsVisible = false;
+                    imgEditPassword.IsEnabled = false;
+                    imgEditPassword2.IsVisible = true;
+                    imgEditPassword2.IsEnabled = true;
+
+                    imgSave2.IsVisible = false;
+                    imgSave2.IsEnabled = false;
+                    imgSave4.IsVisible = false;
+                    imgSave4.IsEnabled = false;
+                }
+                else
+                {
+                    imgEditProfile.IsVisible = true;
+                    imgEditProfile.IsEnabled = true;
+                    imgEditProfile2.IsVisible = false;
+                    imgEditProfile2.IsEnabled = false;
+
+                    imgSave1.IsVisible = false;
+                    imgSave1.IsEnabled = false;
+                    imgSave3.IsVisible = false;
+                    imgSave3.IsEnabled = false;
+
+                    imgEditPassword.IsVisible = true;
+                    imgEditPassword.IsEnabled = true;
+                    imgEditPassword2.IsVisible = false;
+                    imgEditPassword2.IsEnabled = false;
+
+                    imgSave2.IsVisible = false;
+                    imgSave2.IsEnabled = false;
+                    imgSave4.IsVisible = false;
+                    imgSave4.IsEnabled = false;
+                }
 
                 mNameEntry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_NAME);
                 mLastNameEntry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_LASTNAME);
@@ -150,17 +198,51 @@ namespace MasterQ
                 mPasswordEntry.IsEnabled = false;
                 mPassword2Entry.IsEnabled = false;
 
-                imgEditProfile.IsVisible = true;
-                imgEditProfile.IsEnabled = true;
-                imgSave1.IsVisible = false;
-                imgSave1.IsEnabled = false;
-                imgEditPassword.IsVisible = true;
-                imgEditPassword.IsEnabled = true;
-                imgSave2.IsVisible = false;
-                imgSave2.IsEnabled = false;
+                if (App.Thai == true)
+                {
+                    imgEditProfile.IsVisible = false;
+                    imgEditProfile.IsEnabled = false;
+                    imgEditProfile2.IsVisible = true;
+                    imgEditProfile2.IsEnabled = true;
 
+                    imgSave1.IsVisible = false;
+                    imgSave1.IsEnabled = false;
+                    imgSave3.IsVisible = false;
+                    imgSave3.IsEnabled = false;
+
+                    imgEditPassword.IsVisible = false;
+                    imgEditPassword.IsEnabled = false;
+                    imgEditPassword2.IsVisible = true;
+                    imgEditPassword2.IsEnabled = true;
+
+                    imgSave2.IsVisible = false;
+                    imgSave2.IsEnabled = false;
+                    imgSave4.IsVisible = false;
+                    imgSave4.IsEnabled = false;
+                }
+                else
+                {
+                    imgEditProfile.IsVisible = true;
+                    imgEditProfile.IsEnabled = true;
+                    imgEditProfile2.IsVisible = false;
+                    imgEditProfile2.IsEnabled = false;
+
+                    imgSave1.IsVisible = false;
+                    imgSave1.IsEnabled = false;
+                    imgSave3.IsVisible = false;
+                    imgSave3.IsEnabled = false;
+
+                    imgEditPassword.IsVisible = true;
+                    imgEditPassword.IsEnabled = true;
+                    imgEditPassword2.IsVisible = false;
+                    imgEditPassword2.IsEnabled = false;
+
+                    imgSave2.IsVisible = false;
+                    imgSave2.IsEnabled = false;
+                    imgSave4.IsVisible = false;
+                    imgSave4.IsEnabled = false;
+                }
                 Navigation.PushAsync(new MainPage());
-
             }
             else
             {
@@ -180,14 +262,50 @@ namespace MasterQ
                 mPasswordEntry.IsEnabled = false;
                 mPassword2Entry.IsEnabled = false;
 
-                imgEditProfile.IsVisible = false;
-                imgEditProfile.IsEnabled = false;
-                imgSave1.IsVisible = true;
-                imgSave1.IsEnabled = true;
-                imgEditPassword.IsVisible = true;
-                imgEditPassword.IsEnabled = false;
-                imgSave2.IsVisible = false;
-                imgSave2.IsEnabled = false;
+                if (App.Thai == true)
+                {
+                    imgEditProfile.IsVisible = false;
+                    imgEditProfile.IsEnabled = false;
+                    imgEditProfile2.IsVisible = false;
+                    imgEditProfile2.IsEnabled = false;
+
+                    imgSave1.IsVisible = false;
+                    imgSave1.IsEnabled = false;
+                    imgSave3.IsVisible = true;
+                    imgSave3.IsEnabled = true;
+
+                    imgEditPassword.IsVisible = false;
+                    imgEditPassword.IsEnabled = false;
+                    imgEditPassword2.IsVisible = true;
+                    imgEditPassword2.IsEnabled = false;
+
+                    imgSave2.IsVisible = false;
+                    imgSave2.IsEnabled = false;
+                    imgSave4.IsVisible = false;
+                    imgSave4.IsEnabled = false;
+                }
+                else
+                {
+                    imgEditProfile.IsVisible = false;
+                    imgEditProfile.IsEnabled = false;
+                    imgEditProfile2.IsVisible = false;
+                    imgEditProfile2.IsEnabled = false;
+
+                    imgSave1.IsVisible = true;
+                    imgSave1.IsEnabled = true;
+                    imgSave3.IsVisible = false;
+                    imgSave3.IsEnabled = false;
+
+                    imgEditPassword.IsVisible = true;
+                    imgEditPassword.IsEnabled = false;
+                    imgEditPassword2.IsVisible = false;
+                    imgEditPassword2.IsEnabled = false;
+
+                    imgSave2.IsVisible = false;
+                    imgSave2.IsEnabled = false;
+                    imgSave4.IsVisible = false;
+                    imgSave4.IsEnabled = false;
+                }
             }
             else
             {
@@ -215,6 +333,51 @@ namespace MasterQ
                 imgEditPassword.IsEnabled = false;
                 imgSave2.IsVisible = true;
                 imgSave2.IsEnabled = true;
+
+                if (App.Thai == true)
+                {
+                    imgEditProfile.IsVisible = false;
+                    imgEditProfile.IsEnabled = false;
+                    imgEditProfile2.IsVisible = true;
+                    imgEditProfile2.IsEnabled = false;
+
+                    imgSave1.IsVisible = false;
+                    imgSave1.IsEnabled = false;
+                    imgSave3.IsVisible = false;
+                    imgSave3.IsEnabled = false;
+
+                    imgEditPassword.IsVisible = false;
+                    imgEditPassword.IsEnabled = false;
+                    imgEditPassword2.IsVisible = false;
+                    imgEditPassword2.IsEnabled = false;
+
+                    imgSave2.IsVisible = false;
+                    imgSave2.IsEnabled = false;
+                    imgSave4.IsVisible = true;
+                    imgSave4.IsEnabled = true;
+                }
+                else
+                {
+                    imgEditProfile.IsVisible = true;
+                    imgEditProfile.IsEnabled = false;
+                    imgEditProfile2.IsVisible = false;
+                    imgEditProfile2.IsEnabled = false;
+
+                    imgSave1.IsVisible = false;
+                    imgSave1.IsEnabled = false;
+                    imgSave3.IsVisible = false;
+                    imgSave3.IsEnabled = false;
+
+                    imgEditPassword.IsVisible = false;
+                    imgEditPassword.IsEnabled = false;
+                    imgEditPassword2.IsVisible = false;
+                    imgEditPassword2.IsEnabled = false;
+
+                    imgSave2.IsVisible = true;
+                    imgSave2.IsEnabled = true;
+                    imgSave4.IsVisible = false;
+                    imgSave4.IsEnabled = false;
+                }
 
                 mPasswordEntry.Text = "";
                 mPassword2Entry.Text = "";
@@ -262,15 +425,6 @@ namespace MasterQ
                         mBirthdateEntry.IsEnabled = false;
                         mPasswordEntry.IsEnabled = false;
                         mPassword2Entry.IsEnabled = false;
-
-                        imgEditProfile.IsVisible = true;
-                        imgEditProfile.IsEnabled = true;
-                        imgSave1.IsVisible = false;
-                        imgSave1.IsEnabled = false;
-                        imgEditPassword.IsVisible = true;
-                        imgEditPassword.IsEnabled = true;
-                        imgSave2.IsVisible = false;
-                        imgSave2.IsEnabled = false;
 
                         await DisplayAlert(App.AppicationName, result.getDescription(), "OK");
                         await Navigation.PushAsync(new MainPage());

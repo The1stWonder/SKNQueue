@@ -401,6 +401,9 @@
     <None Include="Image\emoticon03.png" />
     <None Include="Image\emoticon02.png" />
     <None Include="Image\emoticon01.png" />
+    <None Include="Image\btn_EditPassword2.png" />
+    <None Include="Image\btn_EditProfile2.png" />
+    <None Include="Image\btn_save2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

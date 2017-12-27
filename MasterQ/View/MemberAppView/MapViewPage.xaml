@@ -21,7 +21,7 @@
         <Image Grid.Row="1" Grid.Column="0"  Source="h_map.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
 
         <StackLayout Grid.Row="1" Orientation="Vertical">
-        <Grid VerticalOptions="Fill" HorizontalOptions="Fill" >
+        <Grid Margin="10,0,0,0" VerticalOptions="Fill" HorizontalOptions="Fill" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="30*" />
                 <RowDefinition Height="5*" />

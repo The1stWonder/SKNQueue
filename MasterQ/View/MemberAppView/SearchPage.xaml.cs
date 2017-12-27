@@ -15,6 +15,8 @@ namespace MasterQ
 		{
 			InitializeComponent();
 
+            //App.TextSearch = "สกลนคร";
+
             if (CrossConnectivity.Current.IsConnected)
             {
                 gennaratepicker();
@@ -58,6 +60,17 @@ namespace MasterQ
             {
                 var searchtxt = App.TextSearch.Trim();
                 mSearchEntry.Text = searchtxt;
+                UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
+                List<Branch> Branch = (List<Branch>)uiR.returnObject;
+                BranchView.ItemsSource = Branch;
+                if (!uiR.isSuccess)
+                {
+                    DisplayAlert(App.AppicationName, uiR.getDescription(), "Cancel");
+                }
+            }
+            else
+            {
+                var searchtxt = "";
                 UIReturn uiR = SearchController.getInstance().getBranches(searchtxt);
                 List<Branch> Branch = (List<Branch>)uiR.returnObject;
                 BranchView.ItemsSource = Branch;

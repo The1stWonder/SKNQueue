@@ -494,6 +494,15 @@
     <AndroidResource Include="..\MasterQ\Image\emoticon01.png">
       <Link>Resources\drawable-xxhdpi\emoticon01.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_EditPassword2.png">
+      <Link>Resources\drawable-xxhdpi\btn_EditPassword2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_EditProfile2.png">
+      <Link>Resources\drawable-xxhdpi\btn_EditProfile2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\btn_save2.png">
+      <Link>Resources\drawable-xxhdpi\btn_save2.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">

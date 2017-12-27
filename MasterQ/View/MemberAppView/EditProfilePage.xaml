@@ -10,11 +10,10 @@
 
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*" />
-            <RowDefinition Height="77*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="80*" />
         </Grid.RowDefinitions>
-        <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Source="bg4.png" Grid.Row="0"/>
-        <Image Grid.Row="0" Source="h_profile.png" />
+        <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Grid.Row="0" Source="h_profile.png" />
         <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*" />
@@ -42,37 +41,23 @@
     <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
         <Grid.RowDefinitions>
             <RowDefinition
-            Height="1*" />
+            Height="12*" />
             <RowDefinition
-            Height="20*" />
+            Height="12*" />
             <RowDefinition
-            Height="1*" />
+            Height="12*" />
             <RowDefinition
-            Height="20*" />
+            Height="12*" />                              
             <RowDefinition
-            Height="1*" />
+            Height="10*" />                               
             <RowDefinition
-            Height="20*" />
+            Height="12*" />                
             <RowDefinition
-            Height="1*" />
+            Height="12*" />                
             <RowDefinition
-            Height="20*" />                
+            Height="10*" />
             <RowDefinition
-            Height="1*" />                
-            <RowDefinition
-            Height="13*" />                
-            <RowDefinition
-            Height="1*" />                
-            <RowDefinition
-            Height="20*" />                
-            <RowDefinition
-            Height="20*" />                
-            <RowDefinition
-            Height="1*" />
-            <RowDefinition
-            Height="13*" />
-            <RowDefinition
-            Height="1*" />
+            Height="8*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition
@@ -84,32 +69,32 @@
         </Grid.ColumnDefinitions>
         <Image
             Margin="5,0,5,0"
-            Grid.Row="1"
+            Grid.Row="0"
             Grid.Column="0"
             Source="icn_usename.png"
-        HeightRequest="10" />
+            HeightRequest="10" />
         <Entry
             x:Name="mNameEntry"
             WidthRequest="20"
             Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
-            Grid.Row="1"
-        Grid.Column="1"/>
+            Grid.Row="0"
+            Grid.Column="1"/>
         <Entry
             x:Name="mLastNameEntry"
             WidthRequest="20"
             Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
-            Grid.Row="1"
-        Grid.Column="2"/>
+            Grid.Row="0"
+            Grid.Column="2"/>
         <Image
             Margin="5,0,5,0"
-            Grid.Row="3"
+            Grid.Row="1"
             Grid.Column="0"
             Source="icn_email.png"
-        HeightRequest="10" />
+            HeightRequest="10" />
         <Entry
             x:Name="mEmailEntry"
             WidthRequest="20"
@@ -117,32 +102,32 @@
             Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
-            Grid.Row="3"
-        Grid.Column="1"
-        Grid.ColumnSpan="2"/>
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"/>
         <Image
             Margin="5,0,5,0"
-            Grid.Row="5"
+            Grid.Row="2"
             Grid.Column="0"
             Source="icn_phone.png"
-        HeightRequest="10" />
+            HeightRequest="10" />
         <Entry
             x:Name="mPhone"
             Placeholder=""
             TextColor="Black"
             Keyboard="Numeric"
             BackgroundColor="White"
-            Grid.Row="5"
+            Grid.Row="2"
             Grid.ColumnSpan="2"
-        Grid.Column="1"/>
+            Grid.Column="1"/>
         <Image
             Margin="5,0,5,0"
-            Grid.Row="7"
+            Grid.Row="3"
             Grid.Column="0"
             Source="icn_birthday.png"
-        HeightRequest="10" />
+            HeightRequest="10" />
 
-    <StackLayout Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+    <StackLayout Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
       <DatePicker x:Name="mBirthdateEntry" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
          <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
          <DatePicker.MinimumDate>
@@ -161,100 +146,141 @@
          </DatePicker.MaximumDate>
       </DatePicker>
    </StackLayout>
-        <!--<Image 
-            Margin="5,0,5,0"
-            Grid.Row="8"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-        Source="divider.png" />-->
+
         <Image
             Margin="5,0,5,0"
-            Grid.Row="11"
+            Grid.Row="5"
             Grid.Column="0"
             Source="icn_password.png"
-        HeightRequest="10" />
+            HeightRequest="10" />
         <Entry
             x:Name="mPasswordEntry"
             IsPassword="true"
             Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
-            Grid.Row="11"
+            Grid.Row="5"
             Grid.ColumnSpan="2"
-        Grid.Column="1"/>
+            Grid.Column="1"/>
         <Image
             Margin="5,0,5,0"
-            Grid.Row="12"
+            Grid.Row="6"
             Grid.Column="0"
             Source="icn_confirm_password.png"
-        HeightRequest="10" />
+            HeightRequest="10" />
         <Entry
             x:Name="mPassword2Entry"
             IsPassword="true"
             Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
-            Grid.Row="12"
+            Grid.Row="6"
             Grid.ColumnSpan="2"
-        Grid.Column="1"/>
-        <!--<Image 
-            Margin="5,0,5,0"
-            Grid.Row="10"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-        Source="divider.png" />-->
+            Grid.Column="1"/>
         <Image 
             x:Name="imgEditProfile"
             Margin="5,0,5,0"
-            Grid.Row="9"
+            Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="btn_EditProfile.png" >
+            Source="btn_EditProfile.png" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageEditProfile"
                          />
-                </Image.GestureRecognizers>
-            </Image>
-            <Image 
-            x:Name="imgSave1"
+            </Image.GestureRecognizers>
+       </Image>
+       <Image 
+            x:Name="imgEditProfile2"
             Margin="5,0,5,0"
-            Grid.Row="9"
+            Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="btn_save.png" >
+            Source="btn_EditProfile2.png" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageEditProfile"
+                         />
+            </Image.GestureRecognizers>
+       </Image>
+       <Image 
+            x:Name="imgSave1"
+            Margin="5,0,5,0"
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Source="btn_save.png" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageJoin"
                          />
-                </Image.GestureRecognizers>
-            </Image>
-            <Image 
-            x:Name="imgEditPassword"
+            </Image.GestureRecognizers>
+       </Image>
+       <Image 
+            x:Name="imgSave3"
             Margin="5,0,5,0"
-            Grid.Row="14"
+            Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="btn_EditPassword.png" >
+            Source="btn_save2.png" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageJoin"
+                         />
+            </Image.GestureRecognizers>
+       </Image>       
+       <Image 
+            x:Name="imgEditPassword"
+            Margin="5,0,5,0"
+            Grid.Row="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Source="btn_EditPassword.png" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageEditPassword"
                          />
                 </Image.GestureRecognizers>
-            </Image>
-            <Image 
-            x:Name="imgSave2"
+       </Image>
+       <Image 
+            x:Name="imgEditPassword2"
             Margin="5,0,5,0"
-            Grid.Row="14"
+            Grid.Row="7"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-        Source="btn_save.png" >
+            Source="btn_EditPassword2.png" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageEditPassword"
+                         />
+                </Image.GestureRecognizers>
+       </Image>
+       <Image 
+            x:Name="imgSave2"
+            Margin="5,0,5,0"
+            Grid.Row="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Source="btn_save.png" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="OnImageJoin2"
                          />
-                </Image.GestureRecognizers>
-            </Image>
+            </Image.GestureRecognizers>
+       </Image>
+       <Image 
+            x:Name="imgSave4"
+            Margin="5,0,5,0"
+            Grid.Row="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Source="btn_save2.png" >
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageJoin2"
+                         />
+            </Image.GestureRecognizers>
+       </Image>
     </Grid>
             </StackLayout>
             </Grid>

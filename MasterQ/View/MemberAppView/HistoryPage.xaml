@@ -9,15 +9,15 @@
 
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*" />
-            <RowDefinition Height="77*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="80*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="100*" />
         </Grid.ColumnDefinitions>
         
-        <Image Grid.Row="0" Grid.Column="0"  Source="h_history2.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-        <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
+        <Image Grid.Row="0" Source="h_history2.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"  />
+        <Grid Margin="10,20,10,0" Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*" />
                 <RowDefinition Height="50*" />
@@ -36,7 +36,7 @@
                         <TapGestureRecognizer Tapped="OnImageSearch" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Label x:Name="HistoryQ" Grid.Row="1" Grid.Column="0"  Text=""  FontSize="40" TextColor="White"  HorizontalTextAlignment="End" />
+            <Label Margin="40,0,0,0" x:Name="HistoryQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text=""  FontSize="30" TextColor="White"  HorizontalTextAlignment="Start" />
         </Grid>
 
         <StackLayout Grid.Row="1" Grid.Column="0">

@@ -9,14 +9,14 @@
 
 	<Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*" />
-			<RowDefinition Height="75*" />
+            <RowDefinition Height="20*" />
+			<RowDefinition Height="80*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="100*" />
         </Grid.ColumnDefinitions>
 
-		<Image Grid.Row="0" Grid.Column="0"  Source="h_service.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+		<Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Grid.Row="0" Grid.Column="0"  Source="h_service.png" />
 		<Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*" />
@@ -36,7 +36,7 @@
                         <TapGestureRecognizer Tapped="OnImageMap" />
                     </Image.GestureRecognizers>
                 </Image>
-			<Label x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="25" TextColor="White"  HorizontalTextAlignment="End" />
+			<Label Margin="40,0,0,0" x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="25" TextColor="White"  HorizontalTextAlignment="Start" />
         </Grid>
 		
         <ListView
