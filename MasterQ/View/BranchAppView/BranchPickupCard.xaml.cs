@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -37,46 +37,72 @@ namespace MasterQ
 
         public void OnImagePicUp(object sender, System.EventArgs args)
         {
-            Navigation.InsertPageBefore(new BranchChooseServiceQueuePage(), this);
-            Navigation.PopAsync();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.InsertPageBefore(new BranchChooseServiceQueuePage(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         async void OnImageMainExit(object sender, System.EventArgs args)
         {
-            var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
-            if (answer == true)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                UIReturn Chklogout = BranchLoginController.getInstance().LogutBranch();
-                if (!Chklogout.isSuccess)
+                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
+                if (answer == true)
                 {
-                    await DisplayAlert("", Chklogout.getDescription(), "Close");
+                    UIReturn Chklogout = BranchLoginController.getInstance().LogutBranch();
+                    if (!Chklogout.isSuccess)
+                    {
+                        await DisplayAlert(App.AppicationName, Chklogout.getDescription(), "Close");
+                    }
+                    else
+                    {
+                        Navigation.InsertPageBefore(new BranchLoginPage(), this);
+                        await Navigation.PopAsync();
+                    }
                 }
-                else
-                {
-                    Navigation.InsertPageBefore(new BranchLoginPage(), this);
-                    await Navigation.PopAsync();
-                }
+            }
+            else
+            {
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToEng();
-            App.Thai = false;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Utils.changeAppLanguageToEng();
+                App.Thai = false;
 
-            Navigation.InsertPageBefore(new BranchPickupCard(), this);
-            Navigation.PopAsync();
-
+                Navigation.InsertPageBefore(new BranchPickupCard(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToThai();
-            App.Thai = true;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Utils.changeAppLanguageToThai();
+                App.Thai = true;
 
-            Navigation.InsertPageBefore(new BranchPickupCard(), this);
-            Navigation.PopAsync();
-
+                Navigation.InsertPageBefore(new BranchPickupCard(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
     }
 }

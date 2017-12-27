@@ -44,59 +44,85 @@ namespace MasterQ
             }
             else
             {
-                
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
 
-		public void OnImageSignin(object sender, System.EventArgs args)
-		{
-			var username = mUsernameEntry.Text;
-			var password = mPasswordEntry.Text;
-			Login MasQLogin = new Login(username, password);
-			UIReturn uiReturn = BranchLoginController.getInstance().LoginBranch(MasQLogin);
-
-            if (uiReturn.isSuccess)
+        public void OnImageSignin(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
             {
-                if (App.IPAdress != "")
+                var username = mUsernameEntry.Text;
+                var password = mPasswordEntry.Text;
+                Login MasQLogin = new Login(username, password);
+                UIReturn uiReturn = BranchLoginController.getInstance().LoginBranch(MasQLogin);
+
+                if (uiReturn.isSuccess)
                 {
-                    Navigation.PushAsync(new BranchPickupCard());
+                    if (App.IPAdress != "")
+                    {
+                        Navigation.PushAsync(new BranchPickupCard());
+                    }
+                    else
+                    {
+                        DisplayAlert(App.AppicationName, "กรุณาตั้งค่า IP Address ก่อนเข้าระบบ", "Close");
+                    }
                 }
                 else
                 {
-                    DisplayAlert("Error", "กรุณาตั้งค่า IP Address ก่อนเข้าระบบ", "Cancel");
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "Close");
                 }
             }
-			else
-			{
-				DisplayAlert("Click", uiReturn.getDescription(), "Close");
-			}
-		}
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
 
         public void OnLabelSetIP(object sender, System.EventArgs args)
         {
-            Navigation.PushAsync(new BranchSetIPAddress());
-            mUsernameEntry.Text = "";
-            mPasswordEntry.Text = "";
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new BranchSetIPAddress());
+                mUsernameEntry.Text = "";
+                mPasswordEntry.Text = "";
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void OnImageMainchangeAppLanguageThai(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToEng();
-            App.Thai = false;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Utils.changeAppLanguageToEng();
+                App.Thai = false;
 
-            Navigation.InsertPageBefore(new BranchLoginPage(), this);
-            Navigation.PopAsync();
-
+                Navigation.InsertPageBefore(new BranchLoginPage(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void OnImageMainchangeAppLanguageEng(object sender, System.EventArgs args)
         {
-            Utils.changeAppLanguageToThai();
-            App.Thai = true;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Utils.changeAppLanguageToThai();
+                App.Thai = true;
 
-            Navigation.InsertPageBefore(new BranchLoginPage(), this);
-            Navigation.PopAsync();
-
+                Navigation.InsertPageBefore(new BranchLoginPage(), this);
+                Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
     }
 }

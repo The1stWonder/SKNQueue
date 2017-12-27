@@ -62,9 +62,9 @@
                     
         <Label  Grid.Row="1" Grid.Column="0" Text="เลือกบริการ  :" FontSize="20" TextColor="Black" />
         <Picker x:Name="chooseService" Title="บริการ" Grid.Row="2" Grid.Column="0"></Picker>
-        <Label  Grid.Row="4" Grid.Column="0" Text="เลือกเคาร์เตอร์  :" FontSize="20" TextColor="Black" />
+        <Label  Grid.Row="4" Grid.Column="0" Text="เลือกเคาน์เตอร์  :" FontSize="20" TextColor="Black" />
                     
-        <Picker x:Name="chooseCouter" Title="เคาร์เตอร์" Grid.Row="5" Grid.Column="0" > 
+        <Picker x:Name="chooseCouter" Title="เคาน์เตอร์" Grid.Row="5" Grid.Column="0" > 
         <Picker.ItemsSource>
             <x:Array Type="{x:Type x:String}">
             <x:String>1</x:String>

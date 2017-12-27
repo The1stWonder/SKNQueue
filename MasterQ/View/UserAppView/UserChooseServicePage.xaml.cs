@@ -26,7 +26,7 @@ namespace MasterQ
                 chooseCouter.Add("9");
                 chooseCouter.Add("10");
 
-                var picker = new Picker { Title = "บริการ" };
+                var picker = new Picker { Title = "เคาน์เตอร์" };
                 picker.ItemsSource = chooseCouter;
             }
             else

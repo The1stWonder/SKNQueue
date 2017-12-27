@@ -18,7 +18,7 @@ namespace MasterQ
             InitialPage();
             counterNumber = counterNum;
             qNumber.Text = "คิวที่ : ";
-            qCouter.Text = "เคาร์เตอร์ที่  " + counterNumber;
+            qCouter.Text = "เคาน์เตอร์ที่  " + counterNumber;
         }
 
         private void InitialPage()

@@ -23,7 +23,14 @@ namespace MasterQ
 
                 if (uiReturn.isSuccess)
                 {
-                    Navigation.PushAsync(new UserChooseServicePage());
+                    if (App.IPAdress != "")
+                    {
+                        Navigation.PushAsync(new UserChooseServicePage());
+                    }
+                    else
+                    {
+                        DisplayAlert(App.AppicationName, "กรุณาตั้งค่า IP Address ก่อนเข้าระบบ", "Close");
+                    }
                 }
                 else
                 {

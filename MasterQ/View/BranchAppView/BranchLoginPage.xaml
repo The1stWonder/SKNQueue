@@ -42,6 +42,8 @@
                 </ContentView>
             </StackLayout>
         </StackLayout>
+
+        <ScrollView HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="1">
         <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical">
             <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
                 <Grid.RowDefinitions>
@@ -83,5 +85,6 @@
                 </Image>
             </Grid>
         </StackLayout>
+      </ScrollView>
     </Grid>
 </ContentPage>

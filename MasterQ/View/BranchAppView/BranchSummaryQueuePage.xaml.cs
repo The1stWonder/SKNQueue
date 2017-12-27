@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -9,16 +9,23 @@ namespace MasterQ
     {
         public BranchSummaryQueuePage()
         {
-            InitializeComponent();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                InitializeComponent();
 
-            YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
-            AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
-            //WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+                YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
+                AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
+                //WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
 
-            App.timercheck = true;
-            App.timerStart();
+                App.timercheck = true;
+                App.timerStart();
 
-            ShowQ();
+                ShowQ();
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void ShowQ()
