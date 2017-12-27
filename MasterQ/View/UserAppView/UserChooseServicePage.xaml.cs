@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -9,24 +9,58 @@ namespace MasterQ
     {
         public UserChooseServicePage()
         {
-            InitializeComponent();
-            InitialPage();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                InitializeComponent();
+                InitialPage();
 
+                var chooseCouter = new List<string>();
+                chooseCouter.Add("1");
+                chooseCouter.Add("2");
+                chooseCouter.Add("3");
+                chooseCouter.Add("4");
+                chooseCouter.Add("5");
+                chooseCouter.Add("6");
+                chooseCouter.Add("7");
+                chooseCouter.Add("8");
+                chooseCouter.Add("9");
+                chooseCouter.Add("10");
+
+                var picker = new Picker { Title = "บริการ" };
+                picker.ItemsSource = chooseCouter;
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void OnImageSubmit(object sender, System.EventArgs args)
         {
-            var counterNum = counterNumber.Text;
-            UIReturn uiReturn = UserActionServiceController.getInstance().openService(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup, counterNum);
-            if (uiReturn.isSuccess)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                Navigation.PushAsync(new UserActionQueuePage(counterNum));
+                var counterNum = "";
+                if (chooseCouter.SelectedItem != null)
+                {
+                    counterNum = chooseCouter.SelectedItem.ToString();
+
+                    UIReturn uiReturn = UserActionServiceController.getInstance().openService(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup, counterNum);
+                    if (uiReturn.isSuccess)
+                    {
+                        Navigation.PushAsync(new UserActionQueuePage(counterNum));
+                    }
+                    else
+                    {
+                        DisplayAlert(App.AppicationName, uiReturn.getDescription(), "cancel");
+                    }
+                }
             }
             else
             {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
+
         private void InitialPage()
         {
             UserSessionModel.choosedBranch.branchID = UserSessionModel.loginUser.branchID;
@@ -62,7 +96,33 @@ namespace MasterQ
                     UserSessionModel.choosedGroup = UserSessionModel.groupServices.ToArray()[chooseService.SelectedIndex];
                 }
             };
-            staffName.Text = UserSessionModel.loginUser.firstName + " " + UserSessionModel.loginUser.lastName;
+
+            UserQ.Text = UserSessionModel.loginUser.firstName + " " + UserSessionModel.loginUser.lastName;
+        }
+
+        async void OnImageMainExit(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
+                if (answer == true)
+                {
+                    UIReturn Chklogout = UserLoginController.getInstance().LogutUser();
+                    if (!Chklogout.isSuccess)
+                    {
+                        await DisplayAlert(App.AppicationName, Chklogout.getDescription(), "Close");
+                    }
+                    else
+                    {
+                        Navigation.InsertPageBefore(new UserLoginPage(), this);
+                        await Navigation.PopAsync();
+                    }
+                }
+            }
+            else
+            {
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
     }
 }

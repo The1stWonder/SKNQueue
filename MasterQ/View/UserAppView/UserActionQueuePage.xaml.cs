@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MasterQ.Helpers;
 using Xamarin.Forms;
+using Plugin.Connectivity;
 
 namespace MasterQ
 {
@@ -16,7 +17,10 @@ namespace MasterQ
             InitializeComponent();
             InitialPage();
             counterNumber = counterNum;
+            qNumber.Text = "คิวที่ : ";
+            qCouter.Text = "เคาร์เตอร์ที่  " + counterNumber;
         }
+
         private void InitialPage()
         {
             CallBtn.IsVisible = true;
@@ -24,19 +28,32 @@ namespace MasterQ
             SkipBtn.IsVisible = false;
             FinishBtn.IsVisible = false;
         }
+
+        public void OnImageBack(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new UserChooseServicePage());
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
+
         public void OnCallTap(object sender, System.EventArgs args)
         {
-            CallBtn.IsEnabled = false;
-            CallBtn.IsVisible = false;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                CallBtn.IsEnabled = false;
+                CallBtn.IsVisible = false;
 
-            //if (CallBtn.IsVisible == false)
-            //{
                 UIReturn uiReturn = UserActionQueueController.getInstance().callQueue(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup);
                 if (uiReturn.isSuccess)
                 {
                     CallQueueRs uiRes = (CallQueueRs)uiReturn.returnObject;
                     UserSessionModel.choosedQueue.tranID = uiRes.tranID;
-                    qNumber.Text = uiRes.queueNumber + "";
+                    qNumber.Text = "คิวที่ : " + uiRes.queueNumber;
                     AcceptBtn.IsVisible = true;
                     SkipBtn.IsVisible = true;
                     FinishBtn.IsVisible = false;
@@ -45,11 +62,11 @@ namespace MasterQ
                     switch (Device.RuntimePlatform)
                     {
                         case Device.iOS:
-                        DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>", App.IPAdress, 11111);
+                            DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>", App.IPAdress, 11111);
                             //DependencyService.Get<IFiOSSocket>().SendMessage("I001,9,<EOF>", "192.168.1.38", 11111);
                             break;
                         default:
-                        DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>", App.IPAdress, 11111);
+                            DependencyService.Get<IFSocket>().SendMessage(uiRes.queueNumber + "," + counterNumber + "<EOF>", App.IPAdress, 11111);
                             //DependencyService.Get<IFiOSSocket>().SendMessage("I002,8,<EOF>", "192.168.1.38", 11111);
                             break;
                     }
@@ -73,53 +90,80 @@ namespace MasterQ
                 }
                 else
                 {
-                    DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "cancel");
+                    CallBtn.IsEnabled = true;
+                    CallBtn.IsVisible = true;
                 }
-            //}
-        }
-        public void OnAcceptTap(object sender, System.EventArgs args)
-        {
-            UIReturn uiReturn = UserActionQueueController.getInstance().acceptQueue(UserSessionModel.choosedQueue);
-            if (uiReturn.isSuccess)
-            {
-                CallBtn.IsVisible = false;
-				AcceptBtn.IsVisible = false;
-				SkipBtn.IsVisible = false;
-                FinishBtn.IsVisible = true;
             }
             else
             {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
+        public void OnAcceptTap(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                UIReturn uiReturn = UserActionQueueController.getInstance().acceptQueue(UserSessionModel.choosedQueue);
+                if (uiReturn.isSuccess)
+                {
+                    CallBtn.IsVisible = false;
+                    AcceptBtn.IsVisible = false;
+                    SkipBtn.IsVisible = false;
+                    FinishBtn.IsVisible = true;
+                }
+                else
+                {
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "cancel");
+                }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
         public void OnFinishTap(object sender, System.EventArgs args)
         {
-            UIReturn uiReturn = UserActionQueueController.getInstance().finishQueue(UserSessionModel.choosedQueue);
-            if (uiReturn.isSuccess)
+            if (CrossConnectivity.Current.IsConnected)
             {
-				CallBtn.IsVisible = true;
-				AcceptBtn.IsVisible = false;
-				SkipBtn.IsVisible = false;
-				FinishBtn.IsVisible = false;
+                UIReturn uiReturn = UserActionQueueController.getInstance().finishQueue(UserSessionModel.choosedQueue);
+                if (uiReturn.isSuccess)
+                {
+                    CallBtn.IsVisible = true;
+                    AcceptBtn.IsVisible = false;
+                    SkipBtn.IsVisible = false;
+                    FinishBtn.IsVisible = false;
+                }
+                else
+                {
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "cancel");
+                }
             }
             else
             {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
         public void OnSkipTap(object sender, System.EventArgs args)
         {
-            UIReturn uiReturn = UserActionQueueController.getInstance().skipQueue(UserSessionModel.choosedQueue);
-            if (uiReturn.isSuccess)
+            if (CrossConnectivity.Current.IsConnected)
             {
-				CallBtn.IsVisible = true;
-				AcceptBtn.IsVisible = false;
-				SkipBtn.IsVisible = false;
-				FinishBtn.IsVisible = false;
+                UIReturn uiReturn = UserActionQueueController.getInstance().skipQueue(UserSessionModel.choosedQueue);
+                if (uiReturn.isSuccess)
+                {
+                    CallBtn.IsVisible = true;
+                    AcceptBtn.IsVisible = false;
+                    SkipBtn.IsVisible = false;
+                    FinishBtn.IsVisible = false;
+                }
+                else
+                {
+                    DisplayAlert(App.AppicationName, uiReturn.getDescription(), "cancel");
+                }
             }
             else
             {
-                DisplayAlert("Error", uiReturn.getDescription(), "cancel");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
     }

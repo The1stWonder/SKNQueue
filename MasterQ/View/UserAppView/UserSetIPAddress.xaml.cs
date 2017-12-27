@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -15,9 +15,28 @@ namespace MasterQ
 
         public void OnImageJoin(object sender, System.EventArgs args)
         {
-            App.IPAdress = IPAddress.Text.Trim();
-            App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
-            Navigation.PushAsync(new UserLoginPage());
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                App.IPAdress = IPAddress.Text.Trim();
+                App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
+                Navigation.PushAsync(new UserLoginPage());
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
+
+        public void OnImageBack(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new UserLoginPage());
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
     }
 }

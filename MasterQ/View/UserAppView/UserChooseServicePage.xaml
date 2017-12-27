@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.UserChooseServicePage">
-    <Grid>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.UserChooseServicePage"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="80*" />
+        </Grid.RowDefinitions>
+        <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Grid.Row="0" Source="h_signup.png"/>
+        <Grid Margin="10,20,10,0" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="50*" />
+                <ColumnDefinition  Width="50*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="1"  Source="btn_exit2.png" HorizontalOptions="End" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageMainExit" />
+                    </Image.GestureRecognizers>
+                </Image>
+            <Label Margin="30,0,0,0" x:Name="UserQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
+        </Grid>
+        
+    <Grid Margin="10,0,10,0" Grid.Row="1" Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="99*" />
+        </Grid.RowDefinitions>
+    <StackLayout Grid.Row="1" Orientation="Vertical">
+    <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition
+            Height="10*" />
+            <RowDefinition
+            Height="10*" />
+            <RowDefinition
+            Height="10*" />
+            <RowDefinition
+            Height="5*" />
+            <RowDefinition
+            Height="10*" />
+            <RowDefinition
+            Height="10*" />
+            <RowDefinition
+            Height="5*" />
+            <RowDefinition
+            Height="20*" />
+            <RowDefinition
+            Height="20*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+            Width="100*" />
+        </Grid.ColumnDefinitions>
+                    
+        <Label  Grid.Row="1" Grid.Column="0" Text="เลือกบริการ  :" FontSize="20" TextColor="Black" />
+        <Picker x:Name="chooseService" Title="บริการ" Grid.Row="2" Grid.Column="0"></Picker>
+        <Label  Grid.Row="4" Grid.Column="0" Text="เลือกเคาร์เตอร์  :" FontSize="20" TextColor="Black" />
+                    
+        <Picker x:Name="chooseCouter" Title="เคาร์เตอร์" Grid.Row="5" Grid.Column="0" > 
+        <Picker.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+            <x:String>1</x:String>
+            <x:String>2</x:String>
+            <x:String>3</x:String>
+            <x:String>4</x:String>
+            <x:String>5</x:String>
+            <x:String>6</x:String>
+            <x:String>7</x:String>
+            <x:String>8</x:String>
+            <x:String>9</x:String>
+            <x:String>10</x:String>
+            </x:Array>
+       </Picker.ItemsSource>
+       </Picker>
+                    
+        <Image 
+            x:Name="submit1"
+            Grid.Row="7"
+            Grid.Column="0"
+            Source="btn_submit.png"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageSubmit"
+                         />
+                </Image.GestureRecognizers>
+            </Image>
+    </Grid>
+            </StackLayout>
+            </Grid>
+         </Grid>
+
+
+    
+    <!--<Grid>
         <Entry x:Name="staffName" Placeholder="staffName" TextColor="White" BackgroundColor="Black" Grid.Row="0" />
         <Picker x:Name="chooseService" Title="บริการ" Grid.Row="1">
         </Picker>
@@ -10,5 +111,5 @@
                 <TapGestureRecognizer Tapped="OnImageSubmit" />
             </Image.GestureRecognizers>
         </Image>
-    </Grid>
+    </Grid>-->
 </ContentPage>
