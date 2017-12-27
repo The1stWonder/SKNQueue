@@ -1,4 +1,6 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace MasterQ
 {
     public class RegisterController
@@ -27,10 +29,15 @@ namespace MasterQ
             if (!isSamePassword(input)) return Constants.uiErrorPasswordNotMatch;
 
             RegisterRq req = MemberService.getInstance().getRegisterRq(input);
-            RegisterRs result = MemberService.getInstance().CallRegister(req);
+            RegisterRs res = MemberService.getInstance().CallRegister(req);
 
-            UIReturn ret = new UIReturn(result.header);
-            SessionModel.loginMember = result.member;
+            if (res.header.isSuccess)
+            {
+                SessionModel.loginMember = res.member;
+                App.Database.SaveItem(DBConstants.ID_LOGIN_MEMBER, JsonConvert.SerializeObject(SessionModel.loginMember));
+            }
+
+            UIReturn ret = new UIReturn(res.header);
             return ret;
         }
         private bool isSamePassword(Member input)

@@ -95,6 +95,16 @@ namespace MasterQ
             return oldVersion.dbVersion.Equals(newVersion.dbVersion);
         }
 
+        public static bool isSameAppVersion()
+        {
+            return oldVersion.appVersion.Equals(newVersion.appVersion);
+        }
+
+        public static bool isSameVersion()
+        {
+            return isSameDBVersion() && isSameAppVersion();
+        }
+
         public static AppVersion getDefaultVersion()
         {
             AppVersion ret = new AppVersion();

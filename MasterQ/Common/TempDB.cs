@@ -37,7 +37,7 @@ namespace MasterQ
 
         public static void setCodeDescriptions()
         {
-            if (Constants.isSameDBVersion())
+            if (Constants.isSameVersion())
             {
                 SessionTable temp = App.Database.GetItem(DBConstants.ID_CODE_DESCRIPTIONS);
                 if (temp != null)
@@ -61,7 +61,7 @@ namespace MasterQ
         }
         public static void setProvinces()
         {
-            if (Constants.isSameDBVersion())
+            if (Constants.isSameVersion())
             {
                 SessionTable temp = App.Database.GetItem(DBConstants.ID_PROVINCES);
                 if (temp != null)
@@ -85,7 +85,7 @@ namespace MasterQ
         }
         public static void setDistrict()
         {
-            if (Constants.isSameDBVersion())
+            if (Constants.isSameVersion())
             {
                 SessionTable temp = App.Database.GetItem(DBConstants.ID_DISTRICTS);
                 if (temp != null)
@@ -109,7 +109,7 @@ namespace MasterQ
         }
         public static void setBranches()
         {
-            if (Constants.isSameDBVersion())
+            if (Constants.isSameVersion())
             {
                 SessionTable temp = App.Database.GetItem(DBConstants.ID_BRANCHES);
                 if (temp != null)
@@ -133,7 +133,7 @@ namespace MasterQ
         }
         public static void setServices()
         {
-            if (Constants.isSameDBVersion())
+            if (Constants.isSameVersion())
             {
                 SessionTable temp = App.Database.GetItem(DBConstants.ID_SERVICES);
                 if (temp != null)

@@ -1,4 +1,6 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace MasterQ
 {
     public class EditProfileController
@@ -26,6 +28,12 @@ namespace MasterQ
             EditProfileRq req = MemberService.getInstance().getEditProfileRq(input);
             EditProfileRs res = MemberService.getInstance().CallEditProfile(req);
 
+            if (res.header.isSuccess)
+            {
+                SessionModel.loginMember = res.member;
+                App.Database.SaveItem(DBConstants.ID_LOGIN_MEMBER, JsonConvert.SerializeObject(SessionModel.loginMember));
+            }
+
             UIReturn ret = new UIReturn(res.header);
             return ret;
         }
@@ -41,6 +49,12 @@ namespace MasterQ
 
             EditProfileRq req = MemberService.getInstance().getEditProfileRq(input);
             EditProfileRs res = MemberService.getInstance().CallEditProfile(req);
+
+            if (res.header.isSuccess)
+            {
+                SessionModel.loginMember = res.member;
+                App.Database.SaveItem(DBConstants.ID_LOGIN_MEMBER, JsonConvert.SerializeObject(SessionModel.loginMember));
+            }
 
             UIReturn ret = new UIReturn(res.header);
             return ret;
