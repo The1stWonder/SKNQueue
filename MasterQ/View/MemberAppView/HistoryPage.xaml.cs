@@ -23,7 +23,7 @@ namespace MasterQ
 		{
             Member memberid = SessionModel.loginMember;
 			List<History> History = (List<History>)ShowHistoryController.getInstance().getHistory(memberid).returnObject;
-			mListview.ItemsSource = History;
+            mListview.ItemsSource = History;
 		}
 
 		public void OnImageBack(object sender, System.EventArgs args)
