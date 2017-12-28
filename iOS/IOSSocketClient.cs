@@ -61,30 +61,39 @@ namespace MasterQ.iOS
         public static void
         connectCallback(IAsyncResult asyncConnect)
         {
-            Socket clientSocket =
-              (Socket)asyncConnect.AsyncState;
-            clientSocket.EndConnect(asyncConnect);
-            // arriving here means the operation completed
-            // (asyncConnect.IsCompleted = true) but not
-            // necessarily successfully
-            if (clientSocket.Connected == false)
+            try
             {
-                Console.WriteLine(".client is not connected.");
-                return;
+                App.CheckSocket = true;
+                Socket clientSocket =
+                  (Socket)asyncConnect.AsyncState;
+                clientSocket.EndConnect(asyncConnect);
+                // arriving here means the operation completed
+                // (asyncConnect.IsCompleted = true) but not
+                // necessarily successfully
+                if (clientSocket.Connected == false)
+                {
+                    App.CheckSocket = false;
+                    Console.WriteLine(".client is not connected.");
+                    return;
+                }
+                else Console.WriteLine(".client is connected.");
+
+                byte[] sendBuffer = Encoding.Unicode.GetBytes(sendText);
+                IAsyncResult asyncSend = clientSocket.BeginSend(
+                  sendBuffer,
+                  0,
+                  sendBuffer.Length,
+                  SocketFlags.None,
+                  new AsyncCallback(sendCallback),
+                  clientSocket);
+
+                Console.Write("Sending data.");
+                writeDot(asyncSend);
             }
-            else Console.WriteLine(".client is connected.");
-
-            byte[] sendBuffer = Encoding.Unicode.GetBytes(sendText);
-            IAsyncResult asyncSend = clientSocket.BeginSend(
-              sendBuffer,
-              0,
-              sendBuffer.Length,
-              SocketFlags.None,
-              new AsyncCallback(sendCallback),
-              clientSocket);
-
-            Console.Write("Sending data.");
-            writeDot(asyncSend);
+            catch
+            {
+                App.CheckSocket = false;
+            }
         }
 
         public static void sendCallback(IAsyncResult asyncSend)

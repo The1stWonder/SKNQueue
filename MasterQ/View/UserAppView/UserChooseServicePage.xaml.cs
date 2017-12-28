@@ -25,6 +25,16 @@ namespace MasterQ
                 chooseCouter.Add("8");
                 chooseCouter.Add("9");
                 chooseCouter.Add("10");
+                chooseCouter.Add("11");
+                chooseCouter.Add("12");
+                chooseCouter.Add("13");
+                chooseCouter.Add("14");
+                chooseCouter.Add("15");
+                chooseCouter.Add("16");
+                chooseCouter.Add("17");
+                chooseCouter.Add("18");
+                chooseCouter.Add("19");
+                chooseCouter.Add("20");
 
                 var picker = new Picker { Title = "เคาน์เตอร์" };
                 picker.ItemsSource = chooseCouter;
@@ -39,15 +49,14 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                var counterNum = "";
                 if (chooseCouter.SelectedItem != null)
                 {
-                    counterNum = chooseCouter.SelectedItem.ToString();
+                    App.CounterUser = chooseCouter.SelectedItem.ToString();
 
-                    UIReturn uiReturn = UserActionServiceController.getInstance().openService(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup, counterNum);
+                    UIReturn uiReturn = UserActionServiceController.getInstance().openService(UserSessionModel.choosedBranch, UserSessionModel.choosedGroup, App.CounterUser);
                     if (uiReturn.isSuccess)
                     {
-                        Navigation.PushAsync(new UserActionQueuePage(counterNum));
+                        Navigation.PushAsync(new UserActionQueuePage());
                     }
                     else
                     {

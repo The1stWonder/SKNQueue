@@ -264,6 +264,8 @@ namespace MasterQ
                                         b_booking2.IsVisible = false;
                                         b_qr1.IsVisible = true;
                                         b_qr2.IsVisible = false;
+                                        btn_cancel.IsVisible = false;
+                                        btn_cancel2.IsVisible = false;
                                     }
                                     else
                                     {

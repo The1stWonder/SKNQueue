@@ -30,6 +30,7 @@ namespace MasterQ
                     else
                     {
                         DisplayAlert(App.AppicationName, "กรุณาตั้งค่า IP Address ก่อนเข้าระบบ", "Close");
+                        Navigation.PushAsync(new UserSetIPAddress());
                     }
                 }
                 else
@@ -47,6 +48,7 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
+                App.SetIPPage = 0;
                 Navigation.PushAsync(new UserSetIPAddress());
                 mUsernameEntry.Text = "";
                 mPasswordEntry.Text = "";

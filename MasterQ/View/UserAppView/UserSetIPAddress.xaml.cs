@@ -17,9 +17,18 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                App.IPAdress = IPAddress.Text.Trim();
-                App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
-                Navigation.PushAsync(new UserLoginPage());
+                if (App.SetIPPage == 0)
+                {
+                    App.IPAdress = IPAddress.Text.Trim();
+                    App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
+                    Navigation.PushAsync(new UserLoginPage());
+                }
+                else if (App.SetIPPage == 1)
+                {
+                    App.IPAdress = IPAddress.Text.Trim();
+                    App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
+                    Navigation.PushAsync(new UserActionQueuePage());
+                }
             }
             else
             {
@@ -31,7 +40,14 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                Navigation.PushAsync(new UserLoginPage());
+                if (App.SetIPPage == 0)
+                {
+                    Navigation.PushAsync(new UserLoginPage());
+                }
+                else if (App.SetIPPage == 1)
+                {
+                    Navigation.PushAsync(new UserActionQueuePage());
+                }
             }
             else
             {

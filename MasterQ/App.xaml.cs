@@ -9,11 +9,14 @@ namespace MasterQ
 		public static int timercount = 0;
         public static int Recount = 0;
         public static int SearchID = 0;
+        public static int SetIPPage = 0;
+        public static bool CheckSocket = false;
 		public static bool timercheck = false;
         public static bool fristtime = true;
         public static bool Massage0 = true;
         public static bool Massage5 = true;
         public static bool Massage15 = true;
+        public static string CounterUser;
         public static string IPAdress;
         public static string TextSearch = "";
         public static bool Thai = true;
@@ -21,6 +24,7 @@ namespace MasterQ
         public static bool RePagelogin = false;
         public static bool RePagemain = false;
         public static bool Initiallogin = false;
+        public static string NoSocket = "กรุณาตรวจสอบ IP Ethernet";
         public static string NoInternet = "ไม่มีการเชื่อมต่ออินเตอร์เน็ต";
         public static string NoInternet2 = "No internet connect";
         public static string AppicationName = "MasterQ";

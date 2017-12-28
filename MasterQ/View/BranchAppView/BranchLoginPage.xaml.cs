@@ -66,6 +66,7 @@ namespace MasterQ
                     else
                     {
                         DisplayAlert(App.AppicationName, "กรุณาตั้งค่า IP Address ก่อนเข้าระบบ", "Close");
+                        Navigation.PushAsync(new BranchSetIPAddress());
                     }
                 }
                 else

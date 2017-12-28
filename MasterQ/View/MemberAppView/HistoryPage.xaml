@@ -1,55 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-	Title="ประวัติการจอง"
-    BackgroundImage="bg4.png"
-	xmlns="http://xamarin.com/schemas/2014/forms" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="MasterQ.HistoryPage"
-    NavigationPage.HasNavigationBar="False">
-
+<ContentPage Title="ประวัติการจอง" BackgroundImage="bg4.png" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MasterQ.HistoryPage" NavigationPage.HasNavigationBar="False">
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*" />
             <RowDefinition Height="80*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="100*" />
+            <ColumnDefinition Width="100*" />
         </Grid.ColumnDefinitions>
-        
-        <Image Grid.Row="0" Source="h_history2.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"  />
+        <Image Grid.Row="0" Source="h_history2.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" />
         <Grid Margin="10,20,10,0" Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*" />
                 <RowDefinition Height="50*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="50*" />
-                <ColumnDefinition  Width="50*" />
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="50*" />
             </Grid.ColumnDefinitions>
-            <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
-            <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnImageBack" />
-                    </Image.GestureRecognizers>
-                </Image>
-            <Image Grid.Row="0" Grid.Column="1"  Source="btn_search_click.png"  HorizontalOptions="End" HeightRequest="50">
-            <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnImageSearch" />
-                    </Image.GestureRecognizers>
-                </Image>
-            <Label Margin="40,0,0,0" x:Name="HistoryQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text=""  FontSize="30" TextColor="White"  HorizontalTextAlignment="Start" />
+            <Image Grid.Row="0" Grid.Column="0" Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImageBack" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Grid.Row="0" Grid.Column="1" Source="btn_search_click.png" HorizontalOptions="End" HeightRequest="50">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImageSearch" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Margin="40,0,0,0" x:Name="HistoryQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
         </Grid>
-
         <StackLayout Grid.Row="1" Grid.Column="0">
-            <ListView 
-                RowHeight="120"
-                x:Name="mListview" 
-                BackgroundColor="White"
-                ItemsSource="{Binding Items}" 
-                VerticalOptions="FillAndExpand"  
-                RefreshCommand="{Binding LoadItemsCommand}" 
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
-                CachingStrategy="RecycleElement" 
-                ItemTapped="itemTapped">
+            <ListView RowHeight="120" x:Name="mListview" BackgroundColor="White" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemTapped="itemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -65,5 +47,4 @@
             </ListView>
         </StackLayout>
     </Grid>
-
 </ContentPage>
