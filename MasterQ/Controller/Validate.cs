@@ -9,7 +9,7 @@ namespace MasterQ
 
         public static bool isEmailFormat(String input)
         {
-            return Regex.Match(input, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success;
+            return Regex.Match(input, @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$", RegexOptions.IgnoreCase).Success;
         }
         public static bool isPhoneNumber(string number)
         {
