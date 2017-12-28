@@ -79,8 +79,10 @@ namespace MasterQ
             foreach (Service s in services)
             {
                 String groupID = s.groupID;
+                String groupName = s.groupName;
                 GroupService group = new GroupService();
                 group.groupID = groupID;
+                group.groupName = groupName;
                 group.services = services.FindAll(sv => sv.groupID.Equals(groupID));
 				if (UserSessionModel.groupServices.FindAll(gs => gs.groupID.Equals(groupID)).Count <= 0)
 				{
@@ -90,12 +92,15 @@ namespace MasterQ
 
             foreach (GroupService tempGS in UserSessionModel.groupServices)
             {
-                String showText = "";
-                foreach (Service tempS in tempGS.services)
-                {
-                    showText+=tempS.serviceName+",";
-                }
-                chooseService.Items.Add(showText.Substring(0,showText.Length-1));
+                //String showText = "";
+                //foreach (Service tempS in tempGS.services)
+                //{
+                //    showText+=tempS.serviceName+",";
+                //}
+                //chooseService.Items.Add(showText.Substring(0,showText.Length-1));
+
+                String showText = tempGS.groupName;
+                chooseService.Items.Add(showText);
             }
 
             chooseService.Unfocused += (sender, args) =>

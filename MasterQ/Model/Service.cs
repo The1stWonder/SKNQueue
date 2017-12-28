@@ -14,6 +14,7 @@ namespace MasterQ
         public String serviceDesc { get; set; }
         public String serviceID { get; set; }
         public String groupID { get; set; }
+        public String groupName { get; set; }
         public String serviceName { get; set; }
         public String branchID { get; set; }
         public String memberID { get; set; }
