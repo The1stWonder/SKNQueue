@@ -64,7 +64,7 @@ namespace MasterQ
         // Commom Error
         public static int ERROR_NO_BRANCH = 8;
         public static int ERROR_NO_SERVICE = 11;
-        public static int ERROR_SERVER_DOWN = 101;
+        public static int ERROR_SERVER_DOWN = 109;
 
         public static UIReturn uiErrorNoBranch;
         public static UIReturn uiErrorNoService;
