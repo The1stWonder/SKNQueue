@@ -31,7 +31,7 @@
             <Label Margin="40,0,0,0" x:Name="HistoryQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
         </Grid>
         <StackLayout Grid.Row="1" Grid.Column="0">
-            <ListView RowHeight="120" x:Name="mListview" BackgroundColor="White" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemTapped="itemTapped">
+            <ListView RowHeight="130" x:Name="mListview" BackgroundColor="White" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemTapped="itemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

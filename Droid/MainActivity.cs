@@ -25,6 +25,8 @@ namespace MasterQ.Droid
 		{
         			base.OnCreate(bundle);
 
+            var thai = new System.Globalization.ThaiBuddhistCalendar();
+
             notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
             this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
