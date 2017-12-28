@@ -216,7 +216,7 @@ namespace MasterQ
                                 }
                             }
 
-                            if (App.Recount == 10)
+                            if (App.Recount == App.TimeReface)
                             {
                                 App.Recount = 0;
 

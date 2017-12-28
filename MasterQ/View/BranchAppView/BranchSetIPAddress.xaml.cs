@@ -15,9 +15,19 @@ namespace MasterQ
 
         public void OnImageJoin(object sender, System.EventArgs args)
         {
-            App.IPAdress = IPAddress.Text.Trim();
-            App.Database.SaveItem(DBConstants.ID_IP_BRANCH,App.IPAdress);
-            Navigation.PushAsync(new BranchLoginPage());
+            if (App.SetIPPage == 0)
+            {
+                App.IPAdress = IPAddress.Text.Trim();
+                App.Database.SaveItem(DBConstants.ID_IP_BRANCH, App.IPAdress);
+                Navigation.PushAsync(new BranchLoginPage());
+            }
+            else if (App.SetIPPage == 1)
+            {
+                App.IPAdress = IPAddress.Text.Trim();
+                App.Database.SaveItem(DBConstants.ID_IP_BRANCH, App.IPAdress);
+                Navigation.PushAsync(new BranchChooseServiceQueuePage());
+            }
+
         }
     }
 }

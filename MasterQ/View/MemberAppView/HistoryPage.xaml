@@ -23,7 +23,7 @@
                     <TapGestureRecognizer Tapped="OnImageBack" />
                 </Image.GestureRecognizers>
             </Image>
-            <Image Grid.Row="0" Grid.Column="1" Source="btn_search_click.png" HorizontalOptions="End" HeightRequest="50">
+            <Image x:Name="HisSerch" Grid.Row="0" Grid.Column="1" Source="btn_search_click.png" HorizontalOptions="End" HeightRequest="50">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnImageSearch" />
                 </Image.GestureRecognizers>

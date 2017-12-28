@@ -47,9 +47,6 @@ namespace MasterQ
                         TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
                         string TimesQ = time.ToString(@"hh\:mm\:ss");
 
-                        Navigation.InsertPageBefore(new BranchSummaryQueuePage(), this);
-                        await Navigation.PopAsync();
-
                         switch (Device.RuntimePlatform)
                         {
                             case Device.iOS:
@@ -58,6 +55,17 @@ namespace MasterQ
                             default:
                                 DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
                                 break;
+                        }
+
+                        if (App.CheckSocket == true)
+                        {
+                            await Navigation.PushAsync(new BranchSummaryQueuePage());
+                        }
+                        else
+                        {
+                            App.SetIPPage = 1;
+                            await DisplayAlert(App.AppicationName, App.NoSocket, "Close");
+                            await Navigation.PushAsync(new BranchSetIPAddress());
                         }
                     }
                 }

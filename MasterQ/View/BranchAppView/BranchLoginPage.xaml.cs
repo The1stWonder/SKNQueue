@@ -84,6 +84,7 @@ namespace MasterQ
         {
             if (CrossConnectivity.Current.IsConnected)
             {
+                App.SetIPPage = 0;
                 Navigation.PushAsync(new BranchSetIPAddress());
                 mUsernameEntry.Text = "";
                 mPasswordEntry.Text = "";

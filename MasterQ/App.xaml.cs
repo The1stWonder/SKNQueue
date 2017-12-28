@@ -10,6 +10,7 @@ namespace MasterQ
         public static int Recount = 0;
         public static int SearchID = 0;
         public static int SetIPPage = 0;
+        public static int TimeReface = 5;
         public static bool CheckSocket = false;
 		public static bool timercheck = false;
         public static bool fristtime = true;

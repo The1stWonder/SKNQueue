@@ -13,6 +13,15 @@ namespace MasterQ
 
             if (CrossConnectivity.Current.IsConnected)
             {
+                if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                {
+                    HisSerch.IsVisible = true; 
+                }
+                else
+                {
+                    HisSerch.IsVisible = false; 
+                }
+
                 getHistory();
                 HistoryQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_HISTORY);
             }
