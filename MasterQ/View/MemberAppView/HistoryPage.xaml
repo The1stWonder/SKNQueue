@@ -56,8 +56,8 @@
                             <StackLayout Padding="30,20,0,30">
                                 <Label Text="{Binding queueNumber, StringFormat='เลขที่คิว : {0}'}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="20" />
                                 <Label Text="{Binding queueDate, StringFormat='วันที่จองคิว : {0:dd/MM/yyyy} เวลา : {0:H:mm}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                                <Label Text="{Binding branchID, StringFormat='สาขา : {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                                <Label Text="{Binding serviceID, StringFormat='บริการ : {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding branchName, StringFormat='สาขา : {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding serviceName, StringFormat='บริการ : {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
