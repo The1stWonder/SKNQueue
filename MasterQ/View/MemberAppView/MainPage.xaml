@@ -56,7 +56,7 @@
                 </Image.GestureRecognizers>
         </Image>
 
-        <Label x:Name="UserNames" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="17" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="UserNames" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" Style="{DynamicResource SubtitleTextStyle}"/>
         <Image 
         Grid.Row="3" 
         Grid.Column="0" 

@@ -41,11 +41,11 @@
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Label x:Name="branchName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="25" TextColor="White"  HorizontalTextAlignment="End" />
+            <Label x:Name="branchName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="" TextColor="White" HorizontalTextAlignment="End" Style="{DynamicResource TitleStyle}" />
             <Image  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Source="divider.png" HorizontalOptions="FillAndExpand" />
-            <Label x:Name="branchAddress" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
-            <Label x:Name="branchTel" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
-            <Label x:Name="branchEmail" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"  Text="" FontSize="15" TextColor="White" />
+            <Label x:Name="branchAddress" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"  Text="" TextColor="White" Style="{DynamicResource BodyStyle}"/>
+            <Label x:Name="branchTel" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Text="" TextColor="White" Style="{DynamicResource BodyStyle}"/>
+            <Label x:Name="branchEmail" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"  Text="" TextColor="White" Style="{DynamicResource BodyStyle}"/>
 
         </Grid>
             </StackLayout>

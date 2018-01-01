@@ -108,8 +108,8 @@
             Source="bullet.png"
             HeightRequest="5" 
             Grid.RowSpan="2"/>
-                                <Label x:Name="branchName" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding branchName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="20" />
-                                <Label x:Name="Address1" Margin="10,0,0,0"  Grid.Row="1" Grid.Column="1" Text="{Binding address, StringFormat='{0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label x:Name="branchName" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding branchName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" />
+                                <Label x:Name="Address1" Margin="10,0,0,0"  Grid.Row="1" Grid.Column="1" Text="{Binding address, StringFormat='{0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" />
                                 <!--<Label x:Name="Address2" Margin="10,0,0,0"  Grid.Row="1" Grid.Column="1" Text="{Binding address, StringFormat='Address :  {0}'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />-->
                                 </Grid>
                             </StackLayout>

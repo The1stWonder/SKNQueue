@@ -36,7 +36,7 @@
                         <TapGestureRecognizer Tapped="OnImageMap" />
                     </Image.GestureRecognizers>
                 </Image>
-			<Label Margin="40,0,0,0" x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="25" TextColor="White"  HorizontalTextAlignment="Start" />
+			<Label Margin="40,15,0,0" x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" Style="{DynamicResource TitleStyle}" TextColor="White"  HorizontalTextAlignment="Start" />
         </Grid>
 		
         <ListView
@@ -76,8 +76,8 @@
             Source="bullet.png"
             HeightRequest="5" 
             Grid.RowSpan="2"/>
-                                <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding serviceName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" FontSize="20" />
-                                <Label Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" Text="{Binding queueNumber, StringFormat='จำนวนคิวทั้งหมด  {0} คิว'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding serviceName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" />
+                                <Label Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" Text="{Binding queueNumber, StringFormat='จำนวนคิวทั้งหมด  {0} คิว'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" />
                                 </Grid>
                         </StackLayout>
                         </ViewCell>
