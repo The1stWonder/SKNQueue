@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="LogoStart2.png" semanticContentAttribute="forceRightToLeft" highlightedImage="LogoStart.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="197" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="LogoStart2.png" semanticContentAttribute="forceRightToLeft" adjustsImageSizeForAccessibilityContentSizeCategory="YES">
                                 <rect key="frame" x="0.0" y="179.5" width="375" height="261"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinX="YES" flexibleMaxY="YES" flexibleMinY="YES"/>
                             </imageView>
@@ -80,7 +80,7 @@
         <image name="btn_qr.png" width="110" height="110"/>
         <image name="Qcircle.png" width="660" height="660"/>
         <image name="bg4.png" width="750" height="1334"/>
-        <image name="NextQ1.png" width="458" height="116"/>
+        <image name="NextQ1.png" width="400" height="110"/>
         <image name="NextQ2.png" width="400" height="110"/>
         <image name="btn_search_click.png" width="110" height="110"/>
         <image name="btn_search.png" width="110" height="110"/>
@@ -129,6 +129,16 @@
         <image name="btn_picup3.png" width="954" height="954"/>
         <image name="LogoStart.png" width="1753" height="1240"/>
         <image name="LogoStart2.png" width="1753" height="1240"/>
+        <image name="ThailandPostLogo.png" width="850" height="500"/>
+        <image name="btn_booking3.png" width="110" height="110"/>
+        <image name="btn_qr2.png" width="110" height="110"/>
+        <image name="emoticon04.png" width="437" height="717"/>
+        <image name="emoticon03.png" width="437" height="717"/>
+        <image name="emoticon02.png" width="437" height="717"/>
+        <image name="emoticon01.png" width="437" height="717"/>
+        <image name="btn_EditPassword2.png" width="650" height="110"/>
+        <image name="btn_EditProfile2.png" width="650" height="110"/>
+        <image name="btn_save2.png" width="650" height="110"/>
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.61960784313725492" blue="0.9882352941176471" alpha="1"/>
 </document>
