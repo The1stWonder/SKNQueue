@@ -55,7 +55,6 @@ namespace MasterQ
                     UserSessionModel.choosedQueue.tranID = uiRes.tranID;
                     qNumber.Text = "คิวที่ : " + uiRes.queueNumber;
 
-
                     switch (Device.RuntimePlatform)
                     {
                         case Device.iOS:
@@ -115,6 +114,7 @@ namespace MasterQ
                 DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
+
         public void OnAcceptTap(object sender, System.EventArgs args)
         {
             if (CrossConnectivity.Current.IsConnected)
@@ -159,6 +159,7 @@ namespace MasterQ
                 DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
+
         public void OnSkipTap(object sender, System.EventArgs args)
         {
             if (CrossConnectivity.Current.IsConnected)
@@ -175,6 +176,18 @@ namespace MasterQ
                 {
                     DisplayAlert(App.AppicationName, uiReturn.getDescription(), "cancel");
                 }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
+        }
+
+        public void OnImageSearch(object sender, System.EventArgs args)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                Navigation.PushAsync(new UserShowQueueTotalPage());
             }
             else
             {

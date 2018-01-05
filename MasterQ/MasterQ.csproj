@@ -101,6 +101,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserAppView\UserShowQueueTotalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -299,6 +303,9 @@
     <Compile Include="Model\AppVersion.cs" />
     <Compile Include="Services\AppModel\GetAppVersionRq.cs" />
     <Compile Include="Services\AppModel\GetAppVersionRs.cs" />
+    <Compile Include="View\UserAppView\UserShowQueueTotalPage.xaml.cs">
+      <DependentUpon>UserShowQueueTotalPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />

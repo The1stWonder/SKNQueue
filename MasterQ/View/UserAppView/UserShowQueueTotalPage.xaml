@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    Title="เลือกบริการ"
+    BackgroundImage="bg4.png"
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.UserShowQueueTotalPage"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="80*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="100*" />
+        </Grid.ColumnDefinitions>
+
+        <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Grid.Row="0" Grid.Column="0"  Source="h_service.png" />
+        <Grid Margin="10,20,10,0" Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="50*" />
+                <ColumnDefinition  Width="50*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50" >
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageBack" />
+                    </Image.GestureRecognizers>
+                </Image>
+            <Label Margin="40,15,0,0" x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" Style="{DynamicResource TitleStyle}" TextColor="White"  HorizontalTextAlignment="Start" />
+        </Grid>
+        
+        <ListView
+                RowHeight="80"
+                Grid.Row="1" 
+                Grid.Column="0" 
+                HeightRequest="50"
+                x:Name="ServiceListview" 
+                BackgroundColor="White"
+                ItemsSource="{Binding Items}" 
+                VerticalOptions="FillAndExpand"  
+                RefreshCommand="{Binding LoadItemsCommand}" 
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                CachingStrategy="RecycleElement" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0,10,0,20">
+                            <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition
+            Height="50*" />
+            <RowDefinition
+            Height="50*" /> 
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+            Width="10*" />
+            <ColumnDefinition
+            Width="90*" />
+        </Grid.ColumnDefinitions>
+        <Image
+            Margin="10,0,10,0"
+            Grid.Row="0"
+            Grid.Column="0"
+            Source="bullet.png"
+            HeightRequest="5" 
+            Grid.RowSpan="2"/>
+                                <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding serviceName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" />
+                                <Label Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" Text="{Binding queueNumber, StringFormat='จำนวนคิวทั้งหมด  {0} คิว'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" />
+                                </Grid>
+                        </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

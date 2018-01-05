@@ -25,6 +25,11 @@
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
+            <Image Grid.Row="0" Grid.Column="1"  Source="btn_search_click.png"  HorizontalOptions="End" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageSearch" />
+                    </Image.GestureRecognizers>
+            </Image>
             <Label Margin="40,0,0,0" x:Name="qCouter" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
         </Grid>
 
