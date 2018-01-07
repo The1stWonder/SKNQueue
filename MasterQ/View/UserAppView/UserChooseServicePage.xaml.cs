@@ -105,7 +105,7 @@ namespace MasterQ
 
             chooseService.Unfocused += (sender, args) =>
             {
-                if (chooseService.SelectedIndex >= 0)
+                if (chooseService.SelectedIndex >= 0 && chooseService.SelectedIndex< UserSessionModel.groupServices.ToArray().Length)
                 {
                     UserSessionModel.choosedGroup = UserSessionModel.groupServices.ToArray()[chooseService.SelectedIndex];
                 }
