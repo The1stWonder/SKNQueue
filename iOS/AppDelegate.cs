@@ -24,6 +24,9 @@ namespace MasterQ.iOS
 
             var thai = new System.Globalization.ThaiBuddhistCalendar();
 
+            var en = new System.Globalization.CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = en;
+
             //if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             //{
             //    var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(

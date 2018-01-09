@@ -27,6 +27,9 @@ namespace MasterQ.Droid
 
             var thai = new System.Globalization.ThaiBuddhistCalendar();
 
+            var en = new System.Globalization.CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = en;
+
             notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
             this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
