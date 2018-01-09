@@ -50,7 +50,7 @@
             </StackLayout>
         </StackLayout>-->
 
-        <Image Grid.Row="2" Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="300" />
+        <Image Grid.Row="2" Source="logoMasterQPost2.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="300" />
         
         <StackLayout Grid.Row="4" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">

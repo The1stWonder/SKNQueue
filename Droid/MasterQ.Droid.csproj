@@ -503,6 +503,9 @@
     <AndroidResource Include="..\MasterQ\Image\btn_save2.png">
       <Link>Resources\drawable-xxhdpi\btn_save2.png</Link>
     </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\logoMasterQPost2.png">
+      <Link>Resources\drawable-xxhdpi\logoMasterQPost2.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
