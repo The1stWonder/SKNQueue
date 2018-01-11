@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Xamarin.Forms.Internals;
 
 namespace MasterQ
 {
+    [Preserve(AllMembers = true)] //alexpook link all
     public class Validate
     {
 

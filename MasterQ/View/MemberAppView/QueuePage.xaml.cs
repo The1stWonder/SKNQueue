@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using MasterQ.Helpers;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace MasterQ
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
 	public partial class QueuePage : ContentPage
 	{
         int ChkTime = 0;

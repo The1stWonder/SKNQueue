@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Xamarin.Forms.Internals;
 
 namespace MasterQ
 {
+    [Preserve(AllMembers = true)] //alexpook link all
 	public class Branch
 	{
 		public string address { get; set; }

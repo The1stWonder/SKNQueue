@@ -384,7 +384,6 @@
     <None Include="Image\bg5.png" />
     <None Include="Image\btn_cancel.png" />
     <None Include="Image\ticket.png" />
-    <None Include="Image\ticket2.png" />
     <None Include="Image\bullet.png" />
     <None Include="Image\btn_EditPassword.png" />
     <None Include="Image\btn_EditProfile.png" />
@@ -392,7 +391,6 @@
     <None Include="Image\unitedkingdom.png" />
     <None Include="Image\ticket4.png" />
     <None Include="Image\btn_cancel2.png" />
-    <None Include="Image\logo.png" />
     <None Include="Image\btn_signin2.png" />
     <None Include="Image\btn_submit2.png" />
     <None Include="Image\picup.png" />
@@ -401,7 +399,6 @@
     <None Include="Image\btn_picup3.png" />
     <None Include="Image\LogoStart.png" />
     <None Include="Image\LogoStart2.png" />
-    <None Include="Image\ThailandPostLogo.png" />
     <None Include="Image\btn_booking3.png" />
     <None Include="Image\btn_qr2.png" />
     <None Include="Image\emoticon04.png" />

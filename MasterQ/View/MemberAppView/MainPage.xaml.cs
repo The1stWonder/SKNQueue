@@ -6,10 +6,12 @@ using MasterQ.Helpers;
 using Plugin.Connectivity;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using ZXing.Mobile;
 
 namespace MasterQ
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
 	public partial class MainPage : ContentPage
 	{
 		int ChkTime = 0;

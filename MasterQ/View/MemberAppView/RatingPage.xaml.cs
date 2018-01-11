@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Plugin.Connectivity;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace MasterQ
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
     public partial class RatingPage : ContentPage
     {
         public RatingPage()

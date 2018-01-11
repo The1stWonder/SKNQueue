@@ -5,6 +5,7 @@ using SQLite;
 
 namespace MasterQ
 {
+    
     public class MasterQDatabaseDAO
     {
         readonly SQLiteConnection database;

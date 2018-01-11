@@ -422,9 +422,6 @@
     <AndroidResource Include="..\MasterQ\Image\ticket.png">
       <Link>Resources\drawable-xxhdpi\ticket.png</Link>
     </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\ticket2.png">
-      <Link>Resources\drawable-xxhdpi\ticket2.png</Link>
-    </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\btn_EditPassword.png">
       <Link>Resources\drawable-xxhdpi\btn_EditPassword.png</Link>
     </AndroidResource>
@@ -445,9 +442,6 @@
     </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\btn_cancel2.png">
       <Link>Resources\drawable-xxhdpi\btn_cancel2.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\logo.png">
-      <Link>Resources\drawable-xxhdpi\logo.png</Link>
     </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\btn_signin2.png">
       <Link>Resources\drawable-xxhdpi\btn_signin2.png</Link>
@@ -472,9 +466,6 @@
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="..\MasterQ\Image\LogoStart.png">
       <Link>Resources\drawable-xxhdpi\LogoStart.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\MasterQ\Image\ThailandPostLogo.png">
-      <Link>Resources\drawable-xxhdpi\ThailandPostLogo.png</Link>
     </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\btn_booking3.png">
       <Link>Resources\drawable-xxhdpi\btn_booking3.png</Link>

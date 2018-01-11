@@ -1,8 +1,10 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Xamarin.Forms.Internals;
 
 namespace MasterQ
 {
+    [Preserve(AllMembers = true)] //alexpook link all
     public class EditProfileController
     {
         private static EditProfileController instance = new EditProfileController();

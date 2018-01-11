@@ -4,9 +4,11 @@ using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Xamarin.Forms.Internals;
 
 namespace MasterQ
 {
+    [Preserve(AllMembers = true)] //alexpook link all
     public class CallServices
     {
         public static String callPost(String url, Object input)

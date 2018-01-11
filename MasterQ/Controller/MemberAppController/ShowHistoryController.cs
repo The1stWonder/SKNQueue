@@ -1,6 +1,9 @@
 ﻿using System;
+using Xamarin.Forms.Internals;
+
 namespace MasterQ
 {
+    [Preserve(AllMembers = true)] //alexpook link all
     public class ShowHistoryController
     {
 		private static ShowHistoryController instance = new ShowHistoryController();

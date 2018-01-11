@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Plugin.Connectivity;
+using Xamarin.Forms.Xaml;
 
 namespace MasterQ
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
     public partial class MapViewPage : ContentPage
     {
         public Branch searchBranch = new Branch();

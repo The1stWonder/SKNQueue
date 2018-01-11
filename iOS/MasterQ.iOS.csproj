@@ -19,48 +19,51 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: dsci2018@gmail.com (9K6QE75EMT)</CodesignKey>
+    <CodesignKey>iPhone Distribution: Wongkrot Yothanak (SU468AB2HZ)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
     <IOSDebuggerPort>54056</IOSDebuggerPort>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>i386, x86_64</MtouchArch>
-    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>iOS Team Provisioning Profile: com.dsci.MasterQPost</CodesignProvision>
-    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhone\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: dsci2018@gmail.com (9K6QE75EMT)</CodesignKey>
-    <MtouchFloat32>true</MtouchFloat32>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>VS: com.dsci.MasterQPost Development</CodesignProvision>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: dsci2018@gmail.com (9K6QE75EMT)</CodesignKey>
-    <DeviceSpecificBuild>true</DeviceSpecificBuild>
-    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>VS: com.dsci.MasterQPost Development</CodesignProvision>
+    <CodesignProvision>MasterQ Post Distribution</CodesignProvision>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: Wongkrot Yothanak (SU468AB2HZ)</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements></CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>MasterQ Post Distribution</CodesignProvision>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: Wongkrot Yothanak (SU468AB2HZ)</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>MasterQ Post Distribution</CodesignProvision>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <MtouchExtraArgs>--linkskip=SQLite-net</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -410,12 +413,6 @@
     <BundleResource Include="..\MasterQ\Image\ticket.png">
       <Link>Resources\ticket.png</Link>
     </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\ticket2.psd">
-      <Link>Resources\ticket2.psd</Link>
-    </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\ticket2.png">
-      <Link>Resources\ticket2.png</Link>
-    </BundleResource>
     <BundleResource Include="..\MasterQ\Image\bullet.png">
       <Link>Resources\bullet.png</Link>
     </BundleResource>
@@ -436,9 +433,6 @@
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\btn_cancel2.png">
       <Link>Resources\btn_cancel2.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\logo.png">
-      <Link>Resources\logo.png</Link>
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\btn_signin2.png">
       <Link>Resources\btn_signin2.png</Link>
@@ -463,9 +457,6 @@
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\LogoStart2.png">
       <Link>Resources\LogoStart2.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\MasterQ\Image\ThailandPostLogo.png">
-      <Link>Resources\ThailandPostLogo.png</Link>
     </BundleResource>
     <BundleResource Include="..\MasterQ\Image\btn_booking3.png">
       <Link>Resources\btn_booking3.png</Link>

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace MasterQ
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
 	public partial class MainProfilePage : ContentPage
 	{
 		public MainProfilePage()

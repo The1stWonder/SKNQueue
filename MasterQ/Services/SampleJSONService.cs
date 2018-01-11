@@ -1,6 +1,9 @@
 ﻿using System;
+using Xamarin.Forms.Internals;
+
 namespace MasterQ
 {
+    [Preserve(AllMembers = true)] //alexpook link all
     public class SampleJSONService
     {
 		public string MemberEmail { get; set; }

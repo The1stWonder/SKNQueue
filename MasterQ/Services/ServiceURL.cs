@@ -1,6 +1,9 @@
 ﻿using System;
+using Xamarin.Forms.Internals;
+
 namespace MasterQ
 {
+    [Preserve(AllMembers = true)] //alexpook link all
     public class ServiceURL
     {
         public static String ipDev = "http://192.1.1.206";

@@ -7,6 +7,7 @@ using UIKit;
 [assembly: Xamarin.Forms.Dependency(implementorType: typeof(iOSNotification))]
 namespace MasterQ.iOS
 {
+    [Preserve(AllMembers = true)] //alexpook link all
     public class iOSNotification : IFNotification
     {
         public iOSNotification()

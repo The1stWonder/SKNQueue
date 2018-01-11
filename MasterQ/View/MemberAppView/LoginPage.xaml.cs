@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
 using Plugin.Connectivity;
 
 namespace MasterQ
 {
+    [XamlCompilation (XamlCompilationOptions.Compile)] //alexpook link all
     public partial class LoginPage : ContentPage
     {
         public LoginPage()

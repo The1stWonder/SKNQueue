@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Plugin.Connectivity;
+using Xamarin.Forms.Xaml;
 
 namespace MasterQ
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
 	public partial class HistoryPage : ContentPage
 	{
 		public HistoryPage()

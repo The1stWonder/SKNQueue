@@ -19,8 +19,8 @@
                 <ContentView VerticalOptions="FillAndExpand">-->
                    <Image Margin="0,0,25,0" x:Name="LanguageThai"  Grid.Row="1" Source="thailand.png" HorizontalOptions="End" HeightRequest="30" >
                     <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Tapped="OnImageMainchangeAppLanguageThai"
+                        <TapGestureRecognizer
+                            Tapped="OnImageMainchangeAppLanguageThai"
                          />
                     </Image.GestureRecognizers>
                     </Image>
