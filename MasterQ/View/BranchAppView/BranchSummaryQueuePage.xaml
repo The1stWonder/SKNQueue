@@ -24,7 +24,7 @@
         Grid.Row="1" 
         Grid.Column="0" 
         Grid.ColumnSpan="3" 
-        Source="ThailandPostLogo.png" 
+        Source="logoMasterQPost2.png" 
         VerticalOptions="Center" 
         HeightRequest="150">
         </Image>

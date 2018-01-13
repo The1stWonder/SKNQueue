@@ -38,7 +38,7 @@
         <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="logo.png" VerticalOptions="Center" HeightRequest="200" />
+                    <Image Source="logoMasterQPost2.png" VerticalOptions="Center" HeightRequest="200" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
