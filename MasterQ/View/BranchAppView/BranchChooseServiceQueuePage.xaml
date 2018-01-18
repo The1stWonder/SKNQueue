@@ -81,7 +81,7 @@
                     Grid.Column="1"
                     BackgroundColor="Transparent"
                     ItemTapped="itemTapped"
-                    RowHeight="75"
+                    RowHeight="80"
                     SeparatorVisibility="None"
                     x:Name="ServiceListview"
                     >
@@ -107,9 +107,9 @@
             Grid.Row="0"
             Grid.Column="0"
             Source="bullet.png"
-            HeightRequest="4" />
+            HeightRequest="0" />
                                             
-                    <Label Margin="10,0,0,0" Text="{Binding serviceName}" Grid.Row="0" Grid.Column="1" TextColor="Black" FontSize="25" />
+                    <Label Margin="10,0,0,0" Text="{Binding serviceName}" Grid.Row="0" Grid.Column="1" TextColor="Black" FontSize="20" />
                     <Image x:Name="ChooseIMG" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="2" Source="NextQ2.png" HeightRequest="40"/>
                     </Grid>
                 </StackLayout>

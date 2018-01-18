@@ -44,7 +44,7 @@ namespace MasterQ
                 {
                     App.Recount = 0;
                     App.timercheck = false;
-                    Navigation.InsertPageBefore(new BranchPickupCard(), this);
+                    Navigation.InsertPageBefore(new BranchChooseServiceQueuePage(), this);
                     Navigation.PopAsync();
                 }
                 return App.timercheck;

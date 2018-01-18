@@ -61,7 +61,7 @@ namespace MasterQ
                 {
                     if (App.IPAdress != "")
                     {
-                        Navigation.PushAsync(new BranchPickupCard());
+                        Navigation.PushAsync(new BranchChooseServiceQueuePage());
                     }
                     else
                     {

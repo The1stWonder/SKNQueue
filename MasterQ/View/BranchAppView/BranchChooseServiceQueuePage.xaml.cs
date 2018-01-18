@@ -35,9 +35,9 @@ namespace MasterQ
             Service service = (Service)ServiceListview.SelectedItem;
             string servicename = service.serviceName;
 
-            var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + servicename​, "Yes", "No");
-            if (answer == true)
-            {
+            //var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + servicename​, "Yes", "No");
+            //if (answer == true)
+            //{
                 UIReturn uiReturn = BranchActionsController.getInstance().reserveQueueBranch(service);
                 if (uiReturn.isSuccess)
                 {
@@ -46,6 +46,8 @@ namespace MasterQ
                     {
                         TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
                         string TimesQ = time.ToString(@"hh\:mm\:ss");
+
+                        //await Navigation.PushAsync(new BranchSummaryQueuePage());
 
                         switch (Device.RuntimePlatform)
                         {
@@ -73,7 +75,7 @@ namespace MasterQ
                 {
                     await DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
                 }
-            }
+            //}
         }
 
         public void OnImageMainExit(object sender, System.EventArgs args)

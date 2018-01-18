@@ -20,14 +20,22 @@
             <ColumnDefinition  Width="30*" /> 
         </Grid.ColumnDefinitions>
 
-        <Image 
+<!--        <Image 
         Grid.Row="1" 
         Grid.Column="0" 
         Grid.ColumnSpan="3" 
         Source="logoMasterQPost2.png" 
         VerticalOptions="Center" 
-        HeightRequest="150">
-        </Image>
+        HeightRequest="250">
+        </Image-->
+
+        <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="10,10,0,10" VerticalOptions="FillAndExpand">
+                    <Image Source="logoMasterQPost2.png" VerticalOptions="Center" HeightRequest="200" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
 
             <StackLayout Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
                 <Grid >
@@ -49,8 +57,8 @@
                 <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" ></Label>
                 <Label x:Name="YourQ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  FontSize="30" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
                 <Label x:Name="AllQ" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  FontSize="30" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
-                <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  FontSize="100" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
-                <Label x:Name="NumberQ2" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" FontSize="100" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                <Label x:Name="NumberQ" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  FontSize="80" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                <Label x:Name="NumberQ2" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" FontSize="80" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
                 <!--<Label x:Name="WaitTime" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="15" Text="" TextColor="#696969" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
                 <Label x:Name="TimesQ" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="37" Text="00:00:00" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" ></Label>-->
            </Grid>
