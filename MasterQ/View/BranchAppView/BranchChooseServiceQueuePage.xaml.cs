@@ -47,7 +47,7 @@ namespace MasterQ
                         TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
                         string TimesQ = time.ToString(@"hh\:mm\:ss");
 
-                        await Navigation.PushAsync(new BranchSummaryQueuePage());
+                        //await Navigation.PushAsync(new BranchSummaryQueuePage());
 
                         switch (Device.RuntimePlatform)
                         {
