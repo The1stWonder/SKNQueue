@@ -13,8 +13,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="10*" />
-            <ColumnDefinition  Width="80*" />
-            <ColumnDefinition  Width="10*" />
+            <ColumnDefinition  Width="85*" />
+            <ColumnDefinition  Width="5*" />
         </Grid.ColumnDefinitions>
         
         <!--<Image Grid.Row="0" Grid.Column="0" Source="circleQiPad.png" VerticalOptions="Center" HeightRequest="400" />
@@ -75,7 +75,14 @@
 -->
 
         <Label x:Name="HeaderService" Grid.Row="1" Grid.Column="1" FontSize="45" Text="" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
-        
+
+        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" HorizontalOptions="FillAndExpand" HeightRequest="15" >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                        Tapped="OnImageMainExit" />
+                </Image.GestureRecognizers>
+        </Image>
+
         <ListView
                     Grid.Row="2" 
                     Grid.Column="1"
@@ -96,11 +103,11 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition
-            Width="10*" />
+            Width="7*" />
             <ColumnDefinition
             Width="70*" />
             <ColumnDefinition
-            Width="20*" />
+            Width="23*" />
         </Grid.ColumnDefinitions>
            <Image
             Margin="10,0,10,0"

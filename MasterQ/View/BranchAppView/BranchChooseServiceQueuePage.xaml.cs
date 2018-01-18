@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MasterQ.Helpers;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -47,7 +47,7 @@ namespace MasterQ
                         TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
                         string TimesQ = time.ToString(@"hh\:mm\:ss");
 
-                        //await Navigation.PushAsync(new BranchSummaryQueuePage());
+                        await Navigation.PushAsync(new BranchSummaryQueuePage());
 
                         switch (Device.RuntimePlatform)
                         {
@@ -78,17 +78,28 @@ namespace MasterQ
             //}
         }
 
-        public void OnImageMainExit(object sender, System.EventArgs args)
+        async void OnImageMainExit(object sender, System.EventArgs args)
         {
-            UIReturn Chklogout = BranchLoginController.getInstance().LogutBranch();
-            if (!Chklogout.isSuccess)
+            if (CrossConnectivity.Current.IsConnected)
             {
-                DisplayAlert("", Chklogout.getDescription(), "Close");
+                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_LOGOUT), Utils.getLabel(LabelConstants.MAIN_PAGE_CONFIRMLOGOUT), "Yes", "No");
+                if (answer == true)
+                {
+                    UIReturn Chklogout = BranchLoginController.getInstance().LogutBranch();
+                    if (!Chklogout.isSuccess)
+                    {
+                        await DisplayAlert(App.AppicationName, Chklogout.getDescription(), "Close");
+                    }
+                    else
+                    {
+                        Navigation.InsertPageBefore(new BranchLoginPage(), this);
+                        await Navigation.PopAsync();
+                    }
+                }
             }
             else
             {
-                Navigation.InsertPageBefore(new BranchLoginPage(), this);
-                Navigation.PopAsync();
+                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
         }
     }
