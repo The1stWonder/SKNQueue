@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Plugin.Connectivity;
 using Xamarin.Forms;
+using MasterQ.Helpers;
 
 namespace MasterQ
 {
@@ -15,7 +16,8 @@ namespace MasterQ
 
                 YourQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE);
                 AllQ.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_ALLQUEUE);
-                //WaitTime.Text = Utils.getLabel(LabelConstants.MAIN_PAGE_WATETIME);
+                NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
+                NumberQ2.Text = BranchSessionModel.bookingQ.queueBefore.ToString();
 
                 App.timercheck = true;
                 App.timerStart();
@@ -30,26 +32,49 @@ namespace MasterQ
 
         public void ShowQ()
         {
-            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
+            string TimesQ = time.ToString(@"hh\:mm\:ss");
+
+            switch (Device.RuntimePlatform)
             {
-                App.Recount = App.Recount + 1;
-                
-            NumberQ.Text = BranchSessionModel.bookingQ.queueNumber;
-            NumberQ2.Text = BranchSessionModel.bookingQ.queueBefore.ToString();
+                case Device.iOS:
+                    DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + App.servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                    break;
+                default:
+                    DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + App.servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                    break;
+            }
 
-            //TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
-            //TimesQ.Text = time.ToString(@"hh\:mm\:ss");
+            App.CheckSocket = true;
+            if (App.CheckSocket == true)
+            {
+                Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+               {
+                   App.Recount = App.Recount + 1;
 
-                if (App.Recount == 5)
+                   if (App.Recount == 2)
+                   {
+                       App.Recount = 0;
+                       App.timercheck = false;
+                       Navigation.InsertPageBefore(new BranchChooseServiceQueuePage(), this);
+                       Navigation.PopAsync();
+                   }
+                   return App.timercheck;
+               });
+            }
+            else
+            {
+                Device.StartTimer(new TimeSpan(0, 0, 1), () =>
                 {
                     App.Recount = 0;
                     App.timercheck = false;
-                    Navigation.InsertPageBefore(new BranchChooseServiceQueuePage(), this);
-                    Navigation.PopAsync();
-                }
-                return App.timercheck;
-            });
+                    App.SetIPPage = 1;
+                    DisplayAlert(App.AppicationName, App.NoSocket, "Close");
+                    Navigation.PushAsync(new BranchSetIPAddress());
+
+                    return App.timercheck;
+                });
+            }
         }
-		
     }
 }

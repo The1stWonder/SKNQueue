@@ -124,5 +124,20 @@
                 </DataTemplate>
                 </ListView.ItemTemplate>
                 </ListView>
+
+             <Frame 
+                   x:Name="ShowWatting"
+                   OutlineColor="Accent" 
+                   WidthRequest="300" 
+                   Grid.ColumnSpan="3"
+                   Grid.RowSpan="3"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <StackLayout>
+                    <Label Text="" TextColor="Black" FontSize="10" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="   กรุณารอสักครู่...   " TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="" TextColor="Black" FontSize="10" HorizontalOptions="Center" VerticalOptions="Center"/>    
+                </StackLayout>
+            </Frame>
     </Grid>
 </ContentPage>

@@ -8,32 +8,26 @@ namespace MasterQ
 {
     public partial class BranchChooseServiceQueuePage : ContentPage
     {
-
         public BranchChooseServiceQueuePage()
         {
             InitializeComponent();
             HeaderService.Text = Utils.getLabel(LabelConstants.BRANCHSERVICE_PAGE_SERVICE);
             getService();
+            ShowWatting.IsVisible = false;
         }
 		public void getService()
 		{
             List<Service> Service = (List<Service>)BranchActionsController.getInstance().getBranchServices().returnObject;
 			ServiceListview.ItemsSource = Service;
-
-            //if (App.Thai == true)
-            //{
-            //    ChooseIMG.Source = "NextQ2.png";
-            //}
-            //else
-            //{
-            //    ChooseIMG.Source = "NextQ1.png";
-            //}
 		}
 
-        async void itemTapped(object sender, System.EventArgs args)
+        public void itemTapped(object sender, System.EventArgs args)
         {
             Service service = (Service)ServiceListview.SelectedItem;
-            string servicename = service.serviceName;
+            App.servicename = service.serviceName;
+            ShowWatting.IsVisible = true;
+
+            ServiceListview.ItemTapped -= itemTapped;
 
             //var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + servicename​, "Yes", "No");
             //if (answer == true)
@@ -44,36 +38,40 @@ namespace MasterQ
                     BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
                     if (BranchSessionModel.bookingQ != null)
                     {
-                        TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
-                        string TimesQ = time.ToString(@"hh\:mm\:ss");
+                        //TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
+                        //string TimesQ = time.ToString(@"hh\:mm\:ss");
 
-                        //await Navigation.PushAsync(new BranchSummaryQueuePage());
+                        Navigation.PushAsync(new BranchSummaryQueuePage());
 
-                        switch (Device.RuntimePlatform)
-                        {
-                            case Device.iOS:
-                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                                break;
-                            default:
-                                DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                                break;
-                        }
+                        //switch (Device.RuntimePlatform)
+                        //{
+                        //    case Device.iOS:
+                        //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                        //        break;
+                        //    default:
+                        //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
+                        //        break;
+                        //}
 
-                        if (App.CheckSocket == true)
-                        {
-                            await Navigation.PushAsync(new BranchSummaryQueuePage());
-                        }
-                        else
-                        {
-                            App.SetIPPage = 1;
-                            await DisplayAlert(App.AppicationName, App.NoSocket, "Close");
-                            await Navigation.PushAsync(new BranchSetIPAddress());
-                        }
+                        //if (App.CheckSocket == true)
+                        //{
+                        //    ServiceListview.IsEnabled = true;
+                        //    //ShowWatting.IsVisible = false;
+                        //    await Navigation.PushAsync(new BranchSummaryQueuePage());
+                        //}
+                        //else
+                        //{
+                        //    App.SetIPPage = 1;
+                        //    await DisplayAlert(App.AppicationName, App.NoSocket, "Close");
+                        //    ServiceListview.IsEnabled = true;
+                        //    //ShowWatting.IsVisible = false;
+                        //    await Navigation.PushAsync(new BranchSetIPAddress());
+                        //}
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
+                    DisplayAlert("Error", uiReturn.getDescription(), "Cancel");
                 }
             //}
         }
