@@ -35,14 +35,15 @@ namespace MasterQ
             if (CrossConnectivity.Current.IsConnected)
             {
                 Service serviceID = (Service)ServiceListview.SelectedItem;
-                Service s = new Service();
-                s.serviceID = serviceID.serviceID;
-                s.branchID = serviceID.branchID;
+                //Service s = new Service();
+                //s.serviceID = serviceID.serviceID;
+                //s.branchID = serviceID.branchID;
 
                 var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + serviceID.serviceName​, "Yes", "No");
                 if (answer == true)
                 {
-                    UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
+                    //UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
+                    UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(serviceID);
                     if (!ChkQ.isSuccess)
                     {
                         App.TextSearch = "";

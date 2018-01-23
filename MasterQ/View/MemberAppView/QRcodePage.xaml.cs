@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 
 namespace MasterQ
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
+    //[XamlCompilation(XamlCompilationOptions.Compile)] //alexpook link all
 	public partial class QRcodePage : ContentPage
 	{
 		public QRcodePage()
