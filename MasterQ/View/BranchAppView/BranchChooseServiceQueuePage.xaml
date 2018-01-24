@@ -12,8 +12,8 @@
             <RowDefinition Height="85*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="10*" />
-            <ColumnDefinition  Width="85*" />
+            <ColumnDefinition  Width="5*" />
+            <ColumnDefinition  Width="90*" />
             <ColumnDefinition  Width="5*" />
         </Grid.ColumnDefinitions>
         
@@ -76,7 +76,7 @@
 
         <Label x:Name="HeaderService" Grid.Row="1" Grid.Column="1" FontSize="45" Text="" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
 
-        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" HorizontalOptions="FillAndExpand" HeightRequest="15" >
+        <Image Grid.Row="1" Grid.Column="0"  Source="btn_exit2.png" HorizontalOptions="FillAndExpand" HeightRequest="15" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer
                         Tapped="OnImageMainExit" />
