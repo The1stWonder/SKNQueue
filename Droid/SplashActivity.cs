@@ -11,7 +11,7 @@ namespace MasterQ.Droid
     [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, 
               ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
               ScreenOrientation = ScreenOrientation.Portrait)]
-            //ScreenOrientation = ScreenOrientation.Landscape)])]
+              //ScreenOrientation = ScreenOrientation.Landscape)]
 
     public class SplashActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
