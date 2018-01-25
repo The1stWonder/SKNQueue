@@ -7,7 +7,7 @@
       "idiom": "iphone"
     },
     {
-      "filename": "Icon-60.png",
+      "filename": "Icon-App-60x60@1x.png",
       "size": "20x20",
       "scale": "3x",
       "idiom": "iphone"
@@ -94,7 +94,7 @@
       "idiom": "ipad"
     },
     {
-      "filename": "iTunesArtwork@2x.png",
+      "filename": "ItunesArtwork@2x.png",
       "size": "1024x1024",
       "scale": "1x",
       "idiom": "ios-marketing"
