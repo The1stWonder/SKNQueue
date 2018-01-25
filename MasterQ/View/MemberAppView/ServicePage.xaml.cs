@@ -30,7 +30,7 @@ namespace MasterQ
             ServiceListview.ItemsSource = Service;
 		}
 
-        async void itemTapped(object sender, System.EventArgs args)
+        public void itemTapped(object sender, System.EventArgs args)
 		{
             if (CrossConnectivity.Current.IsConnected)
             {
@@ -39,15 +39,15 @@ namespace MasterQ
                 //s.serviceID = serviceID.serviceID;
                 //s.branchID = serviceID.branchID;
 
-                var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + serviceID.serviceName​, "Yes", "No");
-                if (answer == true)
-                {
+                //var answer = await DisplayAlert(Utils.getLabel(LabelConstants.MAIN_PAGE_BOOKING), Utils.getLabel(LabelConstants.SERVICE_PAGE_CONFIRMBOOKING) + " " + serviceID.serviceName​, "Yes", "No");
+                //if (answer == true)
+                //{
                     //UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(s);
                     UIReturn ChkQ = ReserveQController.getInstance().reserveQueue(serviceID);
                     if (!ChkQ.isSuccess)
                     {
                         App.TextSearch = "";
-                        await DisplayAlert(App.AppicationName, ChkQ.getDescription(), "Close");
+                        DisplayAlert(App.AppicationName, ChkQ.getDescription(), "Close");
                         SessionModel.bookingQ = null;
                     }
                     else
@@ -55,13 +55,13 @@ namespace MasterQ
                         App.RePage = false;
                         App.TextSearch = "";
                         //App.timerStart();
-                        await Navigation.PushAsync(new MainPage());
+                        Navigation.PushAsync(new MainPage());
                     }
-                }
+                //}
             }
             else
             {
-                await DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
             }
 		}
 

@@ -166,7 +166,7 @@ namespace MasterQ
                                 App.Massage15 = false;
                             }
 
-                            if (App.timercount <= 300 && App.Massage5 == true)
+                            if (App.timercount == 300 && App.Massage5 == true)
                             {
                                 DependencyService.Get<IFNotification>().SendNotification(Utils.getLabel(LabelConstants.MAIN_PAGE_YOURQUEUE) + " " + SessionModel.bookingQ.queueNumber, Utils.getLabel(LabelConstants.MAIN_PAGE_NOTIFICATION2));
                                 App.Massage5 = false;
