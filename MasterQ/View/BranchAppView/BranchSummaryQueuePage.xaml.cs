@@ -46,7 +46,7 @@ namespace MasterQ
             }
 
 
-            App.CheckSocket = true;
+            //App.CheckSocket = true;
 
 
             if (App.CheckSocket == true)
