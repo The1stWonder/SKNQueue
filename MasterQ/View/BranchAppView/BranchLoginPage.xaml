@@ -35,13 +35,15 @@
             </Image.GestureRecognizers>
         </Image>
         
-        <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+<!--        <StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="10,40,0,40" VerticalOptions="FillAndExpand">
                     <Image Source="logoMasterQPost2.png" VerticalOptions="Center" HeightRequest="200" />
                 </ContentView>
             </StackLayout>
-        </StackLayout>
+        </StackLayout>-->
+
+        <Image Grid.Row="2" Grid.Column="1" Source="logoMasterQPost2.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200" />
 
         <ScrollView HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="1">
         <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical">

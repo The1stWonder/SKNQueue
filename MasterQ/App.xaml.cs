@@ -30,6 +30,7 @@ namespace MasterQ
         public static string NoInternet2 = "No internet connect";
         public static string AppicationName = "MasterQ";
         public static string servicename = "";
+        public static int NumberServiceBranch = 0;
         static MasterQDatabaseDAO database;
 
         public App()

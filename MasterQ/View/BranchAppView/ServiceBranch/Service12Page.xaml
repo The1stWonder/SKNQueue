@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.Service12Page"
+    NavigationPage.HasNavigationBar="False" >
+    
+	<Grid Margin="25,0,25,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="14*" />
+            <RowDefinition Height="85*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="5*" />
+            <ColumnDefinition  Width="90*" />
+            <ColumnDefinition  Width="5*" />
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="HeaderService" Grid.Row="1" Grid.Column="1" FontSize="45" Text="" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" HorizontalOptions="FillAndExpand" HeightRequest="15" >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                        Tapped="OnImageMainExit" />
+                </Image.GestureRecognizers>
+        </Image>
+
+
+        <StackLayout Margin="0,0,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="33.33*" />
+                            <RowDefinition Height="33.33*" />
+                            <RowDefinition Height="33.33*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="25*" />
+                            <ColumnDefinition  Width="25*" />
+                            <ColumnDefinition  Width="25*" />
+                            <ColumnDefinition  Width="25*" />
+                        </Grid.ColumnDefinitions>
+                <Image x:Name="btn_service1" Source="bluebutton.png" Grid.Row="0" Grid.Column="0" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService1"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service1" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService1" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+                <Image x:Name="btn_service2" Source="bluebutton.png" Grid.Row="0" Grid.Column="1" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService2"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service2" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService2" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+                <Image x:Name="btn_service3" Source="bluebutton.png" Grid.Row="0" Grid.Column="2" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService3"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service3" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService3" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+                <Image x:Name="btn_service4" Source="bluebutton.png" Grid.Row="0" Grid.Column="3" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService4"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service4" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="3" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService4" />
+                </Label.GestureRecognizers>
+                </Label>
+
+                <Image x:Name="btn_service5" Source="bluebutton.png" Grid.Row="1" Grid.Column="0" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService5"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service5" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService5" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+                <Image x:Name="btn_service6" Source="bluebutton.png" Grid.Row="1" Grid.Column="1" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService6"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service6" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="1" Grid.Column="1" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService6" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+                <Image x:Name="btn_service7" Source="bluebutton.png" Grid.Row="1" Grid.Column="2" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService7"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service7" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="1" Grid.Column="2" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService7" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+                <Image x:Name="btn_service8" Source="bluebutton.png" Grid.Row="1" Grid.Column="3" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService8"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service8" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="1" Grid.Column="3" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService8" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+                <Image x:Name="btn_service9" Source="bluebutton.png" Grid.Row="2" Grid.Column="0" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService9"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service9" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService9" />
+                </Label.GestureRecognizers>
+                </Label>
+
+                <Image x:Name="btn_service10" Source="bluebutton.png" Grid.Row="2" Grid.Column="1" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService10"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service10" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="2" Grid.Column="1" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService10" />
+                </Label.GestureRecognizers>
+                </Label>
+
+                <Image x:Name="btn_service11" Source="bluebutton.png" Grid.Row="2" Grid.Column="2" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService11"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service11" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="2" Grid.Column="2" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService11" />
+                </Label.GestureRecognizers>
+                </Label>
+
+                <Image x:Name="btn_service12" Source="bluebutton.png" Grid.Row="2" Grid.Column="3" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService12"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service12" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="2" Grid.Column="3" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService12" />
+                </Label.GestureRecognizers>
+                </Label>
+                
+             </Grid>
+            </StackLayout>
+    </Grid>
+</ContentPage>

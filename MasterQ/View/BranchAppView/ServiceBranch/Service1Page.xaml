@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MasterQ.Service1Page"
+    NavigationPage.HasNavigationBar="False">
+    
+	<Grid Margin="25,0,25,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="14*" />
+            <RowDefinition Height="85*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="5*" />
+            <ColumnDefinition  Width="90*" />
+            <ColumnDefinition  Width="5*" />
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="HeaderService" Grid.Row="1" Grid.Column="1" FontSize="45" Text="" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Image Grid.Row="1" Grid.Column="2"  Source="btn_exit2.png" HorizontalOptions="FillAndExpand" HeightRequest="15" >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                        Tapped="OnImageMainExit" />
+                </Image.GestureRecognizers>
+        </Image>
+
+
+        <StackLayout Margin="0,0,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="33.33*" />
+                            <RowDefinition Height="33.33*" />
+                            <RowDefinition Height="33.33*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="25*" />
+                            <ColumnDefinition  Width="25*" />
+                            <ColumnDefinition  Width="25*" />
+                            <ColumnDefinition  Width="25*" />
+                        </Grid.ColumnDefinitions>
+                <Image x:Name="btn_service1" Source="bluebutton.png" Grid.Row="0" Grid.Column="0" HeightRequest="500" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnService1"
+                                />
+                            </Image.GestureRecognizers>
+                </Image>
+                <Label x:Name="text_service1" FontSize="Small" HorizontalTextAlignment="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Text="" TextColor="Black">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnService1" />
+                </Label.GestureRecognizers>
+                </Label>
+             </Grid>
+            </StackLayout>
+    </Grid>
+</ContentPage>

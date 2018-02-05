@@ -105,6 +105,86 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service10Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service9Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service1Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service3Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service4Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service5Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service6Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service7Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service8Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service11Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service12Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service13Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service14Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service15Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service16Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service17Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service18Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service19Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BranchAppView\ServiceBranch\Service20Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -306,6 +386,66 @@
     <Compile Include="View\UserAppView\UserShowQueueTotalPage.xaml.cs">
       <DependentUpon>UserShowQueueTotalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service10Page.xaml.cs">
+      <DependentUpon>Service10Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service9Page.xaml.cs">
+      <DependentUpon>Service9Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service1Page.xaml.cs">
+      <DependentUpon>Service1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service2Page.xaml.cs">
+      <DependentUpon>Service2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service3Page.xaml.cs">
+      <DependentUpon>Service3Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service4Page.xaml.cs">
+      <DependentUpon>Service4Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service5Page.xaml.cs">
+      <DependentUpon>Service5Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service6Page.xaml.cs">
+      <DependentUpon>Service6Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service7Page.xaml.cs">
+      <DependentUpon>Service7Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service8Page.xaml.cs">
+      <DependentUpon>Service8Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service11Page.xaml.cs">
+      <DependentUpon>Service11Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service12Page.xaml.cs">
+      <DependentUpon>Service12Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service13Page.xaml.cs">
+      <DependentUpon>Service13Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service14Page.xaml.cs">
+      <DependentUpon>Service14Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service15Page.xaml.cs">
+      <DependentUpon>Service15Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service16Page.xaml.cs">
+      <DependentUpon>Service16Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service17Page.xaml.cs">
+      <DependentUpon>Service17Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service18Page.xaml.cs">
+      <DependentUpon>Service18Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service19Page.xaml.cs">
+      <DependentUpon>Service19Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BranchAppView\ServiceBranch\Service20Page.xaml.cs">
+      <DependentUpon>Service20Page.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Image\bg.png" />
@@ -409,6 +549,8 @@
     <None Include="Image\btn_EditProfile2.png" />
     <None Include="Image\btn_save2.png" />
     <None Include="Image\logoMasterQPost2.png" />
+    <None Include="Image\bluebutton.png" />
+    <None Include="Image\bluebutton2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -436,6 +578,7 @@
     <Folder Include="Native\" />
     <Folder Include="Native\DatabaseModel\" />
     <Folder Include="Native\DatabaseDAO\" />
+    <Folder Include="View\BranchAppView\ServiceBranch\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -471,12 +614,6 @@
     <Reference Include="SQLitePCLRaw.batteries_v2">
       <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.9\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Connectivity.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\netstandard1.0\Plugin.Connectivity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Connectivity">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\netstandard1.0\Plugin.Connectivity.dll</HintPath>
-    </Reference>
     <Reference Include="Reachability.Net">
       <HintPath>..\packages\Reachability.Net.1.0.2\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\Reachability.Net.dll</HintPath>
     </Reference>
@@ -491,6 +628,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Maps">
       <HintPath>..\packages\Xamarin.Forms.Maps.2.5.0.122203\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\netstandard1.0\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\netstandard1.0\Plugin.Connectivity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

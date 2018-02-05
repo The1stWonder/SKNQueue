@@ -61,7 +61,111 @@ namespace MasterQ
                 {
                     if (App.IPAdress != "")
                     {
-                        Navigation.PushAsync(new BranchChooseServiceQueuePage());
+                        List<Service> Service = (List<Service>)BranchActionsController.getInstance().getBranchServices().returnObject;
+                        int CountService = Service.Count;
+
+                        //CountService = 2;
+
+                        if (CountService == 1)
+                        {
+                            App.NumberServiceBranch = 1;
+                            Navigation.PushAsync(new Service1Page());
+                        }
+                        else if (CountService == 2)
+                        {
+                            App.NumberServiceBranch = 1;
+                            Navigation.PushAsync(new Service2Page());
+                        }
+                        else if (CountService == 3)
+                        {
+                            App.NumberServiceBranch = 3;
+                            Navigation.PushAsync(new Service3Page());
+                        }
+                        else if (CountService == 4)
+                        {
+                            App.NumberServiceBranch = 4;
+                            Navigation.PushAsync(new Service4Page());
+                        }
+                        else if (CountService == 5)
+                        {
+                            App.NumberServiceBranch = 5;
+                            Navigation.PushAsync(new Service5Page());
+                        }
+                        else if (CountService == 6)
+                        {
+                            App.NumberServiceBranch = 6;
+                            Navigation.PushAsync(new Service6Page());
+                        }
+                        else if (CountService == 7)
+                        {
+                            App.NumberServiceBranch = 7;
+                            Navigation.PushAsync(new Service7Page());
+                        }
+                        else if (CountService == 8)
+                        {
+                            App.NumberServiceBranch = 8;
+                            Navigation.PushAsync(new Service8Page());
+                        }
+                        else if (CountService == 9)
+                        {
+                            App.NumberServiceBranch = 9;
+                            Navigation.PushAsync(new Service9Page());
+                        }
+                        else if (CountService == 10)
+                        {
+                            App.NumberServiceBranch = 10;
+                            Navigation.PushAsync(new Service10Page());
+                        }
+                        else if (CountService == 11)
+                        {
+                            App.NumberServiceBranch = 11;
+                            Navigation.PushAsync(new Service11Page());
+                        }
+                        else if (CountService == 12)
+                        {
+                            App.NumberServiceBranch = 12;
+                            Navigation.PushAsync(new Service12Page());
+                        }
+                        else if (CountService == 13)
+                        {
+                            App.NumberServiceBranch = 13;
+                            Navigation.PushAsync(new Service13Page());
+                        }
+                        else if (CountService == 14)
+                        {
+                            App.NumberServiceBranch = 14;
+                            Navigation.PushAsync(new Service14Page());
+                        }
+                        else if (CountService == 15)
+                        {
+                            App.NumberServiceBranch = 15;
+                            Navigation.PushAsync(new Service15Page());
+                        }
+                        else if (CountService == 16)
+                        {
+                            App.NumberServiceBranch = 16;
+                            Navigation.PushAsync(new Service16Page());
+                        }
+                        else if (CountService == 17)
+                        {
+                            App.NumberServiceBranch = 17;
+                            Navigation.PushAsync(new Service17Page());
+                        }
+                        else if (CountService == 18)
+                        {
+                            App.NumberServiceBranch = 18;
+                            Navigation.PushAsync(new Service18Page());
+                        }
+                        else if (CountService == 19)
+                        {
+                            App.NumberServiceBranch = 19;
+                            Navigation.PushAsync(new Service19Page());
+                        }
+                        else if (CountService == 20)
+                        {
+                            App.NumberServiceBranch = 20;
+                            Navigation.PushAsync(new Service20Page());
+                        }
                     }
                     else
                     {
