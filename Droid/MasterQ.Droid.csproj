@@ -87,12 +87,6 @@
     <Reference Include="ZXing.Net.Mobile.Forms">
       <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.3.2\lib\MonoAndroid403\ZXing.Net.Mobile.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Connectivity.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Connectivity">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.Annotations">
       <HintPath>..\packages\Xamarin.Android.Support.Annotations.26.1.0.1\lib\MonoAndroid80\Xamarin.Android.Support.Annotations.dll</HintPath>
       <Private>False</Private>
@@ -203,6 +197,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Maps">
       <HintPath>..\packages\Xamarin.Forms.Maps.2.5.0.122203\lib\MonoAndroid10\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -528,6 +528,12 @@
     </AndroidResource>
     <AndroidResource Include="..\MasterQ\Image\logoMasterQPost2.png">
       <Link>Resources\drawable-xxhdpi\logoMasterQPost2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\bluebutton.png">
+      <Link>Resources\drawable-xxhdpi\bluebutton.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\MasterQ\Image\bluebutton2.png">
+      <Link>Resources\drawable-xxhdpi\bluebutton2.png</Link>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
