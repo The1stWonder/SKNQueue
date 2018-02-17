@@ -358,6 +358,16 @@ namespace MasterQ
                 }
                 else
                 {
+                    Image image = sender as Image;
+                    if (image != null)
+                    {
+                        string source = image.Source as FileImageSource;
+                        if (String.Equals(source, "btn_history.png"))
+                        {
+                            image.Source = "btn_history_click.png";
+                        }
+                    }
+
                     CountstartMain = false;
                     Navigation.InsertPageBefore(new HistoryPage(), this);
                     Navigation.PopAsync();
@@ -383,6 +393,16 @@ namespace MasterQ
                 {
                     if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                     {
+                        Image image = sender as Image;
+                        if (image != null)
+                        {
+                            string source = image.Source as FileImageSource;
+                            if (String.Equals(source, "btn_booking.png"))
+                            {
+                                image.Source = "btn_booking_click.png";
+                            }
+                        }
+
                         App.TextSearch = "";
                         CountstartMain = false;
                         Navigation.InsertPageBefore(new SearchPage(), this);
@@ -414,6 +434,16 @@ namespace MasterQ
                 {
                     if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
                     {
+                        Image image = sender as Image;
+                        if (image != null)
+                        {
+                            string source = image.Source as FileImageSource;
+                            if (String.Equals(source, "btn_booking3.png"))
+                            {
+                                image.Source = "btn_booking_click.png";
+                            }
+                        }
+
                         App.TextSearch = "";
                         CountstartMain = false;
                         Navigation.InsertPageBefore(new SearchPage(), this);
@@ -443,7 +473,95 @@ namespace MasterQ
                 }
                 else
                 {
-                    QRCode();
+                    //QRCode();
+
+                    if (CrossConnectivity.Current.IsConnected)
+                    {
+                        App.TextSearch = "";
+                        bool CheckQR = false;
+                        if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                        {
+                            Branch b = new Branch();
+                            Branch BranchID = new Branch();
+                            double BranchNumber;
+                            var scanPage = new ZXingScannerPage();
+                            scanPage.Title = "Scan QR Code";
+                            // Navigate to our scanner page
+                            Navigation.PushAsync(scanPage);
+
+                            scanPage.OnScanResult += (result) =>
+                            {
+                                // Stop scanning
+                                scanPage.IsScanning = false;
+
+                                // Pop the page and show the result
+                                Device.BeginInvokeOnMainThread(async () =>
+                                {
+                                    await Navigation.PopAsync();
+                                    //await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                                    try
+                                    {
+                                        BranchNumber = Convert.ToDouble(result.Text.Substring(1));
+                                        CheckQR = true;
+                                    }
+                                    catch
+                                    {
+                                        await DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_NOINFORMATION), "Close");
+                                        CheckQR = false;
+                                    }
+
+                                    if (CheckQR == true)
+                                    {
+                                        b.branchID = result.Text;
+                                        if (b.branchID != null || b.branchID != "")
+                                        {
+                                            UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
+                                            if (!uiR.isSuccess)
+                                            {
+                                                await DisplayAlert(App.AppicationName, uiR.getDescription(), "Close");
+                                            }
+                                            else
+                                            {
+                                                BranchID = (Branch)uiR.returnObject;
+                                                await Navigation.PushAsync(new ServicePage(BranchID));
+                                                App.SearchID = 2;
+                                            }
+                                        }
+                                    }
+                                });
+                            };
+
+                            var options = new MobileBarcodeScanningOptions
+                            {
+
+                                AutoRotate = false,
+                                UseFrontCameraIfAvailable = true,
+                                TryHarder = true,
+                                PossibleFormats = new List<ZXing.BarcodeFormat>
+        {
+           ZXing.BarcodeFormat.EAN_8, ZXing.BarcodeFormat.EAN_13
+        }
+                            };
+
+                            //add options and customize page
+                            scanPage = new ZXingScannerPage(options)
+                            {
+
+                                IsAnalyzing = true,
+                                DefaultOverlayTopText = "Align the barcode within the frame",
+                                DefaultOverlayBottomText = string.Empty,
+                                DefaultOverlayShowFlashButton = true
+                            };
+                        }
+                        else
+                        {
+                            DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                        }
+                    }
+                    else
+                    {
+                        DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+                    }
                 }
             }
             else
@@ -464,7 +582,95 @@ namespace MasterQ
                 }
                 else
                 {
-                    QRCode();
+                    //QRCode();
+
+                    if (CrossConnectivity.Current.IsConnected)
+                    {
+                        App.TextSearch = "";
+                        bool CheckQR = false;
+                        if (SessionModel.bookingQ == null || String.IsNullOrEmpty(SessionModel.bookingQ.queueNumber))
+                        {
+                            Branch b = new Branch();
+                            Branch BranchID = new Branch();
+                            double BranchNumber;
+                            var scanPage = new ZXingScannerPage();
+                            scanPage.Title = "Scan QR Code";
+                            // Navigate to our scanner page
+                            Navigation.PushAsync(scanPage);
+
+                            scanPage.OnScanResult += (result) =>
+                            {
+                                // Stop scanning
+                                scanPage.IsScanning = false;
+
+                                // Pop the page and show the result
+                                Device.BeginInvokeOnMainThread(async () =>
+                                {
+                                    await Navigation.PopAsync();
+                                    //await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                                    try
+                                    {
+                                        BranchNumber = Convert.ToDouble(result.Text.Substring(1));
+                                        CheckQR = true;
+                                    }
+                                    catch
+                                    {
+                                        await DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_NOINFORMATION), "Close");
+                                        CheckQR = false;
+                                    }
+
+                                    if (CheckQR == true)
+                                    {
+                                        b.branchID = result.Text;
+                                        if (b.branchID != null || b.branchID != "")
+                                        {
+                                            UIReturn uiR = SearchController.getInstance().getBranchDetail(b);
+                                            if (!uiR.isSuccess)
+                                            {
+                                                await DisplayAlert(App.AppicationName, uiR.getDescription(), "Close");
+                                            }
+                                            else
+                                            {
+                                                BranchID = (Branch)uiR.returnObject;
+                                                await Navigation.PushAsync(new ServicePage(BranchID));
+                                                App.SearchID = 2;
+                                            }
+                                        }
+                                    }
+                                });
+                            };
+
+                            var options = new MobileBarcodeScanningOptions
+                            {
+
+                                AutoRotate = false,
+                                UseFrontCameraIfAvailable = true,
+                                TryHarder = true,
+                                PossibleFormats = new List<ZXing.BarcodeFormat>
+        {
+           ZXing.BarcodeFormat.EAN_8, ZXing.BarcodeFormat.EAN_13
+        }
+                            };
+
+                            //add options and customize page
+                            scanPage = new ZXingScannerPage(options)
+                            {
+
+                                IsAnalyzing = true,
+                                DefaultOverlayTopText = "Align the barcode within the frame",
+                                DefaultOverlayBottomText = string.Empty,
+                                DefaultOverlayShowFlashButton = true
+                            };
+                        }
+                        else
+                        {
+                            DisplayAlert(App.AppicationName, Utils.getLabel(LabelConstants.MAIN_PAGE_QBLOCK), "Close");
+                        }
+                    }
+                    else
+                    {
+                        DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+                    }
                 }
             }
             else
