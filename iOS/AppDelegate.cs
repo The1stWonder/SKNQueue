@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 using Foundation;
 using UIKit;
 using UserNotifications;
@@ -50,6 +53,9 @@ namespace MasterQ.iOS
                 UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
                 UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
             }
+
+            AppCenter.Start("3e99bed8-99b8-4485-80ce-86d2a93649ef", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("3e99bed8-99b8-4485-80ce-86d2a93649ef", typeof(Push));
 
 			LoadApplication(new App());
 
