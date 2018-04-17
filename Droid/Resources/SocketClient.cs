@@ -18,7 +18,6 @@ namespace MasterQ.Droid.Resources
             
         }
 
-        // used to pass state information to delegate
         class StateObject
         {
             internal byte[] sBuffer;
@@ -30,9 +29,11 @@ namespace MasterQ.Droid.Resources
             }
         }
 
-        void IFSocket.SendMessage(string argText, string ip, int port)
+        public void SendMessage(string argText, string ip, int port)
         {
+            //App.CheckSocket = true;
             sendText = argText;
+
             IPAddress ipAddress = IPAddress.Parse(ip);
 
 
@@ -53,8 +54,15 @@ namespace MasterQ.Droid.Resources
             {
                 // allow time for callbacks to
                 // finish before the program ends
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
+                //App.CheckConnectSocket = "Socket is connected";
             }
+            else
+            {
+                App.CheckSocket = false;
+                App.CheckConnectSocket = "Socket is not connected";
+            }
+
         }
 
         public static void
@@ -62,7 +70,8 @@ namespace MasterQ.Droid.Resources
         {
             try
             {
-                App.CheckSocket = true;
+                App.CheckSocket = false;
+                App.CheckConnectSocket = "Socket is not connected";
                 Socket clientSocket =
                   (Socket)asyncConnect.AsyncState;
                 clientSocket.EndConnect(asyncConnect);
@@ -72,12 +81,16 @@ namespace MasterQ.Droid.Resources
                 if (clientSocket.Connected == false)
                 {
                     App.CheckSocket = false;
+                    App.CheckConnectSocket = "Socket is not connected";
                     Console.WriteLine(".client is not connected.");
                     return;
                 }
-                else Console.WriteLine(".client is connected.");
+                else
+                    App.CheckSocket = true;
+                    Console.WriteLine(".client is connected.");
+                App.CheckConnectSocket = "Socket is connected";
 
-                //byte[] sendBuffer = Encoding.ASCII.GetBytes("A001,10,<EOF>");
+                //byte[] sendBuffer = Encoding.ASCII.GetBytes(sendText);
                 byte[] sendBuffer = Encoding.Unicode.GetBytes(sendText);
                 IAsyncResult asyncSend = clientSocket.BeginSend(
                   sendBuffer,
@@ -131,13 +144,14 @@ namespace MasterQ.Droid.Resources
             int bytesReceived =
               stateObject.sSocket.EndReceive(asyncReceive);
 
-            Console.WriteLine(
-              ".{0} bytes received: {1}{2}{2}Shutting down.",
-              bytesReceived.ToString(),
-                Encoding.Unicode.GetString(stateObject.sBuffer),
-              Environment.NewLine);
+            //App.ShowMassageSocket = Encoding.ASCII.GetString(stateObject.sBuffer);
+            App.ShowMassageSocket = Encoding.Unicode.GetString(stateObject.sBuffer);
+            //  ".{0} bytes received: {1}{2}{2}Shutting down.",
+            //  bytesReceived.ToString(),
+            //Encoding.ASCII.GetString(stateObject.sBuffer);
+            //Environment.NewLine;
 
-            stateObject.sSocket.Shutdown(SocketShutdown.Both);
+            //stateObject.sSocket.Shutdown(SocketShutdown.Both);
             stateObject.sSocket.Close();
         }
 
@@ -157,7 +171,6 @@ namespace MasterQ.Droid.Resources
             }
             return true;
         }
-
 
     }
 }
