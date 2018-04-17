@@ -275,7 +275,7 @@ namespace MasterQ
 
                     if (App.CheckSocket == true)
                     {
-                        if (MassageSocket == "LOGOUT SUCCESS." || MassageSocket == "PLEASE LOGIN!")
+                        if (MassageSocket == "LOGOUT SUCCESS." || MassageSocket == "PLEASE LOGIN!" || MassageSocket == "Q NOT FOUND.")
                         {
                             await Navigation.PushAsync(new UserLoginPage());
                         }

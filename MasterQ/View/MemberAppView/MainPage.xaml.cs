@@ -28,25 +28,6 @@ namespace MasterQ
             b_qr1.IsVisible = true;
             b_qr2.IsVisible = false;
 
-            //if (App.Thai == true)
-            //{
-            //    Utils.changeAppLanguageToThai();
-            //    LanguageThai.IsVisible = false;
-            //    LanguageThai.IsEnabled = false;
-
-            //    LanguageEng.IsVisible = true;
-            //    LanguageEng.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    Utils.changeAppLanguageToEng();
-            //    LanguageThai.IsVisible = true;
-            //    LanguageThai.IsEnabled = true;
-
-            //    LanguageEng.IsVisible = false;
-            //    LanguageEng.IsEnabled = false;
-            //}
-
             if (CrossConnectivity.Current.IsConnected)
             {
                 if (App.Thai == true)
@@ -94,6 +75,9 @@ namespace MasterQ
 
                         if (SessionModel.bookingQ.queueNumber != "0" || SessionModel.bookingQ.queueNumber != "" || SessionModel.bookingQ.queueNumber != null)
                         {
+                            //App.timercheck = true;
+                            //App.timerStart();
+
                             if (App.Thai == true)
                             {
                                 btn_cancel2.IsVisible = true;
@@ -246,6 +230,7 @@ namespace MasterQ
                                         DetailQ.Text = ChkQueue.getDescription();
                                         App.timercheck = false;
                                         CountstartMain = false;
+                                        App.fristtime = true;
                                         Navigation.PushAsync(new RatingPage());
                                         TimesQ.Text = "00:00:00";
                                         b_booking1.IsVisible = true;
