@@ -11,6 +11,16 @@ namespace MasterQ
         {
             InitializeComponent();
             IPAddress.Text = App.IPAdress;
+            DeviceName.Text = App.DeviceName;
+
+            if (App.SetIPPage == 1)
+            {
+                ImageBack.IsVisible = false;
+            }
+            else
+            {
+                ImageBack.IsVisible = true;
+            }
         }
 
         public void OnImageJoin(object sender, System.EventArgs args)
@@ -19,13 +29,24 @@ namespace MasterQ
             {
                 if (App.SetIPPage == 0)
                 {
+                    App.DeviceName = DeviceName.Text.Trim();
                     App.IPAdress = IPAddress.Text.Trim();
-                    App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
+                    if (App.DeviceName != "")
+                    {
+                        App.Database.SaveItem(DBConstants.ID_DEVICE_USER, App.DeviceName);
+                    }
+                    if (App.IPAdress != "")
+                    {
+                        App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
+                    }
+
                     Navigation.PushAsync(new UserLoginPage());
                 }
                 else if (App.SetIPPage == 1)
                 {
+                    App.DeviceName = DeviceName.Text.Trim();
                     App.IPAdress = IPAddress.Text.Trim();
+                    App.Database.SaveItem(DBConstants.ID_DEVICE_USER, App.DeviceName);
                     App.Database.SaveItem(DBConstants.ID_IP_USER, App.IPAdress);
                     Navigation.PushAsync(new UserActionQueuePage());
                 }

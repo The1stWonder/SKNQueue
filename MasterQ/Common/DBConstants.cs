@@ -18,7 +18,8 @@ namespace MasterQ
         // For User App
         public static String ID_LOGIN_USER = "LOGIN_USER";
         public static String ID_LANGUAGE_USER = "LANGUAGE_USER"; 
-        public static String ID_IP_USER = "ID_IP_USER"; 
+        public static String ID_IP_USER = "ID_IP_USER";
+        public static String ID_DEVICE_USER = "ID_DEVICE_USER"; 
 
         // For Branch App
         public static String ID_LOGIN_BRANCH = "LOGIN_BRANCH";

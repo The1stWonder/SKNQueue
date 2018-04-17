@@ -17,20 +17,21 @@
                 <RowDefinition Height="50*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="50*" />
-                <ColumnDefinition  Width="50*" />
+                <ColumnDefinition  Width="33.33*" />
+                <ColumnDefinition  Width="33.33*" />
+                <ColumnDefinition  Width="33.33*" />
             </Grid.ColumnDefinitions>
-            <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
-            <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnImageBack" />
-                    </Image.GestureRecognizers>
-                </Image>
-            <Image Grid.Row="0" Grid.Column="1"  Source="btn_search_click.png"  HorizontalOptions="End" HeightRequest="50">
+           <Image Grid.Row="0" Grid.Column="0"  Source="btn_search_click.png" HorizontalOptions="Start" HeightRequest="50">
             <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnImageSearch" />
                     </Image.GestureRecognizers>
             </Image>
-            <Label Margin="40,0,0,0" x:Name="qCouter" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
+            <Image Grid.Row="0" Grid.Column="2"  Source="btn_exit2.png"  HorizontalOptions="End" HeightRequest="50">
+            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageMainExit" />
+                    </Image.GestureRecognizers>
+            </Image>
+            <Label Margin="40,0,0,0" x:Name="qCouter" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" FontSize="25" TextColor="White" HorizontalTextAlignment="Start" />
         </Grid>
 
         <Grid Margin="10,0,10,0" Grid.Row="1" Grid.Column="0">
@@ -74,52 +75,23 @@
                 <TapGestureRecognizer Tapped="OnAcceptTap" />
             </Image.GestureRecognizers>
         </Image>
-        
+       
         <Image x:Name="FinishBtn" Grid.Row="4" Grid.Column="0" Source="QcircleFinish.png" VerticalOptions="Center" HorizontalOptions="Center">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnFinishTap" />
             </Image.GestureRecognizers>
         </Image>
-        
+
+                        
         <Image x:Name="SkipBtn" Grid.Row="4" Grid.Column="1" Source="QcircleSkip.png" VerticalOptions="Center" HorizontalOptions="Center">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnSkipTap" />
             </Image.GestureRecognizers>
         </Image>
+       
                     
     </Grid>
             </StackLayout>
             </Grid>
          </Grid>
-
-    
-    <!--<Grid x:Name="mainGrid">
-        <Image Grid.Row="0" Grid.ColumnSpan="2" Source="Qcircle.png">
-        </Image>
-        <Label x:Name="qNumber" Grid.Row="0" Grid.ColumnSpan="2" FontSize="33" Text="คิวที่" TextColor="Fuchsia" VerticalOptions="Center" HorizontalOptions="Center" />
-
-        <Image x:Name="CallBtn" Grid.Row="1" Grid.Column="0" Source="QcircleCall.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnCallTap" />
-            </Image.GestureRecognizers>
-        </Image>
-        
-        <Image x:Name="AcceptBtn" Grid.Row="1" Grid.Column="1" Source="QcircleAccept.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnAcceptTap" />
-            </Image.GestureRecognizers>
-        </Image>
-        
-        <Image x:Name="FinishBtn" Grid.Row="2" Grid.Column="0" Source="QcircleFinish.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnFinishTap" />
-            </Image.GestureRecognizers>
-        </Image>
-        
-        <Image x:Name="SkipBtn" Grid.Row="2" Grid.Column="1" Source="QcircleSkip.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnSkipTap" />
-            </Image.GestureRecognizers>
-        </Image>
-    </Grid>-->
 </ContentPage>

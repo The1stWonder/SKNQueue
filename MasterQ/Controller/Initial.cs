@@ -44,6 +44,7 @@ namespace MasterQ
             {
                 UserSessionModel.loginUser = getUserFormDB();
                 App.IPAdress = getUserAppIP();
+                App.DeviceName = getUserAppDEVICE();
             }
         }
         public static void init_Branch()
@@ -90,6 +91,11 @@ namespace MasterQ
         private static String getUserAppIP()
         {
             SessionTable temp = App.Database.GetItem(DBConstants.ID_IP_USER);
+            return (temp == null) ? "" : temp.JSON_DATA;
+        }
+        private static String getUserAppDEVICE()
+        {
+            SessionTable temp = App.Database.GetItem(DBConstants.ID_DEVICE_USER);
             return (temp == null) ? "" : temp.JSON_DATA;
         }
         private static String getBranchAppIP()

@@ -10,7 +10,7 @@
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*" />
-            <RowDefinition Height="30*" />
+            <RowDefinition Height="20*" />
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,14 +18,16 @@
         </Grid.ColumnDefinitions>
         
         <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Source="bg4.png" Grid.Row="0"/>
-        <Label Margin="0,10,0,0" x:Name="HeaderService" Grid.Row="0" FontSize="25" Text="Counter" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Margin="0,10,0,0" x:Name="HeaderService" Grid.Row="0" FontSize="25" Text="" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" />
 
-        <Image Grid.Row="1" Source="logoMasterQPost2.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="300" />
+        <Image Grid.Row="1" Source="logoMasterQPost2.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200" />
 
         <ScrollView HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0">
         <StackLayout Grid.Row="2" Orientation="Vertical">
             <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="20*" />
                     <RowDefinition Height="5*" />
                     <RowDefinition Height="20*" />
                     <RowDefinition Height="5*" />
@@ -39,20 +41,49 @@
                     <ColumnDefinition Width="10*" />
                     <ColumnDefinition Width="90*" />
                 </Grid.ColumnDefinitions>
-                <Image Margin="15,5,0,5" Grid.Row="1" Grid.Column="0" Source="icn_usename.png" HeightRequest="10" />
-                <Entry Margin="0,0,25,0" x:Name="mUsernameEntry" Keyboard="Email" Placeholder="Username" TextColor="Black" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="1" />
-                <!--<Image Margin="0,5,0,5" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />-->
-                <Image Margin="15,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
-                <Entry Margin="0,0,25,0" x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" />
+           <Image Margin="15,5,0,5" Grid.Row="1" Grid.Column="0" Source="icn_usename.png" HeightRequest="10" />
+                
+            <Picker Margin="0,0,25,0" x:Name="mCounter" Title="Counter Number" Grid.Row="1" Grid.Column="1" > 
+            <Picker.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+            <x:String>1</x:String>
+            <x:String>2</x:String>
+            <x:String>3</x:String>
+            <x:String>4</x:String>
+            <x:String>5</x:String>
+            <x:String>6</x:String>
+            <x:String>7</x:String>
+            <x:String>8</x:String>
+            <x:String>9</x:String>
+            <x:String>10</x:String>
+            <x:String>11</x:String>
+            <x:String>12</x:String>
+            <x:String>13</x:String>
+            <x:String>14</x:String>
+            <x:String>15</x:String>
+            <x:String>16</x:String>
+            <x:String>17</x:String>
+            <x:String>18</x:String>
+            <x:String>19</x:String>
+            <x:String>20</x:String>
+            </x:Array>
+       </Picker.ItemsSource>
+       </Picker>
+
+                <Image Margin="15,5,0,5" Grid.Row="3" Grid.Column="0" Source="icn_email.png" HeightRequest="10" />
+                <Entry Margin="0,0,25,0" x:Name="mGroupID" Keyboard="Numeric" Placeholder="Group ID" TextColor="Black" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" IsEnabled="true" />
+               
+                <Image Margin="15,5,0,5" Grid.Row="5" Grid.Column="0" Source="icn_password.png" HeightRequest="10" />
+                <Entry Margin="0,0,25,0" x:Name="mPasswordEntry" IsPassword="true" Placeholder="Password" TextColor="Black" BackgroundColor="Transparent" Grid.Row="5" Grid.Column="1" />
                 <!--<Image Margin="0,5,0,5" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Source="divider.png" />-->
-                <Label Margin="0,0,25,0" x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black">
-                        Setting IP Address
+                <Label Margin="0,0,25,0" x:Name="forgetpassword" FontSize="Small" HorizontalTextAlignment="End" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black">
+                        Setting IP Address And Device Name
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
                                 Tapped="OnLabelSetIP" />
                 </Label.GestureRecognizers>
                     </Label>
-                <Image Margin="15,5,25,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
+                <Image Margin="15,5,25,0" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_signin.png">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnImageSignin" />
                     </Image.GestureRecognizers>

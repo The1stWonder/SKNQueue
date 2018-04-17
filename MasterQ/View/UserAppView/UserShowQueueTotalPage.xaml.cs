@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Plugin.Connectivity;
-
+using MasterQ.Helpers;
 using Xamarin.Forms;
 
 namespace MasterQ
@@ -13,19 +13,38 @@ namespace MasterQ
         public UserShowQueueTotalPage()
         {
             InitializeComponent();
+        }
+
+        public void OnImageSubmit(object sender, System.EventArgs args)
+        {
+            qNumber.Text = "";
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                getService();
-            }
-        }
+                switch (Device.RuntimePlatform)
+                {
+                    case Device.iOS:
+                        DependencyService.Get<IFSocket>().SendMessage(App.DeviceName + ".CHECK." + mGroupID.Text + "<EOF>", App.IPAdress, 11111);
+                        break;
+                    default:
+                        DependencyService.Get<IFSocket>().SendMessage(App.DeviceName + ".CHECK." + mGroupID.Text + "<EOF>", App.IPAdress, 11111);
+                        break;
+                }
 
-        public void getService()
-        {
-            UserSessionModel.choosedBranch.branchID = UserSessionModel.loginUser.branchID;
-            UIReturn uiReturn = UserActionServiceController.getInstance().getServices(UserSessionModel.choosedBranch);
-            List<Service> services = (List<Service>)uiReturn.returnObject;
-            ServiceListview.ItemsSource = services;
+                qNumber.Text = App.ShowMassageSocket.Replace("\0", "").ToUpper();
+                string MassageSocket = App.ShowMassageSocket.Replace("\0", "").ToUpper();
+
+                if (App.CheckSocket != true)
+                {
+                    App.SetIPPage = 1;
+                    DisplayAlert(App.AppicationName, MassageSocket, "Close");
+                    Navigation.PushAsync(new UserSetIPAddress());
+                }
+            }
+            else
+            {
+                DisplayAlert(App.AppicationName, App.NoInternet, "Close");
+            }
         }
 
         public void OnImageBack(object sender, System.EventArgs args)

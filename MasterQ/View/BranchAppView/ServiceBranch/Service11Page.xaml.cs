@@ -83,6 +83,7 @@ namespace MasterQ
         {
             btn_service1.IsEnabled = false;
             text_service1.IsEnabled = false;
+            App.servicename = service1.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -104,31 +105,7 @@ namespace MasterQ
                 BranchSessionModel.bookingQ = (Queue)uiReturn.returnObject;
                 if (BranchSessionModel.bookingQ != null)
                 {
-                    //TimeSpan time = TimeSpan.FromSeconds(BranchSessionModel.bookingQ.estimateTime * 60);
-                    //string TimesQ = time.ToString(@"hh\:mm\:ss");
-
                     Navigation.PushAsync(new BranchSummaryQueuePage());
-
-                    //switch (Device.RuntimePlatform)
-                    //{
-                    //    case Device.iOS:
-                    //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                    //        break;
-                    //    default:
-                    //        DependencyService.Get<IFSocket>().SendMessage("P," + BranchSessionModel.bookingQ.queueNumber + "," + BranchSessionModel.bookingQ.queueBefore + "," + servicename + "," + TimesQ + "<EOF>", App.IPAdress, 11111);
-                    //        break;
-                    //}
-
-                    //if (App.CheckSocket == true)
-                    //{
-                    //    Navigation.PushAsync(new BranchSummaryQueuePage());
-                    //}
-                    //else
-                    //{
-                    //    App.SetIPPage = 1;
-                    //    DisplayAlert(App.AppicationName, App.NoSocket, "Close");
-                    //    Navigation.PushAsync(new BranchSetIPAddress());
-                    //}
                 }
             }
             else
@@ -141,6 +118,7 @@ namespace MasterQ
         {
             btn_service2.IsEnabled = false;
             text_service2.IsEnabled = false;
+            App.servicename = service2.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -175,6 +153,7 @@ namespace MasterQ
         {
             btn_service3.IsEnabled = false;
             text_service3.IsEnabled = false;
+            App.servicename = service3.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -209,6 +188,7 @@ namespace MasterQ
         {
             btn_service4.IsEnabled = false;
             text_service4.IsEnabled = false;
+            App.servicename = service4.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -243,6 +223,7 @@ namespace MasterQ
         {
             btn_service5.IsEnabled = false;
             text_service5.IsEnabled = false;
+            App.servicename = service5.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -277,6 +258,7 @@ namespace MasterQ
         {
             btn_service6.IsEnabled = false;
             text_service6.IsEnabled = false;
+            App.servicename = service6.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -311,6 +293,7 @@ namespace MasterQ
         {
             btn_service7.IsEnabled = false;
             text_service7.IsEnabled = false;
+            App.servicename = service7.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -345,6 +328,7 @@ namespace MasterQ
         {
             btn_service8.IsEnabled = false;
             text_service8.IsEnabled = false;
+            App.servicename = service8.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -379,6 +363,7 @@ namespace MasterQ
         {
             btn_service9.IsEnabled = false;
             text_service9.IsEnabled = false;
+            App.servicename = service9.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -413,6 +398,7 @@ namespace MasterQ
         {
             btn_service10.IsEnabled = false;
             text_service10.IsEnabled = false;
+            App.servicename = service10.serviceName;
 
             Image image = sender as Image;
             if (image != null)
@@ -447,6 +433,7 @@ namespace MasterQ
         {
             btn_service11.IsEnabled = false;
             text_service11.IsEnabled = false;
+            App.servicename = service11.serviceName;
 
             Image image = sender as Image;
             if (image != null)

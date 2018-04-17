@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
     Title="เลือกบริการ"
-    BackgroundImage="bg4.png"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MasterQ.UserShowQueueTotalPage"
@@ -31,52 +30,39 @@
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Label Margin="40,15,0,0" x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="" Style="{DynamicResource TitleStyle}" TextColor="White"  HorizontalTextAlignment="Start" />
+            <Label Margin="40,15,0,0" x:Name="branchName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="CHECK QUEUE" Style="{DynamicResource TitleStyle}" TextColor="White"  HorizontalTextAlignment="Start" />
+
         </Grid>
-        
-        <ListView
-                RowHeight="80"
-                Grid.Row="1" 
-                Grid.Column="0" 
-                HeightRequest="50"
-                x:Name="ServiceListview" 
-                BackgroundColor="White"
-                ItemsSource="{Binding Items}" 
-                VerticalOptions="FillAndExpand"  
-                RefreshCommand="{Binding LoadItemsCommand}" 
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
-                CachingStrategy="RecycleElement" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="0,10,0,20">
-                            <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
-        <Grid.RowDefinitions>
-            <RowDefinition
-            Height="50*" />
-            <RowDefinition
-            Height="50*" /> 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition
-            Width="10*" />
-            <ColumnDefinition
-            Width="90*" />
-        </Grid.ColumnDefinitions>
-        <Image
-            Margin="10,0,10,0"
-            Grid.Row="0"
-            Grid.Column="0"
-            Source="bullet.png"
-            HeightRequest="5" 
-            Grid.RowSpan="2"/>
-                                <Label Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding serviceName}" TextColor="#000080" Style="{DynamicResource ListItemTextStyle}" />
-                                <Label Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" Text="{Binding queueNumber, StringFormat='จำนวนคิวทั้งหมด  {0} คิว'}" TextColor="Black" Style="{DynamicResource ListItemDetailTextStyle}" />
-                                </Grid>
-                        </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-        </ListView>
+
+        <ScrollView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+        <Grid Margin="10,20,10,0" Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="35*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="10*" />
+                <ColumnDefinition  Width="90*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label x:Name="qNumber" Grid.Row="1" Grid.Column="0" Text="" Grid.ColumnSpan="2" FontSize="30" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+
+            <Image Margin="15,5,0,5" Grid.Row="4" Grid.Column="0" Source="icn_usename.png" HeightRequest="10" />
+            
+            <Entry Margin="0,0,25,0" x:Name="mGroupID" Keyboard="Numeric" Placeholder="Group ID" TextColor="Black" BackgroundColor="Transparent" Grid.Row="4" Grid.Column="1" IsEnabled="true" />
+
+            <Image Margin="15,5,25,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Source="btn_submit.png">
+                   <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageSubmit" />
+                    </Image.GestureRecognizers>
+                </Image>   
+            </Grid>
+        </ScrollView>
     </Grid>
 </ContentPage>

@@ -11,7 +11,7 @@ namespace MasterQ
         public static int SearchID = 0;
         public static int SetIPPage = 0;
         public static int TimeReface = 5;
-        public static bool CheckSocket = false;
+        public static bool CheckSocket = true;
 		public static bool timercheck = false;
         public static bool fristtime = true;
         public static bool Massage0 = true;
@@ -19,12 +19,17 @@ namespace MasterQ
         public static bool Massage15 = true;
         public static string CounterUser;
         public static string IPAdress;
+        public static string DeviceName;
+        public static string UserGroupID;
+        public static string CheckConnectSocket;
+        public static string ShowMassageSocket;
         public static string TextSearch = "";
         public static bool Thai = true;
         public static bool RePage = false;
         public static bool RePagelogin = false;
         public static bool RePagemain = false;
         public static bool Initiallogin = false;
+        public static bool OfflineMode = false;
         public static string NoSocket = "กรุณาตรวจสอบ IP Ethernet";
         public static string NoInternet = "ไม่มีการเชื่อมต่ออินเตอร์เน็ต";
         public static string NoInternet2 = "No internet connect";
@@ -62,13 +67,6 @@ namespace MasterQ
                 MainPage = new NavigationPage(new BranchLoginPage());
             }
         }
-
-        //public void DisplayAlert(string message, string title, string button)
-        //{
-        //    Device.BeginInvokeOnMainThread(() => {
-        //        DisplayAlert(message, title, button);
-        //    });
-        //}
 
         public static MasterQDatabaseDAO Database
         {

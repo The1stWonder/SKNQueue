@@ -20,12 +20,12 @@
                 <ColumnDefinition  Width="50*" />
                 <ColumnDefinition  Width="50*" />
             </Grid.ColumnDefinitions>
-            <Image Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
+            <Image x:Name="ImageBack" Grid.Row="0" Grid.Column="0"  Source="btn_back.png" HorizontalOptions="Start" HeightRequest="50">
             <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnImageBack" />
                     </Image.GestureRecognizers>
                 </Image>
-            <Label Margin="40,0,0,0" x:Name="Forget" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="Setting IP Address" FontSize="30" TextColor="White" HorizontalTextAlignment="Start" />
+            <Label Margin="40,0,0,0" x:Name="Forget" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="IP Address And Device Name" FontSize="20" TextColor="White" HorizontalTextAlignment="Start" />
         </Grid>
         
     <Grid Margin="10,0,10,0" Grid.Row="1" Grid.Column="0">
@@ -36,14 +36,18 @@
     <StackLayout Grid.Row="1" Orientation="Vertical">
     <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
         <Grid.RowDefinitions>
+             <RowDefinition
+            Height="20*" />             
+            <RowDefinition
+            Height="2*" />            
             <RowDefinition
             Height="20*" />             
             <RowDefinition
             Height="2*" />
             <RowDefinition
-            Height="60*" />
+            Height="40*" />
             <RowDefinition
-            Height="18*" />
+            Height="16*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition
@@ -51,22 +55,34 @@
             <ColumnDefinition
             Width="90*" />
         </Grid.ColumnDefinitions>
-       
-            <Image
+                    
+       <Image
             Margin="5,0,5,0"
             Grid.Row="0"
             Grid.Column="0"
+            Source="icn_usename.png"
+        HeightRequest="10" />
+        <Entry
+                x:Name="DeviceName"
+                Placeholder="Device Name"
+                Keyboard="Numeric"
+                Grid.Row="0"
+                Grid.Column="1" />
+        <Image
+            Margin="5,0,5,0"
+            Grid.Row="2"
+            Grid.Column="0"
             Source="icn_email.png"
         HeightRequest="10" />
-            <Entry
+        <Entry
                 x:Name="IPAddress"
                 Placeholder="IP Address"
-                Grid.Row="0"
+                Grid.Row="2"
                 Grid.Column="1" />
         <Image 
             x:Name="submit1"
             Margin="5,0,5,0"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="2"
         Source="btn_submit.png" >
