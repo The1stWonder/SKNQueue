@@ -48,7 +48,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>MasterQ Post Distribution</CodesignProvision>
+    <CodesignProvision>VS: com.dsci.MasterQ Development</CodesignProvision>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <MtouchExtraArgs>--linkskip=SQLite-net</MtouchExtraArgs>
   </PropertyGroup>
@@ -65,7 +65,7 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+    <CodesignProvision>VS: com.dsci.MasterQ Development</CodesignProvision>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <MtouchExtraArgs>--linkskip=SQLite-net</MtouchExtraArgs>
   </PropertyGroup>
@@ -88,7 +88,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>VS: com.dsci.MasterQ Development</CodesignProvision>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <MtouchExtraArgs>--linkskip=SQLite-net</MtouchExtraArgs>
   </PropertyGroup>
