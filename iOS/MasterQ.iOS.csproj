@@ -20,7 +20,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution: Wongkrot Yothanak (SU468AB2HZ)</CodesignKey>
+    <CodesignKey>iPhone Developer: Wongkrot Yothanak (9K6QE75EMT)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
@@ -30,7 +30,7 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>VS: com.dsci.MasterQ Development</CodesignProvision>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <MtouchExtraArgs>--linkskip=SQLite-net</MtouchExtraArgs>
     <CodesignEntitlements></CodesignEntitlements>

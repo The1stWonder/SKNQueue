@@ -246,6 +246,7 @@ namespace MasterQ
                                         NumberQ.Text = "-";
                                         App.timercheck = false;
                                         CountstartMain = false;
+                                        App.fristtime = true;
                                         TimesQ.Text = "00:00:00";
                                         b_booking1.IsVisible = true;
                                         b_booking2.IsVisible = false;
