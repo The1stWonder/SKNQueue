@@ -9,7 +9,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.dsci.MasterQ</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.7</string>
+	<string>1.0.9</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -36,12 +36,16 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We are using your location</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This app needs access to the camera. To use QR code scan.</string>
+	<string>Used for scanning QR codes of branch addresses.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>CFBundleShortVersionString</key>
-	<string>7</string>
+	<string>1.0.9</string>
 </dict>
 </plist>
