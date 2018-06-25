@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>MasterQ</string>
-	<key>CFBundleName</key>
-	<string>MasterQ</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.dsci.MasterQ</string>
 	<key>CFBundleVersion</key>
@@ -47,5 +45,7 @@
 	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.9</string>
+	<key>CFBundleName</key>
+	<string>SNRU</string>
 </dict>
 </plist>

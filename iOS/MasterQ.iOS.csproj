@@ -7,7 +7,7 @@
     <ProjectGuid>{A2A498C7-31E1-489B-866F-4821123DE404}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SNRU.iOS</RootNamespace>
+    <RootNamespace>MasterQ.iOS</RootNamespace>
     <AssemblyName>MasterQ.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
 <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
