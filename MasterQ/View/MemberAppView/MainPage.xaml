@@ -57,11 +57,25 @@
         </Image>
 
         <Label x:Name="UserNames" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" Style="{DynamicResource SubtitleTextStyle}"/>
-        <Image 
+        <!--<Image 
         Grid.Row="3" 
         Grid.Column="0" 
         Grid.ColumnSpan="3" 
         Source="ticket4.png" 
+        VerticalOptions="Center" 
+        HeightRequest="450">
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="OnImageSummaryPage"
+                         />
+                </Image.GestureRecognizers>
+        </Image>-->
+
+        <Image 
+        Grid.Row="3" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="3" 
+        Source="ticket5.png" 
         VerticalOptions="Center" 
         HeightRequest="450">
             <Image.GestureRecognizers>

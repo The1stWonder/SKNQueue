@@ -70,13 +70,22 @@
                     Width="10*" />
             </Grid.ColumnDefinitions>
 
-        <Image 
+        <!--<Image 
         Grid.Row="1" 
         Grid.Column="0" 
         Grid.ColumnSpan="6" 
         Source="logoMasterQPost2.png" 
         VerticalOptions="Center" 
         HeightRequest="250">
+        </Image>-->
+
+        <Image 
+        Grid.Row="1" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="6" 
+        Source="SNRU.png" 
+        VerticalOptions="Center" 
+        HeightRequest="300">
         </Image>
 
         <Label x:Name="HeaderRating" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" FontSize="25" Text="" TextColor="#32BEBE" VerticalOptions="Center" HorizontalOptions="Center" />
