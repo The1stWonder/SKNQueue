@@ -3,7 +3,7 @@
 	<uses-sdk android:minSdkVersion="14" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.FLASHLIGHT" />
-	<application android:label="MasterQ" android:icon="@drawable/icon">
+	<application android:icon="@drawable/icon" android:label="SNRU">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCi_Xhq9rN_rizxpUG9V029-6r1ENP3dkY" />
 	</application>
 	<uses-permission android:name="android.permission.INTERNET" />
