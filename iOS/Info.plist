@@ -5,9 +5,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>SNRU</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.dsci.MasterQ</string>
+	<string>com.dsci.MasterQSNRU</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.9</string>
+	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -44,7 +44,7 @@
 		<string>remote-notification</string>
 	</array>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.9</string>
+	<string>1.0</string>
 	<key>CFBundleName</key>
 	<string>SNRU</string>
 </dict>
