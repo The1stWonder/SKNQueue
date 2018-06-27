@@ -33,7 +33,7 @@ namespace MasterQ
         public static string NoSocket = "กรุณาตรวจสอบ IP Ethernet";
         public static string NoInternet = "ไม่มีการเชื่อมต่ออินเตอร์เน็ต";
         public static string NoInternet2 = "No internet connect";
-        public static string AppicationName = "MasterQ";
+        public static string AppicationName = "SNRU";
         public static string servicename = "";
         public static int NumberServiceBranch = 0;
         static MasterQDatabaseDAO database;
