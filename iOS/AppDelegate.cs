@@ -54,8 +54,8 @@ namespace MasterQ.iOS
                 UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
             }
 
-            AppCenter.Start("3e99bed8-99b8-4485-80ce-86d2a93649ef", typeof(Analytics), typeof(Crashes));
-            AppCenter.Start("3e99bed8-99b8-4485-80ce-86d2a93649ef", typeof(Push));
+            AppCenter.Start("a828ac3f-e02b-43b0-994e-2c8a1578659a", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("a828ac3f-e02b-43b0-994e-2c8a1578659a", typeof(Push));
 
 			LoadApplication(new App());
 

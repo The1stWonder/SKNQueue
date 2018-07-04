@@ -50,7 +50,7 @@ namespace MasterQ.Droid
             //PowerManager.WakeLock wl = pm.NewWakeLock(WakeLockFlags.ScreenDim, "My Tag");
             //wl.Acquire();
 
-            AppCenter.Start("0a14feaf-13b7-4811-a023-d732daefb109", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("fc4a1f62-9bbe-407e-91e4-d7edd9e880c6", typeof(Analytics), typeof(Crashes));
 
 			LoadApplication(new App());
 		}

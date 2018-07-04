@@ -9,7 +9,7 @@ namespace MasterQ
         public static String ipDev = "http://192.1.1.206";
         public static String ipPro = "http://masterq.d-sci.co.th";
         public static String ipServer = ipPro;
-        public static String serviceName = "/QueueService.svc/";
+        public static String serviceName = "/SNRU/QueueService.svc/";
         public static String memberPrefix = "Member/";
         public static String userPrefix = "User/";
         public static String branchPrefix = "Branch/";

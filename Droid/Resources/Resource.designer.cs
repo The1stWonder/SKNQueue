@@ -2470,26 +2470,26 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f0201b0
-			public const int avd_hide_password_1 = 2130837936;
-			
-			// aapt resource value: 0x7f0201b1
-			public const int avd_hide_password_2 = 2130837937;
-			
 			// aapt resource value: 0x7f0201b2
-			public const int avd_hide_password_3 = 2130837938;
+			public const int avd_hide_password_1 = 2130837938;
+			
+			// aapt resource value: 0x7f0201b3
+			public const int avd_hide_password_2 = 2130837939;
+			
+			// aapt resource value: 0x7f0201b4
+			public const int avd_hide_password_3 = 2130837940;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f0201b3
-			public const int avd_show_password_1 = 2130837939;
-			
-			// aapt resource value: 0x7f0201b4
-			public const int avd_show_password_2 = 2130837940;
-			
 			// aapt resource value: 0x7f0201b5
-			public const int avd_show_password_3 = 2130837941;
+			public const int avd_show_password_1 = 2130837941;
+			
+			// aapt resource value: 0x7f0201b6
+			public const int avd_show_password_2 = 2130837942;
+			
+			// aapt resource value: 0x7f0201b7
+			public const int avd_show_password_3 = 2130837943;
 			
 			// aapt resource value: 0x7f020055
 			public const int bg = 2130837589;
@@ -3451,11 +3451,11 @@ namespace MasterQ.Droid
 			// aapt resource value: 0x7f020194
 			public const int notification_icon_background = 2130837908;
 			
-			// aapt resource value: 0x7f0201ae
-			public const int notification_template_icon_bg = 2130837934;
+			// aapt resource value: 0x7f0201b0
+			public const int notification_template_icon_bg = 2130837936;
 			
-			// aapt resource value: 0x7f0201af
-			public const int notification_template_icon_low_bg = 2130837935;
+			// aapt resource value: 0x7f0201b1
+			public const int notification_template_icon_low_bg = 2130837937;
 			
 			// aapt resource value: 0x7f020195
 			public const int notification_tile_bg = 2130837909;
@@ -3503,34 +3503,40 @@ namespace MasterQ.Droid
 			public const int QcircleSkip2 = 2130837923;
 			
 			// aapt resource value: 0x7f0201a4
-			public const int splash_logo = 2130837924;
+			public const int SNRU = 2130837924;
 			
 			// aapt resource value: 0x7f0201a5
-			public const int splash_screen = 2130837925;
+			public const int splash_logo = 2130837925;
 			
 			// aapt resource value: 0x7f0201a6
-			public const int thailand = 2130837926;
+			public const int splash_screen = 2130837926;
 			
 			// aapt resource value: 0x7f0201a7
-			public const int ticket = 2130837927;
+			public const int thailand = 2130837927;
 			
 			// aapt resource value: 0x7f0201a8
-			public const int ticket4 = 2130837928;
+			public const int ticket = 2130837928;
 			
 			// aapt resource value: 0x7f0201a9
-			public const int tooltip_frame_dark = 2130837929;
+			public const int ticket4 = 2130837929;
 			
 			// aapt resource value: 0x7f0201aa
-			public const int tooltip_frame_light = 2130837930;
+			public const int ticket5 = 2130837930;
 			
 			// aapt resource value: 0x7f0201ab
-			public const int unitedkingdom = 2130837931;
+			public const int tooltip_frame_dark = 2130837931;
 			
 			// aapt resource value: 0x7f0201ac
-			public const int user = 2130837932;
+			public const int tooltip_frame_light = 2130837932;
 			
 			// aapt resource value: 0x7f0201ad
-			public const int username_icon = 2130837933;
+			public const int unitedkingdom = 2130837933;
+			
+			// aapt resource value: 0x7f0201ae
+			public const int user = 2130837934;
+			
+			// aapt resource value: 0x7f0201af
+			public const int username_icon = 2130837935;
 			
 			static Drawable()
 			{
