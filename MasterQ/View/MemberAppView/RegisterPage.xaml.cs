@@ -20,7 +20,7 @@ namespace MasterQ
                 mNameEntry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_NAME);
                 mLastNameEntry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_LASTNAME);
                 mEmailEntry.Placeholder = Utils.getLabel(LabelConstants.MAPVIEW_PAGE_EMAIL);
-                mPhone.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_TEL);
+                //mPhone.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_TEL);
                 mPasswordEntry.Placeholder = Utils.getLabel(LabelConstants.LOGIN_PAGE_PASSWORD);
                 mPassword2Entry.Placeholder = Utils.getLabel(LabelConstants.REGISTER_PAGE_CONFIRMPASS);
 
@@ -43,9 +43,9 @@ namespace MasterQ
             {
                 var name = mNameEntry.Text;
                 var lastname = mLastNameEntry.Text;
-                var Phone = mPhone.Text;
+                var Phone = "";
                 var Email = mEmailEntry.Text;
-                var birthdate = mBirthdateEntry.Date.ToString("dd/MM/yyyy");
+                var birthdate = DateTime.Now.ToString("dd/MM/yyyy");
                 var Password1 = mPasswordEntry.Text;
                 var Password2 = mPassword2Entry.Text;
 

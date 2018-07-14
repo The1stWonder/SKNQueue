@@ -63,7 +63,9 @@
             <ColumnDefinition
             Width="10*" />
             <ColumnDefinition
-            Width="45*" />
+            Width="2*" />
+            <ColumnDefinition
+            Width="43*" />
             <ColumnDefinition
             Width="45*" />
         </Grid.ColumnDefinitions>
@@ -73,6 +75,12 @@
             Grid.Column="0"
             Source="icn_usename.png"
         HeightRequest="10" />
+        <Label
+            Text = "*"
+            TextColor="Red"
+            FontSize="Small"
+            Grid.Row="0"
+            Grid.Column="1"/>
         <Entry
             x:Name="mNameEntry"
             WidthRequest="20"
@@ -80,7 +88,7 @@
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="0"
-        Grid.Column="1"/>
+        Grid.Column="2"/>
         <Entry
             x:Name="mLastNameEntry"
             WidthRequest="20"
@@ -88,13 +96,19 @@
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="0"
-        Grid.Column="2"/>
+        Grid.Column="3"/>
         <Image
             Margin="5,0,5,0"
             Grid.Row="1"
             Grid.Column="0"
             Source="icn_email.png"
         HeightRequest="10" />
+        <Label
+            Text = "*"
+            TextColor="Red"
+            FontSize="Small"
+            Grid.Row="1"
+            Grid.Column="1"/>
         <Entry
             x:Name="mEmailEntry"
             WidthRequest="20"
@@ -103,9 +117,9 @@
             TextColor="Black"
             BackgroundColor="White"
             Grid.Row="1"
-        Grid.Column="1"
-        Grid.ColumnSpan="2"/>
-        <Image
+            Grid.Column="2"
+            Grid.ColumnSpan="2"/>
+        <!--<Image
             Margin="5,0,5,0"
             Grid.Row="2"
             Grid.Column="0"
@@ -144,43 +158,55 @@
             </sys:DateTime>
          </DatePicker.MaximumDate>
       </DatePicker>
-   </StackLayout>
+   </StackLayout>-->
         <Image
             Margin="5,0,5,0"
-            Grid.Row="4"
+            Grid.Row="2"
             Grid.Column="0"
             Source="icn_password.png"
             HeightRequest="10" />
+        <Label
+            Text = "*"
+            TextColor="Red"
+            FontSize="Small"
+            Grid.Row="2"
+            Grid.Column="1"/>
         <Entry
             x:Name="mPasswordEntry"
             IsPassword="true"
             Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
-            Grid.Row="4"
+            Grid.Row="2"
             Grid.ColumnSpan="2"
-            Grid.Column="1"/>
+            Grid.Column="2"/>
         <Image
             Margin="5,0,5,0"
-            Grid.Row="5"
+            Grid.Row="3"
             Grid.Column="0"
             Source="icn_confirm_password.png"
             HeightRequest="10" />
+        <Label
+            Text = "*"
+            TextColor="Red"
+            FontSize="Small"
+            Grid.Row="3"
+            Grid.Column="1"/>
         <Entry
             x:Name="mPassword2Entry"
             IsPassword="true"
             Placeholder=""
             TextColor="Black"
             BackgroundColor="White"
-            Grid.Row="5"
+            Grid.Row="3"
             Grid.ColumnSpan="2"
-            Grid.Column="1"/>
+            Grid.Column="2"/>
         <Image
             x:Name="submit1"
             Margin="5,0,5,0"
             Grid.Row="7"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="4"
             Source="btn_submit.png" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer
@@ -194,7 +220,7 @@
             Margin="5,0,5,0"
             Grid.Row="7"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="4"
             Source="btn_submit2.png" >
             <Image.GestureRecognizers>
                     <TapGestureRecognizer

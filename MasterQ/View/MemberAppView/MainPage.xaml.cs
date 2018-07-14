@@ -135,6 +135,7 @@ namespace MasterQ
                             {
                                 App.Recount = App.Recount + 1;
                             }
+
                             TimeSpan time = TimeSpan.FromSeconds(App.timercount);
 
                             TimesQ.Text = time.ToString(@"hh\:mm\:ss");
@@ -208,11 +209,20 @@ namespace MasterQ
 
                                 Queue Queue = (Queue)ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ).returnObject;
                                 ChkTime2 = SessionModel.bookingQ.estimateTime * 60;
+
+
                                 if (ChkTime2 < App.timercount)
                                 {
                                     ChkTime = SessionModel.bookingQ.estimateTime * 60;
                                     App.timercount = SessionModel.bookingQ.estimateTime * 60;
                                     NumberQ2.Text = SessionModel.bookingQ.queueBefore.ToString();
+                                }
+                                else
+                                {
+                                    if (App.timercount == 0)
+                                    {
+                                        App.timercount = ChkTime2;
+                                    }
                                 }
 
                                 ChkQueue = ReserveQController.getInstance().reserveQueue(SessionModel.bookingQ);
